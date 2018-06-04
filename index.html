@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Advertising Glossary</title>
+    <meta charset='utf-8'>
+    <script src='https://www.w3.org/Tools/respec/respec-w3c-common'
+            async class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+          // specification status (e.g. WD, LCWD, WG-NOTE, etc.). If in doubt use ED.
+          specStatus:           "NOTE",
+          
+          // the specification's short name, as in http://www.w3.org/TR/short-name/
+          shortName:            "webadv-glossary",
+
+          // if your specification has a subtitle that goes below the main
+          // formal title, define it here
+          // subtitle   :  "an excellent document",
+
+          // if you wish the publication date to be other than the last modification, set this
+          // publishDate:  "2009-08-06",
+
+          // if the specification's copyright date is a range of years, specify
+          // the start date here:
+          // copyrightStart: "2005"
+
+          // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+          // and its maturity status
+          // previousPublishDate:  "1977-03-15",
+          // previousMaturity:  "WD",
+
+          // if there a publicly available Editor's Draft, this is the link
+          // edDraftURI:           "http://berjon.com/",
+
+          // if this is a LCWD, uncomment and set the end of its review period
+          // lcEnd: "2009-08-05",
+
+          // editors, add as many as you like
+          // only "name" is required
+          editors:  [
+              {
+                  name:       "Liam Quin"
+              ,   url:        "http://www.holoweb.net/liam/"
+              ,   mailto:     "liam@w3.org"
+              ,   company:    "W3C"
+              ,   companyURL: "https://www.w3.org/"
+              },
+          ],
+          
+          // name of the WG
+          wg:           "Improving Web Advertising Business Group",
+          
+          // URI of the public WG page
+          wgURI:        "https://www.w3.org/community/web-adv/",
+          
+          // name (without the @w3c.org) of the public mailing to which comments are due
+          wgPublicList: "public-web-adv",
+          
+          // URI of the patent status for this WG, for Rec-track documents
+          // !!!! IMPORTANT !!!!
+          // This is important for Rec-track documents, do not copy a patent URI from a random
+          // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+          // Team Contact.
+          wgPatentURI:  "",
+          // !!!! IMPORTANT !!!! MAKE THE ABOVE BLINK IN YOUR HEAD
+      };
+    </script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>
+	  This is a glossary that tries to explain some of the
+	  terms used in Web advertising. It is meant to have a
+	  neutral perspective, rather than favoring any one
+	  group or /perspective.
+      </p>
+    </section>
+    
+    <section id='sotd'>
+      <p>
+	  This document has no official standing; it is a product
+	  of the Improving Web Advertising Business group.
+      </p>
+    </section>
+    
+    <section>
+    <h2>Introduction</h2>
+      <p>
+	  Advertisers, Web site owners (publishers), ad technology
+	  companies, end users, browser makers, Web designers,
+	  analytics and analysis people, network security people,
+	  we all have different views of Web advertising and we all
+	  use slightly differing terminology, or the same terminology
+	  but from different perspectives.</p>
+      <p>
+	  This document tries to give a combined view.
+      </p>
+    </section>
+
+    <section>
+    <h2>A</h2>
+
+<dt>A/B Testing</dt>
+<dd>Comparing two versions. In Web advertising it's most commonly used to
+test two different Web page layouts or two different ads, by showing
+each to a randomly selected half of visitor and measuring which does
+best.
+</dd>
+
+<dt>Above the Fold</dt>
+<dd>The part of a Web page that can be seen without scrolling; this
+obviously varied by device. It originally came from print newspapers,
+which are comonly sold folded in half so that only the top part of the
+front page is visible before purchase.
+</dd>
+
+<dt>Account-based Advertising</dt>
+<dd>The practice of micro-targeting (q.v.) based on job title, managerial
+level or similar attributes of people in a target account such as a
+large corporation.
+</dd>
+
+<dt>Ad Blocker</dt>
+<dd>A Web browser add-on that hides ads on Web pages the user visits is
+called an Ad Blocker. Some of these can block ads in video sites as
+well as in HTML pages; it's also common for some sort of privacy
+features to be included to prevent Behavioural Targeting.
+</dd>
+
+<dt>Ad Click</dt>
+<dd>User response to an ad, e.g. by pressing it or clicking on it.
+</dd>
+
+<dt>Ad Completion</dt>
+<dd>When a video ad plays all the way to the end.
+</dd>
+
+<dt>Ad Exchange</dt>
+<dd>An automated marketplace where an auction is held each time an ad is
+requested for a Web page to provide the ad that will pay th emost money
+per ad click or per ad impression.
+</dd>
+
+<dt>Ad Fraud</dt>
+<dd>Attempts to cheat the system, such as running malicious ads that
+pretend to be from one company but actually when clicked take users to
+a phihing site, or, more commonly, publisher fraud happens when a Web
+page reloads excessivly or has hiden ads users don't see, to get
+advertisers to pay them or to simulate a high number of pageviews.
+</dd>
+
+<dt>Ad impression</dt>
+<dd>A single ad being shown to a single user on one Web page is called an
+impression. It can be difficult to measure when an ad has been shown,
+but the Intersection Observer specification provides a mechanism to do
+this. Has an ad been shown when 90% of it was on screen? Probably.
+
+Some advertisers pay per impression, for example for Display
+Advertising (qv).
+</dd>
+
+<dt>Ad Inventory</dt>
+<dd>A Web Publisher's ad inventory is the number of Ad Impressions the
+publisher has available to sell each month.
+</dd>
+
+<dt>Ad Network</dt>
+<dd>An organization that supplies adverts to fill Ad Slots on Web pages. Ad
+Networks typically connect large numbers of Web sites with large
+numbers of advertisers, increasing the Audience for the advertiser and
+the range of ads for the Publisher.
+</dd>
+
+<dt>Ad Serving</dt>
+<dd>The process of delivering ads from an Ad Channel or a publisher's Web
+server to the client browser.
+</dd>
+
+<dt>Ad Targeting</dt>
+<dd>The process of delivering ads based on information about the person
+viewing the containing Web page. See also Behavioral Targeting,
+Contextual Targeting, and Geographic Targeting.
+</dd>
+
+<dt>Ad Tech</dt>
+<dd>Avertising Technology: the entire range of systems, technologies and
+services that are involved in the Web advertising industry.
+</dd>
+
+<dt>Ad Unit</dt>
+<dd>Web pages that show ads generally have one or more Ad Slots, each of
+which must be one of a particular set of sizes in pixels; a design of
+an ad to fit such a slot is called an Ad Unit. When a Web page is
+displayed, the Ad Network will supply an ad that meets the Ad Unit
+specification for each slot in turn, with data such as pixel size,
+colours, fonts and so forth. The IAB (q.v.) keeps a set of commonly-
+used sizes for Ad Units.
+</dd>
+
+<dt>Affiliate Marketing</dt>
+<dd>This is where Web publishers sign up with retailers and get paid when
+users click through an ad to the retailer and make a purchase.
+</dd>
+
+<dt>Agency Trading Desk</dt>
+<dd>(not sure)
+</dd>
+
+<dt>Analytics</dt>
+<dd>Statistics about who uses a particular Web site: at its simplist this
+can just provide total numer of users (Pageviews, q.v.) or users per
+page over a given period; more sophisticated analytics might combine
+Behavioral Targeting information to give information about visitor age
+groups, location, gender and so forth, as well as how much time people
+spend on the Web site,how they progress from page to page through the
+site, which other sites they visit, and more.
+</dd>
+
+<dt>Attribution</dt>
+<dd>Ientifying which contact with a user led to a sale, for the purpose of
+estimating ROI (q.v.) For example, a user might have been exposed to an
+email campaign, or received a telephone call, or seen an Web ad.
+
+First-touch Attribution is when the first contact is assumed to be
+responsible for the sale; last-touch gives the most recent contact just
+before the ale the entire credit for the sale; multi-touch is more
+realistic and shares the credit over the various contacts, but is
+harder to calculate.
+</dd>
+
+<dt>Audience</dt>
+<dd>Also known as Ad Audience. The total group of people that might have
+seen a particuar ad in a given time period, often expressed as a
+number.
+</dd>
+
+<dt>Audience Extension</dt>
+<dd>See "Lookalike Modeling".
+</dd>
+
+<dt>Audio</dt>
+<dd>There are guidelines from the IAB (q.v.) about when sound can be played
+without specific opt-in from the user.
+</dd>
+
+<dt>Banner Ad</dt>
+<dd>Wide horizontal ads that appear primarily at the top of a Web site.
+Most people have learned to ignore these.
+</dd>
+
+<dt>Display Advertising</dt>
+<dd>Web ads that are intended to promote a brand rather than any particular
+product; sometimes there's no specific action on an Ad Click, since the
+primary coal is just to increase awareness of the brand.
+
+Display ads are almost always graphcal rather than simply text; if they
+are textual it will generally be with an eye=catching font. The term
+comes from print newspapers, where Display Ads are inserted alongside
+text articles.
+</dd>
+
+<dt>Lookalike Modeling</dt>
+<dd>Expanding audience size by extrapolating from known customers based on
+shared behaviours and characteristics to target new people likely to
+become customers.
+
+Also known as Audience Extension.
+</dd>
+
+<dt>Perception Gap</dt>
+<dd>(is this worth including?)
+</dd>
+    </section>
+
+    <section>
+    <h2>P</h2>
+<dt>Publisher</dt>
+<dd>In the context of Web advertising a Publisher is
+a person or organization who runs a Web site.</dd>
+</section>
+    
+    <section>
+    <h2>R</h2>
+<dt>Run-of-site</dt>
+<dd>An arrangement where ads from a particular supplier can
+be displayed on any Web page on a particular Web site is
+called run-of-site; an alternative might be ads being restricted
+to a single Web page orarea.</dd>
+</section>
+    
+    <section class='appendix'>
+      <h2>Acknowledgements</h2>
+      <p>
+	  The active participants of the Improving Web Advertising
+	  Business Group when this document was started were:
+      </p>
+    </section>
+  </body>
+</html>
