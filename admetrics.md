@@ -22,8 +22,10 @@ HEAD https://metrics.example.com/.well-known/admetrics/AD-30045/1/ HTTP/1.1
 Host: metrics.audiencemeasurement.com
 Referer: publisher.com
 ```
-An element can have multiple adm attributes so different triggers could be set for the same element, differentiated via the trigger parameter. The particular ad whose viwability is to be counted is indicated by the ```ad``` parameter.  
+An element can have multiple adm attributes so different triggers could be set for the same element, differentiated via the trigger parameter whose value restricted to a single decimal digit. The particular ad whose viewability is to be counted is indicated by the ```ad``` parameter. The ```ad``` parameter should be restricted in entropy, for example to 7 or 8 aphanumeric characters, to help mitigate fingerprinting attacks.
 
 Cache headers could be set but there can be no response content.
 
 The receiving server would simply increment the appropriate count, there being no cookies or other user identifying or linking information.
+
+
