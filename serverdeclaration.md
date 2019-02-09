@@ -17,7 +17,7 @@ while in others prior consent is needed before data is collected.
 
 In addition user agents have implemented procedures that by default restrict the ability of embedded sub-resources
 to access cookies. Some of these sub-resources may be managed by the same entity managing the top-level site, 
-or have previously been given explicit consent by the user. A machine-readable mechanism to record this would be useful.
+or have previously been given explicit consent by the user. A machine-readable mechanism to record this could be useful.
 
 The following is a possible JSON encoding that can deliver the required machine-readable information
 so that a user agent can make it accessible by the user in an standardised and easily digestible way, 
