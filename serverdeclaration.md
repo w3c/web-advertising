@@ -1,4 +1,4 @@
-# Advertisement Transparency via a Machine-readable Server Identity and Purpose Descriptor.
+# Transparency via a Machine-readable Server Identity and Purpose Descriptor.
 
 Web pages often contain many, sometimes hundreds, of elements that initiate transactions with servers other 
 than those managed by the top-level website. 
