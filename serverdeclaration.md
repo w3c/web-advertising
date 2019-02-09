@@ -1,20 +1,53 @@
 # Advertisement Transparency via a Machine-readable Server Identity and Purpose Descriptor.
 
-Web pages often contain many, sometimes hundreds, of elements that initiate transactions with servers other than those managed by the visited website. These “third-party” servers can collect personal data, link it to data from other sources, and the user is usually completely unaware of this.
+Web pages often contain many, sometimes hundreds, of elements that initiate transactions with servers other 
+than those managed by the top-level website. 
+These “third-party” servers can collect personal data, 
+link it to data from other sources, and the user is usually completely unaware of this.
 
-Unfortunately, there is no recognised standard way for web servers to declare this information i.e. to deliver information that allow users to identify the companies or entities, what their purpose(s) for data collection are (if any), who they share it with, how long they keep it etc.
+Unfortunately, there is no recognised standard way for web servers to declare this information
+i.e. to deliver information that allow users to identify the entities, 
+what their purpose(s) for data collection are (if any), 
+who they share it with, how long they keep it etc.
 
-Websites in Europe must obtain user consent for tracking, including by third-parties, and this consent must be “freely given, specific and informed” so only valid when the user has been given clear and accurate information. Attempts have been made to have the relevant information either curated by the site or a service provider for the site, or by using a publicly available resource such as the IAB-EU Transparency and Consent Framework (TCF) vendor list. The former method is difficult because the individual third-party details is difficult to discover, and not guaranteed to be current. The TCF vendor list has the advantage that the information is supplied by the third-party entity that collects the data, but unfortunately is not associated with the web domains in a way independently discoverable by the user or their user agent.
+There is increasing legal pressure around the world for websites to declare their use of data collection procedures, 
+explain how they intend to use the data, or what their legal basis is. 
+In some jurisdictions users have to be offered the right to have their previously collected data deleted, 
+while in others prior consent is needed before data is collected.
 
-Servers could be encouraged to supply the information by the need to comply with regulation (e.g. A.12/A.13 of the GDPR), or even better by user agent enforcement i.e. user agents (or script executing in the top-level context) could act on it to deliver it in an intelligible way to users and help protect user privacy by selectively blocking or inhibiting the action of third-party resources which do not make the transparency information available and where the user has not given their consent to the relevant purposes.
+In addition user agents have implemented procedures that by default restrict the ability of embedded sub-resources
+to access cookies. Some of these sub-resources may be managed by the same entity managing the top-level site, 
+or have previously been given explicit consent by the user. A machine-readable mechanism to record this would be useful.
 
-The following is a possible JSON encoding of the necessary information. The could be obtained by sending a secure HTTP GET to the resource /.well-known/privacy-info relative to any origin. For example the data declaration for the domain [www.bigco.com](http://www.bigco.com) would be at <https://www.bigco.com/.well-known/privacy-info/> and returned a JSON document with the Content-Type “application/privacy-info+json“.
+The following is a possible JSON encoding that can deliver the required machine-readable information
+so that a user agent can make it accessible by the user in an standardised and easily digestible way, 
+and to act on user specified preferences.
+ 
+The information would be obtained by sending a secure HTTP GET to the resource /.well-known/privacy-declaration relative to any origin. 
+For example the data declaration for the domain [www.bigco.com](http://www.bigco.com) 
+would be at <https://www.bigco.com/.well-known/privacy-declaration/> and return a JSON document with the Content-Type 
+"application/privacy-declaration+json".
 
-Browsers or browser extensions could automatically parse the information and present it as a Javascript object at a standard location e.g. navigator.privacyInfo, which could then be decoded and used to display intelligible information to users. First-party sites could ensure this was always available by using an open source javascript library, and to support this the privacy-info resource should support CORS ([Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)). Javascript can examine the JSON encoded for the first-party then use the *otherParties* and *sameParties* (denotes domains managed by the same entity managing the first-party domain) arrays to fetch the correct privacy-info JSON resources from them (possible because the third-party resources are CORS enabled).
+User agents or script could automatically parse the information as a JavaScript object at a standard location 
+e.g. navigator.privacyDeclaration, which could then be used to display human-readable information to users. 
+First-party sites could ensure this was always available by using an open source JavaScript library, 
+and to support this the privacy-declaration resource should support CORS 
+([Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)), 
+so it can be accessed via the appropriate cross-origin fetch or XHR.
+ 
+JavaScript can examine the JSON encoded for the first-party then use the *otherParties* and *sameParties* 
+arrays to fetch the correct privacy-declaration JSON resources from them (made possible because the third-party resources are CORS enabled).
+The *sameParties* set of domains could 
+identify sub-resources which can be trusted as "first-party" because they are managed by the by the entity that manages the top-level site. 
+User agents can check that each origin in a set are referenced by the
+other origins by their own privacy-declaration resource, i.e. that they all contains exactly the same "sameParties" set. 
+See Mike West's proposal for this referenced below.
 
-The resource should be dynamically generated so that each user agent would can ascertain its own consent status. The server would examine incoming cookies or other headers in order to calculate the correct value of the “consented” property, for example.
+The privacy-declaration resource could be dynamically generated so that some properties could reflect different user agent states derived from the incoming HTTP Request.
+For example, the server would examine incoming cookies or other headers in order to calculate the correct value of the “consented” property,
+or the length of time before consent expires.
 
-Root properties
+### Root properties ###
 
 | **Property**  | **Type**                       | **Description**                                                                                                          |
 | ------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
@@ -22,7 +55,8 @@ Root properties
 | policy        | String(Uri)                    | Human readable HTML page explaining the entity’s privacy policy                                                          |
 | storagePolicy | String(Uri)                    | Human readable HTML page explaining the terminal storage policy                                                          |
 | about         | String(Uri)                    | Human readable HTML page describing the entity                                                                           |
-| mayCollect    | Boolean                        | “false” declares that no data is collected                                                                               |
+| deleteData    | String(Uri)                    | A HTTP POST will cause all user agent data for this origin to be deleted, e.g. Clear-Site-Data header could be returned  |
+| mayCollect    | Boolean                        | “false” declares that no data is collected, "true" if it may be collected                                                |
 | mayShare      | Boolean                        | “false” declares no data will be shared with other entities                                                              |
 | mayCombine    | Boolean                        | “false” declares that data is not combined or linked with data from other sources                                        |
 | purposes      | Array of *PurposeType* Objects | Lists all the purpose for which data is collected                                                                        |
@@ -30,13 +64,17 @@ Root properties
 | otherParties  | Array of Strings               | Lists the third-party domains of embedded resources that may appear on this page                                         |
 | sameParties   | Array of Strings               | Lists the first-party domains of embedded resources, i.e. those managed by the same entity, that may appear on this page |
 
-The user can give their agreement for zero or more *purposes*. The *purposeType* Object for a particular purpose includes a Boolean *consented* which can be dynamically derived from the incoming HTTP request headers (e.g. cookies).
+The user can give their agreement for zero or more *purposes*. 
+The *purposeType* Object for a particular purpose includes a Boolean *consented* which can be dynamically derived from the incoming HTTP request headers (e.g. cookies).
 
-The *storage* objects are linked to the specific purposes which they are designed to implement. This gives user agents fine grained ability to restrict storage use to the purposes a user has agreed to.
+The *storage* objects are linked to the specific purposes which they are designed to implement. 
+This gives user agents fine grained ability to restrict storage use to the purposes a user has agreed to.
 
-A browser, browser extension or script executing in the top-level browsing context can use the *otherPartie*s and *sameParties* array to fetch the Descriptors for those domain origins (by fetching the resource at https://{*domain name*}/.well-known/privacy-info.
+A browser, browser extension or script executing in the top-level browsing context can use the 
+*otherPartie*s and *sameParties* array to fetch the Descriptors for those domain origins 
+(by fetching the resource at https://{*domain name*}/.well-known/privacy-declaration.
 
-StorageType Object properties
+### StorageType Object properties ###
 
 | **Property** | **Type**         | **Description**                                                                                                                                       |
 | ------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -44,12 +82,12 @@ StorageType Object properties
 | name         | String           | Cookie name prefix, localStorage item name, or indexedDB table                                                                                        |
 | purposeList  | Array of Integer | List of ordinal values of entries in the “purposes” array. e.g. \[0,1\] indicates the first and second purpose type is supported by this Storage Type |
 
-PurposeType Object properties
+### PurposeType Object properties ###
 
 | **Property**   | **Type** | **Description**                                                                   |
 | -------------- | -------- | --------------------------------------------------------------------------------- |
 | name           | String   | Short identifying label for this purpose                                          |
-| description    | String   | A human readable text describing clearly this purpose in the appropriate language |
+| description    | String   | A human readable text clearly describing this purpose in the appropriate language |
 | maxRetainedFor | Integer  | Number of seconds data is retained after collection                               |
 | expiresIn      | Integer  | Number of seconds remaining before collected data is deleted                      |
 | consented      | Boolean  | Dynamic indication of registered user agreement for this purpose                  |
@@ -167,3 +205,10 @@ PurposeType Object properties
 \]
 
 }
+
+## Prior Art
+*   Mike West has proposed a way for origins to assert they belong to a set managed by the same top-level or "first party" resource "[First-Party Sets](https://github.com/mikewest/first-party-sets)" 
+
+*   The Tracking Protection Working Group's "[Tracking Preference Expression (DNT)](https://www.w3.org/TR/tracking-dnt/)" defined a server transparency declaration at `/.well-known/dnt/`
+     This was designed to allow the entity managing any server (first-party or subresource) to declare various properties to aid transparency.
+*   John Wilander has proposed amendments to the Same Origin Policy so sets of domains could be trusted as if they were first-party. "[Single Trust and Same-Origin Policy v2](https://lists.w3.org/Archives/Public/public-webappsec/2017Mar/0034.html)"
