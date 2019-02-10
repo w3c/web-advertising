@@ -71,7 +71,7 @@ HEAD https://metrics.example.com/.well-known/admetrics/?key=3a42;payload=a3d24b5
 Host: metrics.audiencemeasurement.com
 ```
 An element can have multiple adm attributes so different triggers could be set for the same element, 
-differentiated via the trigger parameter whose value restricted to a single decimal digit. 
+differentiated via the trigger parameter whose value is restricted to a single decimal digit. 
 The particular ad whose viewability is to be counted is indicated by the `ad` parameter. 
 There can be different `domain` parameters so that metrics information can be sent to multiple destinations,
 which could include the entity ultimately paying for the ad.
