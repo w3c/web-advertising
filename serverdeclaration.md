@@ -6,7 +6,7 @@ Mike O'Neill, Febuary 2019
 
 Web pages often contain many, sometimes hundreds, of elements that initiate transactions with servers other 
 than those managed by the top-level website. 
-These “third-party” servers can collect personal data, 
+These "third-party" servers can collect personal data, 
 link it to data from other sources, and the user is usually completely unaware of this.
 
 Unfortunately, there is no recognised standard way for web servers to declare this information
@@ -49,21 +49,21 @@ It may be possible for top-level or parent documents to host external privacy-de
 which would avoid user agents having to make extra round-trips to get them. See @mikewest's proposal for this in "[First-Party Sets](https://github.com/mikewest/first-party-sets)".
 
 The privacy-declaration resource could be dynamically generated so that some properties could reflect different user agent states derived from the incoming HTTP Request.
-For example, the server would examine incoming cookies or other headers in order to calculate the correct value of the “consented” property,
+For example, the server would examine incoming cookies or other headers in order to calculate the correct value of the "consented" property,
 or the length of time before consent expires.
 
 ### Root properties ###
 
 | **Property**  | **Type**                       | **Description**                                                                                                          |
 | ------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| name          | String                         | Recognisable & unique entity name e.g. “Google Inc.”                                                                     |
+| name          | String                         | Recognisable & unique entity name e.g. "Google Inc."                                                                     |
 | policy        | String(Uri)                    | Human readable HTML page explaining the entity’s privacy policy                                                          |
 | storagePolicy | String(Uri)                    | Human readable HTML page explaining the terminal storage policy                                                          |
 | about         | String(Uri)                    | Human readable HTML page describing the entity                                                                           |
 | deleteData    | String(Uri)                    | A HTTP POST will cause all user agent data for this origin to be deleted, e.g. Clear-Site-Data header could be returned  |
-| mayCollect    | Boolean                        | “false” declares that no data is collected, "true" if it may be collected                                                |
-| mayShare      | Boolean                        | “false” declares no data will be shared with other entities                                                              |
-| mayCombine    | Boolean                        | “false” declares that data is not combined or linked with data from other sources                                        |
+| mayCollect    | Boolean                        | "false" declares that no data is collected, "true" if it may be collected                                                |
+| mayShare      | Boolean                        | "false" declares no data will be shared with other entities                                                              |
+| mayCombine    | Boolean                        | "false" declares that data is not combined or linked with data from other sources                                        |
 | purposes      | Array of *PurposeType* Objects | Lists all the purpose for which data is collected                                                                        |
 | storage       | Array of *StorageType* Objects | Lists the terminal storage items that may be utilised                                                                    |
 | otherParties  | Array of Strings               | Lists the third-party domains of embedded resources that may appear on this page                                         |
@@ -83,9 +83,9 @@ A browser, browser extension or script executing in the top-level browsing conte
 
 | **Property** | **Type**         | **Description**                                                                                                                                       |
 | ------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | String           | Storage Type, one of “cookie”, “local” (localStorage), “indexed” (indexedDB), “cache” (ETag)                                                          |
+| type         | String           | Storage Type, one of "cookie", "local" (localStorage), "indexed" (indexedDB), "cache" (ETag)                                                          |
 | name         | String           | Cookie name prefix, localStorage item name, or indexedDB table                                                                                        |
-| purposeList  | Array of Integer | List of ordinal values of entries in the “purposes” array. e.g. \[0,1\] indicates the first and second purpose type is supported by this Storage Type |
+| purposeList  | Array of Integer | List of ordinal values of entries in the "purposes" array. e.g. \[0,1\] indicates the first and second purpose type is supported by this Storage Type |
 
 ### PurposeType Object properties ###
 
@@ -99,117 +99,116 @@ A browser, browser extension or script executing in the top-level browsing conte
 
 *An example of the encoding.*
 
+```javascript
 {
 
-“name”: “BigCo Inc”,
+"name": "BigCo Inc",
 
-“policy”: “<https://www.bigco.com/privacy.html>”,
+"policy": "https://www.bigco.com/privacy.html",
 
-“storagePolicy”: “<https://www.bigco.com/cookie.html>”,
+"storagePolicy": "https://www.bigco.com/cookie.html",
 
-“about”: “<https://www.bigco.com/about>”,
+"about": "https://www.bigco.com/about",
 
-“mayCollect”: “true”,
+"mayCollect": "true",
 
-“mayShare”: “true”,
+"mayShare": "true",
 
-“mayCombine”:”false”,
+"mayCombine": "false",
 
-“purposes”: \[
+"purposes": [
 
 {
 
- “name”: “behavioural advertising”,
+   "name": "behavioural advertising",
 
-“description”: “compiling history of web sites visited”,
+   "description": "compiling history of web sites visited",
 
->  “maxRetainedFor”: “1000000”,
-> 
-> “expiresIn”: “45667”,
+   "maxRetainedFor": "1000000",
+ 
+   "expiresIn": "45667",
 
-“consented”: “false”
+   "consented": "false"
 
 },
 
 {
 
-“name”: “website analytics”,
+   "name": "website analytics",
 
-“description”: “web audience measurement”,
+   "description": "web audience measurement",
 
-> “maxRetainedFor”: “10000”,
-> 
-> “expiresIn”: “3456”,
+   "maxRetainedFor": "10000",
+ 
+   "expiresIn": "3456",
 
-“consented”: “false”
+   "consented": "false"
+
+},
+
+{
+ 
+   "name": "authentication",
+
+   "description": "logging in",
+
+   "maxRetainedFor": "1000000",
+ 
+   "expiresIn": "67854",
+
+   "consented": "false"
+}
+
+],
+
+"storage": [
+
+{
+
+   "type": "cookie",
+  
+   "name": "_ga",
+
+   "purposeList": ["0","1"]
 
 },
 
 {
 
-“name”: “authentication”,
+"type": "cookie",
 
-“description”: “logging in”,
+"name" "user",
 
-> “maxRetainedFor”: “1000000”,
-> 
-> “expiresIn”: “67854”,
-
-“consented”: “false”
-
-\],
-
-“storage”: \[
-
-{
-
-> “type”: “cookie”,
-
-“name” “\_ga”,
-
-“purposeList”: \[0,1\]
+"purposeList": ["2"]
 
 },
 
 {
 
-“type”: “cookie”,
+    "type": "local",
 
-“name” “user”,
+    "name" "dataname",
 
-“purposeList”: \[2\]
-
-},
-
-> {
-
-“type”: “local”,
-
-“name” “dataname”,
-
-“purposeList”: \[0\]
+    "purposeList": ["0"]
 
 }
 
-\],
+],
 
-“otherParties”: \[
+"otherParties": [
 
-“[www.google.com](http://www.google.com)”,
+    "[www.google.com]",
+    "[www.google-analytis.com]",
+    "adnxs.com"
 
-“[www.google-analytis.com](http://www.google-analytis.com)”,
+    ],
 
-“adnxs.com”
-
-\],
-
-“sameParties”: \[
-
-“ourcdn.com”
-
-\]
+"sameParties": [
+    "ourcdn.com"
+    ]
 
 }
+```
 
 ## Prior Art
 *   Mike West has proposed a way for origins to assert they belong to a set managed by the same top-level or "first party" resource "[First-Party Sets](https://github.com/mikewest/first-party-sets)" 
