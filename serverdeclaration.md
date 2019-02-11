@@ -1,5 +1,9 @@
 # Transparency via a Machine-readable Server Identity and Purpose Descriptor.
 
+Mike O'Neill, Febuary 2019
+
+©2019, Baycloud Systems Ltd. All rights reserved.
+
 Web pages often contain many, sometimes hundreds, of elements that initiate transactions with servers other 
 than those managed by the top-level website. 
 These “third-party” servers can collect personal data, 
@@ -41,7 +45,8 @@ The *sameParties* set of domains could
 identify sub-resources which can be trusted as "first-party" because they are managed by the by the entity that manages the top-level site. 
 User agents can check that each origin in a set are referenced by the
 other origins by their own privacy-declaration resource, i.e. that they all contains exactly the same "sameParties" set. 
-See Mike West's proposal for this referenced below.
+It may be possible for top-level or parent documents to host external privacy-declarations as bundles of "[Signed HTTP Exchanges](https://tools.ietf.org/html/draft-yasskin-http-origin-signed-responses)", 
+which would avoid user agents having to make extra round-trips to get them. See @mikewest's proposal for this in "[First-Party Sets](https://github.com/mikewest/first-party-sets)".
 
 The privacy-declaration resource could be dynamically generated so that some properties could reflect different user agent states derived from the incoming HTTP Request.
 For example, the server would examine incoming cookies or other headers in order to calculate the correct value of the “consented” property,
@@ -71,7 +76,7 @@ The *storage* objects are linked to the specific purposes which they are designe
 This gives user agents fine grained ability to restrict storage use to the purposes a user has agreed to.
 
 A browser, browser extension or script executing in the top-level browsing context can use the 
-*otherPartie*s and *sameParties* array to fetch the Descriptors for those domain origins 
+*otherParties* and *sameParties* array to fetch the Descriptors for those domain origins 
 (by fetching the resource at https://{*domain name*}/.well-known/privacy-declaration.
 
 ### StorageType Object properties ###
@@ -210,5 +215,6 @@ A browser, browser extension or script executing in the top-level browsing conte
 *   Mike West has proposed a way for origins to assert they belong to a set managed by the same top-level or "first party" resource "[First-Party Sets](https://github.com/mikewest/first-party-sets)" 
 
 *   The Tracking Protection Working Group's "[Tracking Preference Expression (DNT)](https://www.w3.org/TR/tracking-dnt/)" defined a server transparency declaration at `/.well-known/dnt/`
-     This was designed to allow the entity managing any server (first-party or subresource) to declare various properties to aid transparency.
+    This was designed to allow the entity managing any server (first-party or subresource) to declare various properties to aid transparency.
+
 *   John Wilander has proposed amendments to the Same Origin Policy so sets of domains could be trusted as if they were first-party. "[Single Trust and Same-Origin Policy v2](https://lists.w3.org/Archives/Public/public-webappsec/2017Mar/0034.html)"

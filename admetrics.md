@@ -1,5 +1,9 @@
 # Privacy protecting metrics for web audience measurement 
 
+Mike O'Neill, Febuary 2019
+
+©2019, Baycloud Systems Ltd. All rights reserved.
+
 The online advertisment ecosystem needs accurate information about advertisement visibility. 
 Advertisers need to know where and how often their ads are showing to real people, 
 and publishers need to be paid when their properties deliver ads.
@@ -70,7 +74,7 @@ HEAD https://metrics.example.com/.well-known/admetrics/?key=3a42;payload=a3d24b5
 
 Host: metrics.audiencemeasurement.com
 ```
-An element can have multiple adm attributes so different triggers could be set for the same element, 
+An element can have multiple `adm` attributes so different triggers could be set for the same element, 
 differentiated via the trigger parameter whose value is restricted to a single decimal digit. 
 The particular ad whose viewability is to be counted is indicated by the `ad` parameter. 
 There can be different `domain` parameters so that metrics information can be sent to multiple destinations,
