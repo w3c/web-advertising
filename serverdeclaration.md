@@ -57,9 +57,26 @@ The privacy-declaration resource could be dynamically generated so that some pro
 For example, the server would examine incoming cookies or other headers in order to calculate the correct value of the "consented" property,
 or the length of time before consent expires.
 
-In future there should be some standardisation on a low-entropy request header signal, which could be an existing header in widespread use like DNT,
+### Conveying User Agent Registered User Consent.
+
+There should be some standardisation on a low-entropy request header signal, which could be an existing header in widespread use like DNT,
 or a specific cookie name such at the IAB EU's `euconsent`. Another avenue could maybe be explored by extending the cookie "prefix" options
 described in "[Cookies: HTTP State Management Mechanism draft-ietf-httpbis-rfc6265bis-02](https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-02#page-14)". 
+For example here is a way to encode a consent indication cookie:
+```
+Set-Cookie: __Consent-eprivacy=1,5,6; Expires=Sun, 06 Nov 2019 08:49:37 GMT
+```
+The value `1,5,6` indicates the set of purposes agreed to by this user, i.e. an index into the PurposeType array.
+
+Using a prefix could allow for recognition and then "special treatment" for low-entropy "consent indication" cookies by user agents. 
+For example User Agents could restrict their scope to the context of a top-level origin, 
+so all or specified embedded origins could receive "site-specific" consent indications. 
+This behaviour would have to be implemented by user agents, 
+but would improve the web by enabling users to give their "site-specific" consent to certain embedded third=parties,
+for instance on publishers' sites.
+
+
+
 
 
 ### Root properties ###
