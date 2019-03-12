@@ -72,7 +72,7 @@ Using a prefix could allow for recognition and then "special treatment" for low-
 For example User Agents could restrict their scope to the context of a top-level origin, 
 so all or specified embedded origins could receive "site-specific" consent indications. 
 This behaviour would have to be implemented by user agents, 
-but would improve the web by enabling users to give their "site-specific" consent to certain embedded third=parties,
+but would improve the web by enabling users to give their "site-specific" consent to certain embedded third-party resources,
 for instance on publishers' sites.
 
 
