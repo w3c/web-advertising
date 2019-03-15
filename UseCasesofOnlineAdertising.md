@@ -19,7 +19,7 @@ Ad Call with Single Market
 2.  Content is returned
 3.  UserBrowser calls Publisher Content Server to assemble the page
 4.  Content is returned
-5.  UserBrowser calls the Ad Marketplace “give me an ad”
+5.  UserBrowser calls the Ad Marketplace â€œgive me an adâ€
 6.  Creative Code is returned
 7.  UserBrowser calls the Creative Payload Server
 8.  Creative Payload is returned
