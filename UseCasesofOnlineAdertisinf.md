@@ -8,8 +8,9 @@ Initial draft, 2019-03-05
 
 This document describes event sequences supporting modern online advertising. Many details are elided. There is a significant amount of tutorial literature available which can be used to fill in the details and omissions that are necessarily present in this summary document.
 
-Ad Call with Single Market
-==========================
+## Ad Call with Single Market
+
+
 
 ![Event Flow Diagram](https://w3c.github.io/web-advertising/UseCasesofOnlineAdvertising/image1.png)
 
