@@ -20,7 +20,7 @@ This document describes event sequences supporting modern online advertising. Ma
 2.  Content is returned
 3.  UserBrowser calls Publisher Content Server to assemble the page
 4.  Content is returned
-5.  UserBrowser calls the Ad Marketplace ìgive me an adî
+5.  UserBrowser calls the Ad Marketplace ‚Äúgive me an ad‚Äù
 6.  Creative Code is returned
 7.  UserBrowser calls the Creative Payload Server
 8.  Creative Payload is returned
