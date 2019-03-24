@@ -2,6 +2,10 @@
 
 Raise issues, add drafts. As you add a document, feel free to add a PR for its description to the README.
 
+* [Use Cases of Online Advertising](UseCasesofOnlineAdvertising.md) "Hello Ads"
+* [Transparency via a Machine-readable Server Identity and Purpose Descriptor](serverdeclaration.md)
+* [Privacy protecting metrics for web audience measurement](admetrics.md)
+
 # cfp
 Draft of a potential advertising workshop CFP
 
