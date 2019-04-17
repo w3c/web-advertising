@@ -7,7 +7,7 @@ Contibutors:
 * Wendell Baker <[wbaker@verizonmedia.com](mailto:wbaker@verizonmedia.com)\>  
 * Michael Kleber <[kleber@google.com](mailto:kleber@google.com)\>
 
-Draft, updated 2019-04-16
+Draft, updated 2019-04-17
 
 This document describes event sequences supporting modern online advertising. Many details are elided. There is a significant amount of tutorial literature available which can be used to fill in the details and omissions that are necessarily present in this summary document.
 
