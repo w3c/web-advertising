@@ -15,10 +15,19 @@ traditional cookie-based methods may not be available.
 Even where they are available, the industry has been plagued by fraud where dedicated bot farms or remotely controlled co-opted devices 
 create false ad viewing records, and lack of reliable metrics allow ads to appear alongside brand damaging content. 
 
-User agents can gather information about ad viewability relatively easily, 
-and are also in the best position to determine if real people are seeing them.
-What is needed is a privacy protective and secure way to communicate this information, making it available for recording
-by advertisers, publishers and external “audience measurement” servers, in such a way that does not identify or "single-out" the user.
+
+### Browser based ad metrics gathering
+
+Browsers can relatively easily collect metrics related to advertising, 
+and are also in the best position to determine if real people are seeing or interacting with them.
+The proportion of pixels seen by an actual person can be measured, user interaction detected and resulting events such as conversion events measured,
+over arbitrary periods of time.  
+
+The risk to privacy only occurs when data related to particular individuals is communicated. 
+As long as the data is inaccessible to others, it makes no difference to the individual that data about them is held within their browser.
+
+What is needed is a privacy protective and secure way to communicate this information, making statistics derived from it available for recording
+by advertisers and external “audience measurement” servers, in such a way that does not identify or "single-out" the user.
 
 ### Data encrypted using stenographic secret key
 The proposal is that user agent executables contain hidden bit-strings to be used as a semi-private encryption key, 
@@ -33,6 +42,8 @@ Each encryption key has a short id, perhaps calculated using a one-way hash func
 allowing the receiver to identify the correct decryption key if it has it. 
 The receiver always accepts the messages silently, with no indication given if the cypher text cannot be decrypted, 
 making it harder for an adversary to reverse engineer the user agent to identify the secret encryption key.
+
+### Ads identified using markup
 
 HTML elements, (e.g. div elements) could be declared with a new attribute associated with the visibility of the element. 
 If the element is “viewable” by the user, defined by parameters to the attribute, 
