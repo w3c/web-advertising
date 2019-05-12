@@ -1,11 +1,11 @@
 # Privacy protecting metrics for web audience measurement 
 
-Mike O'Neill, Febuary 2019
+Mike O'Neill, February 2019
 
 ©2019, Baycloud Systems Ltd. All rights reserved.
 
-The online advertisment ecosystem needs accurate information about advertisement visibility. 
-Advertisers need to know where and how often their ads are showing to real people, 
+The online advertisment ecosystem needs accurate information about how often advertisements are interacted with,
+and when they are viewed. Advertisers need to know where and how often their ads are showing to real people, 
 and publishers need to be paid when their properties deliver ads.
 
 In situations where prior user consent is needed for personal data collection or terminal storage access,
@@ -18,82 +18,117 @@ create false ad viewing records, and lack of reliable metrics allow ads to appea
 
 ### Browser based ad metrics gathering
 
-Browsers can relatively easily collect metrics related to advertising, 
+Browsers can collect the metrics required by advertisers relatively easily,
 and are also in the best position to determine if real people are seeing or interacting with them.
-The proportion of pixels seen by an actual person can be measured, user interaction detected and resulting events such as conversion events measured,
+The proportion of pixels in view can be measured to trigger viewability events, and user interaction or conversion can be detected
 over arbitrary periods of time.  
 
 The risk to privacy only occurs when data related to particular individuals is communicated. 
-As long as the data is inaccessible to others, it makes no difference to the individual that data about them is held within their browser.
+As long as the data is provably inaccessible to others, it makes little difference to the individual that data about them is held within their browser.
 
-What is needed is a privacy protective and secure way to communicate this information, making statistics derived from it available for recording
+What is needed is a privacy protective and secure way to communicate this information, 
+making aggregated statistics derived from it available for recording
 by advertisers and external “audience measurement” servers, in such a way that does not identify or "single-out" the user.
 
-### Data encrypted using stenographic secret key
-The proposal is that user agent executables contain hidden bit-strings to be used as a semi-private encryption key, 
-usually only accessible to internal code, i.e. the code entry points are designed not to be externally discoverable easily. 
-Of course a determined adversary will eventually discover it, 
-so the user agent should periodically update its code image, including at least new values for the encrypting bit-strings,
-as often as is practicable.
-The associated decryption keys are also semi-private in that they are only communicated to companies who have identified themselves 
-to the user-agent developer, and are updated over a secure channel whenever the user agent is upgraded.
- 
-Each encryption key has a short id, perhaps calculated using a one-way hash function, which is transmitted in clear text
-allowing the receiver to identify the correct decryption key if it has it. 
-The receiver always accepts the messages silently, with no indication given if the cypher text cannot be decrypted, 
-making it harder for an adversary to reverse engineer the user agent to identify the secret encryption key.
+In addition the protocol used to communicate the data must allow the receiving server (or servers) to detect with some certainty 
+whether the data relates to a real human being, i.e. to detect ad fraud.
+Because the protocol is purpose designed it should be possible to deliver fraud detection capability with at least an 
+order of magnitude improvement over what is attained at present.
 
-### Ads identified using markup
+### Ads identified in markup
 
-HTML elements, (e.g. div elements) could be declared with a new attribute associated with the visibility of the element. 
-If the element is “viewable” by the user, defined by parameters to the attribute, 
-an HTTP transaction could be triggered which cause an aggregation “count” to be incremented at a server responsible for metrics collection.
+HTML elements, (e.g. div elements) containing advertising content would be declared within an `ad` attribute identifying it as such to the user agent. 
+This attribute informs the user agent about what user interaction events such as visibility are to be measured, and to what metrics servers
+event data should be sent. 
 
-The data transported by the HTTP request could be constrained so that the user can not be identified, 
+Metrics servers are defined by their domain origin, the user agent appending to it a fixed path `.well-known/admetrics` and a query string 
+to convey the minimum level of event information required to increment the appropriate data count at the metrics server.
+
+User agents ensure that the target URL is formed by limiting the entropy delivered within it, 
+and that no cookie values or other user identifying information is sent, 
+ensuring that the data to be transported cannot be used to track an individual user. 
+The user agent would queue the metrics data associated with an event for later transmission.
+At appropriate intervals, 
+perhaps sometime after the interactions the data refers to, 
+the events in the store are processed, filtered, and assembled into HTTP HEAD requests to be sent to the appropriate servers.
+
+The data transported by the HTTP request must be restricted so that the user can not be identified, 
 i.e. they cannot be singled-out. 
-No cookies or other identifying headers would be transmitted, 
-and the target URL path would be restricted to a predefined and unmodifiable value.
+No cookies, or any other identifying headers such as Basic Authentication or client certificates, would be transmitted, 
+and the target URL path would be restricted to a predefined and unmodifiable value in the IANA defined `.well-known` space.
 
-For example, the following element would trigger a remote count to be incremented when at least 80% of the pixels of 
-an advertisement identified by `AD-30045`
-(ignoring a 5px margin) is viewable for at least 5 seconds.
+For example, a site with origin `example.com` would mark an element to trigger a remote count to be incremented when at least 80% of the pixels of 
+an advertisement identified by `id=30045`
+is actually viewable by a real user for at least 5 seconds (ignoring a 5px margin).
 
 ```
-<div adm=“domain=metrics.audiencemeasurement.com;key=3a42;ad=AD-30045;trigger=1;margin=5px;threshold=0.8;after=5000“>
+<div ad=“domain=audiencemeasurement.com;id=30045;triggertype=viewable;triggerKey=42;margin=5px;threshold=0.8;after=5000“>
 
 … advertisement content
 
 </div>
 ```
 
-When the trigger was activated the parameters identifying the ad and its trigger are added by the user agent to a digest which also 
-includes the current date and time, and perhaps other values relevant for commerce such as the `origin` of the parent frame. 
-
-The digest is then encrypted using the currently active secret key, 
-say for this example this results in the bit-string `a3d24b56789`. 
-This string will be different for every transaction because it includes an updated time value, so cannot be used by any servers for fingerprinting.
-The `ad` parameter should be restricted in entropy, for example to 7 or 8 alphanumeric characters, 
-to help mitigate fingerprinting by bad actors who have illicitly obtained decryption keys. 
-
-The receiving server can sanity check the decrypted message, ensuring it has a valid time value etc. If it fails it is silently discarded.
-
-An HTTP HEAD request would be sent including the key identifier and the encrypted payload. 
-The user agent ensures that no cookies or other identifying headers are sent.
+When the view event is triggered parameters identifying the ad and its trigger are queued for transmission
+along with the current date and time, and perhaps other commercially relevant values such as the `origin` of the top-level or parent frame, 
+but ensuring that their is insufficient entropy in the combined data to track the user. 
+In addition proof that the originator is a legitimate browser operated by a real human user is included via the `browser` parameter, 
+described below.
 
 ```
-HEAD https://metrics.example.com/.well-known/admetrics/?key=3a42;payload=a3d24b56789 HTTP/1.1
+HEAD https://audiencemeasurement.com/.well-known/admetrics?triggerKey=42;origin=example.com;browser=a3d24b56789 HTTP/1.1
 
 Host: metrics.audiencemeasurement.com
 ```
-An element can have multiple `adm` attributes so different triggers could be set for the same element, 
-differentiated via the trigger parameter whose value is restricted to a single decimal digit. 
+
+An element can have multiple `ad` attributes so different triggers could be set for the same element, 
+differentiated via the `triggerKey` parameter whose value is restricted to 2 decimal digits. 
 The particular ad whose viewability is to be counted is indicated by the `ad` parameter. 
-There can be different `domain` parameters so that metrics information can be sent to multiple destinations,
+There can be multiple `domain` parameters so that metrics information can be sent to multiple destinations,
 which could include the entity ultimately paying for the ad.
- 
 
 
-The receiving server would simply increment the appropriate count, 
+The receiving server would check the `browser` parameter and, if it is validated, 
+simply increment the appropriate count in an aggregated metrics table, 
 there being no cookies or other user identifying or linking information.
 
+The `browser` parameter value is a string resulting from encrypting a 
+message with a suitable asymmetric cryptographic function using a public key associated with the browser version
+or embedded in the browser executable.
+The message contains a current time-stamp and an arbitrary string guaranteed to be unique to every browser instance.
+This cyphertext string will be different for every transaction because the underlying time-stamp will be different, 
+so cannot be used by servers for fingerprinting.
+The `id` parameter should be restricted in entropy, for example to 7 or 8 alphanumeric characters. 
+
+The receiving server at some point will send a copy of the `browser` parameter 
+via a secure REST transaction to a server managed by the browser provider, 
+which will decrypt the cyphertext using its private key, 
+and respond with a single boolean indicating whether the string is properly associated with an installed browser instance.
+If the response is `false` the event is silently discarded. 
+The browser provider's server should keep a tally of the id strings to detect if the same id is being reported by a suspicious number of event instances,
+and mark that id as bad and always respond with `false` to metrics server requests. 
+
+An HTTP HEAD request would be sent, the user agent ensuring that no cookies or other identifying headers are included.
+
+
+
+
+### Browser installation sets a stenographic instance id and a public key
+
+The browser installation process will be responsible for creating a unique instance string 
+to be stenographically contained within the user agent's executable image, 
+and for retaining a copy in a database managed by the browser provider. 
+The instance-unique value would be calculated when the browser is installed or updated, 
+and the browser provider would retain a record of its use. 
+The would also be an embedded string representing the browser provider's public key.
+Metrics servers would deliver the cyphertext as it is received in the `browser` parameter
+of each received ad event to a server managed by the browser provider via a secure REST transaction, 
+which would then return a single boolean value indicating the validity of the enclosed instance-unique string.
+No other information would be passed between the metrics and browser provider servers, ensuring the user cannot be tracked.
+
+
+
+
+
+ 
 
