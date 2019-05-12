@@ -28,7 +28,7 @@ As long as the data is provably inaccessible to others, it makes little differen
 
 What is needed is a privacy protective and secure way to communicate this information, 
 making aggregated statistics derived from it available for recording
-by advertisers and external “audience measurement” servers, in such a way that does not identify or "single-out" the user.
+by advertisers and external “audience measurement” servers, in such a way that the user can not be identified or "singled-out".
 
 In addition the protocol used to communicate the data must allow the receiving server (or servers) to detect with some certainty 
 whether the data relates to a real human being, i.e. to detect ad fraud.
@@ -43,6 +43,9 @@ event data should be sent.
 
 Metrics servers are defined by their domain origin, the user agent appending to it a fixed path `.well-known/admetrics` and a query string 
 to convey the minimum level of event information required to increment the appropriate data count at the metrics server.
+
+Browser providers may choose to add a reference to a controlled or externally recognised metrics 
+server to act as an overall check of the validity of the aggregated metrics.
 
 User agents ensure that the target URL is formed by limiting the entropy delivered within it, 
 and that no cookie values or other user identifying information is sent, 
@@ -103,7 +106,7 @@ The `id` parameter should be restricted in entropy, for example to 7 or 8 alphan
 The receiving server at some point will send a copy of the `browser` parameter 
 via a secure REST transaction to a server managed by the browser provider, 
 which will decrypt the cyphertext using its private key, 
-and respond with a single boolean indicating whether the string is properly associated with an installed browser instance.
+and respond with a single boolean indicating whether or not the string is properly associated with an installed browser instance.
 If the response is `false` the event is silently discarded. 
 The browser provider's server should keep a tally of the id strings to detect if the same id is being reported by a suspicious number of event instances,
 and mark that id as bad and always respond with `false` to metrics server requests. 
@@ -122,8 +125,8 @@ The instance-unique value would be calculated when the browser is installed or u
 and the browser provider would retain a record of its use. 
 The would also be an embedded string representing the browser provider's public key.
 Metrics servers would deliver the cyphertext as it is received in the `browser` parameter
-of each received ad event to a server managed by the browser provider via a secure REST transaction, 
-which would then return a single boolean value indicating the validity of the enclosed instance-unique string.
+of each received ad event to servers managed by the browser provider via a secure REST transaction, 
+who would then return a single boolean value indicating the validity of the enclosed instance-unique string.
 No other information would be passed between the metrics and browser provider servers, ensuring the user cannot be tracked.
 
 
