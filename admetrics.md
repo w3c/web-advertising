@@ -101,9 +101,11 @@ there being no cookies or other user identifying or linking information.
 
 The `browser` parameter value is a string resulting from encrypting a 
 message with a suitable asymmetric cryptographic function using a public key associated with the browser version
-or embedded in the browser executable. The private key is not accessible to the metrics server, so it cannot decrypt the 
-cyphertext to obtain the unique browser instance string.
-The message contains a current time-stamp and an arbitrary string guaranteed to be unique to every browser instance.
+or embedded in the browser executable. 
+The message contains a current time-stamp plus a string which is unique to each browser instance, created when the browser is installed or updated.
+The private key used to decrypt the message is not accessible to the metrics server, so the unique browser instance string
+is invisible to it. The message is encrypted afresh, with a different time-stamp, before every upload to the metrics server.
+
 This cyphertext string will be different for every transaction because the underlying time-stamp will be different, 
 so cannot be used by metrics servers for fingerprinting (they cannot decrypt the cyphertext), 
 and the ad information is not sent to the instance validation servers.
@@ -132,7 +134,8 @@ Metrics servers would deliver the cyphertext as it is received in the `browser` 
 of each received ad event to servers managed by the browser provider via a secure REST transaction, 
 who would then return a single boolean value indicating the validity of the enclosed instance-unique string.
 
-Browser providers could also execute proprietary processes to detect illicit users of their installation or validation processes, e.g. monitoring the IP source address of its initiators.
+Browser providers could also execute proprietary processes to detect illicit users of their installation or validation processes, 
+e.g. monitoring the IP source address of its initiators.
 This would not need to be standardised as long as no interworking is envisioned. 
 If illicit use is detected a unique string would still be returned, 
 but it would not be recorded as valid in the provider's database. 
