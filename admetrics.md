@@ -87,6 +87,8 @@ Host: metrics.audiencemeasurement.com
 An element can have multiple `ad` attributes so different triggers could be set for the same element, 
 differentiated via the `triggerKey` parameter whose value is restricted to 2 decimal digits. 
 The particular ad whose viewability is to be counted is indicated by the `ad` parameter. 
+The `id` parameter should be restricted in entropy, for example to 7 or 8 alphanumeric characters, 
+but have, combined with the domain origin of the top-level context, sufficient granularity to identify a particular advertisement.
 There can be multiple `domain` parameters so that metrics information can be sent to multiple destinations,
 which could include the entity ultimately paying for the ad.
 
@@ -101,7 +103,7 @@ or embedded in the browser executable.
 The message contains a current time-stamp and an arbitrary string guaranteed to be unique to every browser instance.
 This cyphertext string will be different for every transaction because the underlying time-stamp will be different, 
 so cannot be used by servers for fingerprinting.
-The `id` parameter should be restricted in entropy, for example to 7 or 8 alphanumeric characters. 
+ 
 
 The receiving server at some point will send a copy of the `browser` parameter 
 via a secure REST transaction to a server managed by the browser provider, 
@@ -120,14 +122,28 @@ An HTTP HEAD request would be sent, the user agent ensuring that no cookies or o
 
 The browser installation process will be responsible for creating a unique instance string 
 to be stenographically contained within the user agent's executable image, 
-and for retaining a copy in a database managed by the browser provider. 
+and for retaining a copy in a database managed by the browser provider.
+ 
 The instance-unique value would be calculated when the browser is installed or updated, 
 and the browser provider would retain a record of its use. 
+It would be assigned at random and be of sufficient length to mitigate against a brute force attack.
 The would also be an embedded string representing the browser provider's public key.
 Metrics servers would deliver the cyphertext as it is received in the `browser` parameter
 of each received ad event to servers managed by the browser provider via a secure REST transaction, 
 who would then return a single boolean value indicating the validity of the enclosed instance-unique string.
-No other information would be passed between the metrics and browser provider servers, ensuring the user cannot be tracked.
+
+Browser providers could also execute propitiatory processes to detect illicit users of their installation or validation processes, e.g. monitoring the IP source address of its initiators.
+This would not need to be standardised as long as no interworking is envisioned. 
+If illicit use is detected a unique string would still be returned, 
+but it would not be recorded as valid in the provider's database. 
+This would avoid alerting the illicit user that their fraud technique had been recognised.
+
+No other information would be passed between the metrics and browser provider validation servers, ensuring the user cannot be tracked.
+
+## Prior Art
+*   John Wilander has proposed, and Apple's Safari and Mozilla's Firefox browsers have implemented, or are in the process of implementing, sophisticated controls over tracking cookies. "[Intelligent Tracking Prevention 2.2](https://webkit.org/blog/8828/intelligent-tracking-prevention-2-2/)" 
+
+ 
 
 
 
