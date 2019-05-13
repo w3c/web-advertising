@@ -9,7 +9,7 @@
 // if absent then create one to show 3 ads 33% of the time each:
     var now = Date.now();
     var ABText = localStorage["ABText"];
-	var expires = localStorage["ABTextExpires"];
+	var expires = Date.parse(localStorage["ABTextExpires"]);
 	if(!ABText)
 	{
 		localStorage["ABText"] = Math.ceil(Math.random()*100).toString();
