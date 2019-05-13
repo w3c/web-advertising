@@ -101,17 +101,20 @@ there being no cookies or other user identifying or linking information.
 
 The `browser` parameter value is a string resulting from encrypting a 
 message with a suitable asymmetric cryptographic function using a public key associated with the browser version
-or embedded in the browser executable.
+or embedded in the browser executable. The private key is not accessible to the metrics server, so it cannot decrypt the 
+cyphertext to obtain the unique browser instance string.
 The message contains a current time-stamp and an arbitrary string guaranteed to be unique to every browser instance.
 This cyphertext string will be different for every transaction because the underlying time-stamp will be different, 
-so cannot be used by servers for fingerprinting.
+so cannot be used by metrics servers for fingerprinting (they cannot decrypt the cyphertext), 
+and the ad information is not sent to the instance validation servers.
  
 
 The receiving server at some point will send a copy of the `browser` parameter 
-via a secure REST transaction to a server managed by the browser provider, 
-which will decrypt the cyphertext using its private key, 
+via a secure REST transaction to an instance validation server (IVS) managed by the browser provider, 
+which will decrypt the cyphertext using its secret private key, 
 and respond with a single boolean indicating whether or not the string is properly associated with an installed browser instance.
-If the response is `false` the event is silently discarded. 
+If the response is `false` the event is silently discarded by the metrics server. 
+No other information is passed to the instance validation server.
 The browser provider's server should keep a tally of the id strings to detect if the same id is being reported by a suspicious number of event instances,
 and mark that id as bad and always respond with `false` to metrics server requests. 
 
@@ -135,7 +138,7 @@ If illicit use is detected a unique string would still be returned,
 but it would not be recorded as valid in the provider's database. 
 This would avoid alerting the illicit user that their fraud technique had been recognised.
 
-No other information would be passed between the metrics and browser provider validation servers, ensuring the user cannot be tracked.
+No other information would be passed between the metrics and browser provider managed instance validation servers, ensuring the user cannot be tracked.
 
 ## Prior Art
 *   John Wilander has proposed, and Apple's Safari and Mozilla's Firefox browsers have implemented, or are in the process of implementing, sophisticated controls over tracking cookies. "[Intelligent Tracking Prevention 2.2](https://webkit.org/blog/8828/intelligent-tracking-prevention-2-2/)" 
