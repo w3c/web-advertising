@@ -146,7 +146,9 @@ No other information would be passed between the metrics and browser provider ma
 ## Prior Art
 *   John Wilander has proposed, and Apple's Safari and Mozilla's Firefox browsers have implemented, or are in the process of implementing, sophisticated controls over tracking cookies. "[Intelligent Tracking Prevention 2.2](https://webkit.org/blog/8828/intelligent-tracking-prevention-2-2/)"
 *   Mike West has proposed that embedded resources should have to explicitly declare cross-origin cookies. "[Incrementally Better Cookies](https://mikewest.github.io/cookie-incrementalism/draft-west-cookie-incrementalism.html)"
-*   
+*   Also, he has proposed a mechanism which allows HTTP servers to maintain stateful sessions with user agents, 
+which could ultimately replace cookies. 
+"[HTTP State Tokens](https://mikewest.github.io/http-state-tokens/draft-west-http-state-tokens.html)"   
   
 
  
