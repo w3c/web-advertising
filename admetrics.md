@@ -74,7 +74,7 @@ is actually viewable by a real user for at least 5 seconds (ignoring a 5px margi
 
 When the view event is triggered parameters identifying the ad and its trigger are queued for transmission
 along with the current date and time, and perhaps other commercially relevant values such as the `origin` of the top-level or parent frame, 
-but ensuring that their is insufficient entropy in the combined data to track the user. 
+but ensuring that there is insufficient entropy in the combined data to track the user. 
 In addition proof that the originator is a legitimate browser operated by a real human user is included via the `browser` parameter, 
 described below.
 
