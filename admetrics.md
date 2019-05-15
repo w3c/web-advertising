@@ -65,7 +65,7 @@ an advertisement identified by `id=30045`
 is actually viewable by a real user for at least 5 seconds (ignoring a 5px margin).
 
 ```
-<div ad=“domain=audiencemeasurement.com;id=30045;triggertype=viewable;triggerKey=42;margin=5px;threshold=0.8;after=5000“>
+<div ad=“domain=audiencemeasurement.com;id=A45;triggertype=viewable;triggerKey=42;margin=5px;threshold=0.8;after=5000“>
 
 … advertisement content
 
@@ -81,7 +81,7 @@ described below.
 An HTTP HEAD request would be sent, i.e. no request or response entity, the user agent ensuring that no cookies or other identifying headers are included.
 
 ```
-HEAD https://audiencemeasurement.com/.well-known/admetrics?triggerKey=42;origin=example.com;browser=a3d24b56789 HTTP/1.1
+HEAD https://audiencemeasurement.com/.well-known/admetrics?id=A45;triggerKey=42;origin=example.com;browser=a3d24b56789 HTTP/1.1
 
 Host: metrics.audiencemeasurement.com
 ```
@@ -89,7 +89,7 @@ Host: metrics.audiencemeasurement.com
 An element can have multiple `ad` attributes so different triggers could be set for the same element, 
 differentiated via the `triggerKey` parameter whose value is restricted to 2 decimal digits. 
 The particular ad whose viewability is to be counted is indicated by the `ad` parameter. 
-The `id` parameter should be restricted in entropy, for example to 7 or 8 alphanumeric characters, 
+The `id` parameter should be restricted in entropy, for example to 3 alphanumeric characters, 
 but have, combined with the domain origin of the top-level context, sufficient granularity to identify a particular advertisement.
 There can be multiple `domain` parameters so that metrics information can be sent to multiple destinations,
 which could include the entity ultimately paying for the ad.
