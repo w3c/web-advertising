@@ -120,23 +120,27 @@ No other information is passed to the instance validation server.
 The browser provider's server should keep a tally of the id strings to detect if the same id is being reported by a suspicious number of event instances,
 and mark that id as bad and always respond with `false` to metrics server requests. 
 
-### Browser installation sets a stenographic instance id and a public key
+### Browser human/bot discrimination
 
-The browser installation process will be responsible for creating a unique instance string 
+The test to distinguish a human user from a robot would be done at install time, 
+whenever the browser executable is updated, or at other times determined by the browser provider. 
+An external service with suitable privacy guarantees could also be employed.
+The browser installation or update process would be responsible for creating a unique instance string 
 to be stenographically contained within the user agent's executable image, 
-and for retaining a copy in a database managed by the browser provider.
- 
-The instance-unique value would be calculated when the browser is installed or updated, 
-and the browser provider would retain a record of its use. 
-It would be assigned at random and be of sufficient length to mitigate against a brute force attack.
+and for retaining a copy in a database managed by the browser provider.  
+The unique string would be assigned at random and be of sufficient length to mitigate against a brute force attack.
 There would also be an embedded string representing the browser provider's public key.
-Metrics servers would deliver the cyphertext as it is received in the `browser` parameter
-of each received ad event to servers managed by the browser provider via a secure REST transaction, 
-who would then return a single boolean value indicating the validity of the enclosed instance-unique string.
+
+Metrics servers would check the cyphertext as it is received in the `browser` parameter 
+of each received ad event by delivering it to servers managed by the browser provider via a secure HTTP or other transaction, 
+which would respond with a single boolean value indicating the validity of the enclosed instance-unique string. 
+Only the validation server, i.e. provided by the browser provider, 
+would have access to the private key and would never return or receive any personal data,
+other than that this instance-unique value is properly associated with an install or update event.
 
 Browser providers could also execute proprietary processes to detect illicit users of their installation or validation processes, 
 e.g. monitoring the IP source address of its initiators.
-This would not need to be standardised as long as no interworking is envisioned. 
+This would not need to be standardised as long as no inter-working is envisioned. 
 If illicit use is detected a unique string would still be returned, 
 but it would not be recorded as valid in the provider's database. 
 This would avoid alerting the illicit user that their fraud technique had been recognised.
@@ -148,8 +152,11 @@ No other information would be passed between the metrics and browser provider ma
 *   Mike West has proposed that embedded resources should have to explicitly declare cross-origin cookies. "[Incrementally Better Cookies](https://mikewest.github.io/cookie-incrementalism/draft-west-cookie-incrementalism.html)"
 *   Also, he has proposed a mechanism which allows HTTP servers to maintain stateful sessions with user agents, 
 which could ultimately replace cookies. 
-"[HTTP State Tokens](https://mikewest.github.io/http-state-tokens/draft-west-http-state-tokens.html)"   
+"[HTTP State Tokens](https://mikewest.github.io/http-state-tokens/draft-west-http-state-tokens.html)"
+*   The Accessible Platform Architectures Working Group has published a paper on human/bot discrimination techniques. "[Inaccessibility of CAPTCHA](https://w3c.github.io/apa/captcha/)" 
   
+
+
 
  
 
