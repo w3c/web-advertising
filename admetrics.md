@@ -15,6 +15,19 @@ traditional cookie-based methods may not be available.
 Even where they are available, the industry has been plagued by fraud where dedicated bot farms or remotely controlled co-opted devices 
 create false ad viewing records, and lack of reliable metrics allow ads to appear alongside brand damaging content. 
 
+### Definitions
+
+**Metrics Database** a database of aggregated statistics derived from **Ad Metrics Messages** and guaranteed to contain no personal data about individuals.
+
+**Ad Metrics Messages** data items assembled into a URL query component indicating countable events to be aggregated into a **Metrics Database**, 
+delivered over a secure HTTP connection with no cookies or other user identifying headers.
+ 
+**Metrics Server** Server{s} that receives ad metrics reporting messages from user agents, 
+asks a **Validation Server** if they are from a properly installed browser instance, 
+and if they are increment the appropriate counts in an aggregated **Metrics Database**.
+
+**Validation Server** Server that supports an authenticated API to allow contracted **Metrics Servers** to determine
+if the **Ad Metrics Messages** it has received are from a properly installed user agent.
 
 ### Browser based ad metrics gathering
 
@@ -127,16 +140,18 @@ whenever the browser executable is updated, or at other times determined by the 
 An external service with suitable privacy guarantees could also be employed.
 The browser installation or update process would be responsible for creating a unique instance string 
 to be stenographically contained within the user agent's executable image, 
-and for retaining a copy in a database managed by the browser provider.  
+and for retaining a copy in a **unique browser identification** database managed by the browser provider, 
+and accessed only by the **Validation Server**.  
 The unique string would be assigned at random and be of sufficient length to mitigate against a brute force attack.
 There would also be an embedded string representing the browser provider's public key.
 
-Metrics servers would check the cyphertext as it is received in the `browser` parameter 
-of each received ad event by delivering it to servers managed by the browser provider via a secure HTTP or other transaction, 
+**Metrics Servers** would check the cyphertext as it is received in the `browser` parameter 
+of each received ad event by delivering it to **Validation Servers** managed by the browser provider via an authenticated secure HTTP transaction, 
 which would respond with a single boolean value indicating the validity of the enclosed instance-unique string. 
-Only the validation server, i.e. provided by the browser provider, 
+Only the **Validation Server**, i.e. provided by the browser provider, 
 would have access to the private key and would never return or receive any personal data,
-other than that this instance-unique value is properly associated with an install or update event.
+other than that this instance-unique value is properly associated with an install or update event. **Validation Servers** would 
+only respond to properly recognised and authenticated **Metrics Servers**.
 
 Browser providers could also execute proprietary processes to detect illicit users of their installation or validation processes, 
 e.g. monitoring the IP source address of its initiators.
@@ -145,7 +160,8 @@ If illicit use is detected a unique string would still be returned,
 but it would not be recorded as valid in the provider's database. 
 This would avoid alerting the illicit user that their fraud technique had been recognised.
 
-No other information would be passed between the metrics and browser provider managed instance validation servers, ensuring the user cannot be tracked.
+No other information would be passed between the **Metrics Servers** and browser provider managed instance **Validation Servers**, 
+ensuring the user cannot be tracked.
 
 ## Prior Art
 *   John Wilander has proposed, and Apple's Safari and Mozilla's Firefox browsers have implemented, or are in the process of implementing, sophisticated controls over tracking cookies. "[Intelligent Tracking Prevention 2.2](https://webkit.org/blog/8828/intelligent-tracking-prevention-2-2/)"
