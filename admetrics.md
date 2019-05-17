@@ -17,17 +17,25 @@ create false ad viewing records, and lack of reliable metrics allow ads to appea
 
 ### Definitions
 
-**Metrics Database** a database of aggregated statistics derived from **Ad Metrics Messages** and guaranteed to contain no personal data about individuals.
+**Metrics Database**. A database of aggregated statistics derived from **Ad Metrics Messages** and guaranteed to contain no personal data about individuals.
 
-**Ad Metrics Messages** data items assembled into a URL query component indicating countable events to be aggregated into a **Metrics Database**, 
+**Ad Metrics Messages**. Data items assembled into a URL query component indicating countable events to be aggregated into a **Metrics Database**, 
 delivered over a secure HTTP connection with no cookies or other user identifying headers.
  
-**Metrics Server** Server{s} that receives ad metrics reporting messages from user agents, 
+**Metrics Server**. Server{s} that receives ad metrics reporting messages from user agents, 
 asks a **Validation Server** if they are from a properly installed browser instance, 
 and if they are increment the appropriate counts in an aggregated **Metrics Database**.
 
-**Validation Server** Server that supports an authenticated API to allow contracted **Metrics Servers** to determine
-if the **Ad Metrics Messages** it has received are from a properly installed user agent.
+**Unique Browser Identification Database**. A Database updated by the browser provider's installation and update processes. 
+It contains an entry containing the **Unique Browser ID** of every properly installed browser instance. 
+If browser providers suspect that a particular string is associated with a bot or fraudulent user its entry is removed.
+
+**Unique Browser ID**. Unique string to be embedded into each properly installed browser instance. 
+Its existence and/or value is never reported to external software i.e. by a Javascript API.
+
+**Validation Server**. Server that supports an authenticated API to allow contracted **Metrics Servers** to determine
+if the **Ad Metrics Messages** it has received are from a properly installed user agent,
+by referring to its **Unique Browser Identification Database**.
 
 ### Browser based ad metrics gathering
 
@@ -74,7 +82,7 @@ No cookies, or any other identifying headers such as Basic Authentication or cli
 and the target URL path would be restricted to a predefined and unmodifiable value in the IANA defined `.well-known` space.
 
 For example, a site with origin `example.com` would mark an element to trigger a remote count to be incremented when at least 80% of the pixels of 
-an advertisement identified by `id=30045`
+an advertisement identified by `id=A45`
 is actually viewable by a real user for at least 5 seconds (ignoring a 5px margin).
 
 ```
@@ -140,13 +148,13 @@ whenever the browser executable is updated, or at other times determined by the 
 An external service with suitable privacy guarantees could also be employed.
 The browser installation or update process would be responsible for creating a unique instance string 
 to be stenographically contained within the user agent's executable image, 
-and for retaining a copy in a **unique browser identification** database managed by the browser provider, 
+and for retaining a copy in a **Unique Browser Identification Database** managed by the browser provider, 
 and accessed only by the **Validation Server**.  
 The unique string would be assigned at random and be of sufficient length to mitigate against a brute force attack.
 There would also be an embedded string representing the browser provider's public key.
 
 **Metrics Servers** would check the cyphertext as it is received in the `browser` parameter 
-of each received ad event by delivering it to **Validation Servers** managed by the browser provider via an authenticated secure HTTP transaction, 
+of each received ad event by delivering it to **Validation Servers** managed by the browser provider via an authenticated and secure HTTP transaction, 
 which would respond with a single boolean value indicating the validity of the enclosed instance-unique string. 
 Only the **Validation Server**, i.e. provided by the browser provider, 
 would have access to the private key and would never return or receive any personal data,
