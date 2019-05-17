@@ -5,7 +5,7 @@ W3C Web Advertising Business Group
 
 Author: Michael Kleber <[kleber@google.com](mailto:kleber@google.com)\>
 
-Draft, updated 2019-05-14
+Draft, updated 2019-05-17
 
 ## Purpose
 
@@ -28,6 +28,16 @@ Capabilities here are well-developed, but there are a lot of events that can be 
 The ability to tie together two events on different domains has historically relied on 3rd-party cookies.  There is room for Web platform APIs that allow measurement in which the user agent helps tie together two events, without needing or providing any common notion of identity.
 
 * Ad click attribution / conversion measurement.  The WebKit [Ad Click Attribution for the Web draft spec](https://trac.webkit.org/wiki/ad-click-attribution-draft-spec) describes one approach, with privacy properties based on capping the amount of information allowed in a measurement.  Mozilla's [experiments with Prio](https://hacks.mozilla.org/2018/10/testing-privacy-preserving-telemetry-with-prio/) and the [Secure Aggregatation component of Google's Federated Learning](https://federated.withgoogle.com/) are examples of infrastructure that could support another approach, with privacy based on requiring some level of aggregation across many users.
+
+* Audience measurement.  The key ability here is to count the numer of _different_ users for whom some event happened — that is, the combination of some "Measurement of Specific Single-Domain Events" use case with cross-site de-duplication.  As long as the population being counted is large enough, this measurement be revealed while preserving users' privacy.
+
+  There are several layers of complexity in the setup for audience measurement:
+  
+  - In the simple version of this use case, a single party knows everything about the event that took place.  Example: counting the number of people who saw a particlar ad.
+  
+  - An extra layer of complexity arises when there are two parties who each know something about the event which they do not want to share with each oher, but they wish to learn joint distribution statistics.  For example, one party knows what ad was just shown and another party knows the demographics of the user it was shown to, and they want to learn an aggregate like "Number of women age 18-34 in NYC who saw this ad".
+  
+  - Further complexity is introduced if a party knows some data about a user while they are visiting one site, but want to count events sliced by that data while the user is visiting a different site.  Here it might be possible to preserve user privacy while at the same time having the browser transport the per-user data across site boundaries, but the question is much more subtle and relies on aggregation for a level of protection beyond mere deduplication.
 
 ### A/B Experimentation
 
