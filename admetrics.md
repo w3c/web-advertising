@@ -44,26 +44,29 @@ and are also in the best position to determine if real people are seeing or inte
 The proportion of pixels in view can be measured to trigger viewability events, and user interaction or conversion can be detected
 over arbitrary periods of time.  
 
-The risk to privacy only occurs when data related to particular individuals is communicated. 
-As long as the data is provably inaccessible to others, it makes little difference to the individual that data about them is held within their browser.
-
 What is needed is a privacy protective and secure way to communicate this information, 
 making aggregated statistics derived from it available for recording
 by advertisers and external “audience measurement” servers, in such a way that the user can not be identified or "singled-out".
+
+The risk to privacy only occurs when data related to individuals is collected and processed.
+As long as the metrics data is aggregated in counts relating to a big enough number of people,
+and it is impossible to extract data related to the component individuals, the risk to their privacy is insignificant.
 
 In addition the protocol used to communicate the data must allow the receiving server (or servers) to detect with some certainty 
 whether the data relates to a real human being, i.e. to detect ad fraud.
 Because the protocol is purpose designed it should be possible to deliver fraud detection capability with at least an 
 order of magnitude improvement over what is attained at present.
 
+
 ### Ads identified in markup
 
 HTML elements, (e.g. div elements) containing advertising content would be declared within an `ad` attribute identifying it as such to the user agent. 
-This attribute informs the user agent about what user interaction events such as visibility are to be measured, and to what metrics servers
-event data should be sent. 
+This attribute informs the user agent about what user interaction events such as visibility are to be measured, and lists the metrics servers
+where event data should be sent. 
 
 Metrics servers are defined by their domain origin, the user agent appending to it a fixed path `.well-known/admetrics` and a query string 
-to convey the minimum level of event information required to increment the appropriate data count at the metrics server.
+to convey the minimum level of event information required to increment the appropriate data count at the metrics server. 
+The domain origin should be a top-level domain i.e. arbitrary CNAMEs (subdomains) would not be allowed.
 
 Browser providers may choose to add a reference to a controlled or externally recognised metrics 
 server to act as an overall check of the validity of the aggregated metrics.
@@ -78,15 +81,15 @@ the events in the store are processed, filtered, and assembled into HTTP HEAD re
 
 The data transported by the HTTP request must be restricted so that the user can not be identified, 
 i.e. they cannot be singled-out. 
-No cookies, or any other identifying headers such as Basic Authentication or client certificates, would be transmitted, 
-and the target URL path would be restricted to a predefined and unmodifiable value in the IANA defined `.well-known` space.
+No cookies, or any other identifying headers such as Basic Authentication or client certificates, would be transmitted. 
+To stop data being incorporated into URLs the target path component is restricted to a predefined and unmodifiable value in the IANA defined `.well-known` space.
 
 For example, a site with origin `example.com` would mark an element to trigger a remote count to be incremented when at least 80% of the pixels of 
 an advertisement identified by `id=A45`
 is actually viewable by a real user for at least 5 seconds (ignoring a 5px margin).
 
 ```
-<div ad=“domain=audiencemeasurement.com;id=A45;triggertype=viewable;triggerKey=42;margin=5px;threshold=0.8;after=5000“>
+<div ad=“recordDomain=audiencemeasurement.com;id=A45;triggerIype=viewable;triggerKey=42;margin=5px;threshold=0.8;after=5000“>
 
 … advertisement content
 
@@ -104,7 +107,7 @@ An HTTP HEAD request would be sent, i.e. no request or response entity, the user
 ```
 HEAD https://audiencemeasurement.com/.well-known/admetrics?id=A45;triggerKey=42;origin=example.com;browser=a3d24b56789 HTTP/1.1
 
-Host: metrics.audiencemeasurement.com
+Host: audiencemeasurement.com
 ```
 
 An element can have multiple `ad` attributes so different triggers could be set for the same element, 
@@ -147,7 +150,7 @@ The test to distinguish a human user from a robot would be done at install time,
 whenever the browser executable is updated, or at other times determined by the browser provider. 
 An external service with suitable privacy guarantees could also be employed.
 The browser installation or update process would be responsible for creating a unique instance string 
-to be stenographically contained within the user agent's executable image, 
+to be stenographically embedded within the user agent's executable image, 
 and for retaining a copy in a **Unique Browser Identification Database** managed by the browser provider, 
 and accessed only by the **Validation Server**.  
 The unique string would be assigned at random and be of sufficient length to mitigate against a brute force attack.
@@ -171,7 +174,18 @@ This would avoid alerting the illicit user that their fraud technique had been r
 No other information would be passed between the **Metrics Servers** and browser provider managed instance **Validation Servers**, 
 ensuring the user cannot be tracked.
 
-## Prior Art
+### Recording intermediate results
+
+Browsers would have to record audience categorisation data or intermediate events 
+in order to detect complex user interaction with advertisements such as conversion. 
+To maintain the commitment not to communicate personal data this internal state should
+be inaccessible to external APIs such as JavaScript.
+
+Advertisement markup, e.g. further parameters to the `ad` attribute would then allow for metrics events to set internal boolean state variables, 
+and define conditional statements so that **Ad Metrics Messages** can be created with input from previously recorded state.
+
+
+### Prior Art
 *   John Wilander has proposed, and Apple's Safari and Mozilla's Firefox browsers have implemented, or are in the process of implementing, sophisticated controls over tracking cookies. "[Intelligent Tracking Prevention 2.2](https://webkit.org/blog/8828/intelligent-tracking-prevention-2-2/)"
 *   Mike West has proposed that embedded resources should have to explicitly declare cross-origin cookies. "[Incrementally Better Cookies](https://mikewest.github.io/cookie-incrementalism/draft-west-cookie-incrementalism.html)"
 *   Also, he has proposed a mechanism which allows HTTP servers to maintain stateful sessions with user agents, 
