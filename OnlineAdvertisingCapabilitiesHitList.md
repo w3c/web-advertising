@@ -3,7 +3,10 @@
 Discussion Paper for the
 W3C Web Advertising Business Group
 
-Author: Michael Kleber <[kleber@google.com](mailto:kleber@google.com)\>
+Authors: 
+Michael Kleber <[kleber@google.com](mailto:kleber@google.com)\>
+Sanjay Saravanan <[ssanjay@fb.com](mailto:ssanjay@fb.com)\>
+
 
 Draft, updated 2019-05-14
 
