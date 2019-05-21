@@ -1,4 +1,4 @@
-# Online Advertising Capabilities: Hit List
+# Online Advertising Measurement Capabilities: Hit List
 
 Discussion Paper for the
 W3C Web Advertising Business Group
