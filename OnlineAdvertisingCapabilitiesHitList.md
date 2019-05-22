@@ -41,7 +41,7 @@ The ability to tie together two events on different domains has historically rel
 
 ### A/B Experimentation
 
-Some questions about the impact of ads are best answered by comparing the overall behavior of two groups of users — for example, one group who are exposed to the ads and one group who are not.
+Some questions about the impact of ads are best answered by comparing the overall behavior of two groups of users — for example, one group who are exposed to the ads and one group who are not.  Experiments are widespread — solutions here should accomodate hundreds of different parties wanting to run experiments, and parties running millions of experiments at a time.
 
 * Treatment on a Single Domain.
 
