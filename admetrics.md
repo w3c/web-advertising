@@ -8,7 +8,8 @@ The online advertisment ecosystem needs accurate information about how often adv
 and when they are viewed. Advertisers need to know where and how often their ads are showing to real people, 
 and publishers need to be paid when their properties deliver ads.
 
-In situations where prior user consent is needed for personal data collection or terminal storage access,
+In situations where prior user consent is needed for personal data collection or terminal storage access, 
+e.g. where laws such as the EU's GDPR and ePrivacy Directive apply,
 or where user agents implement tracking protection e.g. Safari's ITP, 
 traditional cookie-based methods may not be available. 
 
@@ -31,7 +32,7 @@ It contains an entry containing the **Unique Browser ID** of every properly inst
 If browser providers suspect that a particular string is associated with a bot or fraudulent user its entry is removed.
 
 **Unique Browser ID**. Unique string to be embedded into each properly installed browser instance. 
-Its existence and/or value is never reported to external software i.e. by a Javascript API.
+Its existence and/or value is never reported to external software i.e. by a JavaScript API.
 
 **Validation Server**. Server that supports an authenticated API to allow contracted **Metrics Servers** to determine
 if the **Ad Metrics Messages** it has received are from a properly installed user agent,
@@ -183,6 +184,15 @@ be inaccessible to external APIs such as JavaScript.
 
 Advertisement markup, e.g. further parameters to the `ad` attribute would then allow for metrics events to set internal boolean state variables, 
 and define conditional statements so that **Ad Metrics Messages** can be created with input from previously recorded state.
+
+### Signaling conversion from sites/browsing contexts to user agents.
+
+Audience categorisation data, conversion events and other ad related data often needs to be communicated from a visited site,
+or from an associated browsing context. This could be done via an HTTP cookie which is deleted by the user agent as soon as it has detected it.
+The cookie could have a prefix name of __ADSignal, and the data could be the data to be communicated. 
+This technique could align well with user consent mechanisms whereby cookies 
+from all but specific origin are inhibited, only detectable when the user has agreed.
+
 
 
 ### Prior Art
