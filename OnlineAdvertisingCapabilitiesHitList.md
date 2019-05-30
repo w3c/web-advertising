@@ -52,3 +52,22 @@ Some questions about the impact of ads are best answered by comparing the overal
   The desire here is to run experiments that begin with dividing users into an A and a B group in a way that is consistent as they traverse multiple domains, without access to a shared cookie space or signed-in notion of the user's identity.
 
   This seems difficult.  One user might be in the A or B branches of many different experiments, run by many independent third-party contributors to a page's overall content.  Revealing each of dozens of independent A-vs-B assignments would readily fingerprint the user and introduce an undesirable tracking vector.   Some sort of "entropy budget" could mitigate the fingerprinting threat but might lead to race-condition competition for access to experiment state, which would be undesirable in many ways (including invalidating the experiment results).
+
+### Consent contingent signaling
+
+It would be valuable for users to control what advertisements they see, 
+which would help make the advertisements more effective. 
+At the moment ad "personalisation" is done via UID cookies with external services processing the personal data,
+but this is usually without the user being aware, and beyond their ability to control.
+If users were asked what data about themselves they were prepared to allow advertisers or intermediaries to use, e.g. their purchase intentions, 
+it could be far more accurate and users likewise more responsive to the ads.
+
+Browsers could have a role in enabling 1st party (e.g. publisher) sites to request such information and then communicate it in a
+site-specific manor to intermediaries i.e. embedded subresources on their sites.
+
+### Publisher controlled tracking protection.
+
+If publishers choose to implement some of the privacy preserving mechanisms proposed here or elsewhere, they
+may want to control how a subset of their embedded subresources have access to third-party cookies and the like.
+They might value the ability to constrain third-party cookies and other tracking by embedded subresources, for example
+by enforcing the `SameSite=Lax` attribute on embeddee `Set-Cookie` headers and `document.cookie` writes. 
