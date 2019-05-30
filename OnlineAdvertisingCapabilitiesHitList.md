@@ -69,5 +69,6 @@ site-specific manor to intermediaries i.e. embedded subresources on their sites.
 
 If publishers choose to implement some of the privacy preserving mechanisms proposed here or elsewhere, they
 may want to control how a subset of their embedded subresources have access to third-party cookies and the like.
-They might value the ability to constrain third-party cookies and other tracking by embedded subresources, for example
+If they are establishing user trust by taking care to minimise the broadcasting of personal data to third-parties they might value the ability
+to constrain third-party cookies and other tracking by embedded subresources, for example
 by enforcing the `SameSite=Lax` attribute on embeddee `Set-Cookie` headers and `document.cookie` writes. 
