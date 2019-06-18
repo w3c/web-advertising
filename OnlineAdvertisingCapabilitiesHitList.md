@@ -3,7 +3,7 @@
 Discussion Paper for the
 W3C Web Advertising Business Group
 
-Contributors include: Michael Kleber <[kleber@google.com](mailto:kleber@google.com)\>, Mike O'Neill <[michael.oneill@baycloud.com](mailto:michael.oneill@baycloud.com)\>
+Contributors include: Michael Kleber <[kleber@google.com](mailto:kleber@google.com)\>, Mike O'Neill <[michael.oneill@baycloud.com](mailto:michael.oneill@baycloud.com)\>, Sanjay Saravanan (Facebook)
 
 Draft
 
