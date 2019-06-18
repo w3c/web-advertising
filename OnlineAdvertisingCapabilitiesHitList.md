@@ -3,9 +3,9 @@
 Discussion Paper for the
 W3C Web Advertising Business Group
 
-Author: Michael Kleber <[kleber@google.com](mailto:kleber@google.com)\>
+Contributors include: Michael Kleber <[kleber@google.com](mailto:kleber@google.com)\>, Mike O'Neill <[michael.oneill@baycloud.com](mailto:michael.oneill@baycloud.com)\>
 
-Draft, updated 2019-05-17
+Draft
 
 ## Purpose
 
