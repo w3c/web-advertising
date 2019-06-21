@@ -23,6 +23,12 @@ Capabilities here are well-developed, but there are a lot of events that can be 
 
 * Viewability.  APIs like [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) and its [v2 successor](https://developers.google.com/web/updates/2019/02/intersectionobserver-v2) are examples of dedicated APIs for things that are otherwise hard to measure.
 
+#### Short-term Round Trip Communication Integrity
+
+Often a single server communicates with a single browser multiple times during the same page view — for example, serving an ad in response to an ad request, and later receiving some information about the user's interaction with that ad.  There is risk of fraud if the server can't tell whether the two requests really came from the same browser.  This need could be met with some notion of browser identity that is short-term (e.g. per-site per-day/hour/page) and provable (e.g. based on cryptography, not just a bearer token).  Without identity we are stuck relying on in-band signals, which are notoriously eaasy to forge.
+
+This is one tool to help with the "Fraud prevention" use case.
+
 ### Measurement of Related Cross-Domain Events
 
 The ability to tie together two events on different domains has historically relied on 3rd-party cookies.  There is room for Web platform APIs that allow measurement in which the user agent helps tie together two events, without needing or providing any common notion of identity.
