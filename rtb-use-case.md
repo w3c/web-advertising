@@ -35,7 +35,7 @@ RTB provides an open marketplace for publishers to more effectively monetize the
         1. In the case of streaming content ads (video, audio), the advertiser needs to know if the ads were fully or partially consumed
 1. Exchanges
     1. Needs a way to list publisher inventory
-    1. Needs a way to 
+    1. Needs a way to enable marketplace rules
 1. Marketplace
     1. Needs to know that transactions are accurate
     1. Needs to know that fraud is low or non-existent (along with a way to eject fraudulent actors)
