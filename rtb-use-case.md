@@ -1,6 +1,6 @@
 # Summary
 
-Real Time Bidding or RTB is a standard which establishes an open marketplace for online advertising.  A popular version of this standard is [OpenRTB](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf).
+Real Time Bidding or RTB is a standard which establishes an open marketplace for online advertising.  A popular version of this standard is [OpenRTB](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf).  The existence of this marketplace is critical to the advertising industry as it provides publishers a way to obtain fair value for their inventory and advertisers a way to improve the effectiveness of their advertising either by cost or effectiveness optimization.
 
 This use case is heavily dependant upon anonymous user-level tracking but it need not be.  At the end of the day, these exchanges do not exist to track users; they exist to enable a value exchange between publishers and advertisers.  If browsers are willing to act as a trust agent in this context, it is conceivable that an open advertising market could be created which is not dependant upon user-level cross-site tracking.
 
@@ -33,6 +33,7 @@ RTB provides an open marketplace for publishers to more effectively monetize the
         1. Needs to minimize and eliminate fraud where possible
         1. Needs to know at what rate an ad they paid for was seen
         1. In the case of streaming content ads (video, audio), the advertiser needs to know if the ads were fully or partially consumed
+    1. Needs optimization levers to improve bidding intelligence.
 1. Exchanges
     1. Needs a way to list publisher inventory
     1. Needs a way to enable marketplace rules
