@@ -19,7 +19,7 @@ RTB provides an open marketplace for publishers to more effectively monetize the
     1. After some time, the ad exchange will take the bids it has received and select a winner based on exchange and publisher bidding rules
     1. The winning ad is sent to the user's browser and loads from the user's browser
     1. The ad server which served the ad records this using data from the browser
-    1. In the ad itself, there are often additional third party trackers which enable verification to the advertiser
+    1. In the ad itself, there are often additional third party trackers which effectively serve to convince the advertiser that they received what they paid for when an ad was purchased.
 
 # What are the requirements of this use case?
 
