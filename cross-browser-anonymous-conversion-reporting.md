@@ -18,7 +18,7 @@ Ideally, we’d be able to sync the locally stored browser data between differen
 
 The example below shows a flow for a click-to-conversion report across different browsers:
 
-![diagram showing how click data could be synced across browsers](https://github.com/w3c/web-advertising/blob/master/Cross-Browser%20Anonymous%20Conversion%20Reporting.png)
+![diagram showing how click data could be synced across browsers](https://github.com/w3c/web-advertising/blob/master/images/Cross-Browser%20Anonymous%20Conversion%20Reporting.png)
 
 
 ## Threat Model:
@@ -92,7 +92,7 @@ In the following chart, I’ll try to explain what we believe to be tradeoffs be
 
 ## Abstract of approach #2 (browser vendors provide E2EE messaging service):
 
-![Abstract diagram outlining how end-to-end-encrypted syncing of data between two browsers would occur](https://github.com/w3c/web-advertising/blob/master/Abstract%20of%20Cross-Browser%20E2EE%20data%20syncing.png)
+![Abstract diagram outlining how end-to-end-encrypted syncing of data between two browsers would occur](https://github.com/w3c/web-advertising/blob/master/images/Abstract%20of%20Cross-Browser%20E2EE%20data%20syncing.png)
 
 * Similarly to how Signal / WhatsApp work, this would utilize asymmetric encryption.
 * Each browser would have a single, globally scoped public/private key-pair, randomly initialized at the time of installation.

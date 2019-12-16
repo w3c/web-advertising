@@ -17,7 +17,7 @@ For the sake of concreteness, we will use the following example:
 
 Before this process begins, both browsers have nothing that identifies them as being related in any way.
 
-![Step 0](https://github.com/w3c/web-advertising/blob/master/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%200.png)
+![Step 0](https://github.com/w3c/web-advertising/blob/master/images/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%200.png)
 
 ## Nomenclature:
 
@@ -38,7 +38,7 @@ Before this process begins, both browsers have nothing that identifies them as b
 * Upon login, this newly generated public-key is sent to twitter.com
 * Twitter.com stores this public-key and associates it with Ben’s account.
 
-![Step 0](https://github.com/w3c/web-advertising/blob/master/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%201.png)
+![Step 0](https://github.com/w3c/web-advertising/blob/master/images/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%201.png)
 
 ## Step 2: Ben logs into website #2 with browser #1
 
@@ -48,7 +48,7 @@ Before this process begins, both browsers have nothing that identifies them as b
 * Upon login, this newly generated public-key is sent to reddit.com
 * Reddit.com stores this public-key and associates it with Ben’s account.
 
-![Step 0](https://github.com/w3c/web-advertising/blob/master/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%202.png)
+![Step 0](https://github.com/w3c/web-advertising/blob/master/images/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%202.png)
 
 ## Step 3: Ben logs into website #1 with browser #2
 
@@ -61,7 +61,7 @@ Before this process begins, both browsers have nothing that identifies them as b
 * After Ben logs in, the Twitter website tells his Chrome browser about all the other public keys it knows about that are associated with his account (in this case, there is only one other and that is A<sub>TWTR</sub>@twitter)
 * Ben’s Chrome browser just stores this public key for now, and doesn’t do anything else.
 
-![Step 0](https://github.com/w3c/web-advertising/blob/master/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%203.png)
+![Step 0](https://github.com/w3c/web-advertising/blob/master/images/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%203.png)
 
 ## Step 4: Ben logs into website #2 with browser #2
 
@@ -74,7 +74,7 @@ Before this process begins, both browsers have nothing that identifies them as b
 * After Ben logs in, the Reddit website tells his Chrome browser about all the other public keys it knows about that are associated with his account (in this case, just A<sub>REDDIT</sub>@reddit)
 * Ben’s Chrome browser stores this public key
 
-![Step 0](https://github.com/w3c/web-advertising/blob/master/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%204.png)
+![Step 0](https://github.com/w3c/web-advertising/blob/master/images/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%204.png)
 
 ## Step 5: Ben’s browser #2 sends a message to website #2
 
@@ -87,7 +87,7 @@ Before this process begins, both browsers have nothing that identifies them as b
 * In that world, both of Ben’s browsers have a globally scoped public/private keypair that was initialized at installation time.
 * It is this global public key that is sent across as the message body.
 
-![Step 0](https://github.com/w3c/web-advertising/blob/master/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%205.png)
+![Step 0](https://github.com/w3c/web-advertising/blob/master/images/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%205.png)
 
 ## Step 6: Ben logs into website #2 with browser #1 a second time
 
@@ -104,7 +104,7 @@ Before this process begins, both browsers have nothing that identifies them as b
 * It adds this public key to its globally scoped “contact list”.
 * From this point onwards, Ben’s Safari browser can start sending end-to-end-encrypted messages to his Chrome browser. Each time there is an ad click / opportunity it can send a message to Chrome’s server-side infrastructure, addressed to the public key we are calling B<sub>GLOBAL</sub>@chrome
 
-![Step 0](https://github.com/w3c/web-advertising/blob/master/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%206.png)
+![Step 0](https://github.com/w3c/web-advertising/blob/master/images/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%206.png)
 
 ## Step 7: Ben logs into website #1 with browser #1 a second time
 
@@ -116,7 +116,7 @@ Before this process begins, both browsers have nothing that identifies them as b
 * encrypted_message_payload = AsymmetricEncrypt(public_key: B<sub>REDDIT</sub>@reddit, data_to_encrypt: A<sub>GLOBAL</sub>@safari)
 * Twitter stores this encrypted message with Ben’s account
 
-![Step 0](https://github.com/w3c/web-advertising/blob/master/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%207.png)
+![Step 0](https://github.com/w3c/web-advertising/blob/master/images/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%207.png)
 
 ## Step 8: Ben logs into website #1 with browser #2 a second time
 
@@ -131,7 +131,7 @@ Before this process begins, both browsers have nothing that identifies them as b
 * It adds this public key to its globally scoped “contact list”.
 * From this point onwards, Ben’s Chrome browser can start sending end-to-end-encrypted messages to his Safari browser. Each time there is an ad click / opportunity it can send a message to Safari’s server-side infrastructure, addressed to the public key we are calling A<sub>GLOBAL</sub>@safari
 
-![Step 0](https://github.com/w3c/web-advertising/blob/master/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%208.png)
+![Step 0](https://github.com/w3c/web-advertising/blob/master/images/Identity%20Provider%20facilitated%20browser%20discovery%20mechanism%20-%20step%208.png)
 
 ## Summary
 

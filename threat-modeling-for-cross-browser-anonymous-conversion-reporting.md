@@ -18,19 +18,19 @@ One mitigation we can put in place, is to have “Identity Provider” websites 
 
 I have enabled 2-fac confirmation for my Facebook account, so here is what I see when I log-in to Facebook from a new browser:
 
-![2fac popup shown when a new browser signs into my Facebook account](https://github.com/w3c/web-advertising/blob/master/2fac_popup.jpg)
+![2fac popup shown when a new browser signs into my Facebook account](https://github.com/w3c/web-advertising/blob/master/images/2fac_popup.jpg)
 
 Notice the mobile notification at the top as well as well as the requirement to input a code. I can validate this browser either way. If I tap that notification, it opens the Facebook app, where I have a new notification. Here is what that notification shows me:
 
-![Step 1 of the flow to allow a new browser to access my Facebook account](https://github.com/w3c/web-advertising/blob/master/review_recent_login1.jpg)
+![Step 1 of the flow to allow a new browser to access my Facebook account](https://github.com/w3c/web-advertising/blob/master/images/review_recent_login1.jpg)
 
 Clicking “continue” shows the following screen:
 
-![Step 2 of the flow to allow a new browser to access my Facebook account](https://github.com/w3c/web-advertising/blob/master/review_recent_login2.jpg)
+![Step 2 of the flow to allow a new browser to access my Facebook account](https://github.com/w3c/web-advertising/blob/master/images/review_recent_login2.jpg)
 
 Clicking on “This was me” shows the following:
 
-![Step 3 of the flow to allow a new browser to access my Facebook account](https://github.com/w3c/web-advertising/blob/master/review_recent_login3.jpg)
+![Step 3 of the flow to allow a new browser to access my Facebook account](https://github.com/w3c/web-advertising/blob/master/images/review_recent_login3.jpg)
 
 Not all people have enabled 2-fac, and it would be a big ask to get Social Media websites to require this for all users. We can opt for a reasonable middle-ground where “Identity Provider” websites alert users when a suspicious log-in happens (e.g. from an IP address from a totally unexpected location). We can also ask “Identity Providers” to all offer 2-fac as an option for their users, and push it with upsells (as Gmail currently does).
 
@@ -50,7 +50,7 @@ We probably want to make trust “transitive” to avoid seeing this same confir
 
 Here’s a super-rough mock up of how this flow might look:
 
-![Mockup of what a dialog might look like in a mobile browser, asking someone to confirm that a newly connected browser belongs to them](https://github.com/w3c/web-advertising/blob/master/mockup_of_new_browser_confirmation_dialog.png)
+![Mockup of what a dialog might look like in a mobile browser, asking someone to confirm that a newly connected browser belongs to them](https://github.com/w3c/web-advertising/blob/master/images/mockup_of_new_browser_confirmation_dialog.png)
 
 This extra data about the device where the browser is installed, and an image (or phrase) that represents this device could also be sent along with the encrypted message. Ideally the image (or phrase) would be derived directly from the globally scoped public key, so that it’s not spoofable.
 
