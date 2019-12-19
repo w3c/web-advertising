@@ -26,3 +26,4 @@ We have also been gathering links to outside resources in [issue 22](https://git
 * [Privacy considerations](https://w3c.github.io/privacy-considerations/)
 * [Aggregate reporting API](https://github.com/csharrison/aggregate-reporting-api)
 * [IP Blindness](https://github.com/bslassey/ip-blindness/)
+* [Federated Learning of Cohorts FLoC](https://github.com/jkarlin/floc)
