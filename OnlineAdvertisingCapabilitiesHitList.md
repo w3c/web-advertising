@@ -25,7 +25,7 @@ Capabilities here are well-developed, but there are a lot of events that can be 
 
 #### Short-term Round Trip Communication Integrity
 
-Often a single server communicates with a single browser multiple times during the same page view — for example, serving an ad in response to an ad request, and later receiving some information about the user's interaction with that ad.  There is risk of fraud if the server can't tell whether the two requests really came from the same browser.  This need could be met with some notion of browser identity that is short-term (e.g. per-site per-day/hour/page) and provable (e.g. based on cryptography, not just a bearer token).  Without identity we are stuck relying on in-band signals, which are notoriously eaasy to forge.
+Often a single server communicates with a single browser multiple times during the same page view — for example, serving an ad in response to an ad request, and later receiving some information about the user's interaction with that ad.  There is risk of fraud if the server can't tell whether the two requests really came from the same browser.  This need could be met with some notion of browser identity that is short-term (e.g. per-site per-day/hour/page) and provable (e.g. based on cryptography, not just a bearer token).  Without identity we are stuck relying on in-band signals, which are notoriously easy to forge.
 
 This is one tool to help with the "Fraud prevention" use case.
 
