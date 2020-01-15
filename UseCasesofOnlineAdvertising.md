@@ -9,7 +9,7 @@ Contibutors:
 
 Draft, updated 2019-04-17
 
-This document describes event sequences supporting modern online advertising. Many details are elided. There is a significant amount of tutorial literature available which can be used to fill in the details and omissions that are necessarily present in this summary document.
+This document describes event sequences supporting modern online advertising. Many details are elided. There is a significant amount of tutorial literature available which can be used to fill in the details and omissions that not are necessarily present in this summary document.
 
 ## Dramatis Personae
 
