@@ -63,7 +63,7 @@ The web advertising ecosystem is a collaboration among many parties.  Common des
 
 ### Background Activities
 
-*   Counting jof a Page Delivered occurs at the Publisher Web App (Web Site)
+*   Counting of a Page Delivered occurs at the Publisher Web App (Web Site)
 *   Counting of a Sale occurs at the Ad Market
 *   Counting of a Page Viewed occurs a the Creative Payload service.
 
