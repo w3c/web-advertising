@@ -28,3 +28,4 @@ We have also been gathering links to outside resources in [issue 22](https://git
 * [IP Blindness](https://github.com/bslassey/ip-blindness/)
 * [FLoC: Federated Learning of Cohorts](https://github.com/jkarlin/floc)
 * [PIGIN: Private Interest Groups, Including Noise](https://github.com/michaelkleber/pigin)
+* [TURTLEDOVE](https://github.com/michaelkleber/turtledove)
