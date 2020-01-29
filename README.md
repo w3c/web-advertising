@@ -19,6 +19,7 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
   * [Browser API for Private Lift Measurement - Third Party](private-lift-measurement-third-party.md)
 * [Real-Time Bidding Use Case](rtb-use-case.md)
 * [Threat modeling for Cross-Browser Anonymous Conversion Reporting](threat-modeling-for-cross-browser-anonymous-conversion-reporting.md)
+* [PETREL](PETREL.md)
 
 # Ideas and Proposals (links outside this repo)
 * [Private fraud prevention](https://github.com/siyengar/private-fraud-prevention)
