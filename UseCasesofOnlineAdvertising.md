@@ -9,7 +9,7 @@ Contibutors:
 
 Draft, updated 2019-04-17
 
-This document describes event sequences supporting modern online advertising. Many details are elided. There is a significant amount of tutorial literature available which can be used to fill in the details and omissions that are necessarily present in this summary document.
+This document describes event sequences supporting modern online advertising. Many details are elided. There is a significant amount of tutorial literature available which can be used to fill in the details and omissions that are not necessarily present in this summary document.
 
 ## Dramatis Personae
 
@@ -63,7 +63,7 @@ The web advertising ecosystem is a collaboration among many parties.  Common des
 
 ### Background Activities
 
-*   Counting jof a Page Delivered occurs at the Publisher Web App (Web Site)
+*   Counting of a Page Delivered occurs at the Publisher Web App (Web Site)
 *   Counting of a Sale occurs at the Ad Market
 *   Counting of a Page Viewed occurs a the Creative Payload service.
 
