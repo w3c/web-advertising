@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <meta name=description><meta name=viewport content="width=device-width, initial-scale=1">
+    <title>Web Advertising BG Tracker</title>
+    <link rel=stylesheet href=styles/main.css>
+  </head>
+  <body>
+    <header class="app-bar promote-layer">
+      <div class=app-bar-container>
+        <h1 class=logo><strong>Web Advertising BG Tracker</strong></h1>
+      </div>
+    </header>
+    <main></main>
+    <script id=entry-template type=text/x-handlebars-template>{{#if error}} <h3>{{ name }} - <b>Error:</b> {{ error.message }}</h3> {{else}} {{#if issues}} <section> <h2>{{ name }}</h2> {{#each issues}} <div> <h4> <a href="{{ html_url }}">{{ title }}</a> </h4> <div style="font-style: italic"> {{#if pull_request}} <strong>pull request</strong> - {{/if}} <span class="{{#ifCond comments '>' 0}} color--green {{else}} color--red {{/ifCond}}"> {{comments}} {{pluralize comments "comment" "comments" }} </span> - <span> last update: <i class="{{dateColor updated_at}}">{{dateFormat updated_at}}</i> </span> - <span>assignee: {{#if assignee}} <i class="color--green">{{ assignee.login }}</i> {{else}} <i class="color--red">none</i> {{/if}} </span> <span> - {{ milestone.title }}</span> {{#if labels}} - {{# each labels}} <span style="color: #{{color}}">{{name}}</span> {{/each}} {{/if}} </div> </div> {{/each}} </section> {{else}} <section> <h2>{{ name }}: <strong>ready</strong></h2></section> {{/if}} {{/if}}</script><script src=scripts/main.min.js></script></body></html>
