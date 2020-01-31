@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-US" data-apiary-key="oq0abw4w2bkwcs0k0kws44sok4cg48w" data-gid='103226'>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title class='group-data' data-query='group'>${name}</title>
+  <meta name="description" content="A group page">
+  <link rel="preconnect" href="https://api.w3.org" />
+  <link rel="preconnect" href="https://w3c.github.io" />
+  <!--
+    To get your own API key, go to https://www.w3.org/users/myprofile/apikeys
+  -->
+  <style>
+    @keyframes fadeInOpacity {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      max-width: 1240px;
+      margin: 0 auto;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      padding: 0 0.25cm;
+    }
+
+    a:link,
+    a:visited {
+      text-decoration: none;
+      color: #0d1321;
+    }
+
+    a:hover {
+      color: #1955a5;
+    }
+
+    dl,
+    h1,
+    h2,
+    ul,
+    p {
+      margin: 0;
+      padding: 0;
+      font-weight: normal;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 2rem 0 4rem;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-weight: normal;
+      color: #0d1321;
+      font-size: 1.7em;
+    }
+
+    header p {
+      flex: 100%;
+      padding: 0 0em 0;
+    }
+
+    header nav a:hover {
+      color: black;
+      padding-bottom: 0.1cm;
+      border-bottom: 0.1cm solid black;
+    }
+
+    main {
+      margin-bottom: 4rem;
+    }
+
+    nav {
+      flex-grow: 1;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    header nav ul li:not(:first-child) {
+      margin-left: 0.5cm;
+    }
+
+    header li {
+      margin: 0;
+      padding: 0;
+    }
+
+    main section {
+      display: flex;
+      align-items: center;
+      align-items: stretch;
+      margin-bottom: 1cm;
+    }
+
+    main section>h2 {
+      font-size: 1.3em;
+      min-width: 4cm;
+      font-weight: bold;
+    }
+
+    #specs dl,
+    #repos dl,
+    #events dl {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 0;
+      max-height: 1000vh;
+      transition: max-height 5s ease-in-out 0s;
+      overflow: hidden;
+    }
+
+    #specs .status,
+    #repos .type {
+      color: #333;
+    }
+
+    #specs div,
+    #repos div,
+    #events div {
+      flex: 1 0 35%;
+      margin-bottom: 0.5cm;
+      opacity: 1;
+      max-width: calc(50% - 0.4cm);
+      animation-name: fadeInOpacity;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in;
+      animation-duration: 1s;
+    }
+
+    #specs dd,
+    #repos dd,
+    #events dd {
+      margin: 0.1cm 0 0 0;
+      font-size: 0.8em;
+      color: #555;
+    }
+
+    #about {
+      height: 3cm;
+      display: flex;
+      align-items: stretch;
+      margin-bottom: 3rem;
+    }
+
+    #about * {
+      flex: 1;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #about h2 {
+      color: #748cab;
+      background-color: #1d2d44;
+    }
+
+    #about p {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    footer {
+      padding: 1cm 1cm;
+      border-bottom: thin solid silver;
+      border-top: thin solid silver;
+      margin-bottom: 1cm;
+    }
+
+    footer ul {
+      align-items: stretch;
+    }
+
+    footer nav ul {
+      justify-content: space-between;
+      align-items: stretch;
+    }
+
+    .loading {
+      height: 1.5cm;
+    }
+
+    #participations {
+      columns: 4;
+      column-gap: 2cm;
+    }
+
+    #participations li {
+      margin-bottom: 0.2cm;
+      break-inside: avoid;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 0;
+      }
+
+      header {
+        color: white;
+        display: flex;
+        margin: 0;
+        background: black;
+        padding: 0.2cm 0cm;
+      }
+
+      header h1 {
+        flex: 1;
+        order: 1;
+        font-weight: bold;
+        font-size: 1em;
+        text-align: center;
+        color: white;
+      }
+
+      header p {
+        order: 2;
+        font-size: 0.8em;
+        text-align: center;
+        flex: 100%;
+      }
+
+      header nav {
+        margin-top: 0.25cm;
+        order: 3;
+        padding: 0 0.2cm;
+      }
+
+      header nav ul {
+        padding: 0.2cm 0.2cm;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      header nav ul li:not(:first-child) {
+        margin-left: 0.3cm;
+      }
+
+      header nav a:link,
+      header nav a:visited {
+        color: white;
+      }
+
+      main section:first-child {
+        margin-top: 1cm;
+      }
+
+      main section {
+        display: block;
+        padding: 0 1cm;
+      }
+
+      main section h2 {
+        margin-bottom: 0.5cm;
+      }
+
+      #specs div {
+        flex: 1 0 100%;
+        max-width: unset;
+      }
+
+      main {
+        margin-bottom: 0;
+      }
+
+      #participations {
+        columns: 2;
+      }
+
+      footer {
+        padding: 0.2cm 0 0.2cm 0;
+        border-bottom: thin solid silver;
+        border-top: thin solid silver;
+        font-size: 0.75em;
+        margin-bottom: 1cm;
+      }
+
+      footer nav {
+        padding: 0 0.2cm;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class='group-data' data-query='group'>
+    <h1>${name}</h1>
+    <nav>
+      <ul data-query="services.*[type=lists]">
+        <div data-if="::self[link=Archives/Public]"><li><a href="${link}">${shortdesc}</li></div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class='group-data' data-query='group'>
+    <section id="mission">
+      <h2>Mission</h2>
+      <p>${description}</p>
+    </section>
+    <section>
+      <h2>Members</h2>
+      <ul id="participations" data-query="participations.*[individual=false]">
+        <li>${title}</li>
+      </ul>
+    </section>
+    <div data-if="participations.*[invited-expert=true]">
+      <section>
+        <h2>Invited Experts</h2>
+        <ul id="participations" data-query="participations.*[invited-expert=true]">
+          <li>${title}</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer class='group-data' data-query='group'>
+    <nav>
+      <ul>
+        <li>
+          <a href="https://www.w3.org/Consortium/cepc/">Code of conduct</a>
+        </li>
+        <li>
+          <a href="https://www.w3.org/Consortium/membership">Membership</a>
+        </li>
+        <li><a href="https://www.w3.org/Consortium/">About W3C</a></li>
+        <li>
+          <a href="${join}">Join</a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+
+
+  <script type="module">
+    import { fetchGroup, setW3CKey } from 'https://w3c.github.io/gargantua/w3c.js';
+    import jsonrender from 'https://w3c.github.io/gargantua/jsonrender.js';
+
+    setW3CKey(document.documentElement.getAttribute("data-apiary-key"));
+
+    let gid = document.documentElement.getAttribute("data-gid");
+
+    (function () {
+      let ngid = (new URL(document.location)).searchParams.get("gid");
+      if (!ngid) {
+        const matches = document.location.toString().match(new RegExp("([0-9]+)", "g"));
+        if (matches.length > 0) {
+          const last = matches[matches.length - 1];
+          if (last.length > 4)
+            ngid = last;
+        }
+      }
+      if (ngid) gid = ngid;
+      fetchGroup(gid).then(group => {
+        let elts = document.querySelectorAll("*.group-data");
+        for (let element of elts) jsonrender({ group: group }, element);
+      });
+    })();
+
+  </script>
+
+</body>
+
+</html>
