@@ -72,4 +72,4 @@ The web advertising ecosystem is a collaboration among many parties.  Common des
 *   There may be many marketplaces (Steps 5 & 6) in a cascade or waterfall.
 *   There may be many creative payload services (Steps 7 & 8), each providing a different business capability: fraud mitigation, visibility verification, conversion counting, and so forth.
 *   The UserBrowser may solicit from multiple marketplaces simultaneously, resolving the winner in the consumer premises equipment.
-*   Each marketplace may have a deeper structure with subcalls to other services and other marketplaces with whch they trade.
+*   Each marketplace may have a deeper structure with subcalls to other services and other marketplaces with which they trade.
