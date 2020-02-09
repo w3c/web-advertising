@@ -35,13 +35,13 @@
 </script>
 
 
-    <div class="abc1" ad=“domain=audiencemeasurement.com;id=30045;triggertype=viewable;triggerKey=abc1;margin=5px;threshold=0.8;after=5000“>
+    <div class="abc1" ad=â€œdomain=audiencemeasurement.com;id=30045;triggertype=viewable;triggerKey=abc1;margin=5px;threshold=0.8;after=5000â€œ>
         ... render ad 1
     </div>
-    <div class="abc2" ad=“domain=audiencemeasurement.com;id=30045;triggertype=viewable;triggerKey=abc2;margin=5px;threshold=0.8;after=5000“>
+    <div class="abc2" ad=â€œdomain=audiencemeasurement.com;id=30045;triggertype=viewable;triggerKey=abc2;margin=5px;threshold=0.8;after=5000â€œ>
         ... render ad 2
     </div>
-    <div class="abc3"  ad=“domain=audiencemeasurement.com;id=30045;triggertype=viewable;triggerKey=abc3;margin=5px;threshold=0.8;after=5000“>
+    <div class="abc3"  ad=â€œdomain=audiencemeasurement.com;id=30045;triggertype=viewable;triggerKey=abc3;margin=5px;threshold=0.8;after=5000â€œ>
         ... render ad 3
     </div>
 ```
