@@ -2,6 +2,8 @@
 
 Raise issues, add drafts. As you add a document, feel free to add a PR for its description to the README.
 
+[Dashboard](https://w3c.github.io/web-advertising/dashboard/)
+
 # Introductory material
 
 * [Use Cases of Online Advertising](UseCasesofOnlineAdvertising.md) "Hello Ads," an introduction to the online advertising ecosystem
