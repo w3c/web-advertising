@@ -1,7 +1,6 @@
 ---
 name: Use case template
-about: Proposed template for collating use cases for the W3C web advertising
-  group
+about: Use this template to describe a use case for the W3C web advertising group
 title: "[Use Case]"
 labels: ''
 assignees: ''
