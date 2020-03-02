@@ -1,0 +1,15 @@
+[
+  {"name":"Web Advertising BG","repo":"w3c/web-advertising"},
+  {"name":"Private fraud prevention", "repo":"siyengar/private-fraud-prevention"},
+  {"name":"Conversion measurement API","repo":"csharrison/conversion-measurement-api"},
+  {"name":"Ad click attribution","repo":"WICG/ad-click-attribution"},
+  {"name":"Trust token API","repo":"dvorak42/trust-token-api"},
+  {"name":"Privacy budget","repo":"bslassey/privacy-budget"},
+  {"name":"First party sets","repo":"mikewest/first-party-sets"},
+  {"name":"Privacy considerations","repo":"w3c/privacy-considerations"},
+  {"name":"Aggregate reporting API","repo":"csharrison/aggregate-reporting-api"},
+  {"name":"IP Blindness","repo":"bslassey/ip-blindness"},
+  {"name":"FLoC: Federated Learning of Cohorts","repo":"jkarlin/floc"},
+  {"name":"PIGIN: Private Interest Groups, Including Noise","repo":"michaelkleber/pigin"},
+  {"name":"TURTLEDOVE","repo":"michaelkleber/turtledove"}
+]
