@@ -5,7 +5,7 @@
   {"name":"Ad click attribution","repo":"WICG/ad-click-attribution"},
   {"name":"Trust token API","repo":"dvorak42/trust-token-api"},
   {"name":"Privacy budget","repo":"bslassey/privacy-budget"},
-  {"name":"First party sets","repo":"mikewest/first-party-sets"},
+  {"name":"First party sets","repo":"krgovind/first-party-sets"},
   {"name":"Privacy considerations","repo":"w3c/privacy-considerations"},
   {"name":"Aggregate reporting API","repo":"csharrison/aggregate-reporting-api"},
   {"name":"IP Blindness","repo":"bslassey/ip-blindness"},

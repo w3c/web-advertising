@@ -31,7 +31,7 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [Trust token API](https://github.com/dvorak42/trust-token-api)
 * [Tracking prevention policy](https://webkit.org/tracking-prevention-policy/)
 * [Privacy budget](https://github.com/bslassey/privacy-budget)
-* [First party sets](https://github.com/mikewest/first-party-sets)
+* [First party sets](https://github.com/krgovind/first-party-sets)
 * [Privacy considerations](https://w3c.github.io/privacy-considerations/)
 * [Aggregate reporting API](https://github.com/csharrison/aggregate-reporting-api)
 * [IP Blindness](https://github.com/bslassey/ip-blindness/)
