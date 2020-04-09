@@ -1,7 +1,7 @@
 [
   {"name":"Web Advertising BG","repo":"w3c/web-advertising"},
   {"name":"Private fraud prevention", "repo":"siyengar/private-fraud-prevention"},
-  {"name":"Conversion measurement API","repo":"csharrison/conversion-measurement-api"},
+  {"name":"Conversion measurement API","repo":"WICG/conversion-measurement-api"},
   {"name":"Ad click attribution","repo":"WICG/ad-click-attribution"},
   {"name":"Trust token API","repo":"dvorak42/trust-token-api"},
   {"name":"Privacy budget","repo":"bslassey/privacy-budget"},
