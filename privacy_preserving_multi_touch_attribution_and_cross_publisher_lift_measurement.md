@@ -14,7 +14,7 @@ Each conversion that occurs on an advertiser website is preceded by a history of
 
 Here are two “paths to conversion” from “Alice” and “Bob” to make this more concrete:
 
-![diagram showing Alice and Bob, each viewing and clicking ads across publishers A, B, and C prior to generating conversion events](https://github.com/w3c/web-advertising/blob/master/Path%20to%20conversion%20diagram.png)
+![diagram showing Alice and Bob, each viewing and clicking ads across publishers A, B, and C prior to generating conversion events](https://github.com/w3c/web-advertising/blob/master/images/Path%20to%20conversion%20diagram.png)
 
 When each publisher is only aware of the “path to conversion” on their own property, this leads to over-counting. To use the above example, this would mean:
 
@@ -76,17 +76,17 @@ We need to consider the privacy of the output statistic as well as the evaluatio
 
 Given that global differential privacy generally gives greater utility, we suggest a limited set of approved functions with formal differential privacy guarantees at the function output level. This is probably viable as there are a limited number of standard MTA approaches. Perhaps these functions could take a set of weights, or tuning parameters (where we could provide sensible limits of the valid values for those weights).
 
-In addition, if enabling arbitrary attributions functions is deemed necessary, we could employ local differential privacy on the input data, similar to that [proposed by Chrome for preserving privacy within conversion measurement](https://github.com/csharrison/conversion-measurement-api#privacy-considerations).
+In addition, if enabling arbitrary attribution functions is deemed necessary, we could employ local differential privacy on the input data, similar to that [proposed by Chrome for preserving privacy within conversion measurement](https://github.com/csharrison/conversion-measurement-api#privacy-considerations).
 
 ## Proposal #2: Private Cross-Publisher Lift
 
-We think it’s important to help publishers determine which multi-touch-attribution function they should use. We think that the best approach is the one provided to us by science, that is controlled experimental trials. 
+We think it’s important to help advertisers determine which multi-touch-attribution function they should use. We think that the best approach is the one provided to us by science, that is controlled experimental trials. 
 
 Previously, we shared a proposal for [“Private Lift Measurement”](https://github.com/w3c/web-advertising/blob/master/private-lift-measurement-conceptual-overview.md) with this group that provides a mechanism for measuring the “lift” driven by a single publisher or ad-network. We are now proposing an additional API for measuring “Cross publisher lift” which would help an advertiser understand the interaction effect when buying ads on two or more publishers. We think there is a place for both, and in all likelihood they will probably be used together in parallel. 
 
 ### How would “Cross Publisher Lift Measurement” work?
 
-If the publisher is running ads across 3 channels, and they wanted to understand the interaction effects of doing so, this is the data they would need:
+If the advertiser is running ads across 3 channels, and they wanted to understand the interaction effects of doing so, this is the data they would need:
 
 | Publisher A group | Publisher B group | Publisher C group | Total people in group | Total conversions from people in group | Sum of conversion value | Sum of squares of conversion value |
 |-------------------|-------------------|-------------------|-----------------------|----------------------------------------|-------------------------|------------------------------------|
