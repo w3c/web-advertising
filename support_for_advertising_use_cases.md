@@ -23,7 +23,7 @@ This document provides an overview of key advertising use cases that depend on c
   - [Exclusion Targeting](#exclusion-targeting)
   - [Lookalike Targeting](#lookalike-targeting)
   - [Retargeting](#retargeting)
-- [Frequency Capping](#frequency_capping)
+- [Frequency Capping](#frequency-capping)
 - [Ads directing to large marketplaces](#ads-directing-to-large-marketplaces)
   - [Collaborative Ads](#collaborative-ads)
   - [Dynamic Ads](#dynamic-ads)
@@ -54,7 +54,7 @@ This document provides an overview of key advertising use cases that depend on c
 | [Exclusion Targeting](#exclusion-targeting) | Acknowledgement that this is a valuable use-case and a link to Facebook’s PETREL proposal on this [GitHub Issue](https://github.com/michaelkleber/turtledove/issues/3) | No support | Facebook proposal for “[Private Exclusion Targeting Rendered Exclusively Locally (PETREL)](https://github.com/w3c/web-advertising/blob/master/PETREL.md)” |
 | [Lookalike Targeting](#lookalike-targeting) | Might be possible to achieve limited support by leveraging “[Federated Learning of Cohorts (FloC)](https://github.com/jkarlin/floc)”. | No support | |
 | [Retargeting](#retargeting) | Proposal: "[Two Uncorrelated Requests, Then Locally-Executed Decision On Victory (TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" | No support | |
-| [Frequency Capping](#frequency_capping) | While it will not be possible to enforce a hard "frequency-cap", it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). | No support | |
+| [Frequency Capping](#frequency-capping) | While it will not be possible to enforce a hard "frequency-cap", it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). | No support | |
 | [Collaborative Ads](#collaborative-ads) / [Dynamic Ads](#dynamic-ads) | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. | Some discussion in this [GitHub issue](https://github.com/WICG/ad-click-attribution/issues/36). Good collaborative problem solving going on. No firm solution yet. | Facebook proposal for “[Conversion Filters](https://github.com/w3c/web-advertising/blob/master/conversion-filters.md)” |
 | [Serving relevant ads (non-logged in publishers)](#serving-relevant-ads) | Proposal: “[Federated Learning of Cohorts (FloC)](https://github.com/jkarlin/floc)”. | No support | |
 | [Running an auction (non-logged in publishers)](#running-an-auction) | No support | No support | Verizon / Oath [write-up of this use-case](https://github.com/w3c/web-advertising/blob/master/rtb-use-case.md) |
