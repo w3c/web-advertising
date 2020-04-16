@@ -24,6 +24,7 @@ This document provides an overview of key advertising use cases that depend on c
   - [Lookalike Targeting](#lookalike-targeting)
   - [Retargeting](#retargeting)
 - [Frequency Capping](#frequency-capping)
+- [Businesses with Multiple Domains](#businesses-with-multiple-domains)
 - [Ads directing to large marketplaces](#ads-directing-to-large-marketplaces)
   - [Collaborative Ads](#collaborative-ads)
   - [Dynamic Ads](#dynamic-ads)
@@ -55,6 +56,7 @@ This document provides an overview of key advertising use cases that depend on c
 | [Lookalike Targeting](#lookalike-targeting) | Might be possible to achieve limited support by leveraging “[Federated Learning of Cohorts (FloC)](https://github.com/jkarlin/floc)”. | No support | |
 | [Retargeting](#retargeting) | Proposal: "[Two Uncorrelated Requests, Then Locally-Executed Decision On Victory (TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" | No support | |
 | [Frequency Capping](#frequency-capping) | While it will not be possible to enforce a hard "frequency-cap", it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). | No support | |
+| [Businesses with Multiple Domains](#businesses-with-multiple-domains) | Proposal: "[First Party Sets](https://github.com/krgovind/first-party-sets/)" | Some discussion in this [GitHub issue](https://github.com/krgovind/first-party-sets/issues/6) indicates weak support for at least the country-specific eTLD use-case, but various concerns with the current "First Party Sets" proposal. | | 
 | [Collaborative Ads](#collaborative-ads) / [Dynamic Ads](#dynamic-ads) | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. | Some discussion in this [GitHub issue](https://github.com/WICG/ad-click-attribution/issues/36). Good collaborative problem solving going on. No firm solution yet. | Facebook proposal for “[Conversion Filters](https://github.com/w3c/web-advertising/blob/master/conversion-filters.md)” |
 | [Serving relevant ads (non-logged in publishers)](#serving-relevant-ads) | Proposal: “[Federated Learning of Cohorts (FloC)](https://github.com/jkarlin/floc)”. | No support | |
 | [Running an auction (non-logged in publishers)](#running-an-auction) | No support | No support | Verizon / Oath [write-up of this use-case](https://github.com/w3c/web-advertising/blob/master/rtb-use-case.md) |
@@ -201,6 +203,12 @@ A common practice in the industry today is to run ads that are shown to previous
 # Frequency Capping
 
 People dislike highly repetitive ads. There is ample customer feedback to support this point. Not only that, advertisers do not want to spend their ad budgets showing the same ad to the same user over and over. This is the motivation for "Frequency Capping". This becomes an especially hard challenge when the advertiser is running ads across multiple websites. Without 3rd party cookies, it will be challenging to support this use-case.
+
+# Businesses with Multiple Domains
+
+Some businesses operate their services across multiple domains. One common example is to utilize country-specific eTLDs, e.g. example.com for US users, example.co.uk for UK users, and example.it for Italian users. Other use-cases involve hosting user-generated content on a separate domain for security reasons, or using a separate domain for resources that are hosted on a CDN. Another use-cases is to have a separate domain for each service a company offers to people, for example itunes.com and icloud.com are both affiliate with Apple.
+
+There are a number of problems that arise when a business operates their service across multiple domains. One example is conversion measurement. Advertisers may run an advertising campaign which directs people to example.com, but based on the IP address of the user, they may be re-directed to a country specific eTLD like example.co.uk. In such a case, the advertiser wants to count conversions that happen across all of their domains, not just those on example.com.
 
 # Ads directing to large marketplaces
 
