@@ -2,21 +2,22 @@
 
 This document provides an overview of key advertising use cases that depend on cross-site data sharing.
 
+- [Advertising Use Cases](#advertising-use-cases)
+- [Current Proposals and Browser Support](#current-proposals-and-browser-support)
 - [Aggregate Conversion Measurement](#aggregate-conversion-measurement)
   - [Lift Measurement](#lift-measurement)
-  - [Click-through attribution](#click-through-and-view-through-attribution-heuristics)
-  - [View-through attribution](#click-through-and-view-through-attribution-heuristics)
+  - [Click-through and View-through attribution heuristics](#click-through-and-view-through-attribution-heuristics)
   - [Multi-touch attribution](#multi-touch-attribution)
   - [Cross Browser / Cross Device Measurement](#cross-browser--cross-device-measurement)
 - [Fraud Prevention](#fraud-prevention)
   - [Conversion Fraud](#conversion-fraud)
-  - [Click Flooding](#click-flooding)
+  - [Click-Flooding](#click-flooding)
   - [Malicious Browser Extensions](#malicious-browser-extensions)
   - [Malicious Mobile Apps](#malicious-mobile-apps)
-  - [Malicious Browsers](#malicious-browsers)
-- [Training ML models](#training-ml-models)
-  - [P(click \| impression)](#click-through-rate-ctr-model-pclick--impression)
-  - [P(conversion \| click)](#conversion-rate-cvr-model-pconversion--click)
+  - [Malicious browsers](#malicious-browsers)
+- [Training ML Models](#training-ml-models)
+  - [Click Through Rate (CTR) Model: P(click | impression)](#click-through-rate-ctr-model-pclick--impression)
+  - [Conversion Rate (CVR) Model: P(conversion | click)](#conversion-rate-cvr-model-pconversion--click)
   - [Return on Ad Spend (ROAS) optimization](#return-on-ad-spend-roas-optimization)
 - [Affiliate Marketing](#affiliate-marketing)
 - [Targeting](#targeting)
@@ -26,11 +27,13 @@ This document provides an overview of key advertising use cases that depend on c
 - [Frequency Capping](#frequency-capping)
 - [Businesses with Multiple Domains](#businesses-with-multiple-domains)
 - [Ads directing to large marketplaces](#ads-directing-to-large-marketplaces)
-  - [Collaborative Ads](#collaborative-ads)
+  - [Collaborative ads](#collaborative-ads)
   - [Dynamic Ads](#dynamic-ads)
 - [Problems faced by non-logged in publishers](#problems-faced-by-non-logged-in-publishers)
   - [Serving relevant ads](#serving-relevant-ads)
   - [Running an auction](#running-an-auction)
+- [Enablers for first parties](#enablers-for-first-parties)
+  - [Federated Single Sign-on](#federated-single-sign-on)
 
 
 
@@ -60,6 +63,8 @@ This document provides an overview of key advertising use cases that depend on c
 | [Collaborative Ads](#collaborative-ads) / [Dynamic Ads](#dynamic-ads) | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. | Some discussion in this [GitHub issue](https://github.com/WICG/ad-click-attribution/issues/36). Good collaborative problem solving going on. No firm solution yet. | Facebook proposal for “[Conversion Filters](https://github.com/w3c/web-advertising/blob/master/conversion-filters.md)” |
 | [Serving relevant ads (non-logged in publishers)](#serving-relevant-ads) | Proposal: “[Federated Learning of Cohorts (FloC)](https://github.com/jkarlin/floc)”. | No support | |
 | [Running an auction (non-logged in publishers)](#running-an-auction) | No support | No support | Verizon / Oath [write-up of this use-case](https://github.com/w3c/web-advertising/blob/master/rtb-use-case.md) |
+| [Running an auction (non-logged in publishers)](#running-an-auction) | No support | No support | Verizon / Oath [write-up of this use-case](https://github.com/w3c/web-advertising/blob/master/rtb-use-case.md) |
+| [Federated Single Sign-on](#federated-single-sign-on) | Yes - Proposal: “[WebID](https://github.com/samuelgoto/WebID)”| Generally supportive as per [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) " "*We consider certain user actions, such as logging in to multiple first party websites or apps using the same account, to be implied consent to identifying the user as having the same identity in these multiple places*". Policy also acknowledges unintended impacts to federated SSO setups. General discussion in the context of the [Storage Access API](https://github.com/privacycg/storage-access) which is related but not targeted for this use-case (non-goal)| | |
 
 # Aggregate Conversion Measurement
 
@@ -247,3 +252,13 @@ As mentioned above, most publishers rely on multiple 3rd party ad networks to se
 Today, the industry is slowly converging on “real time bidding”. This is the optimal mechanism for ensuring fairness, equal access, and equitable treatment. In such a system, each ad network is asked to “bid” on an ad opportunity. The highest bidder wins, and is given the chance to show an ad. They must pay the amount they previously bid.
 
 Today, this type of “bidding” arrangement can either be done client-side, or server-side. Server-side has many advantages, including reduced latency and less risk of fraud. Server-side bidding requires some piece of Ad-Tech (which is responsible for conducting the auction) to request a “bid” from multiple ad servers. It must send them some kind of information about this ad opportunity so that they know how much to bid. Simply sending the contextual data (e.g. the URL of the page requesting the ad) is not enough to make a bid. It’s important to know more about the person who will see the ad, to understand what ad to serve, and how much to bid. Today this is accomplished with various approaches that are inconsistent with the Webkit / Chrome privacy models.
+
+# Enablers for first parties 
+
+Section on use-cases which are not strictly advertising driven but will need consideration in terms of how they can be handled in the web-platform going forward as they are key enablers for publishers, advertiser as well as users.
+
+## Federated Single Sign-on
+
+Across all the proposals already published and the viewpoints shared by the browsers (Privacy Models), it is quite clear that 1-st parties in general will need to build more direct/explicit consumer relations to be able to sustain advertising supported business models in the open web. Federated Sign-on as a means of scalable authorization / authentication is a key enabler to that. It servers both site owners, simplifying consumer onboarding, as well as the users in terms of ease of use, transparency, security etc.
+
+As noted in the WebID Proposal, identity federation has been standardized outside the web platform largely by just using basic primitives (re-directs/cookies). Anticipating changed behavior/constrained use of them, there is a need for a more explicit integration while still being compatible with the existing federation protocols.
