@@ -37,6 +37,7 @@ This document provides an overview of key advertising use cases that depend on c
 - [Enablers for first parties](#enablers-for-first-parties)
   - [Federated Single Sign-on](#federated-single-sign-on)
   - [View-through Site Personalization](#view-through-site-personalization)
+  - [Click-through Site Personalization](#click-through-site-personalization)
 
 
 
@@ -68,6 +69,7 @@ This document provides an overview of key advertising use cases that depend on c
 | [Running an auction (non-logged in publishers)](#running-an-auction) | No support | No support | Verizon / Oath [write-up of this use-case](https://github.com/w3c/web-advertising/blob/master/rtb-use-case.md) |
 | [Federated Single Sign-on](#federated-single-sign-on) | Yes - Proposal: “[WebID](https://github.com/samuelgoto/WebID)”| Generally supportive as per [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) " "*We consider certain user actions, such as logging in to multiple first party websites or apps using the same account, to be implied consent to identifying the user as having the same identity in these multiple places*". Policy also acknowledges unintended impacts to federated SSO setups. General discussion in the context of the [Storage Access API](https://github.com/privacycg/storage-access) which is related but not targeted for this use-case (non-goal)| | |
 | [View-through Site Personalization](#view-through-site-personalization) | No support | No support | |
+| [Click-through Site Personalization](#click-through-site-personalization) | There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” unless this mechanism is used to pass through high-entropy identifiers which could be used to tie user identity across websites. See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). | Similar to Chrome, this should not fall afoul of Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) unless high-entropy identifiers are being used to perform "navigational tracking". See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). | |
 
 # Aggregate Conversion Measurement
 
@@ -279,3 +281,9 @@ As noted in the WebID Proposal, identity federation has been standardized outsid
 ## View-through Site Personalization
 
 When a site/brand wants to customize the content of their web pages based off of the user having seen a particular ad or opened a particular email.  This is often about a consistent, more straight-forward user experience - so if a brand shows someone a particular product/sale, and then that user shows up at their site, the user doesn't have to dig around to find out what they're interested in.  This use case might be covered by the same methods as view-through attribution - but this particular use case does require it to be available in real-time.
+
+## Click-through Site Personalization
+
+When someone clicks a link to a website, that URL might encode information that can be used to personalize the experience. It might be a link to a particular offer or product. It might be a link that is specific to a particular marketing campaign. It might be personalized to the person themself. 
+
+One special call out relates to "Landing Page Personalization". In the case that the website is accessed by a click on an ad, the website owner may work with the Ad-Tech provider to customize the link based on data provided by the Ad-Tech provider, the website owner or both.
