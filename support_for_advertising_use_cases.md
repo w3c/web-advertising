@@ -36,6 +36,7 @@ This document provides an overview of key advertising use cases that depend on c
   - [Running an auction](#running-an-auction)
 - [Enablers for first parties](#enablers-for-first-parties)
   - [Federated Single Sign-on](#federated-single-sign-on)
+  - [View-through Site Personalization](#view-through-site-personalization)
 
 
 
@@ -66,6 +67,7 @@ This document provides an overview of key advertising use cases that depend on c
 | [Serving relevant ads (non-logged in publishers)](#serving-relevant-ads) | Proposal: “[Federated Learning of Cohorts (FloC)](https://github.com/jkarlin/floc)”. | No support | |
 | [Running an auction (non-logged in publishers)](#running-an-auction) | No support | No support | Verizon / Oath [write-up of this use-case](https://github.com/w3c/web-advertising/blob/master/rtb-use-case.md) |
 | [Federated Single Sign-on](#federated-single-sign-on) | Yes - Proposal: “[WebID](https://github.com/samuelgoto/WebID)”| Generally supportive as per [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) " "*We consider certain user actions, such as logging in to multiple first party websites or apps using the same account, to be implied consent to identifying the user as having the same identity in these multiple places*". Policy also acknowledges unintended impacts to federated SSO setups. General discussion in the context of the [Storage Access API](https://github.com/privacycg/storage-access) which is related but not targeted for this use-case (non-goal)| | |
+| [View-through Site Personalization](#view-through-site-personalization) | No support | No support | |
 
 # Aggregate Conversion Measurement
 
@@ -273,3 +275,7 @@ Section on use-cases which are not strictly advertising driven but will need con
 Across all the proposals already published and the viewpoints shared by the browsers (Privacy Models), it is quite clear that 1-st parties in general will need to build more direct/explicit consumer relations to be able to sustain advertising supported business models in the open web. Federated Sign-on as a means of scalable authorization / authentication is a key enabler to that. It servers both site owners, simplifying consumer onboarding, as well as the users in terms of ease of use, transparency, security etc.
 
 As noted in the WebID Proposal, identity federation has been standardized outside the web platform largely by just using basic primitives (re-directs/cookies). Anticipating changed behavior/constrained use of them, there is a need for a more explicit integration while still being compatible with the existing federation protocols.
+
+## View-through Site Personalization
+
+When a site/brand wants to customize the content of their web pages based off of the user having seen a particular ad or opened a particular email.  This is often about a consistent, more straight-forward user experience - so if a brand shows someone a particular product/sale, and then that user shows up at their site, the user doesn't have to dig around to find out what they're interested in.  This use case might be covered by the same methods as view-through attribution - but this particular use case does require it to be available in real-time.
