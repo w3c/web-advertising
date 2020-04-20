@@ -24,7 +24,9 @@ This document provides an overview of key advertising use cases that depend on c
   - [Exclusion Targeting](#exclusion-targeting)
   - [Lookalike Targeting](#lookalike-targeting)
   - [Retargeting](#retargeting)
-- [Frequency Capping](#frequency-capping)
+- [Frequency](#frequency)
+  - [Frequency Capping](#frequency-capping)
+  - [Frequency Optimization](#frequency-optimization)
 - [Businesses with Multiple Domains](#businesses-with-multiple-domains)
 - [Ads directing to large marketplaces](#ads-directing-to-large-marketplaces)
   - [Collaborative ads](#collaborative-ads)
@@ -58,7 +60,7 @@ This document provides an overview of key advertising use cases that depend on c
 | [Exclusion Targeting](#exclusion-targeting) | Acknowledgement that this is a valuable use-case and a link to Facebook’s PETREL proposal on this [GitHub Issue](https://github.com/michaelkleber/turtledove/issues/3) | No support | Facebook proposal for “[Private Exclusion Targeting Rendered Exclusively Locally (PETREL)](https://github.com/w3c/web-advertising/blob/master/PETREL.md)” |
 | [Lookalike Targeting](#lookalike-targeting) | Might be possible to achieve limited support by leveraging “[Federated Learning of Cohorts (FloC)](https://github.com/jkarlin/floc)”. | No support | |
 | [Retargeting](#retargeting) | Proposal: "[Two Uncorrelated Requests, Then Locally-Executed Decision On Victory (TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" | No support | |
-| [Frequency Capping](#frequency-capping) | While it will not be possible to enforce a hard "frequency-cap" across multiple websites, it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). | No support | |
+| [Frequency Capping](#frequency-capping) / [Frequency Optimization](#frequency-optimization) | While it will not be possible to enforce a hard "frequency-cap" across multiple websites, it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). | No support | |
 | [Businesses with Multiple Domains](#businesses-with-multiple-domains) | Proposal: "[First Party Sets](https://github.com/krgovind/first-party-sets/)" | Some discussion in this [GitHub issue](https://github.com/krgovind/first-party-sets/issues/6) indicates weak support for at least the country-specific eTLD use-case, but various concerns with the current "First Party Sets" proposal. | | 
 | [Collaborative Ads](#collaborative-ads) / [Dynamic Ads](#dynamic-ads) | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. | Some discussion in this [GitHub issue](https://github.com/WICG/ad-click-attribution/issues/36). Good collaborative problem solving going on. No firm solution yet. | Facebook proposal for “[Conversion Filters](https://github.com/w3c/web-advertising/blob/master/conversion-filters.md)” |
 | [Serving relevant ads (non-logged in publishers)](#serving-relevant-ads) | Proposal: “[Federated Learning of Cohorts (FloC)](https://github.com/jkarlin/floc)”. | No support | |
@@ -204,13 +206,19 @@ One common way this is achieved today is with 3rd party cookies. Before starting
 
 A common practice in the industry today is to run ads that are shown to previous visitors of a website. While there is a lot of negative sentiment related to “ads that follow you around the internet”, this capability forms a significant fraction of digital advertising.
 
-# Frequency Capping
+# Frequency 
+
+## Frequency Capping
 
 People dislike highly repetitive ads. There is ample customer feedback to support this point. Not only that, advertisers do not want to spend their ad budgets showing the same ad to the same user over and over. This is the motivation for "Frequency Capping". This becomes an especially hard challenge when the advertiser is running ads across multiple websites. Without 3rd party cookies, it will be challenging to support this use-case.
 
 There are multiple approaches to frequency capping that exist today. Some frequency caps are at the "device" level, others at the "browser" level, while others might be at the "ad platform" level, for ad-platforms which have some understanding of the user-device graph. To the extent that any of these frequency caps are intended to apply to ad impressions across multiple websites, there is a conflict with proposed privacy changes. 
 
 Frequency caps for a given website do not seem to be in conflict with proposed privacy changes (with the possible exception of the Safari [isLoggedIn](https://github.com/WebKit/explainers/tree/master/IsLoggedIn) proposal, which might make it difficult to tie together multiple browsing sessions from the same logged-out user.)
+
+## Frequency Optimization
+
+While frequency capping tries to cut off the long-tail of an ad being over-delivered to a specific user, there is also the opposite side of the delivery curve where an ad is often under-delivered too.  When you look at when people convert, it's often after they've seen the ad several times.  There's typically a sort of "sweet-spot" range that corresponds to the best conversion rates.  So it can be more effective to move a user who has seen the ad a small number of times into that range by prioritizing delivery to them over users who have never seen the ad at all.
 
 # Businesses with Multiple Domains
 
