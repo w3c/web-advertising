@@ -38,6 +38,7 @@ This document provides an overview of key advertising use cases that depend on c
   - [Federated Single Sign-on](#federated-single-sign-on)
   - [View-through Site Personalization](#view-through-site-personalization)
   - [Click-through Site Personalization](#click-through-site-personalization)
+  - [Email Marketing](#email_marketing)
 
 
 
@@ -70,6 +71,7 @@ This document provides an overview of key advertising use cases that depend on c
 | [Federated Single Sign-on](#federated-single-sign-on) | Yes - Proposal: “[WebID](https://github.com/samuelgoto/WebID)”| Generally supportive as per [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) " "*We consider certain user actions, such as logging in to multiple first party websites or apps using the same account, to be implied consent to identifying the user as having the same identity in these multiple places*". Policy also acknowledges unintended impacts to federated SSO setups. General discussion in the context of the [Storage Access API](https://github.com/privacycg/storage-access) which is related but not targeted for this use-case (non-goal)| | |
 | [View-through Site Personalization](#view-through-site-personalization) | No support | No support | |
 | [Click-through Site Personalization](#click-through-site-personalization) | There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” unless this mechanism is used to pass through high-entropy identifiers which could be used to tie user identity across websites. See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). | Similar to Chrome, this should not fall afoul of Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) unless high-entropy identifiers are being used to perform "navigational tracking". See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). | |
+| [Email Marketing](#email_marketing) | unclear | unclear | |
 
 # Aggregate Conversion Measurement
 
@@ -287,3 +289,7 @@ When a site/brand wants to customize the content of their web pages based off of
 When someone clicks a link to a website, that URL might encode information that can be used to personalize the experience. It might be a link to a particular offer or product. It might be a link that is specific to a particular marketing campaign. It might be personalized to the person themself. 
 
 One special call out relates to "Landing Page Personalization". In the case that the website is accessed by a click on an ad, the website owner may work with the Ad-Tech provider to customize the link based on data provided by the Ad-Tech provider, the website owner or both.
+
+## Email marketing
+
+Many companies utilize email as a mechanism for re-engaging with their customers. JavaScript isn't used in email, but tracking pixels are to track things like open rates, etc.
