@@ -24,7 +24,10 @@ This document provides an overview of key advertising use cases that depend on c
   - [Exclusion Targeting](#exclusion-targeting)
   - [Lookalike Targeting](#lookalike-targeting)
   - [Retargeting](#retargeting)
-- [Viewability](#viewability)
+- [Impression and Viewability Measurement](#impression-and-viewability-measurement)
+  - [Viewability](#viewability)
+  - [Invalid Traffic](#invalid-traffic)
+  - [Third Party Verification](#third-party-verification)
 - [Brand Safety](#brand-safety)
 - [Frequency](#frequency)
   - [Frequency Capping](#frequency-capping)
@@ -65,7 +68,7 @@ This document provides an overview of key advertising use cases that depend on c
 | [Exclusion Targeting](#exclusion-targeting) | Acknowledgement that this is a valuable use-case and a link to Facebook’s PETREL proposal on this [GitHub Issue](https://github.com/michaelkleber/turtledove/issues/3) | No support | Facebook proposal for “[Private Exclusion Targeting Rendered Exclusively Locally (PETREL)](https://github.com/w3c/web-advertising/blob/master/PETREL.md)” |
 | [Lookalike Targeting](#lookalike-targeting) | Might be possible to achieve limited support by leveraging “[Federated Learning of Cohorts (FLoC)](https://github.com/jkarlin/floc)”.  Might require an extension to TURTLEDOVE offering a new way to create interest groups, which Chrome indicated support for in [this issue](https://github.com/michaelkleber/turtledove/issues/26). | No support | |
 | [Retargeting](#retargeting) | Proposal: "[Two Uncorrelated Requests, Then Locally-Executed Decision On Victory (TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" | No support | |
-| [Viewability](#viewability) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be capable of measuring that the ads displayed on their own properties entered the viewport, that images and video were loaded, how much time they spent in the viewport, etc. None of this requires joining up user identity across multiple domains. The only possible complication that might arise would be with "blind rendering" as described in proposals like "[TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" and “[PETREL](https://github.com/w3c/web-advertising/blob/master/PETREL.md)”. Here, the publisher would have restricted access to the ad being rendered and we will have to discuss the feasibility of "viewability" measurement. There is a discussion on this [GitHub issue](https://github.com/csharrison/aggregate-reporting-api/issues/10). | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | | 
+| [Impression and Viewability Measurement](#impression-and-viewability-measurement) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be capable of measuring that the ads displayed on their own properties entered the viewport, that images and video were loaded, how much time they spent in the viewport, etc. None of this requires joining up user identity across multiple domains. The only possible complication that might arise would be with "blind rendering" as described in proposals like "[TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" and “[PETREL](https://github.com/w3c/web-advertising/blob/master/PETREL.md)”. Here, the publisher would have restricted access to the ad being rendered and we will have to discuss the feasibility of "viewability" measurement. There is a discussion on this [GitHub issue](https://github.com/csharrison/aggregate-reporting-api/issues/10). | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | | 
 | [Brand Safety](#brand-safety) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be aware of the URL where an ad is served, and the type of content on the page. Ad requests should include this type of contextual information, so that ad-servers can select appropriate ads for that context where there are no brand-safety concerns. The only possible complication that might arise would be with Chrome's "[TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" proposal. One of the two uncorrelated ad-requests will NOT have any contextual information by design. As such, the ad-server will not be able to ensure that the ad-returned is eligible to be shown on that specific webpage. However, the Chrome team understands the importance of "Brand Safety" to advertisers, and the proposal includes [a specific approach to invalidate ads client-side](https://github.com/michaelkleber/turtledove#on-device-auction), prior to rendering, specifically to support this use-case. | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | |
 | [Frequency Capping](#frequency-capping) / [Frequency Optimization](#frequency-optimization) | For ads served via TURTLEDOVE interest-group targeting, the proposal offers a way to [handle frequency capping on-device](https://github.com/michaelkleber/turtledove#on-device-auction).  For other types of targeting, while it will not be possible to enforce a hard "frequency-cap" across multiple websites, it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). | No support | |
 | [Businesses with Multiple Domains](#businesses-with-multiple-domains) | Proposal: "[First Party Sets](https://github.com/krgovind/first-party-sets/)" | Some discussion in this [GitHub issue](https://github.com/krgovind/first-party-sets/issues/6) indicates weak support for at least the country-specific eTLD use-case, but various concerns with the current "First Party Sets" proposal. | | 
@@ -216,11 +219,29 @@ One common way this is achieved today is with 3rd party cookies. Before starting
 
 A common practice in the industry today is to run ads that are shown to previous visitors of a website. While there is a lot of negative sentiment related to “ads that follow you around the internet”, this capability forms a significant fraction of digital advertising.
 
-# Viewability
+# Impression and Viewability Measurement
 
-Advertisers want to know how many times people saw their ads. Sometimes, an ad is returned from an ad-server, but never actually enters the viewport. Sometimes an ad might enter the viewport, but only for a few milliseconds. Sometimes an ad might enter the viewport, but fail to load any images or video before it leaves again. Sometimes there might be other elements drawn over the top of the ad. These cases illustrate "non-viewable" ad impressions. Advertisers only want to pay for "viewable ad impressions". The reasoning is simple, an ad cannot possible have an effect on someone's future purchasing behavior if they never saw it in the first place!
+Advertisers want to know how many times people saw their ads. One of the most basic metrics ad-servers report to advertisers is the total number of "impressions" served. These counts must be accurate as they are integral to reporting and billing.
 
-Over the years, the industry has developed a few standards to define what consititues a "Viewable ad impression". These are different for image and video ads, for the mobile and desktop web, for "Instream Video" and other formats. Industry bodies like the IAB and the MRC regularly audit publishers to see if they are compliant with these standards.
+There are a few critically important aspects of impression counting that advertisers care about:
+
+- "Viewability": was the ad actually visible to the user
+- "Invalid Traffic": was the ad viewed by an actual human (as opposed to a bot / script)
+- "Third Party Verification": are the impression counts validated by a neutral third party that will vouch for their accuracy
+
+## Viewability
+
+Sometimes, an ad is returned from an ad-server, but never actually enters the viewport. Sometimes an ad might enter the viewport, but only for a few milliseconds. Sometimes an ad might enter the viewport, but fail to load any images or video before it leaves again. Sometimes there might be other elements drawn over the top of the ad. These cases illustrate "non-viewable" ad impressions. Advertisers only want to pay for "viewable ad impressions". The reasoning is simple, an ad cannot possibly have an effect on someone's future purchasing behavior if they never saw it in the first place!
+
+Over the years, the industry has developed standards to define what consititues a "Viewable ad impression". These are different for image and video ads, for the mobile and desktop web, and in-app. Industry bodies like the IAB and the MRC regularly audit measurement vendors (ad servers, ad verification vendors) to see if they are compliant with these standards.
+
+## Invalid Traffic
+
+Advertisers want to show ads to humans, not to bots and scripts. The industry has devoted a great deal of time and energy towards identifying invalid traffic (IVT), so that it can be filtered out of impression reports.
+
+## Third-Party Verification
+
+When a measurement vendor (ad server, publisher, etc) reports a certain number of impressions (presumably viewable impressions, with invalid traffic filtered out), how is the advertiser to know if this number is accurate? Advertisers would prefer not to just accept these numbers on faith. For this reason, the industry has established a number of independent, third-party measurement vendors that run their own verification scripts to provide advertisers with the peace of mind and confidence that the number of impressions they are being billed for are accurate, and measured in a consistent way across all of their ad buys.
 
 # Brand Safety
 
