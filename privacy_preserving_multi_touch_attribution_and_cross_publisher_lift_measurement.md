@@ -14,7 +14,7 @@ Each conversion that occurs on an advertiser website is preceded by a history of
 
 Here are two “paths to conversion” from “Alice” and “Bob” to make this more concrete:
 
-![diagram showing Alice and Bob, each viewing and clicking ads across publishers A, B, and C prior to generating conversion events](https://github.com/w3c/web-advertising/blob/master/Path%20to%20conversion%20diagram.png)
+![diagram showing Alice and Bob, each viewing and clicking ads across publishers A, B, and C prior to generating conversion events](https://github.com/w3c/web-advertising/blob/master/images/Path%20to%20conversion%20diagram.png)
 
 When each publisher is only aware of the “path to conversion” on their own property, this leads to over-counting. To use the above example, this would mean:
 
