@@ -44,7 +44,11 @@ This document provides an overview of key advertising use cases that depend on c
   - [View-through Site Personalization](#view-through-site-personalization)
   - [Click-through Site Personalization](#click-through-site-personalization)
   - [Email Marketing](#email-marketing)
-
+- [Real time spend management](#real-time-spend-management)
+- [On-site Sponsored Product](#on-site-sponsored-product)
+- [Search](#search)
+- [Audience Selling](#audience-selling)
+- [CRM Targeting](#crm-targeting)
 
 
 # Current Proposals and Browser Support
@@ -68,7 +72,7 @@ This document provides an overview of key advertising use cases that depend on c
 | [Exclusion Targeting](#exclusion-targeting) | Acknowledgement that this is a valuable use-case and a link to Facebook’s PETREL proposal on this [GitHub Issue](https://github.com/michaelkleber/turtledove/issues/3) | No support | Facebook proposal for “[Private Exclusion Targeting Rendered Exclusively Locally (PETREL)](https://github.com/w3c/web-advertising/blob/master/PETREL.md)” |
 | [Lookalike Targeting](#lookalike-targeting) | Might be possible to achieve limited support by leveraging “[Federated Learning of Cohorts (FLoC)](https://github.com/jkarlin/floc)”.  Might require an extension to TURTLEDOVE offering a new way to create interest groups, which Chrome indicated support for in [this issue](https://github.com/michaelkleber/turtledove/issues/26). | No support | Facebook proposal for "[Privacy Preserving Lookalike Audience Targeting](privacy_preserving_lookalike_audience_targeting.md)" |
 | [Retargeting](#retargeting) | Proposal: "[Two Uncorrelated Requests, Then Locally-Executed Decision On Victory (TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" | No support | |
-| [Impression and Viewability Measurement](#impression-and-viewability-measurement) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be capable of measuring that the ads displayed on their own properties entered the viewport, that images and video were loaded, how much time they spent in the viewport, etc. None of this requires joining up user identity across multiple domains. The only possible complication that might arise would be with "blind rendering" as described in proposals like "[TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" and “[PETREL](https://github.com/w3c/web-advertising/blob/master/PETREL.md)”. Here, the publisher would have restricted access to the ad being rendered and we will have to discuss the feasibility of "viewability" measurement. There is a discussion on this [GitHub issue](https://github.com/csharrison/aggregate-reporting-api/issues/10). | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | | 
+| [Impression and Viewability Measurement](#impression-and-viewability-measurement) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be capable of measuring that the ads displayed on their own properties entered the viewport, that images and video were loaded, how much time they spent in the viewport, etc. None of this requires joining up user identity across multiple domains. The only possible complication that might arise would be with "blind rendering" as described in proposals like "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" and “[PETREL](https://github.com/w3c/web-advertising/blob/master/PETREL.md)”. Here, the publisher would have restricted access to the ad being rendered and we will have to discuss the feasibility of "viewability" measurement. There is a discussion on this [GitHub issue](https://github.com/csharrison/aggregate-reporting-api/issues/10). | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | | 
 | [Brand Safety](#brand-safety) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be aware of the URL where an ad is served, and the type of content on the page. Ad requests should include this type of contextual information, so that ad-servers can select appropriate ads for that context where there are no brand-safety concerns. The only possible complication that might arise would be with Chrome's "[TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" proposal. One of the two uncorrelated ad-requests will NOT have any contextual information by design. As such, the ad-server will not be able to ensure that the ad-returned is eligible to be shown on that specific webpage. However, the Chrome team understands the importance of "Brand Safety" to advertisers, and the proposal includes [a specific approach to invalidate ads client-side](https://github.com/michaelkleber/turtledove#on-device-auction), prior to rendering, specifically to support this use-case. | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | |
 | [Frequency Capping](#frequency-capping) / [Frequency Optimization](#frequency-optimization) | For ads served via TURTLEDOVE interest-group targeting, the proposal offers a way to [handle frequency capping on-device](https://github.com/michaelkleber/turtledove#on-device-auction).  For other types of targeting, while it will not be possible to enforce a hard "frequency-cap" across multiple websites, it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). | No support | |
 | [Businesses with Multiple Domains](#businesses-with-multiple-domains) | Proposal: "[First Party Sets](https://github.com/krgovind/first-party-sets/)" | Some discussion in this [GitHub issue](https://github.com/krgovind/first-party-sets/issues/6) indicates weak support for at least the country-specific eTLD use-case, but various concerns with the current "First Party Sets" proposal. | | 
@@ -79,6 +83,11 @@ This document provides an overview of key advertising use cases that depend on c
 | [View-through Site Personalization](#view-through-site-personalization) | No support | No support | |
 | [Click-through Site Personalization](#click-through-site-personalization) | There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” unless this mechanism is used to pass through high-entropy identifiers which could be used to tie user identity across websites. See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). | Similar to Chrome, this should not fall afoul of Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) unless high-entropy identifiers are being used to perform "navigational tracking". See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). | |
 | [Email Marketing](#email-marketing) | unclear | unclear | |
+| [Real time spend management](#real-time-spend-management) | High latency in TURTLEDOVE as the javascript updates have unknown frequency, and reporting is delayed in the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model) | Supported as ads are not done in opaque iframe and bidding is not done remotely | |
+|[On-site Sponsored Product](#on-site-sponsored-product)| There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” | Similar answer as that for Chrome. This should not be in conflict with Webkit's Tracking Prevention Policy given the measurement is entirely within the scope of a single publisher website. | |
+| [Search](#search) | unclear, but relies a lot on contextual | unclear | |
+| [Audience Selling](#audience-selling) | Probably possible under "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" by defining interest groups usable by other parties. | No support | |
+| [CRM Targeting](#crm-targeting) | possible if done via interest groups under "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)"  | No support | |
 
 # Aggregate Conversion Measurement
 
@@ -332,3 +341,27 @@ One special call out relates to "Landing Page Personalization". In the case that
 ## Email marketing
 
 Many companies utilize email as a mechanism for re-engaging with their customers. JavaScript isn't used in email, but tracking pixels are to track things like open rates, etc.
+
+## Real time spend management
+
+Advertisers have very tight control over the budget they spend on the various online marketing channels they run simultaneously. They demand the ability to start / stop / increase / decrease the spend on a campaign with low latency.
+
+This proves to be necessary for ramping-up the campaigns (budgets are increased little by little in order to minimize the risk of any campaign setup error, etc.), peak seasons (strong budget increase during sales periods) or inversely exceptional event management (E.g. shut down all travel campaigns related to a country where a catastrophe just happened), or on a more daily basis, channels and campaigns fine-tuning (increase the budgets for the campaigns best performing and vice versa).
+
+## On-site Sponsored Product
+
+Another area of digital adverting is called sponsored products. Brands launch this type of campaigns in order to obtain preferential placements for their products on retailers' or big marketplaces' websites.
+Contrary to the other use cases mentioned above, the entire process from printing to ad to the actual sales happens on the retailer's website (there is no redirecting outside of the retailer's domain).
+
+## Search
+
+Advertisers use services like Google Shopping to advertise their products directly in Search Engines' results.
+
+## Audience Selling
+
+Some actors on the internet are able to build custom audiences, revealing strong user intent.  A business model is to sell these audiences to advertisers/brands for targetting purposes.
+
+## CRM Targeting
+
+Relationship/CRM Marketing: a marketing strategy designed to foster customer loyalty, interaction, and long-term relationships. It is designed to develop or reinforce a strong bond with existing customers by continuing a dialogue with them that provides the customer with information that matches their needs, problems, or interests
+
