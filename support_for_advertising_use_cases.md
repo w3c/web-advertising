@@ -2,8 +2,31 @@
 
 This document provides an overview of key advertising use cases that depend on cross-site data sharing.
 
-- [Advertising Use Cases](#advertising-use-cases)
-- [Current Proposals and Browser Support](#current-proposals-and-browser-support)
+This document is broken down into 4 main sections based on the needs of the various entities in the web advertising ecosystem:
+- [Advertiser Needs](#advertiser-needs)
+  - [Basic Advertiser Needs](#basic-advertiser-needs)
+  - [Specialized Advertiser Needs](#specialized-advertiser-needs)
+- [Ad Network Needs](#ad-network-needs)
+  - [Core Ad Network Needs](#core-ad-network-needs)
+  - [Specialized Ad Network Needs](#specialized-ad-network-needs)
+- [Publisher Needs](#publisher-needs)
+- [User Needs](#user-needs)
+
+# Advertiser Needs
+
+## Basic Advertiser Needs
+
+When an advertiser spends money to run an ad campaign they want to answer three very basic questions about it:
+- How many people saw the ad?
+- How many conversions happened as a result of running this ad campaign?
+- Are you confident that the ad impressions and ad conversions are from real, authentic people?
+
+Although they sound like simple questions, in practice answering them well is rather complex and difficult undertaking. The ads industry has endeavored to find good ways of answering these basic questions, and has developed a number of approaches to doing so, which is why there are more than 3 use-cases in this section.
+
+- [Impression and Viewability Measurement](#impression-and-viewability-measurement)
+  - [Viewability](#viewability)
+  - [Invalid Traffic](#invalid-traffic)
+  - [Third Party Verification](#third-party-verification)
 - [Aggregate Conversion Measurement](#aggregate-conversion-measurement)
   - [Lift Measurement](#lift-measurement)
   - [Click-through and View-through attribution heuristics](#click-through-and-view-through-attribution-heuristics)
@@ -15,46 +38,10 @@ This document provides an overview of key advertising use cases that depend on c
   - [Malicious Browser Extensions](#malicious-browser-extensions)
   - [Malicious Mobile Apps](#malicious-mobile-apps)
   - [Malicious browsers](#malicious-browsers)
-- [Training ML Models](#training-ml-models)
-  - [Click Through Rate (CTR) Model: P(click | impression)](#click-through-rate-ctr-model-pclick--impression)
-  - [Conversion Rate (CVR) Model: P(conversion | click)](#conversion-rate-cvr-model-pconversion--click)
-  - [Return on Ad Spend (ROAS) optimization](#return-on-ad-spend-roas-optimization)
-- [Affiliate Marketing](#affiliate-marketing)
-- [Targeting](#targeting)
-  - [Exclusion Targeting](#exclusion-targeting)
-  - [Lookalike Targeting](#lookalike-targeting)
-  - [Retargeting](#retargeting)
-- [Impression and Viewability Measurement](#impression-and-viewability-measurement)
-  - [Viewability](#viewability)
-  - [Invalid Traffic](#invalid-traffic)
-  - [Third Party Verification](#third-party-verification)
-- [Brand Safety](#brand-safety)
-- [Frequency](#frequency)
-  - [Frequency Capping](#frequency-capping)
-  - [Frequency Optimization](#frequency-optimization)
-- [Businesses with Multiple Domains](#businesses-with-multiple-domains)
-- [Ads directing to large marketplaces](#ads-directing-to-large-marketplaces)
-  - [Collaborative ads](#collaborative-ads)
-  - [Dynamic Ads](#dynamic-ads)
-- [Problems faced by non-logged in publishers](#problems-faced-by-non-logged-in-publishers)
-  - [Serving relevant ads](#serving-relevant-ads)
-  - [Running an auction](#running-an-auction)
-- [Enablers for first parties](#enablers-for-first-parties)
-  - [Federated Single Sign-on](#federated-single-sign-on)
-  - [View-through Site Personalization](#view-through-site-personalization)
-  - [Click-through Site Personalization](#click-through-site-personalization)
-  - [Email Marketing](#email-marketing)
-- [Real time spend management](#real-time-spend-management)
-- [On-site Sponsored Product](#on-site-sponsored-product)
-- [Search](#search)
-- [Audience Selling](#audience-selling)
-- [CRM Targeting](#crm-targeting)
-
-
-# Current Proposals and Browser Support
-
+  
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
+| [Impression and Viewability Measurement](#impression-and-viewability-measurement) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be capable of measuring that the ads displayed on their own properties entered the viewport, that images and video were loaded, how much time they spent in the viewport, etc. None of this requires joining up user identity across multiple domains. The only possible complication that might arise would be with "blind rendering" as described in proposals like "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" and “[PETREL](https://github.com/w3c/web-advertising/blob/master/PETREL.md)”. Here, the publisher would have restricted access to the ad being rendered and we will have to discuss the feasibility of "viewability" measurement. There is a discussion on this [GitHub issue](https://github.com/csharrison/aggregate-reporting-api/issues/10). | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | | 
 | [Lift Measurement](#lift-measurement) | A [section of the Conversion Measurement with Aggregation proposal](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#view-through-conversions) describes explicit support for view through conversions, which should be sufficient to support lift measurement using experiments on a first party site (e.g. when using a first-party identifier to decide which experiment branch a person is in). | No support | Facebook proposal for “[Private Lift Measurement](https://github.com/w3c/web-advertising/blob/master/private-lift-measurement-conceptual-overview.md)” |
 | [Click-through attribution](#click-through-and-view-through-attribution-heuristics) | Proposal: “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” | Proposal: “[Private Click Measurement API](https://github.com/WICG/ad-click-attribution)” |
 | [View-through attribution](#click-through-and-view-through-attribution-heuristics) | A [section of the Conversion Measurement with Aggregation proposal](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#view-through-conversions) describes explicit support for view through conversions. | No support | |
@@ -65,29 +52,103 @@ This document provides an overview of key advertising use cases that depend on c
 | [Malicious Browser Extensions](#malicious-browser-extensions) | No solutions yet for this problem. | No solutions yet for this problem. | |
 | [Malicious Mobile Apps](#malicious-mobile-apps) | No solutions yet for this problem. | No solutions yet for this problem. | |
 | [Malicious Browsers](#malicious-browsers) | No solutions yet for this problem. | No solutions yet for this problem. | |
-| [P(click \| impression)](#click-through-rate-ctr-model-pclick--impression) | There is no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. Should be possible to use 1st party cookies to tie together multiple sessions from the same browser on the same website. | [isLoggedIn](https://github.com/WebKit/explainers/tree/master/IsLoggedIn) may potentially pose problems here for websites without login. Limited storage may make it hard to tie together multiple sessions from the same person. | |
-| [P(conversion \| click)](#conversion-rate-cvr-model-pconversion--click) | This is a stated goal of Chrome’s “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” | Not possible to train an ML model. | |
-| [Return on Ad Spend (ROAS) optimization](#return-on-ad-spend-roas-optimization) | Not possible to train an ML model. However, It may be possible to use the “[Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api)” to obtain average conversion value measurement for very coarse-grain buckets of people. This could be used to perform calibration at this coarse-grain bucketed level. | Not possible to train an ML model. | |
-| [Affiliate Marketing](#affiliate-marketing) | It may be possible to use a combination of the “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” and the “[Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api)” to get a first-order estimate of the number of the number of conversions driven by an Affiliate marketing link, but questions remain about “returns” and fraud. | Extremely limited support possible with the “[Private Click Measurement API](https://github.com/WICG/ad-click-attribution)”, but questions remain about “returns” and fraud. | |
+
+
+## Specialized Advertiser Needs
+
+These are use-cases that only apply to a (possibly large) subset of advertisers. 
+
+- [Targeting](#targeting)
+  - [Exclusion Targeting](#exclusion-targeting)
+  - [Lookalike Targeting](#lookalike-targeting)
+  - [Retargeting](#retargeting)
+- [Brand Safety](#brand-safety)
+- [Frequency](#frequency)
+  - [Frequency Capping](#frequency-capping)
+  - [Frequency Optimization](#frequency-optimization)
+- [Businesses with Multiple Domains](#businesses-with-multiple-domains)
+- [Ads directing to large marketplaces](#ads-directing-to-large-marketplaces)
+  - [Collaborative ads](#collaborative-ads)
+  - [Dynamic Ads](#dynamic-ads)
+  - [Email Marketing](#email-marketing)
+- [Real time spend management](#real-time-spend-management)
+
+
+| Use-case | Chrome | Safari | Community Proposals |
+|----------|--------|--------|---------------------|
 | [Exclusion Targeting](#exclusion-targeting) | Acknowledgement that this is a valuable use-case and a link to Facebook’s PETREL proposal on this [GitHub Issue](https://github.com/michaelkleber/turtledove/issues/3) | No support | Facebook proposal for “[Private Exclusion Targeting Rendered Exclusively Locally (PETREL)](https://github.com/w3c/web-advertising/blob/master/PETREL.md)” |
 | [Lookalike Targeting](#lookalike-targeting) | Might be possible to achieve limited support by leveraging “[Federated Learning of Cohorts (FLoC)](https://github.com/jkarlin/floc)”.  Might require an extension to TURTLEDOVE offering a new way to create interest groups, which Chrome indicated support for in [this issue](https://github.com/michaelkleber/turtledove/issues/26). | No support | Facebook proposal for "[Privacy Preserving Lookalike Audience Targeting](privacy_preserving_lookalike_audience_targeting.md)" |
 | [Retargeting](#retargeting) | Proposal: "[Two Uncorrelated Requests, Then Locally-Executed Decision On Victory (TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" | No support | |
-| [Impression and Viewability Measurement](#impression-and-viewability-measurement) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be capable of measuring that the ads displayed on their own properties entered the viewport, that images and video were loaded, how much time they spent in the viewport, etc. None of this requires joining up user identity across multiple domains. The only possible complication that might arise would be with "blind rendering" as described in proposals like "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" and “[PETREL](https://github.com/w3c/web-advertising/blob/master/PETREL.md)”. Here, the publisher would have restricted access to the ad being rendered and we will have to discuss the feasibility of "viewability" measurement. There is a discussion on this [GitHub issue](https://github.com/csharrison/aggregate-reporting-api/issues/10). | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | | 
 | [Brand Safety](#brand-safety) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be aware of the URL where an ad is served, and the type of content on the page. Ad requests should include this type of contextual information, so that ad-servers can select appropriate ads for that context where there are no brand-safety concerns. The only possible complication that might arise would be with Chrome's "[TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" proposal. One of the two uncorrelated ad-requests will NOT have any contextual information by design. As such, the ad-server will not be able to ensure that the ad-returned is eligible to be shown on that specific webpage. However, the Chrome team understands the importance of "Brand Safety" to advertisers, and the proposal includes [a specific approach to invalidate ads client-side](https://github.com/michaelkleber/turtledove#on-device-auction), prior to rendering, specifically to support this use-case. | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | |
 | [Frequency Capping](#frequency-capping) / [Frequency Optimization](#frequency-optimization) | For ads served via TURTLEDOVE interest-group targeting, the proposal offers a way to [handle frequency capping on-device](https://github.com/michaelkleber/turtledove#on-device-auction).  For other types of targeting, while it will not be possible to enforce a hard "frequency-cap" across multiple websites, it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). | No support | |
 | [Businesses with Multiple Domains](#businesses-with-multiple-domains) | Proposal: "[First Party Sets](https://github.com/krgovind/first-party-sets/)" | Some discussion in this [GitHub issue](https://github.com/krgovind/first-party-sets/issues/6) indicates weak support for at least the country-specific eTLD use-case, but various concerns with the current "First Party Sets" proposal. | | 
 | [Collaborative Ads](#collaborative-ads) / [Dynamic Ads](#dynamic-ads) | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. | Some discussion in this [GitHub issue](https://github.com/WICG/ad-click-attribution/issues/36). Good collaborative problem solving going on. No firm solution yet. | Facebook proposal for “[Conversion Filters](https://github.com/w3c/web-advertising/blob/master/conversion-filters.md)” |
+| [Email Marketing](#email-marketing) | unclear | unclear | |
+| [Real time spend management](#real-time-spend-management) | High latency in TURTLEDOVE as the javascript updates have unknown frequency, and reporting is delayed in the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model) | Supported as ads are not done in opaque iframe and bidding is not done remotely | |
+
+
+
+# Ad Network Needs
+
+## Core Ad Network Needs
+
+These are core essentials ad networks need to deliver value to advertisers.
+
+- [Training ML Models](#training-ml-models)
+  - [Click Through Rate (CTR) Model: P(click | impression)](#click-through-rate-ctr-model-pclick--impression)
+  - [Conversion Rate (CVR) Model: P(conversion | click)](#conversion-rate-cvr-model-pconversion--click)
+  - [Return on Ad Spend (ROAS) optimization](#return-on-ad-spend-roas-optimization)
+
+| Use-case | Chrome | Safari | Community Proposals |
+|----------|--------|--------|---------------------|
+| [P(click \| impression)](#click-through-rate-ctr-model-pclick--impression) | There is no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. Should be possible to use 1st party cookies to tie together multiple sessions from the same browser on the same website. | [isLoggedIn](https://github.com/WebKit/explainers/tree/master/IsLoggedIn) may potentially pose problems here for websites without login. Limited storage may make it hard to tie together multiple sessions from the same person. | |
+| [P(conversion \| click)](#conversion-rate-cvr-model-pconversion--click) | This is a stated goal of Chrome’s “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” | Not possible to train an ML model. | |
+| [Return on Ad Spend (ROAS) optimization](#return-on-ad-spend-roas-optimization) | Not possible to train an ML model. However, It may be possible to use the “[Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api)” to obtain average conversion value measurement for very coarse-grain buckets of people. This could be used to perform calibration at this coarse-grain bucketed level. | Not possible to train an ML model. | |
+
+## Specialized Ad Network Needs
+
+- [Audience Selling](#audience-selling)
+- [CRM Targeting](#crm-targeting)
+
+| Use-case | Chrome | Safari | Community Proposals |
+|----------|--------|--------|---------------------|
+| [Audience Selling](#audience-selling) | Probably possible under "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" by defining interest groups usable by other parties. | No support | |
+| [CRM Targeting](#crm-targeting) | possible if done via interest groups under "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)"  | No support | |
+
+
+# Publisher Needs
+
+These use-cases are more focused on the publisher's perspective.
+
+- [Problems faced by non-logged in publishers](#problems-faced-by-non-logged-in-publishers)
+  - [Serving relevant ads](#serving-relevant-ads)
+  - [Running an auction](#running-an-auction)
+- [Affiliate Marketing](#affiliate-marketing)
+- [Enablers for first parties](#enablers-for-first-parties)
+  - [Federated Single Sign-on](#federated-single-sign-on)
+  - [View-through Site Personalization](#view-through-site-personalization)
+  - [Click-through Site Personalization](#click-through-site-personalization)
+- [On-site Sponsored Product](#on-site-sponsored-product)
+- [Search](#search)
+
+| Use-case | Chrome | Safari | Community Proposals |
+|----------|--------|--------|---------------------|
 | [Serving relevant ads (non-logged in publishers)](#serving-relevant-ads) | Proposal: “[Federated Learning of Cohorts (FloC)](https://github.com/jkarlin/floc)”. | No support | |
 | [Running an auction (non-logged in publishers)](#running-an-auction) | The TURTLEDOVE proposal is built around a server-side auction for contextually-targeted ads, and then an in-browser auction for user interest targeting.  [This GitHub issue comment](https://github.com/michaelkleber/turtledove/issues/20#issuecomment-602800377) describes the RTB flow in some more detail. | No support | Verizon / Oath [write-up of this use-case](https://github.com/w3c/web-advertising/blob/master/rtb-use-case.md) |
+| [Affiliate Marketing](#affiliate-marketing) | It may be possible to use a combination of the “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” and the “[Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api)” to get a first-order estimate of the number of the number of conversions driven by an Affiliate marketing link, but questions remain about “returns” and fraud. | Extremely limited support possible with the “[Private Click Measurement API](https://github.com/WICG/ad-click-attribution)”, but questions remain about “returns” and fraud. | |
 | [Federated Single Sign-on](#federated-single-sign-on) | Yes - Proposal: “[WebID](https://github.com/samuelgoto/WebID)”| Generally supportive as per [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) " "*We consider certain user actions, such as logging in to multiple first party websites or apps using the same account, to be implied consent to identifying the user as having the same identity in these multiple places*". Policy also acknowledges unintended impacts to federated SSO setups. General discussion in the context of the [Storage Access API](https://github.com/privacycg/storage-access) which is related but not targeted for this use-case (non-goal)| | |
 | [View-through Site Personalization](#view-through-site-personalization) | No support | No support | |
 | [Click-through Site Personalization](#click-through-site-personalization) | There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” unless this mechanism is used to pass through high-entropy identifiers which could be used to tie user identity across websites. See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). | Similar to Chrome, this should not fall afoul of Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) unless high-entropy identifiers are being used to perform "navigational tracking". See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). | |
-| [Email Marketing](#email-marketing) | unclear | unclear | |
-| [Real time spend management](#real-time-spend-management) | High latency in TURTLEDOVE as the javascript updates have unknown frequency, and reporting is delayed in the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model) | Supported as ads are not done in opaque iframe and bidding is not done remotely | |
 |[On-site Sponsored Product](#on-site-sponsored-product)| There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” | Similar answer as that for Chrome. This should not be in conflict with Webkit's Tracking Prevention Policy given the measurement is entirely within the scope of a single publisher website. | |
 | [Search](#search) | unclear, but relies a lot on contextual | unclear | |
-| [Audience Selling](#audience-selling) | Probably possible under "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" by defining interest groups usable by other parties. | No support | |
-| [CRM Targeting](#crm-targeting) | possible if done via interest groups under "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)"  | No support | |
+
+# User Needs
+
+# Current Proposals and Browser Support
+
+| Use-case | Chrome | Safari | Community Proposals |
+|----------|--------|--------|---------------------|
+
 
 # Aggregate Conversion Measurement
 
