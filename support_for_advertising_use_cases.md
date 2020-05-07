@@ -47,7 +47,8 @@ The ads industry has endeavored to find good ways of answering these basic quest
   - [Invalid Traffic](#invalid-traffic)
   - [Third Party Verification](#third-party-verification)
 - [Aggregate Conversion Measurement](#aggregate-conversion-measurement)
-  - [Lift Measurement](#lift-measurement)
+  - [Conversion Lift Measurement](#conversion-lift-measurement)
+  - [Attitudinal Lift Measurement](#attitudinal-lift-measurement)
   - [Click-through and View-through attribution heuristics](#click-through-and-view-through-attribution-heuristics)
   - [Multi-touch attribution](#multi-touch-attribution)
   - [Cross Browser / Cross Device Measurement](#cross-browser--cross-device-measurement)
@@ -61,7 +62,8 @@ The ads industry has endeavored to find good ways of answering these basic quest
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
 | [Impression and Viewability Measurement](#impression-and-viewability-measurement) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be capable of measuring that the ads displayed on their own properties entered the viewport, that images and video were loaded, how much time they spent in the viewport, etc. None of this requires joining up user identity across multiple domains. The only possible complication that might arise would be with "blind rendering" as described in proposals like "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" and “[PETREL](https://github.com/w3c/web-advertising/blob/master/PETREL.md)”. Here, the publisher would have restricted access to the ad being rendered and we will have to discuss the feasibility of "viewability" measurement. There is a discussion on this [GitHub issue](https://github.com/csharrison/aggregate-reporting-api/issues/10). | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | | 
-| [Lift Measurement](#lift-measurement) | A [section of the Conversion Measurement with Aggregation proposal](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#view-through-conversions) describes explicit support for view through conversions, which should be sufficient to support lift measurement using experiments on a first party site (e.g. when using a first-party identifier to decide which experiment branch a person is in). | No support | Facebook proposal for “[Private Lift Measurement](https://github.com/w3c/web-advertising/blob/master/private-lift-measurement-conceptual-overview.md)” |
+| [Conversion Lift Measurement](#conversion-lift-measurement) | A [section of the Conversion Measurement with Aggregation proposal](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#view-through-conversions) describes explicit support for view through conversions, which should be sufficient to support lift measurement using experiments on a first party site (e.g. when using a first-party identifier to decide which experiment branch a person is in). | No support | Facebook proposal for “[Private Lift Measurement](https://github.com/w3c/web-advertising/blob/master/private-lift-measurement-conceptual-overview.md)” |
+| [Attitudinal Lift Measurement](#attitudinal-lift-measurement) | No support | No support | No support | |
 | [Click-through attribution](#click-through-and-view-through-attribution-heuristics) | Proposal: “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” | Proposal: “[Private Click Measurement API](https://github.com/WICG/ad-click-attribution)” |
 | [View-through attribution](#click-through-and-view-through-attribution-heuristics) | A [section of the Conversion Measurement with Aggregation proposal](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#view-through-conversions) describes explicit support for view through conversions. | No support | |
 | [Multi-touch attribution](#multi-touch-attribution) | The [Event-level API](https://github.com/WICG/conversion-measurement-api/blob/master/README.md) proposal covers last-click attribution.  A section of the [Conversion Measurement with Aggregation](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#multi-touch-attribution-mta) proposal describes support for some built-in multi-touch models, and acknowledges that measurement providers writing their own models would be good to support if technically feasible. | No support | Facebook proposal for “[Privacy-Preserving Multi-Touch-Attribution and Cross-Publisher Lift Measurement](https://github.com/w3c/web-advertising/blob/master/privacy_preserving_multi_touch_attribution_and_cross_publisher_lift_measurement.md)” |
@@ -173,11 +175,15 @@ These use-cases are more focused on the publisher's perspective.
 
 Advertisers need to know how many conversions happened as a result of their ad campaigns. 
 
-## Lift Measurement
+## Conversion Lift Measurement
 
 Ideally advertisers would like to know how many conversions were caused by their ad campaign (i.e. would not have happened were it not for this ad campaign). This is variously refered to as "causality" or "incrementality" measurement. The gold standard measurement approach to answer this question is “Lift Measurement”. This involves a “test group” who is shown ads, and a “control group” who is not shown ads. These groups should be randomly selected prior to running the test to ensure they are well balanced. 
 
 The total number of raw conversion events is counted in both groups, and the difference between the two is called the “lift”. If this is a statistically significant value, and the test and control groups were selected randomly, the only explanation for the difference is the causal effect of the ads.
+
+## Attitudinal Lift Measurement
+
+TBD
 
 ## Click-through and View-through attribution heuristics
 
