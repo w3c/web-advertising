@@ -143,6 +143,14 @@ These use-cases are more focused on the publisher's perspective.
 | [Search](#search) | unclear, but relies a lot on contextual | unclear | |
 
 # User Needs
+| Use-case | Chrome | Safari | Community Proposals |
+|----------|--------|--------|---------------------|
+|[Why am I seeing this ad?](#why-am-i-seeing-this-ad)||||
+|[Opt-out of an advertiser, category or product](#opt-out-of-an-advertiser-category-or-product)||||
+|[Opt-out of a marketing service](#opt-out-of-a-marketing-service)||||
+|[Seeing ads relevant to me](#seeing-ads-relevant-to-me)||||
+|[Smooth user experience](#smooth-user-experience)||||
+
 
 # Current Proposals and Browser Support
 
@@ -425,4 +433,18 @@ Some actors on the internet are able to build custom audiences, revealing strong
 ## CRM Targeting
 
 Relationship/CRM Marketing: a marketing strategy designed to foster customer loyalty, interaction, and long-term relationships. It is designed to develop or reinforce a strong bond with existing customers by continuing a dialogue with them that provides the customer with information that matches their needs, problems, or interests
+
+# User needs
+## Why am I seeing this ad?
+As a user, upon request I want a clear answer on why am I seeing a particular ad.
+## Opt-out of an advertiser, category or product
+As a user, upon request I want to easily be able to opt-out of ads related to an advertiser, a category of products or a specific product.
+## Opt-out of a marketing service
+As a user, upon request I want to easily be able to opt-out of ads provided by a specific marketing service.
+## Seeing ads relevant to me
+As a user, I prefer to see ads that are relevant to me.
+## Smooth user experience
+As a user, I do not want:
+ - Ads to degrade my browsing experience, in term of navigation, e.g.: ads blocking access to content or slowing down page load. 
+ - Ads to be annoying, e.g.: get to many times ads for the same product, or ads for products I already bought.
 
