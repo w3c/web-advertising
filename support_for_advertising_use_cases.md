@@ -16,30 +16,30 @@ This document is broken down into 4 main sections based on the needs of the vari
 
 ## Basic Advertiser Needs
 
-All advertising aims to drive an outcome. Just as there are are many types of ads, 
-there are many types of desireable outcomes. These outcomes differ along several key axes:
+All advertising aims to drive an outcome. There are many types of desirable outcomes, and these outcomes differ along several key axes:
 
-1. **Immediate vs delayed**: is someone signing up to be an Uber driver right now,
-or are they just supposed to remember to consider a Mercedes next time they're buying a car?
-2. **Objective vs. subjective**: is someone taking a specific action like dialing a lawyer's office, or are they
-just remembering to "Think Different"?
-3. **Direct vs. Indirect**: is someone buying glasses directly from Warby Parker, or are they buying Ray-Ban's from their
- local optician after seeing a Youtube ad?
+1. **Immediate vs delayed**: signing up to be an Uber driver right now,
+vs. remembering to consider a Mercedes next time they're buying a car
+2. **Objective vs. subjective**: taking a specific action like dialing a lawyer's office vs.
+just remembering to "Think Different"
+3. **Direct vs. Indirect**: buying glasses directly from warbyparker.com, vs. buying Ray-Ban's from their
+ local optician after seeing a Youtube ad
  
 Outcomes that are immediate, objective, and direct are typically referred to as "conversions" and the type of
 advertising that prioritizes conversions is typically called "direct response advertising". Conversely, advertising that
 focuses on outcomes that delayed, subjective, and often indirect is typically called "brand advertising."
 
-Direct response advertising has a long and successful history on the internet, but brand advertising in recent years has
-become increasingly prevalent online, particularly on premium publishers like the Washington Post and New York Times.
-Precise statistics are hard to come by, but by [some estimates](https://www.marketingdive.com/news/42-of-ad-spend-on-amazon-goes-toward-brand-awareness-study-says/565740/) brand advertising makes up over ~1/3 of all digital advertising. 
+Both types of advertising are prevalent on the internet, and many ad campaigns by larger advertisers include a blend of
+ both types. Direct response advertising represents the lion's share of digital advertising, but in recent years 
+ spending on digital brand advertising has grown rapidly, particularly on premium publishers like the Washington Post and The New York Times.
+Precise statistics are hard to come by, but by [some estimates](https://www.marketingdive.com/news/42-of-ad-spend-on-amazon-goes-toward-brand-awareness-study-says/565740/) brand advertising makes up 1/3 or more of all digital advertising. 
 
 When an advertiser spends money to run an ad campaign they want to answer three very basic questions about it:
 - How many people saw the ad?
 - How successful was the campaign at driving the desired outcomes/conversions?
 - Are you confident that the ad impressions and ad conversions are from real, authentic people?
 
-Although they sound like simple questions, in practice answering them well is rather complex and difficult undertaking. 
+Although they sound like simple questions, in practice answering them well is a rather complex and difficult undertaking. 
 The ads industry has endeavored to find good ways of answering these basic questions, and has developed a number of approaches to doing so, which is why there are more than 3 use-cases in this section.
 
 - [Impression and Viewability Measurement](#impression-and-viewability-measurement)
