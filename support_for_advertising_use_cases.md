@@ -226,11 +226,16 @@ brand campaigns are conducted on many different channels simultaneously. Conduct
 using 3rd party panels).
 
 When surveys are conducted on a different domain than the original ad exposure, the surveying domain must have some way
-to select the right survey to give based on the respondent's ad exposure profile across other domains.    
+to select the right survey to give based on the respondent's ad exposure profile across other domains.
+
+Fortunately, the conclusions of attitudinal measurement are inherently statistical and aggregated, e.g. "this campaign increased awareness by 
+10% among those who saw it". The responses any individual are irrelevant beyond their contribution to a summary statistic.
+ If a privacy-safe way to collect and aggregate the the survey data can be devised, measurement providers have no 
+ further need to retain any information about individuals.    
 
 ## Click-through and View-through attribution heuristics
 
-The alternative approach is to use some heuristic to “attribute” conversions to ads. The two most popular heuristics are “click-through attribution” and “view-through attribution”. “Click-through attribution” gives credit to an ad if the person had previously clicked on the ad prior to the conversion event. “View-through attribution” gives credit to an ad if the person had previously seen the ad prior to the conversion event.
+The alternative to lift measurement is to use some heuristic to “attribute” conversions to ads. The two most popular heuristics are “click-through attribution” and “view-through attribution”. “Click-through attribution” gives credit to an ad if the person had previously clicked on the ad prior to the conversion event. “View-through attribution” gives credit to an ad if the person had previously seen the ad prior to the conversion event.
 
 Both attribution heuristics come with some concept of an “attribution window”. For example, a “one-day view-through” attribution window would only count conversions which happened within one day of an ad view. A “28-day click-through” attribution window would only count conversions which happened within 28 days of a click.
 
