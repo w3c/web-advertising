@@ -91,8 +91,8 @@ A robust free press is essential for a free society, and the explosion of freely
  Much discourse about the health of the media focuses on consumers' willingness to pay for news; too little focuses on consumers'
  *ability* to pay. An annual subscription to The New York Times costs ~$191/year. A subscription to the Wall Street
  Journal costs $515/year. In other words, a subscription to *just one single publication* can cost 1.5% of the US median individual income. 
- The fact is that paying for all the information necessary to be a well-informed citizen is prohibitively
- for many people (even moreso for people living in marginalized communities or in less wealthy countries.) 
+ The fact is that paying for all the information necessary to be a well-informed citizen is prohibitively expensive
+ for many people (even moreso for people in marginalized communities or in less wealthy countries.) 
  
  In a real sense, consuming advertising is selling one's attention. For the many people who do not have disposable money to spend on news,
  there is real value in being able to sell their attention in exchange for information and services they'd be otherwise unable to access.
