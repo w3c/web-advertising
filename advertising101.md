@@ -6,6 +6,7 @@ Background paper for the W3C Advertising Business Group. Draft, updated 2020-04-
 Contributors:
 * Wil Schobeiri (wschobeiri@mediamath.com)
 * Laura Carrier (lcarrier@mediamath.com)
+* George London (george@survata.com)
 
 This document describes the purpose and common uses cases for digital advertising, and attempts to connect them with technological solutions currently in use by the web ecosystem. 
 
@@ -58,6 +59,44 @@ Getting this wrong can be costly, damaging, or potentially even illegal. Adverti
 
 Once delivered, engagement and impact with ads in a digital context can be understood and measured in a way not possible in traditional advertising. Digital advertising enables marketers to demonstrate return on investment (ROI) and tangible business results that most modern businesses demand for any expenditure to be renewed. “Was my marketing effective? How effective was it? How much more revenue will we drive if I spend this much more on it?” are all questions that can be answered today.
 
+### Why is digital marketing socially important?
+
+Imagine digital marketing disappeared, perhaps because of legislation or technological changes. Who would be hurt? Obviously
+the technology companies who profit off digital advertising would disappear, but there would be other casualties, in particular:
+
+##### Publishers
+
+About a third (35%) of [newspaper ad revenue now comes](https://www.pewresearch.org/fact-tank/2019/07/23/key-takeaways-state-of-the-news-media-2018/) 
+from digital advertising. [Research shows](http://www.digitalnewsreport.org/survey/2019/overview-key-findings-2019/) that 
+only about 11% of people are willing to pay for news subscriptions, and that half of all U.S. news subscriptions go to 
+the Washington Post or New York Times, which means smaller news outlets are disproportionately dependent on ad revenue.
+
+The current COVID-19 pandemic has proven to be a grim natural experiment highlighting how tenuous the business models of
+modern news media are. News sites have seen reductions of [1/3 to 1/2 in advertising spending](https://www.nytimes.com/2020/04/14/business/los-angeles-times-furloughs-cuts.html), which has lead to [layoffs 
+and furloughs affecting ~36,000 news media employees](https://www.nytimes.com/2020/04/10/business/media/news-media-coronavirus-jobs.html) (and counting).
+These loses of revenue are *less than* the decline of 50-60% in revenue that [Google itself has estimated](https://services.google.com/fh/files/misc/disabling_third-party_cookies_publisher_revenue.pdf) publishers stand to lose
+if current cookie-based advertising techniques are disabled.  
+
+A robust free press is essential for a free society, and the explosion of freely available information about every topic
+ imaginable that's attended the growth of the web has been an incredible boon to human development and happiness. Newspapers
+ have relied on advertising to fund journalism and increase circulation for as long as there have been newspapers at all. 
+ Non-digital advertising is waning rapidly, and if all advertising moves to digital channels which independent or sub-scale
+ publishers can't access, then those publishers (and the numerous social benefits they provide) will simply disappear.
+ 
+ ##### Consumers
+ 
+ Much discourse about the health of the media focuses on consumers' willingness to pay for news; too little focuses on consumers'
+ *ability* to pay. An annual subscription to The New York Times costs nearly $191/year. A subscription to the Wall Street
+ Journal costs $515/year. In other words, a subscription to the WSJ costs 1.5% of the US median individual income *for a single publication*.
+ 
+ The simple fact is that paying for all the information necessary to be a well-informed citizen is simply prohibitively
+ for many people (even moreso for people living in marginalized communities or in less wealthy countries.) In a real sense,
+ consuming advertising is selling one's attention. For the many people who do not have disposable money to spend on news,
+ there is real value in being able to sell their attention in exchange for information and services they'd be otherwise unable to access.
+ And if consumers are going to sell their attention, it's in their interest to get the highest price for that attention they can.
+ 
+ If digital advertising disappears, or the value of advertising drops precipitously, the wealthy will still find a way to get
+ the information they need. Everyone else won't.       
 
 ## Definitions & Strategies
 
