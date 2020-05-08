@@ -62,7 +62,8 @@ Once delivered, engagement and impact with ads in a digital context can be under
 ### Why is digital marketing socially important?
 
 Imagine digital marketing disappeared, perhaps because of legislation or technological changes. Who would be hurt? Obviously
-the technology companies who profit off digital advertising would disappear, but there would be other casualties, in particular:
+the technology companies who profit off digital advertising would disappear but there would also be other less direct 
+casualties, in particular:
 
 ##### Publishers
 
@@ -71,29 +72,31 @@ from digital advertising. [Research shows](http://www.digitalnewsreport.org/surv
 only about 11% of people are willing to pay for news subscriptions, and that half of all U.S. news subscriptions go to 
 the Washington Post or New York Times, which means smaller news outlets are disproportionately dependent on ad revenue.
 
-The current COVID-19 pandemic has proven to be a grim natural experiment highlighting how tenuous the business models of
-modern news media are. News sites have seen reductions of [1/3 to 1/2 in advertising spending](https://www.nytimes.com/2020/04/14/business/los-angeles-times-furloughs-cuts.html), which has lead to [layoffs 
-and furloughs affecting ~36,000 news media employees](https://www.nytimes.com/2020/04/10/business/media/news-media-coronavirus-jobs.html) (and counting).
-These loses of revenue are *less than* the decline of 50-60% in revenue that [Google itself has estimated](https://services.google.com/fh/files/misc/disabling_third-party_cookies_publisher_revenue.pdf) publishers stand to lose
-if current cookie-based advertising techniques are disabled.  
+Smaller news outlets have already been struggling over the last decade, and the business models they currently have are 
+highly tenuous. The current COVID-19 pandemic has proven to be a grim natural experiment highlighting just how tenuous 
+those business models are. The economic and media conditions surrounding COVID-19 have lead to [reductions of 1/3 to 1/2 in advertising spending](https://www.nytimes.com/2020/04/14/business/los-angeles-times-furloughs-cuts.html)
+in news media, which has lead to [layoffs and furloughs affecting ~36,000 news media employees](https://www.nytimes.com/2020/04/10/business/media/news-media-coronavirus-jobs.html) (and counting).
+The current loss of revenue is still *less than* the decline of 50-60% in revenue that [Google itself has estimated](https://services.google.com/fh/files/misc/disabling_third-party_cookies_publisher_revenue.pdf) publishers stand to lose
+if current cookie-based advertising techniques are disabled and not adequately replaced.  
 
 A robust free press is essential for a free society, and the explosion of freely available information about every topic
- imaginable that's attended the growth of the web has been an incredible boon to human development and happiness. Newspapers
- have relied on advertising to fund journalism and increase circulation for as long as there have been newspapers at all. 
- Non-digital advertising is waning rapidly, and if all advertising moves to digital channels which independent or sub-scale
- publishers can't access, then those publishers (and the numerous social benefits they provide) will simply disappear.
+ imaginable on the web has been an incredible boon to human development and happiness. For as long as newspapers have existed 
+ (all the way back to the 1700's) newspapers
+ have relied on advertising to fund journalism and distribution. 
+ As more and more media moves online, non-digital advertising is waning rapidly. If all advertising moves to digital channels which independent or sub-scale
+ publishers can't access then those publishers (and the numerous social benefits they provide) will simply disappear.
  
  ##### Consumers
  
  Much discourse about the health of the media focuses on consumers' willingness to pay for news; too little focuses on consumers'
- *ability* to pay. An annual subscription to The New York Times costs nearly $191/year. A subscription to the Wall Street
- Journal costs $515/year. In other words, a subscription to the WSJ costs 1.5% of the US median individual income *for a single publication*.
+ *ability* to pay. An annual subscription to The New York Times costs ~$191/year. A subscription to the Wall Street
+ Journal costs $515/year. In other words, a subscription to *just one single publication* can cost 1.5% of the US median individual income. 
+ The fact is that paying for all the information necessary to be a well-informed citizen is prohibitively
+ for many people (even moreso for people living in marginalized communities or in less wealthy countries.) 
  
- The simple fact is that paying for all the information necessary to be a well-informed citizen is simply prohibitively
- for many people (even moreso for people living in marginalized communities or in less wealthy countries.) In a real sense,
- consuming advertising is selling one's attention. For the many people who do not have disposable money to spend on news,
+ In a real sense, consuming advertising is selling one's attention. For the many people who do not have disposable money to spend on news,
  there is real value in being able to sell their attention in exchange for information and services they'd be otherwise unable to access.
- And if consumers are going to sell their attention, it's in their interest to get the highest price for that attention they can.
+ If consumers are going to sell their attention, it's in their interest to get the highest price for that attention they can.
  
  If digital advertising disappears, or the value of advertising drops precipitously, the wealthy will still find a way to get
  the information they need. Everyone else won't.       
