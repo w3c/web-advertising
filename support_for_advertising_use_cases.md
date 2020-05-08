@@ -184,12 +184,11 @@ The total number of raw conversion events is counted in both groups, and the dif
 ## Attitudinal Lift Measurement
 
 Much like direct response advertisers want to know how many incremental conversions were caused by their ad campaigns, 
-brand advertisers want to know whether their ad campaigns succeeded in causing their desired outcomes. Unlike in direct
-response, the targeted outcomes are usually not observable conversions but rather subjective changes in consumers awareness
-of, intent to purchase, or feelings of favorability towards a particular brand, service, or product.
+brand advertisers want to know whether their ad campaigns succeeded in making consumers more aware of, interested in, or
+favorable towards their brand, product, or service.
 
-Because these outcomes are not linked to a discrete observable action (like an online purchase), they must instead be 
-measured (typically) through surveys that ask questions like "how likely are you to purchase a Toyota next time you're
+Because these attitudinal outcomes are not linked to a discrete observable action (like an online purchase), they typically 
+must instead be measured through surveys that ask questions like "how likely are you to purchase a Toyota next time you're
 in the market for a car?"
 
 Lift is measured by comparing the prevalence of a given answer among an "exposed" group of respondents who have seen a 
@@ -197,37 +196,34 @@ particular ad campaign compared to the prevalence of that same answer among a co
 
 When possible, the exposed and control groups should be randomly selected prior to running the test to ensure they are well balanced.
 However random selection is not always feasible because it may require advertisers to purchase ad space in order to **not** show ads to 
-the control group, which many advertisers find prohibitively expensive. But even if random selection is not used, surveys can
-be designed to capture pre-existing differences between exposed and control groups and thus allow recovering an accurate estimate of
+the control group, which many advertisers find prohibitively expensive. But even when random selection is not used, surveys can
+be designed to capture pre-existing differences between exposed and control groups through tailored questions and thus allow recovering an accurate estimate of
 lift using a statistical process known as "casual inference".
 
-Measuring attitudinal lift involves substantial challenges that aren't involved in measuring conversion lift:
+Measuring attitudinal lift adds substantial challenges beyond those already involved in measuring conversion lift:
  
- 1. Brand advertising by nature rarely produces clicks. For example, video advertising - the fastest growing online ad 
- format - is almost all intended to drive brand outcomes (like awareness), not clicks. This means that any browser API that requires
+ 1. Brand advertising rarely produces clicks (or any other direct interaction with the ad unit). For example, video advertising - the [fastest growing online ad 
+ format](https://www.iab.com/wp-content/uploads/2019/10/IAB-HY19-Internet-Advertising-Revenue-Report.pdf) - is almost all intended to drive brand outcomes (like awareness), not clicks. This means that any browser API that requires
  clicks to operate will not be suitable for Attitudinal Lift Measurement (though API's that support "view-through conversions" 
  may potentially be sufficient.)    
- 2. Increasing favorability towards Toyota is fundamentally different than increasing favorability towards Honda and so a Toyota 
+ 2. Favorability towards Toyota is fundamentally different than favorability towards BMW and so a Toyota 
 ad campaign can only be measured by a survey that specifically asks about attitudes towards Toyota in particular. Because surveys 
 are expensive to administer, it would be uneconomical to survey hundreds of thousands of consumers about their attitudes
- towards every car brand, hoping that enough of them turn out to have seen a Toyota ad in order to estimate lift for that campaign. Instead, surveys must be 
-kept brief and must be narrowly targeted to people who have seen *particular* ad campaigns (or are in a control group with respect
+ towards every car brand, hoping that enough of them turn out to have seen a Toyota ad. Instead, surveys must be 
+kept brief and must be narrowly targeted to people who have seen *specific* ad campaigns (or are in a control group with respect
 to that particular ad campaign).
 
-The necessity of targeting particular surveys to particular respondents means that at some point, some system must select
-the right survey to show to a particular person. And that system must make the decision based on that person's past exposure
-(or non-exposure) to a particular ad. This may not be a problem in 1st party contexts where a particular publisher running
+The necessity of targeting specific surveys to particular respondents means that at some point, some system must select
+the right survey to show to a particular person. And that decision can only be based on that person's past exposure
+(or non-exposure) to particular ads. This selection may not be a privacy problem in 1st party contexts where a particular publisher running
 an on-site survey just needs to record which ads a particular user has seen on that 1st party domain. (Though that itself 
 might be a problem if publishers are blinded to the ads served via a system like TURTLEDOVE.)
 
-While some surveys are conducted in a 1st party context (e.g. Youtube conducts its own internal brand measurement studies),
+While some large publishers (e.g. Youtube) do conducted their own brand measurement surveys in a 1st party context,
 advertisers are understandably reluctant to allow publishers to "grade their own homework." Also, the vast majority of 
-brand campaigns are conducted on many different channels simultaneously and even if it weren't prohibitively burdensome 
-for advertisers to aggregate individual survey results from each channel, it would be prohibitively difficult for small, 
-independent publishers to administer their own survey systems. Thus the large majority of                                                              
-attitudinal lift measurement is conducted via 3rd party channels (either by intercepting visitors on other websites, or by
-using 3rd party panels) who can report on campaigns across domains and can develop their own expertise in the practice of survey administration and
-statistical analysis. 
+brand campaigns are conducted on many different channels simultaneously. Conducting and analyzing surveys requires expertise
+ that is unrealistic for small, independent publishers to develop and deploy on their own. Thus the large majority of                                                               attitudinal lift measurement is conducted via 3rd party channels (either by intercepting visitors on other websites, or by
+using 3rd party panels).
 
 When surveys are conducted on a different domain than the original ad exposure, the surveying domain must have some way
 to select the right survey to give based on the respondent's ad exposure profile across other domains.    
