@@ -190,7 +190,35 @@ Marketer (consumer packaged goods brand): I know little about this consumer othe
 
 *Customer*: What the retail marketer does not know about me is that I have gotten re-married and my new wife prefers another retailer. We have noticed that there have been some significant shipping issues of late that we are both not happy with. So, now we are open to finding a retailer who carries the brands of childcare products that we need (including, but expanded beyond diapers) and who can get us those products reliably and quickly. In the ads I’ve seen, this retailer messaged that they can now get me goods in <3 days. I mention this retailer to my wife after seeing a few of the ads, and she makes our next purchase from them
 
-**_Scenario Five: Digital Marketing to Incentivize Store Visits_**
+**_Scenario Five: Brand Messaging_**
+
+*Marketer*: My company believes strongly in protecting the health of the next generation and the 
+health of the planet they will inherit. We avoid using any potentially harmful chemicals in our diapers.
+Unfortunately, our competitors don't share our scruples and so our diapers are not the cheapest on the market.
+
+We believe that most parents share our values but have never thought about the sustainability of their diapers. 
+ So they will make their purchasing decision based purely on fit and price **unless**
+they're made aware of the environmental and health implications of their decision. My company decides to run a large 
+advertising campaign emphasizing the sustainable composition of our diapers. Our goal is not to drive immediate sales but
+rather to make new parents aware that not all diapers are sustainable, even if that might benefit some of our 
+competitors who also limit harmful chemicals.
+  
+* Customers who already purchase our diapers are likely already aware of our message, so we want to target our campaign 
+to new parents who are not already customers. We purchase "segments" containing lists of new parents and to keep costs down 
+we use our CRM to suppress targeting parents who are already customers.  
+* Our CFO is skeptical that our ad campaign is a good use of money, particularly when we tell him it won't drive 
+immediately observable sales. So we contract with a brand lift measurement vendor to run an attitudinal lift study on our campaign.
+The measurement partner integrates a tracking tag into our advertisements and then uses that tracking information to survey parents who saw our ads and ask 
+them "to what extent do you agree that diapers from {{My Brand}} are free of harmful chemicals?".
+* Based on the results of the measurement study, I refine my creatives and targeting until I see a clear lift in consumer awareness.
+My CFO is pleased by the statistically rigorous results and authorizes a new campaign to run in the fall.
+
+*Customer*: As new parents, we didn't realize that some diaper manufacturers cut corners and include chemicals in their diapers
+that are bad for the environment or even potentially unhealthy for my baby. I'm glad that I saw a video on Youtube that 
+explained to me which chemicals to watch out for and which companies prioritize safety. I now research my diaper purchases
+carefully before making them, and I'm happy to spend a few more dollars on the sustainable option.
+
+**_Scenario Six: Digital Marketing to Incentivize Store Visits_**
 
 *Marketer (retailer)*: I am opening a new store and I would like to let consumers in the neighborhood know about the opening and incentivize them to come visit the store.
 * I ask them to target based on zip code for all zip codes within 20 miles of my store with brand messaging
