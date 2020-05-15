@@ -16,19 +16,42 @@ This document is broken down into 4 main sections based on the needs of the vari
 
 ## Basic Advertiser Needs
 
+All advertising aims to drive an outcome. There are many types of desirable outcomes, and these outcomes differ along several key axes:
+
+1. **Immediate vs delayed**: signing up to be an Uber driver right now,
+vs. remembering to consider a Mercedes next time they're buying a car
+2. **Actions vs. Attidues**: taking a specific action like dialing a lawyer's office vs.
+just remembering to "Think Different"
+3. **Direct vs. Indirect**: buying glasses directly from warbyparker.com, vs. buying Ray-Ban's from their
+ local optician after seeing a Youtube ad
+ 
+Outcomes that are immediate, direct actions are typically referred to as "conversions" and the type of
+advertising that prioritizes conversions is typically called "direct response advertising." Conversely, advertising that
+focuses on outcomes that involve a change in attitudes or involve actions that are delayed (and often indirect) is typically called "brand advertising." 
+
+(Please see the document on [Advertising Outcomes](advertising-outcomes.md) in this repo for a list of more potential outcomes.)
+
+Both types of advertising are prevalent on the internet, and many ad campaigns by larger advertisers include a blend of
+ both types. Direct response advertising represents the majority of digital advertising, but in recent years 
+ spending on digital brand advertising has grown rapidly, particularly on premium publishers like the Washington Post and The New York Times.
+ Some channels, like paid search, are dominated by direct response advertising. Others, like online video, are dominated by brand advertising. 
+
 When an advertiser spends money to run an ad campaign they want to answer three very basic questions about it:
-- How many people saw the ad?
-- How many conversions happened as a result of running this ad campaign?
+- How many people saw the ad? Was the ad visible, and was it shown to the people I intended to see it?
+- How successful was the campaign at driving the desired outcomes/conversions?
 - Are you confident that the ad impressions and ad conversions are from real, authentic people?
 
-Although they sound like simple questions, in practice answering them well is rather complex and difficult undertaking. The ads industry has endeavored to find good ways of answering these basic questions, and has developed a number of approaches to doing so, which is why there are more than 3 use-cases in this section.
+Although they sound like simple questions, in practice answering them well is a rather complex and difficult undertaking. 
+The ads industry has endeavored to find good ways of answering these basic questions, and has developed a number of approaches to doing so, which is why there are more than 3 use-cases in this section.
 
 - [Impression and Viewability Measurement](#impression-and-viewability-measurement)
   - [Viewability](#viewability)
   - [Invalid Traffic](#invalid-traffic)
   - [Third Party Verification](#third-party-verification)
+  - [Audience Verification](#audience-verification)
 - [Aggregate Conversion Measurement](#aggregate-conversion-measurement)
-  - [Lift Measurement](#lift-measurement)
+  - [Conversion Lift Measurement](#conversion-lift-measurement)
+  - [Brand Lift Measurement](#brand-lift-measurement)
   - [Click-through and View-through attribution heuristics](#click-through-and-view-through-attribution-heuristics)
   - [Multi-touch attribution](#multi-touch-attribution)
   - [Cross Browser / Cross Device Measurement](#cross-browser--cross-device-measurement)
@@ -41,8 +64,10 @@ Although they sound like simple questions, in practice answering them well is ra
   
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
-| [Impression and Viewability Measurement](#impression-and-viewability-measurement) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be capable of measuring that the ads displayed on their own properties entered the viewport, that images and video were loaded, how much time they spent in the viewport, etc. None of this requires joining up user identity across multiple domains. The only possible complication that might arise would be with "blind rendering" as described in proposals like "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" and “[PETREL](https://github.com/w3c/web-advertising/blob/master/PETREL.md)”. Here, the publisher would have restricted access to the ad being rendered and we will have to discuss the feasibility of "viewability" measurement. There is a discussion on this [GitHub issue](https://github.com/csharrison/aggregate-reporting-api/issues/10). | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | | 
-| [Lift Measurement](#lift-measurement) | A [section of the Conversion Measurement with Aggregation proposal](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#view-through-conversions) describes explicit support for view through conversions, which should be sufficient to support lift measurement using experiments on a first party site (e.g. when using a first-party identifier to decide which experiment branch a person is in). | No support | Facebook proposal for “[Private Lift Measurement](https://github.com/w3c/web-advertising/blob/master/private-lift-measurement-conceptual-overview.md)” |
+| [Impression and Viewability Measurement](#impression-and-viewability-measurement) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be capable of measuring that the ads displayed on their own properties entered the viewport, that images and video were loaded, how much time they spent in the viewport, etc. None of this requires joining up user identity across multiple domains. The only possible complication that might arise would be with "blind rendering" as described in proposals like "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" and “[PETREL](https://github.com/w3c/web-advertising/blob/master/PETREL.md)”. Here, the publisher would have restricted access to the ad being rendered and we will have to discuss the feasibility of "viewability" measurement. There is a discussion on this [GitHub issue](https://github.com/csharrison/aggregate-reporting-api/issues/10). | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | |
+| [Audience Verification](#audience-verification) | No support | No support | No Support | |
+| [Conversion Lift Measurement](#conversion-lift-measurement) | A [section of the Conversion Measurement with Aggregation proposal](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#view-through-conversions) describes explicit support for view through conversions, which should be sufficient to support lift measurement using experiments on a first party site (e.g. when using a first-party identifier to decide which experiment branch a person is in). | No support | Facebook proposal for “[Private Lift Measurement](https://github.com/w3c/web-advertising/blob/master/private-lift-measurement-conceptual-overview.md)” |
+| [Brand Lift Measurement](#brand-lift-measurement) | No support | No support | No support | |
 | [Click-through attribution](#click-through-and-view-through-attribution-heuristics) | Proposal: “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” | Proposal: “[Private Click Measurement API](https://github.com/WICG/ad-click-attribution)” |
 | [View-through attribution](#click-through-and-view-through-attribution-heuristics) | A [section of the Conversion Measurement with Aggregation proposal](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#view-through-conversions) describes explicit support for view through conversions. | No support | |
 | [Multi-touch attribution](#multi-touch-attribution) | The [Event-level API](https://github.com/WICG/conversion-measurement-api/blob/master/README.md) proposal covers last-click attribution.  A section of the [Conversion Measurement with Aggregation](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#multi-touch-attribution-mta) proposal describes support for some built-in multi-touch models, and acknowledges that measurement providers writing their own models would be good to support if technically feasible. | No support | Facebook proposal for “[Privacy-Preserving Multi-Touch-Attribution and Cross-Publisher Lift Measurement](https://github.com/w3c/web-advertising/blob/master/privacy_preserving_multi_touch_attribution_and_cross_publisher_lift_measurement.md)” |
@@ -154,15 +179,72 @@ These use-cases are more focused on the publisher's perspective.
 
 Advertisers need to know how many conversions happened as a result of their ad campaigns. 
 
-## Lift Measurement
+## Conversion Lift Measurement
 
 Ideally advertisers would like to know how many conversions were caused by their ad campaign (i.e. would not have happened were it not for this ad campaign). This is variously refered to as "causality" or "incrementality" measurement. The gold standard measurement approach to answer this question is “Lift Measurement”. This involves a “test group” who is shown ads, and a “control group” who is not shown ads. These groups should be randomly selected prior to running the test to ensure they are well balanced. 
 
 The total number of raw conversion events is counted in both groups, and the difference between the two is called the “lift”. If this is a statistically significant value, and the test and control groups were selected randomly, the only explanation for the difference is the causal effect of the ads.
 
+## Brand Lift Measurement
+
+Much like direct response advertisers want to know how many incremental conversions were caused by their ad campaigns, 
+brand advertisers want to know whether their ad campaigns succeeded in making consumers incrementally more aware of, interested in, or
+favorable towards their brand, product, or service.
+
+Because these attitudinal outcomes are not linked to a discrete observable action (like an online purchase), they typically 
+must instead be measured through surveys that ask questions like "to what extent do you believe
+that Volvo makes the safest cars on the market?"
+
+Lift is measured by comparing the prevalence of a given answer among an "exposed" group of respondents who have seen a 
+particular ad campaign compared to the prevalence of that same answer among a control group who have not seen the campaign.
+
+Measuring brand lift adds substantial challenges beyond those already involved in measuring conversion lift:
+ 
+ 1. Brand advertising rarely produces clicks (or any other direct interaction with the ad unit). For example, video advertising - the [fastest growing online ad 
+ format](https://www.iab.com/wp-content/uploads/2019/10/IAB-HY19-Internet-Advertising-Revenue-Report.pdf) - is almost all intended to drive brand outcomes (like awareness), not clicks. This means that any browser API that requires
+ clicks to operate will not be suitable for Brand Lift Measurement (though API's that support "view-through conversions" 
+ may potentially be sufficient).    
+ 2. Attitudes towards Toyota are fundamentally different than attitudes towards BMW, and so a Toyota 
+ad campaign can only be measured by a survey that specifically asks about attitudes towards Toyota in particular. Because surveys 
+are expensive to administer, it would be uneconomical to survey hundreds of thousands of consumers about their attitudes
+ towards every car brand, hoping that enough of them turn out to have seen a Toyota ad. Instead, surveys must be 
+kept brief and must be narrowly targeted to people who have seen *specific* ad campaigns (or are in a control group with respect
+to that particular ad campaign).
+
+The necessity of targeting specific surveys to particular respondents means that at some point, some system must select
+the right survey to show to a particular person. And that decision can only be based on that person's past exposure
+(or non-exposure) to particular ads. This selection may not be a privacy problem in 1st party contexts where a particular publisher running
+an on-site survey just needs to record which ads a particular user has seen on that 1st party domain. (Though that itself 
+might be a problem if publishers are blinded to the ads served via a system like TURTLEDOVE).
+
+While some large publishers (e.g. Youtube) do conduct their own brand measurement surveys in a 1st party context,
+advertisers are understandably reluctant to allow publishers to "grade their own homework." Also, the vast majority of 
+brand campaigns are conducted on many different channels simultaneously. Conducting and analyzing surveys requires expertise
+ that is unrealistic for small, independent publishers to develop and deploy on their own. Thus the large majority of                                                               brand lift measurement is conducted via 3rd party channels (either by intercepting visitors on other websites, or by
+using 3rd party panels).
+
+When surveys are conducted on a different domain than the original ad exposure, the surveying domain must have some way
+to select the right survey to give based on the respondent's ad exposure profile across other domains.
+
+Fortunately, the conclusions of attitudinal brand lift measurement are inherently statistical and aggregated, e.g. "this campaign increased awareness by 
+10% among those who saw it". The responses of any individual are irrelevant beyond their contribution to a summary statistic.
+ If a privacy-safe way to collect and aggregate the the survey data can be devised, measurement providers have no 
+ further need to retain any information about individuals. 
+ 
+ Brand lift measurement does have some additional privacy advantages:
+ 
+* It is inherently opt-in, because surveys used to measure attitudes are inherently optional. Consumers
+ who do not wish to have their reactions to brand advertising measured can simply choose not to respond to surveys.
+* Although 3rd party brand lift measurement does require some degree of aggregation of cross-site behavior, it does
+**not** require the advertiser, the publisher, or the measurement company to collect and share any personally 
+identifiable information about about people whose attitudes are being measured.     
+* Knowing which survey to administer to a browser does not inherently require any browser-level identification. Vendors
+ only need to know the campaign or creative-level exposure attribute (which is shared by thousands or millions of 
+ other browsers). I.e. vendors only need to know about membership in groups that are always very large.
+
 ## Click-through and View-through attribution heuristics
 
-The alternative approach is to use some heuristic to “attribute” conversions to ads. The two most popular heuristics are “click-through attribution” and “view-through attribution”. “Click-through attribution” gives credit to an ad if the person had previously clicked on the ad prior to the conversion event. “View-through attribution” gives credit to an ad if the person had previously seen the ad prior to the conversion event.
+The alternative to lift measurement is to use some heuristic to “attribute” conversions to ads. The two most popular heuristics are “click-through attribution” and “view-through attribution”. “Click-through attribution” gives credit to an ad if the person had previously clicked on the ad prior to the conversion event. “View-through attribution” gives credit to an ad if the person had previously seen the ad prior to the conversion event.
 
 Both attribution heuristics come with some concept of an “attribution window”. For example, a “one-day view-through” attribution window would only count conversions which happened within one day of an ad view. A “28-day click-through” attribution window would only count conversions which happened within 28 days of a click.
 
@@ -303,7 +385,7 @@ There are a few critically important aspects of impression counting that adverti
 
 Sometimes, an ad is returned from an ad-server, but never actually enters the viewport. Sometimes an ad might enter the viewport, but only for a few milliseconds. Sometimes an ad might enter the viewport, but fail to load any images or video before it leaves again. Sometimes there might be other elements drawn over the top of the ad. These cases illustrate "non-viewable" ad impressions. Advertisers only want to pay for "viewable ad impressions". The reasoning is simple, an ad cannot possibly have an effect on someone's future purchasing behavior if they never saw it in the first place!
 
-Over the years, the industry has developed standards to define what consititues a "Viewable ad impression". These are different for image and video ads, for the mobile and desktop web, and in-app. Industry bodies like the IAB and the MRC regularly audit measurement vendors (ad servers, ad verification vendors) to see if they are compliant with these standards.
+Over the years, the industry has developed standards to define what constitutes a "Viewable ad impression". These are different for image and video ads, for the mobile and desktop web, and in-app. Industry bodies like the IAB and the MRC regularly audit measurement vendors (ad servers, ad verification vendors) to see if they are compliant with these standards.
 
 ## Invalid Traffic
 
@@ -313,6 +395,54 @@ Advertisers want to show ads to humans, not to bots and scripts. The industry ha
 
 When a measurement vendor (ad server, publisher, etc) reports a certain number of impressions (presumably viewable impressions, with invalid traffic filtered out), how is the advertiser to know if this number is accurate? Advertisers would prefer not to just accept these numbers on faith. For this reason, the industry has established a number of independent, third-party measurement vendors that run their own verification scripts to provide advertisers with the peace of mind and confidence that the number of impressions they are being billed for are accurate, and measured in a consistent way across all of their ad buys.
 
+# Audience Verification
+
+Not all products are suited for all consumers. For example, in the United States sales of alcohol are restricted to 
+people age 21 and over, and there are even regulations limiting the extent to which advertisements for alcohol can be 
+shown to people under 21. Thus advertisers of alcohol have not only an economic interest but also a legal obligation
+to avoid advertising to teenagers.
+
+The current ecosystem has developed elaborate mechanisms to allow advertisers to reach consumers they believe will 
+have the interest and ability to purchase their products. While the move to a more private web will (and should) 
+eliminate some of the current privacy-unfriendly techniques marketers use for targeting, it will not eliminate 
+the reasonable desire (and in some cases obligation) to avoid showing irrelevant ads to uninterested or inappropriate 
+consumers.  
+
+There is a real cost in assembling and assessing addressable audiences who are united by some common characteristic of 
+interest. As such, vendors who amass these audiences (whether those vendors are 
+publishers or third parties) often charge a substantial premium to advertisers who wish to access these audiences.
+ With so much money at stake, advertisers have a strong 
+ interest in knowing whether they're actually reaching the types of people they're paying to reach. As targeting moves 
+ behind opaque mechanisms like TURTLEDOVE, there is a real risk that without the possibility of independent 
+ verification, advertisers lose so much trust in the accuracy of audience targeting mechanisms that they revert 
+ to the inefficient and annoying-to-consumers spray-and-pray tactics of the mass media era. This will both hurt
+  consumers who will be bombarded with irrelevant or lowest-common-denominator ads, and it will hurt small publishers 
+  for whom providing advertisers access to a niche audience may be their primary economic value proposition. 
+ 
+As with lift measurement, the conclusions marketers are aiming to draw are inherently statistical, aggregated, and 
+ privacy-friendly. Advertisers are not interested in learning or retaining the demographics of any particular ad viewer -
+ they only want to know that e.g. "95% of people who saw my ad were over the age of 21."
+ 
+Some publishers have demographic information on their users and are able to report viewership
+demographics based on 1st party data. But the vast majority of publishers do not know the demographics of their viewers,
+even of viewers who are registered or subscribed. Thus advertisers use products like Nielsen's "Digital Ad Ratings" and
+ rely on Nielsen to track ad campaigns and survey people who've seen ads to collect age and gender statistics. 
+ 
+ While age and gender are the most commonly measured attributes, advertisers also often want to target audiences based on 
+ finer-grained demographics (e.g. people who live in St. Louis) or interests (e.g. "people who play golf"). 
+ 
+ The data used for audience measurement can come from different sources, but particularly for finer-grained attributes
+ surveys often provide the most accurate (or sometimes the only) way of assessing attribute prevalence among the people
+  exposed to a campaign. As is the case with [Brand Lift Measurement](#brand-lift-measurement),
+   these surveys which must be conducted at some point after the advertising itself is displayed. 
+   The data can neither be inferred from the rendering of the advertisement (as e.g. viewability can) nor
+ can it be collected contemporaneously with the exposure. This means that the vendor conducting the surveys must have some way to know which
+  advertising campaigns individuals have been exposed to in order to ask the right survey questions and to 
+  properly aggregate the responses. Asynchronous 
+  reporting API's may play a part in supporting the audience verification use-case but they are not themselves sufficient,
+  because it's not plausible to ask every potential question about demographics and interests to every respondent. So
+  surveys need to be targeted to the relevant groups of advertising-exposed respondents.
+  
 # Brand Safety
 
 Some web-pages may contain graphic imagery, or might discuss controversial topics, or include news about disaster or tragedy. Advertisers care a great deal about the types of concepts that people will associate with their brand. For this reason, advertisers might not feel comfortable having their advertisements run alongside these types of content.
