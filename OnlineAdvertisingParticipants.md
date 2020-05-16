@@ -1,4 +1,4 @@
-# The Use Cases of Online Advertising
+s# The Use Cases of Online Advertising
 
 Discussion Paper for the  
 W3C Advertising Business Group
@@ -46,7 +46,7 @@ The web advertising ecosystem is a collaboration among many parties.  Common des
 
 ## Ad Call with Single Market
 
-![Event Flow Diagram](https://w3c.github.io/web-advertising/UseCasesofOnlineAdvertising/image1.png)
+![Event Flow Diagram](https://w3c.github.io/web-advertising/OnlineAdvertisingParticipants/image1.png)
 
 ### Steps
 
