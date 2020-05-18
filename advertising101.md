@@ -10,6 +10,8 @@ Contributors:
 This document describes the purpose and common uses cases for digital advertising, and attempts to connect them with technological solutions currently in use by the web ecosystem. 
 
 TODOS:
+* Change links on introduction
+* Clarify: How is this different than https://github.com/w3c/web-advertising/blob/master/support_for_advertising_use_cases.md?
 * Commercial context / revenue overall (digital, programmatic), and per use case 
 * Approximate percentages of advertising spend supported per adverting use case, where possible 
 * Definitions are incomplete 

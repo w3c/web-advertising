@@ -6,10 +6,10 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 
 # Introductory and Summary Material
 
-* [Use Cases of Online Advertising](UseCasesofOnlineAdvertising.md) "Hello Ads," an introduction to the online advertising ecosystem
-* [Online Advertising Capabilities: Hit List](OnlineAdvertisingCapabilitiesHitList.md) of needs identified so far.
-* [Common User Flows](common-user-flows-in-web-advertising.md): Example user experiences and the parties involved
-* [Support for Advertising Use Cases](https://github.com/w3c/web-advertising/blob/master/support_for_advertising_use_cases.md): Tabulation of use cases and the proposals or browsers supporting them
+* [Overview of Online Advertising & Marketing](advertising101.md), an overview of common business use cases for digital advertising.
+* [Participants in Online Advertising](OnlineAdvertisingParticipants.md) "Hello Ads," an introduction to the online advertising ecosystem.
+* [Common User Flows](common-user-flows-in-web-advertising.md): Example user experiences and the parties involved.
+* [Advertising Technology Use Cases](support_for_advertising_use_cases.md): Tabulation of common AdTech use cases and the proposals or browsers supporting them
 
 # Ideas and Proposals
 
