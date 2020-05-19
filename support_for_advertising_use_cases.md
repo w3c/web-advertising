@@ -148,6 +148,10 @@ These use-cases are more focused on the publisher's perspective.
 
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
+| [Exclusion Targeting](#exclusion-targeting) | Acknowledgement that this is a valuable use-case and a link to Facebook’s PETREL proposal on this [GitHub Issue](https://github.com/michaelkleber/turtledove/issues/3) | No support | Facebook proposal for “[Private Exclusion Targeting Rendered Exclusively Locally (PETREL)](https://github.com/w3c/web-advertising/blob/master/PETREL.md)” |
+| [Frequency Capping](#frequency-capping) / [Frequency Optimization](#frequency-optimization) | For ads served via TURTLEDOVE interest-group targeting, the proposal offers a way to [handle frequency capping on-device](https://github.com/michaelkleber/turtledove#on-device-auction).  For other types of targeting, while it will not be possible to enforce a hard "frequency-cap" across multiple websites, it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). | No support | |
+| [Why am I seeing this](#why-am-i-seeing-this) | Both the Chrome team and the [Google ads team](https://services.google.com/fh/files/misc/industry_request_for_comment_v1.0.pdf) have on multiple occassions cited a desire show people an explanation of what caused an ad to appear. The [TURTLEDOVE](https://github.com/michaelkleber/turtledove#motivating-use-case) proposal specifically aims to provide people with an accurate answer as to why they are seeing a re-targeting ad. | No support. | |
+| [Hide all ads from business](#hide-all-ads-from-business) | Unclear | No support | |
 
 
 # Aggregate Conversion Measurement
@@ -426,3 +430,12 @@ Some actors on the internet are able to build custom audiences, revealing strong
 
 Relationship/CRM Marketing: a marketing strategy designed to foster customer loyalty, interaction, and long-term relationships. It is designed to develop or reinforce a strong bond with existing customers by continuing a dialogue with them that provides the customer with information that matches their needs, problems, or interests
 
+# Why am I seeing this
+
+One user need is to be presented with an accurate explanation of why a particular ad was shown. This is especially important in use-cases like re-targeting when people want to understand how personal information is shared. When no explanation is provided, people may imagine innacurate theories as to why they are seeing a given ad.
+
+# Hide all ads from business
+
+One user need is the ability to hide all ads from a specific business. This could be for any reason, but examples might include a dislike for that particular company / brand, a lack of relevance, excessively repetitive ads from that business in the past, a prior bad experience with that business, or offensive ad imagery. 
+
+The compexity in serving this user need comes from the difficulty in recognizing which ads promote which businesses. A given business may run ads through many channels, through many different ad agencies, and might promote a variety of apps and websites. All of this makes it very difficult to successfully satisfy this user need.
