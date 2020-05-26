@@ -6,10 +6,13 @@ Background paper for the W3C Advertising Business Group. Draft, updated 2020-04-
 Contributors:
 * Wil Schobeiri (wschobeiri@mediamath.com)
 * Laura Carrier (lcarrier@mediamath.com)
+* George London (george@survata.com)
 
 This document describes the purpose and common uses cases for digital advertising, and attempts to connect them with technological solutions currently in use by the web ecosystem. 
 
 TODOS:
+* Change links on introduction
+* Clarify: How is this different than https://github.com/w3c/web-advertising/blob/master/support_for_advertising_use_cases.md?
 * Commercial context / revenue overall (digital, programmatic), and per use case 
 * Approximate percentages of advertising spend supported per adverting use case, where possible 
 * Definitions are incomplete 
@@ -58,6 +61,51 @@ Getting this wrong can be costly, damaging, or potentially even illegal. Adverti
 
 Once delivered, engagement and impact with ads in a digital context can be understood and measured in a way not possible in traditional advertising. Digital advertising enables marketers to demonstrate return on investment (ROI) and tangible business results that most modern businesses demand for any expenditure to be renewed. “Was my marketing effective? How effective was it? How much more revenue will we drive if I spend this much more on it?” are all questions that can be answered today.
 
+### Why is digital advertising socially important?
+
+Imagine digital advertising withered or disappeared, perhaps because of legislation or technological changes. Who would be hurt? Obviously
+the technology companies who profit off digital advertising would disappear. But if digital advertising were to contract to
+ the point where it'd be no longer viable to operate businesses funded by digital advertising, there would also be other 
+ less direct casualties, in particular:
+
+##### Publishers
+
+About a third (35%) of [newspaper ad revenue now comes](https://www.pewresearch.org/fact-tank/2019/07/23/key-takeaways-state-of-the-news-media-2018/) 
+from digital advertising. [Research shows](http://www.digitalnewsreport.org/survey/2019/overview-key-findings-2019/) that 
+only about 11% of people are willing to pay for news subscriptions, and that half of all U.S. news subscriptions go to 
+the Washington Post or New York Times, which means all other national news outlets (as well as regional and local news outlets)
+ are disproportionately dependent on ad revenue.
+
+Smaller news outlets have already been struggling over the last decade, and the business models they currently have are 
+highly tenuous. The current COVID-19 pandemic has proven to be a grim natural experiment highlighting just how tenuous 
+those business models are. The economic and media conditions surrounding COVID-19 have lead to [reductions of 1/3 to 1/2 in advertising spending](https://www.nytimes.com/2020/04/14/business/los-angeles-times-furloughs-cuts.html)
+in news media, which has lead to [layoffs and furloughs affecting ~36,000 news media employees](https://www.nytimes.com/2020/04/10/business/media/news-media-coronavirus-jobs.html) (and counting).
+The current loss of revenue is still *less than* the decline of 50-60% in revenue that [Google itself has estimated](https://services.google.com/fh/files/misc/disabling_third-party_cookies_publisher_revenue.pdf) publishers stand to lose
+if current cookie-based advertising techniques are disabled and not adequately replaced.  
+
+A robust free press is essential for a free and open society, and the explosion of freely available information about every topic
+ imaginable on the web has been an incredible boon to human development and happiness. For as long as newspapers have existed 
+ (all the way back to the 1700's) newspapers
+ have relied on advertising to fund journalism and distribution. 
+ As more and more media moves online, non-digital advertising is waning rapidly. If all advertising moves to digital channels which independent or sub-scale
+ publishers can't access then those publishers (and the numerous social benefits they provide) will simply disappear.
+ 
+##### Consumers
+ 
+ Much discourse about the health of the media focuses on consumers' willingness to pay for news; too little focuses on consumers'
+ *ability* to pay. An annual subscription to The New York Times costs ~$191/year. A subscription to the Wall Street
+ Journal costs $515/year. In other words, a subscription to *just one single publication* can cost 1.5% of the US median individual income. 
+ The fact is that paying for all the information necessary to be a well-informed citizen is prohibitively expensive
+ for many people (even moreso for people in marginalized communities or in less wealthy countries). This is why so many 
+ news organizations have dropped their paywalls during the current pandemic, which of course only increases those news
+ organizations' dependency on advertising. 
+ 
+ In a real sense, consuming advertising is selling one's attention. For the many people who do not have disposable money to spend on news,
+ there is real value in being able to sell their attention in exchange for information and services they'd be otherwise unable to access.
+ If consumers are going to sell their attention, it's in their interest to get the highest price for that attention they can.
+ 
+ If digital advertising disappears, or the value of advertising drops precipitously, the wealthy will still find a way to get
+ the information they need. Everyone else won't.       
 
 ## Definitions & Strategies
 
@@ -148,7 +196,35 @@ Marketer (consumer packaged goods brand): I know little about this consumer othe
 
 *Customer*: What the retail marketer does not know about me is that I have gotten re-married and my new wife prefers another retailer. We have noticed that there have been some significant shipping issues of late that we are both not happy with. So, now we are open to finding a retailer who carries the brands of childcare products that we need (including, but expanded beyond diapers) and who can get us those products reliably and quickly. In the ads I’ve seen, this retailer messaged that they can now get me goods in <3 days. I mention this retailer to my wife after seeing a few of the ads, and she makes our next purchase from them
 
-**_Scenario Five: Digital Marketing to Incentivize Store Visits_**
+**_Scenario Five: Brand Messaging_**
+
+*Marketer*: My company believes strongly in protecting the health of the next generation and the 
+health of the planet they will inherit. We avoid using any potentially harmful chemicals in our diapers.
+Unfortunately, our competitors don't share our scruples and so our diapers are not the cheapest on the market.
+
+We believe that most parents share our values but have never thought about the sustainability of their diapers. 
+ So they will make their purchasing decision based purely on fit and price **unless**
+they're made aware of the environmental and health implications of their decision. My company decides to run a large 
+advertising campaign emphasizing the sustainable composition of our diapers. Our goal is not to drive immediate sales but
+rather to make new parents aware that not all diapers are sustainable, even if that might benefit some of our 
+competitors who also limit harmful chemicals.
+  
+* Customers who already purchase our diapers are likely already aware of our message, so we want to target our campaign 
+to new parents who are not already customers. We purchase "segments" containing lists of new parents and to keep costs down 
+we use our CRM to suppress targeting parents who are already customers.  
+* Our CFO is skeptical that our ad campaign is a good use of money, particularly when we tell him it won't drive 
+immediately observable sales. So we contract with a brand lift measurement vendor to run an brand lift study on our campaign.
+The measurement partner integrates a tracking tag into our advertisements and then uses that tracking information to survey parents who saw our ads and ask 
+them "to what extent do you agree that diapers from {{My Brand}} are free of harmful chemicals?".
+* Based on the results of the measurement study, I refine my creatives and targeting until I see a clear lift in consumer awareness.
+My CFO is pleased by the statistically rigorous results and authorizes a new campaign to run in the fall.
+
+*Customer*: As new parents, we didn't realize that some diaper manufacturers cut corners and include chemicals in their diapers
+that are bad for the environment or even potentially unhealthy for our baby. I'm glad that I saw a video ad on Youtube that 
+explained to me which chemicals to watch out for and which companies prioritize safety. I now research my diaper purchases
+carefully before making them, and I'm happy to spend a few more dollars on the sustainable option.
+
+**_Scenario Six: Digital Marketing to Incentivize Store Visits_**
 
 *Marketer (retailer)*: I am opening a new store and I would like to let consumers in the neighborhood know about the opening and incentivize them to come visit the store.
 * I ask them to target based on zip code for all zip codes within 20 miles of my store with brand messaging
