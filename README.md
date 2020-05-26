@@ -6,6 +6,7 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 
 # Introductory and Summary Material
 
+* [Success Criteria](success-criteria.md), this document defines success criteria to apply when evaluating proposals which impact web advertising.
 * [Overview of Online Advertising & Marketing](advertising101.md), an overview of common business use cases for digital advertising.
 * [Participants in Online Advertising](OnlineAdvertisingParticipants.md) "Hello Ads," an introduction to the online advertising ecosystem.
 * [Common User Flows](common-user-flows-in-web-advertising.md): Example user experiences and the parties involved.
