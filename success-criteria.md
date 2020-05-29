@@ -157,7 +157,7 @@ privacy risks to people relative to the scale, sensitivity of the data collected
 and potential of a significant economic or social impact from its inappropriate 
 processing. Accordingly, data minimization, purpose limitation, limited storage,
 and reliance on pseudonymous identifiers are often recommended to minimize these
-risks. (GDPR, Art. (5)[https://gdpr.eu/article-5-how-to-process-personal-data/], (25)[https://gdpr.eu/article-25-data-protection-by-design/]; [Recital 78](https://gdpr.eu/recital-78-appropriate-technical-and-organisational-measures/))
+risks. (GDPR, Art. [5](https://gdpr.eu/article-5-how-to-process-personal-data/), [25](https://gdpr.eu/article-25-data-protection-by-design/); [Recital 78](https://gdpr.eu/recital-78-appropriate-technical-and-organisational-measures/))
 
 Moreover, privacy regulations and national laws often provide specific and 
 appropriate remedies for violations of their codes of conduct. Ensuring improved
@@ -186,8 +186,9 @@ Independent publishers must rely on networks of direct partners and indirect
 partners of the marketers that fund their operations. This interoperability is a
 goal in support of W3C's mission and the first principle in support of improved
 web advertising. The trust in this interoperable network requires transparency
-and improved documentation of acceptable and unacceptable uses of data. [Some
-organizations](https://assets.publishing.service.gov.uk/media/5d78ba3540f0b61c7a66407c/190802_Google_-_Response_to_SoS__Non-confidential_.pdf)
+and improved documentation of acceptable and unacceptable uses of data.
+
+[Some organizations](https://assets.publishing.service.gov.uk/media/5d78ba3540f0b61c7a66407c/190802_Google_-_Response_to_SoS__Non-confidential_.pdf)
 have pointed out that transparency is advanced by vertical-integration. "Opacity
 sometimes is a function of fragmentation.... Vertical integration can sometimes
 resolve some of the concerns around a lack of transparency and complexity....
@@ -375,7 +376,7 @@ interests and principal goals for each stakeholder group.
     -   [Impacting these marketer interests, reduces publishers' revenue
         earn](https://services.google.com/fh/files/misc/disabling_third-party_cookies_publisher_revenue.pdf)
 
-    -   impacts the quantity and quality of publishers’ content
+    -   Impacts the quantity and quality of publishers’ content
     
     -   Reducing quantity and quality of publishers’ content, conflicts with the
 		interests of an open society
@@ -449,7 +450,7 @@ interests and principal goals for each stakeholder group.
 
 ### Principles to Improve Web Advertising
 
-IWAG01 Interoperable
+#### IWAG01 Interoperable
 
 Improved Web Advertising should facilitate data exchange among multiple,
 separate services.
@@ -464,7 +465,7 @@ separate services.
 
 -   IWAR01.5 should provide consistent experiences
 
-IWAG02 Accountable
+#### IWAG02 Accountable
 
 Improved Web Advertising participants must be responsible for their actions to
 encourage trustworthy data collection and processing.
@@ -482,7 +483,7 @@ encourage trustworthy data collection and processing.
 
 -   IWAR02.6 must provide individual right to correction or deletion
 
-IWAG03 Accessible
+#### IWAG03 Accessible
 
 Improved Web Advertising should not impose high costs to send or receive
 internet-enabled data.
@@ -496,7 +497,7 @@ internet-enabled data.
 
 -   IWAR03.4 must keep users free from self-censorship
 
-IWAG04 Choice
+#### IWAG04 Choice
 
 Improved Web Advertising should not impose high barriers to entry for new market
 entrants.
