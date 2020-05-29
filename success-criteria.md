@@ -1,13 +1,17 @@
 W3C Improving Web Advertising Success Criteria
 ==============================================
 
+Editor:
+* James Rosewell (james@51degrees.com)
+
 Abstract
 --------
 
-Referencing prior W3C values and principles, GDPR, and a limited number of
-external documents, this document defines success criteria to evaluate the
-interests of societies, people, publishers, marketers, and browser vendors. No
-one factor is assumed to be more or less important than another.
+Referencing prior W3C values and principles, GDPR, and a limited number of 
+external documents, this document defines success criteria to evaluate the 
+benefit and impact on the interests of societies, people, publishers, marketers,
+and browser vendors. No one factor is assumed to be more or less important than
+another.
 
 The Improve Web Advertising working group has a shared goal of preserving the
 web as an open platform for diverse and rich experiences provided by multiple
@@ -35,19 +39,19 @@ encoding, transmitting and rendering information facilitate these exchanges.
 Data portability also helps ensure that the web is interoperable ([GDPR, Recital
 68](https://gdpr.eu/recital-68-right-of-data-portability/)).
 
-The web underpins trillion-dollar industries. Accordingly, any proposed change
-to the underpinning policy and technical standards can have global
+The web underpins trillion-dollar industries. Accordingly, any proposed change 
+to the underpinning policy and technical standards could have global 
 ramifications. While no one individual is able to understand every ecosystem
-dependency to ensure other participants are not unintentionally undermined, a
-common set of principles can and should be used to review these proposed
+dependency to ensure other participants are not unintentionally undermined, a 
+common set of principles can and should be used to review these proposed 
 changes.
 
-This document provides a set of improved web advertising principles to ensure
-proposed changes appropriately balance the benefits of the change against the
-impact on the important rights of individuals and the societies they live in.
-When describing how to balance of these important interests in promoting
-openness and fairness in the standards they develop, the Internet Engineering
-Task Force (IEFT) emphasizes this point:
+This document provides a set of improved web advertising principles that ensure 
+proposed changes appropriately balance the benefits of a change against and the 
+effect on the rights of individuals and the societies in which they live. When 
+describing how to balance these important interests in promoting openness and 
+fairness in the standards they develop, the Internet Engineering Task Force 
+(IEFT) emphasizes this point:
 
 >   *the IETF is concerned with developing and maintaining the Internet to
 >   promote the social good, and the society that the IETF is attempting to
@@ -56,9 +60,9 @@ Task Force (IEFT) emphasizes this point:
 >   institutions.* ([Draft - Internet Architecture Board for the End
 >   Users](https://intarchboard.github.io/for-the-users/draft-iab-for-the-users.html)).
 
-This does not mean that all stakeholders are unanimously agreed and aligned on
-how to "improve" the web. Scholars describe diverging interests of stakeholders
-as a "tussle."
+This does not mean that all stakeholders are unanimously agreed on how to 
+"improve" the web. Scholars describe diverging interests of stakeholders as a 
+"tussle."
 
 >   The resulting tussles span a broad scope: the rights of the individual vs.
 >   the state, the profit seeking of competitors, the resistance to those with
@@ -72,34 +76,34 @@ determining tradeoffs among speed, fairness, security, public accountability,
 diversity and quality is in accordance with [values of the
 W3C](https://www.w3.org/standards/about.html). To resolve this tussle and in the
 interests of end users requires us to carefully examine what alternate means are
-possible of achieving the desired goals. If a negative impact to stakeholders is
+possible to reach the desired goals. If a negative impact to stakeholders is
 unavoidable, then the reasoning behind this decision ought to be thoroughly
 documented. Accordingly, this document describes the principles that support the
-key interests of stakeholders that enable people's internet-enabled access to
-information.
+key interests of the stakeholders who enable people's access to 
+internet-connected information and services.
 
-They are called "principles" (rather than, for example, guidelines or
-requirements) because they attempt to capture important concepts and aspirations
-that are [not specific to any particular
-realization](https://www.w3.org/TR/2003/NOTE-di-princ-20030901). These
-principles can be distinguished from bottoms up, granular "use cases," which
-illustrate how an actor can conduct a process to achieve a goal. Like [other
-working groups](https://www.w3.org/TR/wsa-reqs/#id2605084), the Improve Web
-Advertising working group may choose to adopt the Critical Success Factor (CSF)
-Analysis method to better communicate our work. These principles are examined
-from three [perspectives](https://www.w3.org/Consortium/Points): that of
-individuals (both in aggregate and individually), publishers (both authors and
-the business model that funds them) and the delivery access mechanism (both
-connectivity and navigation).
+These principles are termed "principles" (rather than, for example, "guidelines"
+or "requirements") because they attempt to capture important concepts and 
+aspirations that are 
+[not specific to any particular realization](https://www.w3.org/TR/2003/NOTE-di-princ-20030901). 
+These principles can be distinguished from bottoms up, granular "use cases," 
+which illustrate how an actor can conduct a process to achieve a goal. 
+Like [other working groups](https://www.w3.org/TR/wsa-reqs/#id2605084), the 
+Improve Web Advertising working group may choose to adopt the Critical Success 
+Factor (CSF) Analysis method to better communicate our work. These principles 
+are examined from three [perspectives](https://www.w3.org/Consortium/Points):
+that of individuals (both in aggregate and individually), publishers (both 
+authors and the business model that funds them) and the delivery access 
+mechanism (both connectivity and navigation).
 
-Any technology can be abused. Modern societies do not attempt to suppress
+Any technology can be abused. Open societies do not attempt to suppress
 technology, but rather put [appropriate
 regulations](https://iabeurope.eu/all-news/iab-europes-press-statement-openrtb-and-eu-data-protection-law)
 in place to define acceptable and unacceptable uses of that technology. For
 example, automobiles are not required to integrate functionality that
 technically prevents them from exceeding the speed limit. Instead, drivers are
 educated and trained in traffic rules, and drivers who violate speed limits are
-subject tofines and/or deprived of their permits. However, documenting specific
+subject to fines and/or deprived of their permits. However, documenting specific
 criteria as to what constitutes a violation helps enable easier detection and
 reporting of non-compliance with the regulations that govern technology.
 
@@ -109,9 +113,9 @@ accountability. This accountability requires each participant that has access to
 data collection and processing to abide by its responsibility not to abuse the
 data under its control. This in turn requires definitions of legitimate data
 collection and processing as well as transparency around whether the data
-controller has fulfilled its obligations.One of the first assumptions we
+controller has fulfilled its obligations. One of the first assumptions we
 document is that an advertising-funded business model supports the open web, and
-hence changes which degrade the efficacy of this business model negatively
+hence any changes that degrade the efficacy of this business model negatively
 impacts end users. While end users increasingly understand advertising funds
 their free access to the open web, they desire improved transparency and control
 over their personal data.
@@ -127,7 +131,7 @@ Tracking content consumption over time poses risks to end users. Privacy
 regulations have identified numerous harms from these risks, including
 manipulation of political elections by foreign parties, discrimination against
 protected classes, using content consumption activity ("behaviour") in a manner
-that causes a substantive life impacts to people's access to healthcare,
+that causes a substantive life impacts on people's access to healthcare,
 financial resources or infliction of emotional distress, deceptive manipulation,
 and fraud. As this first example illustrates, these harms pose risks not just to
 the individual but also to the larger society in which people live.
@@ -148,16 +152,23 @@ fundamental rights:
 >   and cultural, religious and linguistic diversity.* -- [GDPR, Recital
 >   4](https://gdpr.eu/recital-4-data-protection-in-balance-with-other-fundamental-rights/)
 
-In an effort to balance these interests, many privacy regulations describe the privacy risks to people relative to the scale, sensitivity of the data collected and potential of a significant economic or social impact from its inappropriate processing. Accordingly, data minimization, purpose limitation, limited storage, and reliance on pseudonymous identifiers are often recommended to minimize these risks. (GDPR, Art. 5, 25; [Recital 78](https://gdpr.eu/recital-78-appropriate-technical-and-organisational-measures/))
+In an effort to balance these interests, many privacy regulations describe the 
+privacy risks to people relative to the scale, sensitivity of the data collected
+and potential of a significant economic or social impact from its inappropriate 
+processing. Accordingly, data minimization, purpose limitation, limited storage,
+and reliance on pseudonymous identifiers are often recommended to minimize these
+risks. (GDPR, Art. (5)[https://gdpr.eu/article-5-how-to-process-personal-data/], (25)[https://gdpr.eu/article-25-data-protection-by-design/]; [Recital 78](https://gdpr.eu/recital-78-appropriate-technical-and-organisational-measures/))
 
-Moreover, privacy regulations and national laws often provide specific and appropriate remedies for violations of their codes of conduct. Ensuring improved accountability is a chief principle of improving web advertising.
+Moreover, privacy regulations and national laws often provide specific and 
+appropriate remedies for violations of their codes of conduct. Ensuring improved
+accountability is a chief principle of improving web advertising.
 
 ### Trust and Interoperability Among Decentralized Parties 
 
 [W3C mission](https://www.w3.org/Consortium/Points) is to provide "technologies
 (specifications, guidelines, software, and tools) that will create a forum for
 information, commerce, inspiration, independent thought, and collective
-understanding." Trust and interoperability are two of the core goalsin support
+understanding." Trust and interoperability are two of the core goals in support
 of W3C's mission.
 
 Trust requires a system that supports "confidentiality, instils confidence, and
@@ -174,7 +185,7 @@ from each brand's end product or service. Digital publishers are no different.
 Independent publishers must rely on networks of direct partners and indirect
 partners of the marketers that fund their operations. This interoperability is a
 goal in support of W3C's mission and the first principle in support of improved
-web advertising.The trust in this interoperable network requires transparency
+web advertising. The trust in this interoperable network requires transparency
 and improved documentation of acceptable and unacceptable uses of data. [Some
 organizations](https://assets.publishing.service.gov.uk/media/5d78ba3540f0b61c7a66407c/190802_Google_-_Response_to_SoS__Non-confidential_.pdf)
 have pointed out that transparency is advanced by vertical-integration. "Opacity
@@ -186,8 +197,10 @@ by difficult-to-identify themselves intermediaries.... vertical integration in
 the ad tech state creates efficiencies for users. Changes ought to benefit all
 stakeholders, not just one set."
 
-The final sentence emphasizes decentralization, which is a third goalin support
-of [W3C's mission](https://www.w3.org/Consortium/Points). "Decentralization is a
+While vertical integration can simplify consumer transparency, it carries the
+danger of limiting consumer choices by bundling services. By contrast, the final
+sentence emphasizes decentralization, which is a third goal in support of 
+[W3C's mission](https://www.w3.org/Consortium/Points). "Decentralization is a
 principle of modern distributed systems, including societies." Among the
 rationales supporting decentralization are choice, competition, and the freedom
 of information. The common element among these rationales is the accessibility
@@ -198,7 +211,7 @@ education and punishment for violations of the law, not abridgment of the rights
 of free speech and assembly." Thus to exercise this freedom, people should have
 digital access to publishers, which equates to both the right to assembly and
 freedom of speech. Safeguarding and improving this accessibility and choice are
-the third and fourth principles of improvedweb advertising.
+the third and fourth principles of improved web advertising.
 
 The Internet Architecture Board (IAB) also expressed concerns as to growing
 consolidation of power on the Internet.
@@ -248,44 +261,46 @@ interests and principal goals for each stakeholder group.
 
 #### Interests of Society
 
--   Diversity of publishers that protect
+-   Diversity of publishers that protects:
 
     -   Freedom of expression to represent minority voices
-
+    
         -   Free elections protected against foreign manipulation
 
-        -   While free speech requires allowing speech not approved of by the
-            majority, we can label political speech by nationality of author and
-            whether it is endorsed by one or more candidates Freedom of the
-            press to enable watch-dog reporting on important issues and combat
-            fake news
+            -   While free speech requires allowing speech the majority does not
+				approved of by the majority, we can label political speech can 
+				be labeled by with nationality of the author’s nationality and 
+				whether it is endorsed by one or more candidates 
+
+        -   Freedom of the press enables watch-dog reporting on important issues
+			and combats fake news
 
     -   Freedom of information to provide fast, easy access to internet-enabled
         content for all
 
-        -   Cost-free access to enable all to access, regardless of economic
+        -   Cost-free access enables all to access, regardless of economic
             means
 
-        -   Freedom from self-censorship due to content consumption being
-            associated with directly-identifiable, offline identity
+        -   Freedom from having to self-censor for fear of content consumption 
+			being associated with directly-identifiable, offline identity
 
 -   Free-market economies rely on competition, and competition benefits from
     lower barriers to entry for industry newcomers
 
-    -   Competition benefits from
+    -   Competition benefits from:
 
-        -   low barriers of entry for people to start new businesses and compete
-            against existing incumbents
+        -   low barriers of entry for individuals to start new businesses and 
+			compete against existing incumbents
 
-        -   market actors having choices over which organizations they can work
-            with
+        -   market actors having choices regarding which organizations they can
+			work with
 
         -   interoperable standards of communication and ease of data exchanges
             among market actors
 
-    -   Transparent pricing and fees to ensure markets are operating fairly
+        -   Transparent pricing and fees to ensure markets are operating fairly
 
--   Appropriate remedies for members of society harmed by other entities
+-   Appropriate remedies for members of society harmed by other entities:
 
     -   Fines
 
@@ -293,36 +308,38 @@ interests and principal goals for each stakeholder group.
 
 #### Interests of Individual People
 
--   Same interests as society-level plus
+-   Same interests as society-level plus:
 
     -   Fast, frictionless experience to access a wide array of internet-enabled
-        content and services that makes the Web so valuable
+        content and services that make the Web so valuable
 
-    -   Secure access to access a wide array of internet-enabled content and
-        services that makes the Web so valuable
+    -   Secure access to a wide array of internet-enabled content and
+        services that make the Web so valuable
 
 -   Appropriate risk mitigation and remedies
 
-    -   Increased transparency on data collection and processing purposes
-
-        -   Easy access to understand descriptions of data collection and
+    -   Increased transparency on data collection and processing purposes:
+       
+        -   Easy access to understandable descriptions of data collection and
             processing purposes
-
+            
         -   Right to data portability
 
-    -   Increased control over any stable ID to which content consumption
-        activity is associated
+        -   Increased control over any stable ID with which content consumption
+			activity is associated
 
-    -   Increased control over legitimate data processing purposes
+    -   Increased control over legitimate data processing purposes:
+    
+        -   Right to object to data processing
 
-        -   Consent for
+        -   Consent for:
 
             -   Use of interest-based advertising
 
             -   Use of precise geolocation data
 
             -   Use of sensitive health and financial data or information
-                related to protected classes
+                related to protected classes of individuals
 
             -   Association of a pseudonymous digital ID with
                 directly-identifiable data
@@ -330,12 +347,12 @@ interests and principal goals for each stakeholder group.
             -   Content consumption, communication or commercial activity tied
                 to offline identity
 
-            -   Access to adult content by appropriate guardian to prevent
+            -   Access to adult content by an appropriate guardian to prevent
                 unauthorized viewing by underage family members
 
     -   Remedy for the inappropriate use of personal data
 
-        -   Right to be forgotten that benefits from
+        -   Right to be forgotten that benefits from:
 
             -   Ability to reset a pseudonymous digital ID
 
@@ -346,24 +363,25 @@ interests and principal goals for each stakeholder group.
 
             -   Correction/deletion of directly-identifiable data
 
-        -   Right to object to data processing
+            -   Right to be informed of high-risk data breaches
 
-        -   Right to be informed of high-risk data breaches
-
-        -   Right to appropriate remedies for harm (e.g., compensation)
+            -   Right to appropriate remedies for harm (e.g., compensation)
 
 #### Interests of Marketers
 
 -   The publisher ad-funded business model is supported by addressing marketers
-    needs and wants
+    needs and wants.
 
-    -   [Impacting these marketer interests, reduces the revenue publishers can
+    -   [Impacting these marketer interests, reduces publishers' revenue
         earn](https://services.google.com/fh/files/misc/disabling_third-party_cookies_publisher_revenue.pdf)
 
-    -   Reducing publisher revenues, impacts the interests of society
+    -   impacts the quantity and quality of publishers’ content
+    
+    -   Reducing quantity and quality of publishers’ content, conflicts with the
+		interests of an open society
 
 -   Marketers who invest in cross-publisher advertising need scaled,
-    interoperable measurement and control.
+    interoperable measurement and control:
 
     -   Real-time feedback to improve content matching and budget reallocation
         to better engage with prospects and customers
@@ -372,12 +390,12 @@ interests and principal goals for each stakeholder group.
 
     -   Independent verification of delivery and measurement
 
-    -   Attribution of subsequent first-party engagement to prior third-party
+    -   Attribution of first-party engagement to prior third-party
         exposure
 
     -   Aggregate content consumption trends
 
--   Appropriate risk mitigation and remedies.
+-   Appropriate risk mitigation and remedies:
 
     -   Remedy for being charged for inaccurate delivery of content to the
         "right" individuals or the inaccurate measurement of total exposures or
@@ -385,50 +403,51 @@ interests and principal goals for each stakeholder group.
 
 #### Interests of Publishers
 
--   Ad-funded business model to provide free access to all
+-   Ad-funded business model to provide free access to all:
 
-    -   Same interests as marketers that maximize the value of advertising
+    -   Same as marketers' interests that maximize the value of advertising
         inventory
 
-    -   Same interests as marketers to attract new people to the publisher's own
-        property
+    -   Same as marketers' interests to attract new people to the publisher's 
+		own property
 
 -   Freedom to provide internet-enabled content/services with the support of an
     open marketplace of vendors.
 
--   Appropriate risk mitigation and remedies
+-   Appropriate risk mitigation and remedies:
 
     -   Remedy for publisher brand being misappropriated ("repurposing")
 
 #### Interests of Delivery Access Mechanisms (Browsers)
 
--   Same interests desired by society and individuals plus
+-   Same interests as are desired by society and individuals plus:
 
-    -   Ability to facilitate publisher and marketer engagement with end users
+    -   The ability to facilitate publisher and marketer engagement with end 
+		users
 
         -   Interoperable standards to support the ease of navigation across
             publishers' internet-enabled content and services
 
-    -   Ability to differentiate on
+-   The ability to differentiate on:
+    
+    -   speed of rendering content
 
-        -   speed of rendering content
+    -   ease of navigating the open web
 
-        -   ease of navigating the open web
+    -   customizability for each person
 
-        -   customizability for each person
+    -   efficiency in CPU (and hence power and battery consumption)
 
-        -   efficiency in CPU (and hence power and battery consumption)
-
--   Browsers do not want to differentiate on
+-   Browsers do not want to differentiate on:
 
     -   Which internet-enabled content and services (publishers) they are
-        compatible with or break
+        or are not compatible with 
 
     -   Security (the internet should be equally secure across all browsers)
 
         -   Protection against malware
 
-Principles to Improve Web Advertising
+### Principles to Improve Web Advertising
 
 IWAG01 Interoperable
 
@@ -447,8 +466,8 @@ separate services.
 
 IWAG02 Accountable
 
-Improved Web Advertising participants must be responsible for their actions so
-as to encourage trustworthy data collection and processing.
+Improved Web Advertising participants must be responsible for their actions to
+encourage trustworthy data collection and processing.
 
 -   IWAR02.1 data exchanges and processing must be auditable
 
@@ -475,7 +494,7 @@ internet-enabled data.
 
 -   IWAR03.3 should support freedom of expression
 
--   IWAR03.4 must be keep users free from self-censorship
+-   IWAR03.4 must keep users free from self-censorship
 
 IWAG04 Choice
 
@@ -489,4 +508,4 @@ entrants.
 
 -   IWAR04.3 should support freedom of information
 
--   IWAR04.4 should supporting diversity, especially minority opinions
+-   IWAR04.4 should support diversity, especially minority opinions
