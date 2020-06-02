@@ -120,6 +120,8 @@ impacts end users. While end users increasingly understand advertising funds
 their free access to the open web, they desire improved transparency and control
 over their personal data.
 
+![Ethical Data Collection and Processing Protects Freedom](images/success-criteria-3.png)
+
 ### Privacy
 
 Individual privacy is a critical issue that societies around the world must
@@ -257,8 +259,12 @@ The key stakeholders involved in web advertising include individual and groups
 of people, publishers, marketers and delivery access providers. We believe the
 majority of these interests are compatible with each other in ensuring people
 have their rights protected and receive better products, which is advanced
-through free market competition. The following sections outline the key
-interests and principal goals for each stakeholder group.
+through free market competition. 
+
+![Advertising Funds the Open Web](images/success-criteria-1.png)
+
+The following sections outline the key interests and principal goals for each 
+stakeholder group.
 
 #### Interests of Society
 
@@ -449,6 +455,11 @@ interests and principal goals for each stakeholder group.
         -   Protection against malware
 
 ### Principles to Improve Web Advertising
+
+![Choice Improves Value for Publishers, Marketers and People](images/success-criteria-2.png)
+
+The following section outlines the principles to balance the benefits and 
+impacts to stakeholders as we seek to improve web advertising.
 
 #### IWAG01 Interoperable
 
