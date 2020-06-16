@@ -2,7 +2,7 @@
 W3C Improving Web Advertising Success Criteria
 ==============================================
 
-Unofficial Draft 9 June 2020
+Unofficial Draft 16th June 2020
 
 Editor:
 
@@ -39,7 +39,7 @@ Referencing prior W3C values and principles, GDPR, and a limited number of
 external documents, this document defines success criteria to evaluate the
 benefit and impact of changes to the web on the interests of societies, people,
 publishers and their supply chains, marketers, and delivery access providers.
-This document is primarily directed at these four stakeholders. Readers of this
+This document is primarily directed at these five stakeholders. Readers of this
 document are expected to be familiar with Web advertising, but are not expected
 to have deep familiarity with the technologies involved. The principal objective
 is to improve web advertising. No one factor is assumed to be more or less
@@ -130,7 +130,7 @@ realization](https://www.w3.org/TR/2003/NOTE-di-princ-20030901). These
 principles can be distinguished from bottoms up, granular "use cases," which
 illustrate how an actor can conduct a process to achieve a goal. Like [other
 working groups](https://www.w3.org/TR/wsa-reqs/#id2605084), the Improve Web
-Advertising working group may choose to adopt the Critical Success Factor (CSF)
+Advertising business group may choose to adopt the Critical Success Factor (CSF)
 Analysis method to better communicate our work. These principles are examined
 from three [perspectives](https://www.w3.org/Consortium/Points): that of
 individual web users (both in aggregate and individually), publishers and their
