@@ -97,6 +97,7 @@ These are use-cases that only apply to a (possibly large) subset of advertisers.
   - [Dynamic Ads](#dynamic-ads)
   - [Email Marketing](#email-marketing)
 - [Real time spend management](#real-time-spend-management)
+- [One-to-One Personalization](personalization.md)
 
 
 | Use-case | Chrome | Safari | Community Proposals |
@@ -110,6 +111,7 @@ These are use-cases that only apply to a (possibly large) subset of advertisers.
 | [Collaborative Ads](#collaborative-ads) / [Dynamic Ads](#dynamic-ads) | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. | Some discussion in this [GitHub issue](https://github.com/WICG/ad-click-attribution/issues/36). Good collaborative problem solving going on. No firm solution yet. | Facebook proposal for “[Conversion Filters](https://github.com/w3c/web-advertising/blob/master/conversion-filters.md)” |
 | [Email Marketing](#email-marketing) | unclear | unclear | |
 | [Real time spend management](#real-time-spend-management) | High latency in TURTLEDOVE as the javascript updates have unknown frequency, and reporting is delayed in the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model) | Supported as ads are not done in opaque iframe and bidding is not done remotely | |
+| [One-to-One Personalization](personalization.md) | Unclear. For instance, the [TURTLEDOVE](https://github.com/michaelkleber/turtledove) proposal offers the concepts of "interest groups" with unspecified granularity. | No support | |
 
 
 
@@ -569,3 +571,7 @@ One user need is to be presented with an accurate explanation of why a particula
 One user need is the ability to hide all ads from a specific business. This could be for any reason, but examples might include a dislike for that particular company / brand, a lack of relevance, excessively repetitive ads from that business in the past, a prior bad experience with that business, or offensive ad imagery. 
 
 The compexity in serving this user need comes from the difficulty in recognizing which ads promote which businesses. A given business may run ads through many channels, through many different ad agencies, and might promote a variety of apps and websites. All of this makes it very difficult to successfully satisfy this user need.
+
+# One-to-One Personalization
+
+In marketing, personalization typically means tailoring the ad content in order to meet the individual needs of each user. It can be a game-changer for both: user experience and effectiveness of the marketing activities. The full page dedicated to one-to-one personalization can be found [here](personalization.md).
