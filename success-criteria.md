@@ -1,14 +1,15 @@
-
 W3C Improving Web Advertising Success Criteria
 ==============================================
 
-Unofficial Draft 16th June 2020
+Unofficial Draft 23rd June 2020
 
 Editor:
 
 James Rosewell (james@51degrees.com)
 
 Contributors:
+
+Alan Chapell (achapell@chapellassociates.com)
 
 Arnaud Blanchard (a.blanchard@criteo.com)
 
@@ -18,11 +19,15 @@ Daniel Sepulveda (dsepulveda@mediamath.com)
 
 Hardeep Bindra (hbindra@gmail.com)
 
+Ian Meyers (imeyers@liveramp.com)
+
 Jochen Schlosser (Jochen.Schlosser@adform.com)
 
 John Sabella (john.sabella@pubmatic.com)
 
 Joshua Koran (jkoran@zetaglobal.com)
+
+Kristoffer Nelson (knelson@srax.com)
 
 Paul Bannister (paul@cafemedia.com)
 
@@ -37,13 +42,16 @@ Abstract
 
 Referencing prior W3C values and principles, GDPR, and a limited number of
 external documents, this document defines success criteria to evaluate the
-benefit and impact of changes to the web on the interests of societies, people,
-publishers and their supply chains, marketers, and delivery access providers.
-This document is primarily directed at these five stakeholders. Readers of this
-document are expected to be familiar with Web advertising, but are not expected
-to have deep familiarity with the technologies involved. The principal objective
-is to improve web advertising. No one factor is assumed to be more or less
-important than another.
+benefit and impact of changes to the web on the interests of three core groups:
+that of individual web users (both in aggregate and individually), publishers
+and their partners (both content authors and the business model that funds them
+including marketers and their supply chain vendors) and the delivery access
+mechanism (both connectivity and navigation). This document is primarily
+directed at these six stakeholders that comprise these three groups. Readers of
+this document are expected to be familiar with web advertising, but are not
+expected to have deep familiarity with the technologies involved. The principal
+objective is to improve web advertising. No one principle is assumed to be more
+or less important than another.
 
 The Improve Web Advertising working group has a shared goal of preserving the
 web as an open platform for diverse and rich experiences provided by multiple
@@ -82,11 +90,6 @@ ecosystem dependency to ensure other participants are not unintentionally
 undermined, a common set of principles can and should be used to review these
 proposed changes.
 
-People’s awareness and understanding of their rights is improving in
-jurisdictions where legal frameworks such as GDPR have been introduced ([EDAA
-Consumer Research Analysis June 2020](https://www.edaa.eu/wp-content/uploads/Consumer-Research-Analysis-June-2020.pdf)).
-People now expect their consent choices to be respected.
-
 This document provides a set of improved web advertising principles that ensure
 proposed changes appropriately balance the benefits of a change against its
 effect on the rights of individuals and the societies in which they live. When
@@ -105,11 +108,11 @@ This does not mean that all stakeholders are unanimously agreed on how to
 "improve" the web. Scholars describe diverging interests of stakeholders as a
 "tussle."
 
->   The resulting tussles span a broad scope: the rights of the individual vs.
+>   *The resulting tussles span a broad scope: the rights of the individual vs.
 >   the state, the profit seeking of competitors, the resistance to those with
 >   malicious intent, those with secrets vs. those who would reveal them, and
 >   those who seek anonymity vs. those would identify them and hold them
->   accountable. ([Tussle in
+>   accountable.* ([Tussle in
 >   Cyperspace](http://groups.csail.mit.edu/ana/Publications/PubPDFs/Tussle2002.pdf)).
 
 Achieving a balance across the diverse interests of global stakeholders when
@@ -163,6 +166,8 @@ over their personal data.
 
 ![Ethical Data Collection and Processing Protects Freedom](images/success-criteria-3.png)
 
+Ethical Data Collection and Processing Protects Freedom
+
 ### Privacy
 
 Individual privacy is a critical issue that societies around the world must
@@ -182,21 +187,27 @@ resources or infliction of emotional distress, or is deceptive manipulation.
 These harms pose risks not just to the individual but also to the larger society
 in which people live.
 
+People’s awareness and understanding of their rights is improving in
+jurisdictions where legal frameworks such as GDPR have been introduced ([EDAA
+Consumer Research Analysis June
+2020](https://www.edaa.eu/wp-content/uploads/Consumer-Research-Analysis-June-2020.pdf)).
+People now expect their consent choices to be respected.
+
 The General Data Protection Regulation (the “GDPR”) in the EU is widely
 recognized as offering a thorough evaluation of the myriad of interests
 associated with privacy and data protection. Since May 2018, dozens of
-jurisdictions worldwide have adopted all or part of the GDPR. Different regions
-may impose different rules, the concepts outlined within the GDPR are helpful
-input into the privacy considerations outlined.
+jurisdictions worldwide have adopted all or part of the GDPR. While different
+regions may impose different rules, the concepts outlined within the GDPR are
+helpful input into the privacy considerations outlined.
 
 As GDPR concisely states, data protection must be balanced with these other
 fundamental rights:
 
->   *The processing of personal data should be designed to serve mankind. 2 The
+>   *The processing of personal data should be designed to serve mankind. The
 >   right to the protection of personal data is not an absolute right; it must
 >   be considered in relation to its function in society and be balanced against
 >   other fundamental rights, in accordance with the principle of
->   proportionality. 3 This Regulation respects all fundamental rights and
+>   proportionality. This Regulation respects all fundamental rights and
 >   observes the freedoms and principles recognized in the Charter as enshrined
 >   in the Treaties, in particular the respect for private and family life, home
 >   and communications, the protection of personal data, freedom of thought,
@@ -269,7 +280,7 @@ stakeholders, not just one set."
 While vertical integration can simplify consumer transparency, it carries the
 danger of limiting consumer choices by bundling services. By contrast, the final
 sentence in the quote above emphasizes decentralization, which is a third goal
-in support of [W3C's mission](https://www.w3.org/Consortium/Points).
+in support of [W3C's mission:](https://www.w3.org/Consortium/Points)
 "Decentralization is a principle of modern distributed systems, including
 societies." Among the rationales supporting decentralization are choice and the
 freedom of information. These rationales help keep the market innovative,
@@ -280,7 +291,7 @@ of diverse publishers. As U.S. Supreme Court Justice Brandeis
 [wrote](http://www.columbia.edu/itc/journalism/j6075/edit/readings/brandeis_concurring1.html):
 "Among free men, the deterrents ordinarily to be applied to prevent crime are
 education and punishment for violations of the law, not abridgment of the rights
-of free speech and assembly." Thus to exercise this freedom, people should have
+of free speech and assembly." Thus, to exercise this freedom, people should have
 digital access to publishers, which equates to both the right to assembly and
 freedom of speech. Safeguarding and improving this accessibility and choice are
 the third and fourth principles of improved web advertising.
@@ -335,7 +346,9 @@ products, which is advanced through free market competition.
 
 ![Advertising Funds the Open Web](images/success-criteria-1.png)
 
-The following sections outline the key interests and principal goals for each 
+Advertising Funds the Open Web
+
+The following sections outline the key interests and principal goals for each
 stakeholder group.
 
 #### Interests of Society
@@ -443,8 +456,9 @@ stakeholder group.
 
             -   Right to appropriate remedies for harm (e.g., compensation)
 
-    -   Ability to understand the why an advert was displayed, and the identity
-        of the parties involved including brand and intermediaries
+    -   Ability to understand why an advert was displayed, which brand endorses
+        this message and the identity of the supply chain vendors that connect
+        brands with their audience
 
 #### Interests of Marketers
 
@@ -464,17 +478,27 @@ stakeholder group.
 
     -   Pre-campaign media planning and forecasting
 
-    -   Real-time feedback to improve content matching and cross-publisher
-        budget reallocation to better engage with prospects and customers based
-        upon advertising return on investment (ROI)
+        -   Data enrichment services (e.g., context, geographic, technographic,
+            audience)
 
-    -   Fraud and robot detection
+    -   Intra-campaign delivery
 
-    -   Independent verification of delivery and measurement
+        -   Real-time feedback to improve content matching and cross-publisher
+            budget reallocation to better engage with prospects and customers
+            based upon advertising return on investment (ROI)
 
-    -   Attribution of first-party engagement to prior third-party exposure
+        -   Fraud and robot detection
 
-    -   Aggregate content consumption trends
+    -   Post-campaign delivery
+
+        -   Independent verification of delivery and measurement
+
+        -   Attribution of first-party engagement to prior third-party exposure
+
+        -   Aggregate content consumption trends
+
+        -   Reporting, insights and recommendations to improve future business
+            outcomes
 
 -   Appropriate risk mitigation and remedies:
 
@@ -492,6 +516,10 @@ stakeholder group.
     -   Same as marketers' interests to attract new people to the publisher's
         own property
 
+    -   Intra-campaign delivery
+
+        -   Cross-marketer yield optimization for publishers
+
 -   Freedom to provide internet-enabled content/services with the support of an
     open marketplace of vendors.
 
@@ -507,38 +535,15 @@ stakeholder group.
     -   Ability to support their customers reliance on their technology and
         services
 
-        -   Pre-campaign planning
-
-            -   Media planning and forecasting
-
-            -   Data enrichment services (e.g., context, geographic,
-                technographic, audience)
-
-        -   Intra-campaign delivery
-
-            -   Cross-publisher supply and/or marketer demand aggregation that
-                improves the fluidity of the market
-
-            -   Data enrichment services (e.g., context, geographic,
-                technographic, audience)
-
-            -   Fraud and robot detection
-
-            -   Optimized content matching
-
-            -   Cross-publisher budget reallocation for marketers
-
-            -   Cross-marketer yield optimization for publishers
+    -   Ability to operate a transparent marketplace for buyers and sellers to
+        transact
 
         -   Post-campaign delivery
 
             -   Impartial and objective verification of exposure, reach and
                 performance
 
-            -   Reporting, insights and recommendations to improve future
-                business outcomes
-
-#### Interests of Delivery Access Mechanisms or Gateway Apps (Browsers)
+#### Interests of Delivery Access Providers or Gateway Apps (Browsers)
 
 -   Same interests as are desired by society and individuals plus:
 
@@ -558,12 +563,13 @@ stakeholder group.
 
     -   efficiency in CPU (and hence power and battery consumption)
 
--   Browsers do not want to differentiate on:
+-   Delivery Access Providers do not want to differentiate on:
 
     -   Which internet-enabled content and services (publishers) they are or are
         not compatible with
 
-    -   Security (the internet should be equally secure across all browsers)
+    -   Security (the internet should be equally secure across all Delivery
+        Access Providers)
 
         -   Protection against malware
 
@@ -571,7 +577,9 @@ stakeholder group.
 
 ![Choice Improves Value for Publishers, Marketers and People](images/success-criteria-2.png)
 
-The following section outlines the principles to balance the benefits and 
+Choice Improves Value for Publishers, Marketers and People
+
+The following section outlines the principles to balance the benefits and
 impacts to stakeholders as we seek to improve web advertising.
 
 #### IWAG01 Interoperable
@@ -612,9 +620,6 @@ encourage trustworthy data collection and processing.
 
 -   IWAR02.7 must aid organizations compliance with privacy regulations
 
--   IWAR02.8 must provide people the right to understand who processes their
-    data
-
 #### IWAG03 Accessible
 
 Improved Web Advertising should not impose high costs to send or receive
@@ -650,27 +655,27 @@ focuses on which interests relate primarily to individuals and which to
 organizations of people (marketers, publishers, vendors, access providers,
 society)
 
-| **Criteria reference** | **Primary stakeholder interest**  | **Interest category (Functionality / Privacy / Interoperability /etc)** | **Interest priority (Must / Should)** | **Interest description**                                                                            |
-|------------------------|-----------------------------------|-------------------------------------------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------|
-| IWAR01.1               | Organizations                     | Interoperability                                                        | Should                                | Organizations should communicate advertising-related data with precisely defined standards          |
-| IWAR01.2               | Individual                        | Interoperability                                                        | Must                                  | Organizations must enable data portability of personal information across services                  |
-| IWAR01.3               | Individual                        | Interoperability                                                        | Should                                | Organizations should support secure point-to-point communication                                    |
-| IWAR01.4               | Individual                        | Interoperability                                                        | Should                                | Organizations should support ease of navigation for individuals                                     |
-| IWAR01.5               | Individual                        | Interoperability                                                        | Should                                | An individual’s choices must persist across all individual\<\>business interactions                 |
-| IWAR01.6               | Individual                        | Interoperability / Privacy                                              | Must                                  | An individual must have choice over how their data is shared and with whom.                         |
-| IWAR02.1               | Individual                        | Accountability                                                          | Must                                  | Organizations must provide Individual data access rights and processing use-cases must be auditable |
-| IWAR02.2               | Individual                        | Accountability                                                          | Should                                | Violations for inappropriate actions should be enforceable                                          |
-| IWAR02.3               | Individual                        | Accountability                                                          | Must                                  | Organizations must supply people appropriate remedies for harm                                      |
-| IWAR02.4               | Organizations                     | Accountability                                                          | Must                                  | Organizations must support freedom of the press to investigate and report on wrongdoing             |
-| IWAR02.5               | Individual                        | Accountability                                                          | Must                                  | Organizations must provide people the right to be forgotten                                         |
-| IWAR02.6               | Individual                        | Accountability                                                          | Must                                  | Organizations must provide people the right to correction or deletion                               |
-| IWAR02.7               | Organizations                     | Accountability                                                          | Must                                  | Must aid organizations compliance with privacy regulations                                          |
-| IWAR02.8               | Individual                        | Accountability                                                          | Must                                  | Must provide people the right to understand who processes their data                                |
-| IWAR03.1               | Individual                        | Accessible                                                              | Should                                | Organizations should provide people frictionless access to a wide diversity of publishers           |
-| IWAR03.2               | Individual                        | Accessible                                                              | Must                                  | Web must be accessible for all people regardless of economic means                                  |
-| IWAR03.3               | Individual                        | Accessible                                                              | Should                                | Organizations should support freedom of expression for people                                       |
-| IWAR03.4               | Individual                        | Accessible                                                              | Must                                  | Organizations must keep people free from self-censorship                                            |
-| IWAR04.1               | Organizations                     | Choice                                                                  | Must                                  | Organizations must support decentralization or sufficient options for centralized alternatives      |
-| IWAR04.2               | Organizations                     | Choice                                                                  | Should                                | Organizations should support open market competition                                                |
-| IWAR04.3               | Individual                        | Choice                                                                  | Should                                | Organizations should support freedom of information                                                 |
-| IWAR04.4               | Individual                        | Choice                                                                  | Should                                | Organizations should support diversity, especially minority opinions                                |
+| **Criteria reference** | **Primary stakeholder interest** | **Interest category (Functionality / Privacy / Interoperability /etc)** | **Interest priority (Must / Should)** | **Interest description**                                                                            |
+|------------------------|----------------------------------|-------------------------------------------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------|
+| IWAR01.1               | Organizations                    | Interoperability                                                        | Should                                | Organizations should communicate advertising-related data with precisely defined standards          |
+| IWAR01.2               | Individual                       | Interoperability                                                        | Must                                  | Organizations must enable data portability of personal information across services                  |
+| IWAR01.3               | Individual                       | Interoperability                                                        | Should                                | Organizations should support secure point-to-point communication                                    |
+| IWAR01.4               | Individual                       | Interoperability                                                        | Should                                | Organizations should support ease of navigation for individuals                                     |
+| IWAR01.5               | Individual                       | Interoperability                                                        | Should                                | An individual’s choices must persist across all individual\<\>business interactions                 |
+| IWAR01.6               | Individual                       | Interoperability / Privacy                                              | Must                                  | An individual must have choice over how their data is shared and with whom.                         |
+| IWAR02.1               | Individual                       | Accountability                                                          | Must                                  | Organizations must provide Individual data access rights and processing use-cases must be auditable |
+| IWAR02.2               | Individual                       | Accountability                                                          | Should                                | Violations for inappropriate actions should be enforceable                                          |
+| IWAR02.3               | Individual                       | Accountability                                                          | Must                                  | Organizations must supply people appropriate remedies for harm                                      |
+| IWAR02.4               | Organizations                    | Accountability                                                          | Must                                  | Organizations must support freedom of the press to investigate and report on wrongdoing             |
+| IWAR02.5               | Individual                       | Accountability                                                          | Must                                  | Organizations must provide people the right to be forgotten                                         |
+| IWAR02.6               | Individual                       | Accountability                                                          | Must                                  | Organizations must provide people the right to correction or deletion                               |
+| IWAR02.7               | Organizations                    | Accountability                                                          | Must                                  | Must aid organizations compliance with privacy regulations                                          |
+|                        |                                  |                                                                         |                                       |                                                                                                     |
+| IWAR03.1               | Individual                       | Accessible                                                              | Should                                | Organizations should provide people frictionless access to a wide diversity of publishers           |
+| IWAR03.2               | Individual                       | Accessible                                                              | Must                                  | Web must be accessible for all people regardless of economic means                                  |
+| IWAR03.3               | Individual                       | Accessible                                                              | Should                                | Organizations should support freedom of expression for people                                       |
+| IWAR03.4               | Individual                       | Accessible                                                              | Must                                  | Organizations must keep people free from self-censorship                                            |
+| IWAR04.1               | Organizations                    | Choice                                                                  | Must                                  | Organizations must support decentralization or sufficient options for centralized alternatives      |
+| IWAR04.2               | Organizations                    | Choice                                                                  | Should                                | Organizations should support open market competition                                                |
+| IWAR04.3               | Individual                       | Choice                                                                  | Should                                | Organizations should support freedom of information                                                 |
+| IWAR04.4               | Individual                       | Choice                                                                  | Should                                | Organizations should support diversity, especially minority opinions                                |
