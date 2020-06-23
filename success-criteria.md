@@ -33,6 +33,8 @@ Paul Bannister (paul@cafemedia.com)
 
 Paul Chachko (pchachko@throtle.io)
 
+Scott Menzer (scott@id5.io)
+
 Tom Kershaw (tkershaw@rubiconproject.com)
 
 Wilfried Schobeiri (wschobeiri@mediamath.com)
