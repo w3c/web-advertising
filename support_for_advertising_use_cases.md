@@ -20,7 +20,7 @@ All advertising aims to drive an outcome. There are many types of desirable outc
 
 1. **Immediate vs delayed**: signing up to be an Uber driver right now,
 vs. remembering to consider a Mercedes next time they're buying a car
-2. **Actions vs. Attidues**: taking a specific action like dialing a lawyer's office vs.
+2. **Actions vs. Attitudes**: taking a specific action like dialing a lawyer's office vs.
 just remembering to "Think Different"
 3. **Direct vs. Indirect**: buying glasses directly from warbyparker.com, vs. buying Ray-Ban's from their
  local optician after seeing a Youtube ad
@@ -61,6 +61,8 @@ The ads industry has endeavored to find good ways of answering these basic quest
   - [Malicious Browser Extensions](#malicious-browser-extensions)
   - [Malicious Mobile Apps](#malicious-mobile-apps)
   - [Malicious browsers](#malicious-browsers)
+- [Brand Safety](#brand-safety)
+- [Billing Transaprency](#billing-transaprency)
   
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
@@ -77,17 +79,19 @@ The ads industry has endeavored to find good ways of answering these basic quest
 | [Malicious Browser Extensions](#malicious-browser-extensions) | No solutions yet for this problem. | No solutions yet for this problem. | |
 | [Malicious Mobile Apps](#malicious-mobile-apps) | No solutions yet for this problem. | No solutions yet for this problem. | |
 | [Malicious Browsers](#malicious-browsers) | No solutions yet for this problem. | No solutions yet for this problem. | |
-
+| [Brand Safety](#brand-safety) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. When an ad targets an interest group, it is served as a web package with all subresources included and the detail of which interest group won lets you trace down the problematic campaign. However, the ads that were printed less than k times (k being the reporting threshold) would still pose a threat as they would remain undetectable because not reported. | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | |
+| [Billing Transaprency](#billing-transaprency) | In TURTLEDOVE, the browser is the sole owner of billing information. | | |
 
 ## Specialized Advertiser Needs
 
 These are use-cases that only apply to a (possibly large) subset of advertisers. 
 
 - [Targeting](#targeting)
+  - [Audience definition](#audience-definition)
   - [Exclusion Targeting](#exclusion-targeting)
   - [Lookalike Targeting](#lookalike-targeting)
   - [Retargeting](#retargeting)
-- [Brand Safety](#brand-safety)
+  - [Display and target environment](#display-and-target-environment)
 - [Frequency](#frequency)
   - [Frequency Capping](#frequency-capping)
   - [Frequency Optimization](#frequency-optimization)
@@ -97,20 +101,33 @@ These are use-cases that only apply to a (possibly large) subset of advertisers.
   - [Dynamic Ads](#dynamic-ads)
   - [Email Marketing](#email-marketing)
 - [Real time spend management](#real-time-spend-management)
+- [Catalog management](#catalog-management)
+    - [Product availability management](#product-availability-management)
+    - [Price management](#price-management)
+    - [Products promotion management](#products-promotion-management)
+- [Creatives](#creatives)
+    - [Coupon Management](#coupon-management)
+- [Recommendation](#recommendation)
 
 
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
+| [Audience definition](#audience-definition) |  |  |  |
 | [Exclusion Targeting](#exclusion-targeting) | Acknowledgement that this is a valuable use-case and a link to Facebook’s PETREL proposal on this [GitHub Issue](https://github.com/michaelkleber/turtledove/issues/3) | No support | Facebook proposal for “[Private Exclusion Targeting Rendered Exclusively Locally (PETREL)](https://github.com/w3c/web-advertising/blob/master/PETREL.md)” |
 | [Lookalike Targeting](#lookalike-targeting) | Might be possible to achieve limited support by leveraging “[Federated Learning of Cohorts (FLoC)](https://github.com/jkarlin/floc)”.  Might require an extension to TURTLEDOVE offering a new way to create interest groups, which Chrome indicated support for in [this issue](https://github.com/michaelkleber/turtledove/issues/26). | No support | Facebook proposal for "[Privacy Preserving Lookalike Audience Targeting](privacy_preserving_lookalike_audience_targeting.md)" |
 | [Retargeting](#retargeting) | Proposal: "[Two Uncorrelated Requests, Then Locally-Executed Decision On Victory (TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" | No support | |
-| [Brand Safety](#brand-safety) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be aware of the URL where an ad is served, and the type of content on the page. Ad requests should include this type of contextual information, so that ad-servers can select appropriate ads for that context where there are no brand-safety concerns. The only possible complication that might arise would be with Chrome's "[TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" proposal. One of the two uncorrelated ad-requests will NOT have any contextual information by design. As such, the ad-server will not be able to ensure that the ad-returned is eligible to be shown on that specific webpage. However, the Chrome team understands the importance of "Brand Safety" to advertisers, and the proposal includes [a specific approach to invalidate ads client-side](https://github.com/michaelkleber/turtledove#on-device-auction), prior to rendering, specifically to support this use-case. | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | |
+| [Display and target environment](#display-and-target-environment) | Supported in TURTLEDOVE thanks to the contextual request. Ability to use this together with interest group request limited by the JS complexity. |  |  |
 | [Frequency Capping](#frequency-capping) / [Frequency Optimization](#frequency-optimization) | For ads served via TURTLEDOVE interest-group targeting, the proposal offers a way to [handle frequency capping on-device](https://github.com/michaelkleber/turtledove#on-device-auction).  For other types of targeting, while it will not be possible to enforce a hard "frequency-cap" across multiple websites, it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). | No support | |
 | [Businesses with Multiple Domains](#businesses-with-multiple-domains) | Proposal: "[First Party Sets](https://github.com/krgovind/first-party-sets/)" | Some discussion in this [GitHub issue](https://github.com/krgovind/first-party-sets/issues/6) indicates weak support for at least the country-specific eTLD use-case, but various concerns with the current "First Party Sets" proposal. | | 
 | [Collaborative Ads](#collaborative-ads) / [Dynamic Ads](#dynamic-ads) | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. | Some discussion in this [GitHub issue](https://github.com/WICG/ad-click-attribution/issues/36). Good collaborative problem solving going on. No firm solution yet. | Facebook proposal for “[Conversion Filters](https://github.com/w3c/web-advertising/blob/master/conversion-filters.md)” |
 | [Email Marketing](#email-marketing) | unclear | unclear | |
 | [Real time spend management](#real-time-spend-management) | High latency in TURTLEDOVE as the javascript updates have unknown frequency, and reporting is delayed in the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model) | Supported as ads are not done in opaque iframe and bidding is not done remotely | |
-
+| [Product availability management](#product-availability-management) | More details required. |  |  |
+| [Price management](#price-management) | More details required. |  |  |
+| [Products promotion management](#products-promotion-management) | More details required. |  |  |
+| [Creatives](#creatives) | The creative building logic and material is all contained in the web bundle. Questions arise about the size of the web bundle. | More details required. |  |
+| [Coupon Management](#coupon-management) | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. |  | Facebook proposal for "Conversion Filters". |
+| [Recommendation](#recommendation) | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. |  | Facebook proposal for "Conversion Filters". |
 
 
 # Ad Network Needs
@@ -122,13 +139,19 @@ These are core essentials ad networks need to deliver value to advertisers.
 - [Training ML Models](#training-ml-models)
   - [Click Through Rate (CTR) Model: P(click | impression)](#click-through-rate-ctr-model-pclick--impression)
   - [Conversion Rate (CVR) Model: P(conversion | click)](#conversion-rate-cvr-model-pconversion--click)
+  - [Post-view attribution: P(conversion | impression)](#post-view-attribution-pconversion--impression)
+  - [P(Display | Request)](#pdisplay--request)
   - [Return on Ad Spend (ROAS) optimization](#return-on-ad-spend-roas-optimization)
+  - [Multiple Targets optimization](#multiple-targets-optimization)
 
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
 | [P(click \| impression)](#click-through-rate-ctr-model-pclick--impression) | There is no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. Should be possible to use 1st party cookies to tie together multiple sessions from the same browser on the same website. | [isLoggedIn](https://github.com/WebKit/explainers/tree/master/IsLoggedIn) may potentially pose problems here for websites without login. Limited storage may make it hard to tie together multiple sessions from the same person. | |
 | [P(conversion \| click)](#conversion-rate-cvr-model-pconversion--click) | This is a stated goal of Chrome’s “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” | Not possible to train an ML model. | |
+| [Post-view attribution: P(conversion \| impression)](#post-view-attribution-pconversion--impression) | Not possible to train an ML model. However, It may be possible to use the "Aggregate Reporting API" to obtain average conversion value measurement for very coarse-grain buckets of people. This could be used to perform calibration at this coarse-grain bucketed level. | Not possible to train an ML model. |  |
+| [P(Display \| Request)](#pdisplay--request) | No support. | Not possible to train an ML model. |  |
 | [Return on Ad Spend (ROAS) optimization](#return-on-ad-spend-roas-optimization) | Not possible to train an ML model. However, It may be possible to use the “[Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api)” to obtain average conversion value measurement for very coarse-grain buckets of people. This could be used to perform calibration at this coarse-grain bucketed level. | Not possible to train an ML model. | |
+| [Multiple Targets optimization](#multiple-targets-optimization) | No support | Not possible to train an ML model. |  |
 
 ## Specialized Ad Network Needs
 
@@ -139,7 +162,6 @@ These are core essentials ad networks need to deliver value to advertisers.
 |----------|--------|--------|---------------------|
 | [Audience Selling](#audience-selling) | Probably possible under "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" by defining interest groups usable by other parties. | No support | |
 | [CRM Targeting](#crm-targeting) | possible if done via interest groups under "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)"  | No support | |
-
 
 # Publisher Needs
 
@@ -155,6 +177,9 @@ These use-cases are more focused on the publisher's perspective.
   - [Click-through Site Personalization](#click-through-site-personalization)
 - [On-site Sponsored Product](#on-site-sponsored-product)
 - [Search](#search)
+- [Ad Safety](#ad-safety)
+- [Advertisers exclusion](#advertisers-exclusion)
+- [Revenue management](#revenue-management)
 
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
@@ -165,19 +190,87 @@ These use-cases are more focused on the publisher's perspective.
 | [View-through Site Personalization](#view-through-site-personalization) | No support | No support | |
 | [Click-through Site Personalization](#click-through-site-personalization) | There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” unless this mechanism is used to pass through high-entropy identifiers which could be used to tie user identity across websites. See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). | Similar to Chrome, this should not fall afoul of Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) unless high-entropy identifiers are being used to perform "navigational tracking". See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). | |
 |[On-site Sponsored Product](#on-site-sponsored-product)| There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” | Similar answer as that for Chrome. This should not be in conflict with Webkit's Tracking Prevention Policy given the measurement is entirely within the scope of a single publisher website. | |
-| [Search](#search) | unclear, but relies a lot on contextual | unclear | |
+|[Search](#search) | unclear, but relies a lot on contextual | unclear | |
+| [Ad Safety](#ad-safety) | Very limited support as opaque iframe aggregated reporting allow for very little ex post audit. | No Support |  |
+| [Advertisers exclusion](#advertisers-exclusion) | Unclear. To be defined. |  |  |
+| [Revenue management](#revenue-management) | Little support in TURTLEDOVE, as nor reporting nor updating bidding JavaScripts is not real-time. This means delays in both information and action, leading to very complex and inaccurate budget/revenue management. |  |  |
 
 # User Needs
 
-# Current Proposals and Browser Support
+- [Why am I seeing this ad?](#why-am-i-seeing-this-ad)
+- [Opt-out of an advertiser, category or product](#opt-out-of-an-advertiser-category-or-product)
+- [Opt-out of a marketing service](#opt-out-of-a-marketing-service)
+- [Seeing ads relevant to me](#seeing-ads-relevant-to-me)
+- [Smooth user experience](#smooth-user-experience)
 
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
-| [Exclusion Targeting](#exclusion-targeting) | Acknowledgement that this is a valuable use-case and a link to Facebook’s PETREL proposal on this [GitHub Issue](https://github.com/michaelkleber/turtledove/issues/3) | No support | Facebook proposal for “[Private Exclusion Targeting Rendered Exclusively Locally (PETREL)](https://github.com/w3c/web-advertising/blob/master/PETREL.md)” |
-| [Frequency Capping](#frequency-capping) / [Frequency Optimization](#frequency-optimization) | For ads served via TURTLEDOVE interest-group targeting, the proposal offers a way to [handle frequency capping on-device](https://github.com/michaelkleber/turtledove#on-device-auction).  For other types of targeting, while it will not be possible to enforce a hard "frequency-cap" across multiple websites, it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). | No support | |
-| [Why am I seeing this](#why-am-i-seeing-this) | Both the Chrome team and the [Google ads team](https://services.google.com/fh/files/misc/industry_request_for_comment_v1.0.pdf) have on multiple occassions cited a desire show people an explanation of what caused an ad to appear. The [TURTLEDOVE](https://github.com/michaelkleber/turtledove#motivating-use-case) proposal specifically aims to provide people with an accurate answer as to why they are seeing a re-targeting ad. | No support. | |
-| [Hide all ads from business](#hide-all-ads-from-business) | Unclear | No support | |
+|[Why am I seeing this ad?](#why-am-i-seeing-this-ad)| Both the Chrome team and the Google ads team have on multiple occassions cited a desire show people an explanation of what caused an ad to appear. The TURTLEDOVE proposal specifically aims to provide people with an accurate answer as to why they are seeing a re-targeting ad. | No support. |  |
+|[Opt-out of an advertiser, category or product](#opt-out-of-an-advertiser-category-or-product)| Unclear | No support |  |
+|[Opt-out of a marketing service](#opt-out-of-a-marketing-service)| Supported |  |  |
+|[Seeing ads relevant to me](#seeing-ads-relevant-to-me)| Interest groups and contextual signals should help have relevant ads. |  |  |
+|[Smooth user experience](#smooth-user-experience)| More details required. Concerns about the size of the data to load, store and process in-browser. |  |  |
 
+# Impression and Viewability Measurement
+
+Advertisers want to know how many times people saw their ads. One of the most basic metrics ad-servers report to advertisers is the total number of "impressions" served. These counts must be accurate as they are integral to reporting and billing.
+
+There are a few critically important aspects of impression counting that advertisers care about:
+
+- "Viewability": was the ad actually visible to the user
+- "Invalid Traffic": was the ad viewed by an actual human (as opposed to a bot / script)
+- "Third Party Verification": are the impression counts validated by a neutral third party that will vouch for their accuracy
+
+## Viewability
+
+Sometimes, an ad is returned from an ad-server, but never actually enters the viewport. Sometimes an ad might enter the viewport, but only for a few milliseconds. Sometimes an ad might enter the viewport, but fail to load any images or video before it leaves again. Sometimes there might be other elements drawn over the top of the ad. These cases illustrate "non-viewable" ad impressions. Advertisers only want to pay for "viewable ad impressions". The reasoning is simple, an ad cannot possibly have an effect on someone's future purchasing behavior if they never saw it in the first place!
+
+Over the years, the industry has developed standards to define what constitutes a "Viewable ad impression". These are different for image and video ads, for the mobile and desktop web, and in-app. Industry bodies like the IAB and the MRC regularly audit measurement vendors (ad servers, ad verification vendors) to see if they are compliant with these standards.
+
+## Invalid Traffic
+
+Advertisers want to show ads to humans, not to bots and scripts. The industry has devoted a great deal of time and energy towards identifying invalid traffic (IVT), so that it can be filtered out of impression reports.
+
+## Third-Party Verification
+
+When a measurement vendor (ad server, publisher, etc) reports a certain number of impressions (presumably viewable impressions, with invalid traffic filtered out), how is the advertiser to know if this number is accurate? Advertisers would prefer not to just accept these numbers on faith. For this reason, the industry has established a number of independent, third-party measurement vendors that run their own verification scripts to provide advertisers with the peace of mind and confidence that the number of impressions they are being billed for are accurate, and measured in a consistent way across all of their ad buys.
+
+# Audience Verification
+
+Not all products are suited for all consumers. For example, in the United States sales of alcohol are restricted to 
+people aged 21 and over, and there are even regulations limiting the extent to which advertisements for alcohol can be 
+shown to people under 21. Thus advertisers of alcohol have not only an economic interest but also a legal obligation
+to avoid advertising to teenagers.
+
+The current ecosystem has developed elaborate mechanisms to allow advertisers to reach consumers they believe will have the interest and ability to purchase their products. While the move to a more private web will (and should) eliminate some of the current privacy-unfriendly techniques marketers use for targeting, it will not eliminate the reasonable desire (and in some cases obligation) to avoid showing irrelevant ads to uninterested or inappropriate consumers.  
+
+There is a real cost in assembling and assessing addressable audiences who are united by some common characteristic of 
+interest. As such, vendors who amass these audiences (whether those vendors are publishers or third parties) often charge a substantial premium to advertisers who wish to access these audiences.
+With so much money at stake, advertisers have a strong interest in knowing whether they're actually reaching the types of people they're paying to reach. As targeting moves behind opaque mechanisms like TURTLEDOVE, there is a real risk that without the possibility of independent verification, advertisers lose so much trust in the accuracy of audience targeting mechanisms that they revert to the inefficient and annoying-to-consumers spray-and-pray tactics of the mass media era. This will both hurt consumers who will be bombarded with irrelevant or lowest-common-denominator ads, and it will hurt small publishers for whom providing advertisers access to a niche audience may be their primary economic value proposition. 
+ 
+As with lift measurement, the conclusions marketers are aiming to draw are inherently statistical, aggregated, and 
+ privacy-friendly. Advertisers are not interested in learning or retaining the demographics of any particular ad viewer -
+ they only want to know that e.g. "95% of people who saw my ad were over the age of 21."
+ 
+Some publishers have demographic information on their users and are able to report viewership
+demographics based on 1st party data. But the vast majority of publishers do not know the demographics of their viewers,
+even of viewers who are registered or subscribed. Thus advertisers use products like Nielsen's "Digital Ad Ratings" and
+ rely on Nielsen to track ad campaigns and survey people who've seen ads to collect age and gender statistics. 
+ 
+ While age and gender are the most commonly measured attributes, advertisers also often want to target audiences based on 
+ finer-grained demographics (e.g. people who live in St. Louis) or interests (e.g. "people who play golf"). 
+ 
+ The data used for audience measurement can come from different sources, but particularly for finer-grained attributes
+ surveys often provide the most accurate (or sometimes the only) way of assessing attribute prevalence among the people
+  exposed to a campaign. As is the case with [Brand Lift Measurement](#brand-lift-measurement),
+   these surveys which must be conducted at some point after the advertising itself is displayed. 
+   The data can neither be inferred from the rendering of the advertisement (as e.g. viewability can) nor
+ can it be collected contemporaneously with the exposure. This means that the vendor conducting the surveys must have some way to know which
+  advertising campaigns individuals have been exposed to in order to ask the right survey questions and to 
+  properly aggregate the responses. Asynchronous 
+  reporting API's may play a part in supporting the audience verification use-case but they are not themselves sufficient,
+  because it's not plausible to ask every potential question about demographics and interests to every respondent. So
+  surveys need to be targeted to the relevant groups of advertising-exposed respondents
 
 # Aggregate Conversion Measurement
 
@@ -315,51 +408,33 @@ It is also feasible for fraudsters to modify the source code of a browser and co
 
 When designing APIs, we should assume that this is a part of the threat model as well.
 
-# Training ML Models
+# Brand Safety
 
-Ad selection is a very important task. When there are many ads to choose from, which one should be shown to which person? The most effective approach to-date has proven to be using machine learning algorithms to assist with ad selection. This produces more relevant ads for people, and more business outcomes for advertisers. This in turn increases publisher revenues. 
+Some web-pages may contain graphic imagery, or might discuss controversial topics, or include news about disaster or tragedy. Advertisers care a great deal about the types of concepts that people will associate with their brand. For this reason, advertisers might not feel comfortable having their advertisements run alongside these types of content.
 
-Machine learning models must be trained with sample data. They must be provided with both “positive” and “negative” training samples. There are a few key types of ML models to consider
+For this reason, the industry has developed a lot of "Brand Safety" controls. Advertisers commonly provide ad-servers with either "whitelists" of the websites where they are happy to display their ads, or "blacklists" of websites where they are not happy to have their ads shown. Some ad-servers also support "keyword blocking", where the actual text on the page is crawled, and if certain keywords are present, the ad should not be shown anywhere on the page. 
 
-## Click Through Rate (CTR) Model: P(click | impression)
+Another important part of this story is transparency. Once an ad campaign has been delivered, **advertisers want a breakdown of all of the apps and websites where their ads were shown, so that they can review this list from the perspective of "Brand Safety".** This is important to validate that their "Brand Safety" configuration was respected, and also to give them a better idea of where their ad was actually delivered (from the perspective of the adajcent page content).
 
-The “CTR model” predicts the likelihood of a click given an impression. This can be done entirely with first party data. The publisher should be aware of which ads received were clicked, and which ads were not. These provide “positive” and “negative” training samples which can be used to train a machine learning model that predicts how likely someone is to click on an ad if it is shown to them.
+# Billing Transaprency
 
-An ad server which just utilizes a “CTR Model” will be able to optimize for the cheapest clicks. It will maximize the number of clicks for a given budget.
-
-## Conversion Rate (CVR) Model: P(conversion | click)
-
-Just optimizing for clicks may not lead to desirable results. Clicks are only a weak proxy for business value. Some clicks will result in conversions and business value generation, but others will not. Some clicks might be accidental, or could even be fraudulent. Advertisers do not want to pay for cheap clicks than seldom result in conversions, they want ads that actually create business value.
-
-For this reason, another important use-case is to train “CVR Models”, that predict the likelihood of a conversion given a click. Training such a machine learning model will require “positive” and “negative” training samples as well. “Positive” samples are clicks which eventually resulted in a conversion. “Negative” samples are clicks which did not result in a conversion.
-
-Bayesian probability tells us that we can compute the probability of a conversion given an impression by just multiplying these two predictions:
-
-P(conversion | impression) = P(conversion | click) * P(click | impression)
-
-## Return on Ad Spend (ROAS) optimization
-
-Not all conversions are equally valuable. There are many advertisers who sell a wide variety of items. Imagine a marketplace where some conversions generate $1 in profit, and other conversions generate $1000 in profit. Such an advertiser does not want to maximize the total number of conversions, they want to maximize their total profit. To this end, it’s desirable to try to estimate the conversion value given a conversion.
-
-We can combine all three predictions to estimate the conversion value given an impression
-
-E(conversion-value | impression) = E(conversion-value | conversion) * P(conversion | click) * P(click | impression)
-
-# Affiliate Marketing
-
-A lot of useful content on the web only exists because Affiliate Marketing provides the financial basis to support its creation.
-
-Publisher websites provide “affiliate links” to merchant websites. If the person clicks through and eventually completes a purchase, the publisher receives a portion of the sale price. 
-
-There are many similarities with display ads, but the main difference is the payment scheme. Instead of being paid per impression or per click, the publisher is only paid when there is a conversion. 
-
-Returns complicate this significantly. If someone makes a purchase, but subsequently returns the item, the publisher should not be paid for that conversion. The challenge of reversing a payout for a reported conversion is not well solved for today.
-
-Another concern is fraud. Fraudsters may attempt to utilize “click flooding” / “click spamming” to take credit for conversions they played no part in driving. Malicious browser extensions are also a big threat here. They have the power to intercept traffic and thereby take credit for conversions they did not drive.
+Transparency and trust in billing data, which must be auditable and produced by an accountable party.
+This reporting should be accurate for advertisers and publishers of all sizes and allow for reconciliation mechanisms between the two parties in case of mismatch.
 
 # Targeting
 
 Targeting is the selection of a specific audience to see an ad. There are a few types of targeting that will be particularly affected by the loss of 3rd party cookies.
+
+## Audience definition
+
+As an advertiser, I want to be able to build the audience for my campaign using any combination of either:
+- List of users I can provide
+- Socio-demo-geo criterias
+- Users that have had interactions with my website or store over a certain period, or not. E.g.: "abandoned cart users", "users that have bought baby diapers between J-30 and J-15 but not since then" 
+
+I want to be able to:
+- get a understanding of the reach of my audience while defining it, and through the life of my campaign
+- my audience to be updated in real-time. E.g. if my audience excludes people that recently made a purchase on my site, I want to stop displaying ads to any user making a purchase in near real time.
 
 ## Exclusion Targeting
 
@@ -375,85 +450,11 @@ One common way this is achieved today is with 3rd party cookies. Before starting
 
 A common practice in the industry today is to run ads that are shown to previous visitors of a website. While there is a lot of negative sentiment related to “ads that follow you around the internet”, this capability forms a significant fraction of digital advertising.
 
-# Impression and Viewability Measurement
+## Display and target environment
 
-Advertisers want to know how many times people saw their ads. One of the most basic metrics ad-servers report to advertisers is the total number of "impressions" served. These counts must be accurate as they are integral to reporting and billing.
+As an advertiser, I want to be able to select on which type of environment my ads are displayed (web, mobile web, app) and what's the target environment for my ads.
 
-There are a few critically important aspects of impression counting that advertisers care about:
-
-- "Viewability": was the ad actually visible to the user
-- "Invalid Traffic": was the ad viewed by an actual human (as opposed to a bot / script)
-- "Third Party Verification": are the impression counts validated by a neutral third party that will vouch for their accuracy
-
-## Viewability
-
-Sometimes, an ad is returned from an ad-server, but never actually enters the viewport. Sometimes an ad might enter the viewport, but only for a few milliseconds. Sometimes an ad might enter the viewport, but fail to load any images or video before it leaves again. Sometimes there might be other elements drawn over the top of the ad. These cases illustrate "non-viewable" ad impressions. Advertisers only want to pay for "viewable ad impressions". The reasoning is simple, an ad cannot possibly have an effect on someone's future purchasing behavior if they never saw it in the first place!
-
-Over the years, the industry has developed standards to define what constitutes a "Viewable ad impression". These are different for image and video ads, for the mobile and desktop web, and in-app. Industry bodies like the IAB and the MRC regularly audit measurement vendors (ad servers, ad verification vendors) to see if they are compliant with these standards.
-
-## Invalid Traffic
-
-Advertisers want to show ads to humans, not to bots and scripts. The industry has devoted a great deal of time and energy towards identifying invalid traffic (IVT), so that it can be filtered out of impression reports.
-
-## Third-Party Verification
-
-When a measurement vendor (ad server, publisher, etc) reports a certain number of impressions (presumably viewable impressions, with invalid traffic filtered out), how is the advertiser to know if this number is accurate? Advertisers would prefer not to just accept these numbers on faith. For this reason, the industry has established a number of independent, third-party measurement vendors that run their own verification scripts to provide advertisers with the peace of mind and confidence that the number of impressions they are being billed for are accurate, and measured in a consistent way across all of their ad buys.
-
-# Audience Verification
-
-Not all products are suited for all consumers. For example, in the United States sales of alcohol are restricted to 
-people age 21 and over, and there are even regulations limiting the extent to which advertisements for alcohol can be 
-shown to people under 21. Thus advertisers of alcohol have not only an economic interest but also a legal obligation
-to avoid advertising to teenagers.
-
-The current ecosystem has developed elaborate mechanisms to allow advertisers to reach consumers they believe will 
-have the interest and ability to purchase their products. While the move to a more private web will (and should) 
-eliminate some of the current privacy-unfriendly techniques marketers use for targeting, it will not eliminate 
-the reasonable desire (and in some cases obligation) to avoid showing irrelevant ads to uninterested or inappropriate 
-consumers.  
-
-There is a real cost in assembling and assessing addressable audiences who are united by some common characteristic of 
-interest. As such, vendors who amass these audiences (whether those vendors are 
-publishers or third parties) often charge a substantial premium to advertisers who wish to access these audiences.
- With so much money at stake, advertisers have a strong 
- interest in knowing whether they're actually reaching the types of people they're paying to reach. As targeting moves 
- behind opaque mechanisms like TURTLEDOVE, there is a real risk that without the possibility of independent 
- verification, advertisers lose so much trust in the accuracy of audience targeting mechanisms that they revert 
- to the inefficient and annoying-to-consumers spray-and-pray tactics of the mass media era. This will both hurt
-  consumers who will be bombarded with irrelevant or lowest-common-denominator ads, and it will hurt small publishers 
-  for whom providing advertisers access to a niche audience may be their primary economic value proposition. 
- 
-As with lift measurement, the conclusions marketers are aiming to draw are inherently statistical, aggregated, and 
- privacy-friendly. Advertisers are not interested in learning or retaining the demographics of any particular ad viewer -
- they only want to know that e.g. "95% of people who saw my ad were over the age of 21."
- 
-Some publishers have demographic information on their users and are able to report viewership
-demographics based on 1st party data. But the vast majority of publishers do not know the demographics of their viewers,
-even of viewers who are registered or subscribed. Thus advertisers use products like Nielsen's "Digital Ad Ratings" and
- rely on Nielsen to track ad campaigns and survey people who've seen ads to collect age and gender statistics. 
- 
- While age and gender are the most commonly measured attributes, advertisers also often want to target audiences based on 
- finer-grained demographics (e.g. people who live in St. Louis) or interests (e.g. "people who play golf"). 
- 
- The data used for audience measurement can come from different sources, but particularly for finer-grained attributes
- surveys often provide the most accurate (or sometimes the only) way of assessing attribute prevalence among the people
-  exposed to a campaign. As is the case with [Brand Lift Measurement](#brand-lift-measurement),
-   these surveys which must be conducted at some point after the advertising itself is displayed. 
-   The data can neither be inferred from the rendering of the advertisement (as e.g. viewability can) nor
- can it be collected contemporaneously with the exposure. This means that the vendor conducting the surveys must have some way to know which
-  advertising campaigns individuals have been exposed to in order to ask the right survey questions and to 
-  properly aggregate the responses. Asynchronous 
-  reporting API's may play a part in supporting the audience verification use-case but they are not themselves sufficient,
-  because it's not plausible to ask every potential question about demographics and interests to every respondent. So
-  surveys need to be targeted to the relevant groups of advertising-exposed respondents.
-  
-# Brand Safety
-
-Some web-pages may contain graphic imagery, or might discuss controversial topics, or include news about disaster or tragedy. Advertisers care a great deal about the types of concepts that people will associate with their brand. For this reason, advertisers might not feel comfortable having their advertisements run alongside these types of content.
-
-For this reason, the industry has developed a lot of "Brand Safety" controls. Advertisers commonly provide ad-servers with either "whitelists" of the websites where they are happy to display their ads, or "blacklists" of websites where they are not happy to have their ads shown. Some ad-servers also support "keyword blocking", where the actual text on the page is crawled, and if certain keywords are present, the ad should not be shown anywhere on the page. 
-
-Another important part of this story is transparency. Once an ad campaign has been delivered, advertisers want a breakdown of all of the apps and websites where their ads were shown, so that they can review this list from the perspective of "Brand Safety". This is important to validate that their "Brand Safety" configuration was respected, and also to give them a better idea of where their ad was actually delivered (from the perspective of the adajcent content on the page).
+E.g. running a mobile web campaign that brings user to make purchase on my Apps.
 
 # Frequency 
 
@@ -488,8 +489,113 @@ When it comes to aggregate ads measurement, ShaveCo is only interested in a tiny
 
 Large e-Commerce websites may have product catalogs with millions of items. They have an interesting use-case. When running ads to promote items from their vast catalogs, which product should they show?
 
-Today, much of this is powered by data about which items a person has previously browsed. 
+Today, much of this is powered by data about which items a person has previously browsed.
 
+## Email marketing
+
+Many companies utilize email as a mechanism for re-engaging with their customers. JavaScript isn't used in email, but tracking pixels are to track things like open rates, etc.
+
+## Real time spend management
+
+Advertisers have very tight control over the budget they spend on the various online marketing channels they run simultaneously. They demand the ability to start / stop / increase / decrease the spend on a campaign with low latency.
+
+This proves to be necessary for ramping-up the campaigns (budgets are increased little by little in order to minimize the risk of any campaign setup error, etc.), peak seasons (strong budget increase during sales periods) or inversely exceptional event management (E.g. shut down all travel campaigns related to a country where a catastrophe just happened), or on a more daily basis, channels and campaigns fine-tuning (increase the budgets for the campaigns best performing and vice versa).
+
+## Catalog
+
+Catalog management including (catalog updates, product price, product availability, geographic availability, coupon management, etc.) is a wide area of expertise of crucial importance for the advertisers.
+
+These elements require low-latency management as well as to be user-specific. Indeed you don't want to create any frustration advertising out of stock products or showing coupons the user is not eligible to.
+
+The travel vertical is particularly sensitive to these questions.
+
+### Product availability management
+
+As an Advertiser, I don't want to display ads for products that I do not have in stock, or have a low volume of.
+
+### Price management
+
+As an Advertiser, I want changes in my products price changes to be reflected in near real time in my ads.
+
+I.e. I don't want to display an incorrect price in an ad.
+
+### Products promotion management
+
+As an Advertiser, I want to be able to push forward a set of product in my ads: i.e. during a certain period of time increase the frequency of display for these products.
+
+This use case is common in sales period. Note that sales period can have very precise start and stop dates.
+
+## Creatives
+
+Advertisers want to optimize the look and feel of their ads to the audience and to the environment. This helps to drive more performance and improve their overall brand recognition.
+
+This can be done programmatically using historical aggregated and/or personal user data, and contextual information. 
+
+## Coupon Management
+
+As an Advertiser I want to be able to add coupons, or any form of targeted discounts to my creatives on specific period of times, potentially for specific products.
+
+
+## Recommendation
+
+Large e-Commerce websites may have product catalogs with millions of items. They have an interesting use-case. When running ads to promote items from their vast catalogs, which product should they show?
+Today, much of this is mainly powered by data about which items a person has previously browsed.
+
+Typical sources of recommendation would be :
+- Historical Products (compared to historical products browsed): abandoned cart, etc.
+- Similar products (compared to historical products browsed)
+- Complementary Products (compared to historical products browsed)
+- ...
+
+# Training ML Models
+
+Ad selection is a very important task. When there are many ads to choose from, which one should be shown to which person? The most effective approach to-date has proven to be using machine learning algorithms to assist with ad selection. This produces more relevant ads for people, and more business outcomes for advertisers. This in turn increases publisher revenues. 
+
+Machine learning models must be trained with sample data. They must be provided with both “positive” and “negative” training samples. There are a few key types of ML models to consider
+
+## Click Through Rate (CTR) Model: P(click | impression)
+
+The “CTR model” predicts the likelihood of a click given an impression. This can be done entirely with first party data. The publisher should be aware of which ads received were clicked, and which ads were not. These provide “positive” and “negative” training samples which can be used to train a machine learning model that predicts how likely someone is to click on an ad if it is shown to them.
+
+An ad server which just utilizes a “CTR Model” will be able to optimize for the cheapest clicks. It will maximize the number of clicks for a given budget.
+
+## Conversion Rate (CVR) Model: P(conversion | click)
+
+Just optimizing for clicks may not lead to desirable results. Clicks are only a weak proxy for business value. Some clicks will result in conversions and business value generation, but others will not. Some clicks might be accidental, or could even be fraudulent. Advertisers do not want to pay for cheap clicks than seldom result in conversions, they want ads that actually create business value.
+
+For this reason, another important use-case is to train “CVR Models”, that predict the likelihood of a conversion given a click. Training such a machine learning model will require “positive” and “negative” training samples as well. “Positive” samples are clicks which eventually resulted in a conversion. “Negative” samples are clicks which did not result in a conversion.
+
+Bayesian probability tells us that we can compute the probability of a conversion given an impression by just multiplying these two predictions:
+
+P(conversion | impression) = P(conversion | click) * P(click | impression)
+
+## Post-view attribution: P(conversion | impression)
+
+Post-view attribution is still widely used across the industry, particularly for branding campaigns.
+
+## P(Display | Request)
+
+In this competitive environment, particularly in a first-price auctions world, advertisers may want to infer the probability of winning the auction (getting the display) depending on their bid.
+
+## Return on Ad Spend (ROAS) optimization
+
+Not all conversions are equally valuable. There are many advertisers who sell a wide variety of items. Imagine a marketplace where some conversions generate $1 in profit, and other conversions generate $1000 in profit. Such an advertiser does not want to maximize the total number of conversions, they want to maximize their total profit. To this end, it’s desirable to try to estimate the conversion value given a conversion.
+
+We can combine all three predictions to estimate the conversion value given an impression
+
+E(conversion-value | impression) = E(conversion-value | conversion) * P(conversion | click) * P(click | impression)
+
+## Multiple targets optimization (visits, registrations, sales, etc.)
+
+Advertisers may want to track and attribute multiple natures of "conversions". Indeed many advertiser don't only focus on sales but also on visits, leads, etc.
+
+## Audience Selling
+
+Some actors on the internet are able to build custom audiences, revealing strong user intent.  A business model is to sell these audiences to advertisers/brands for targetting purposes.
+
+## CRM Targeting
+
+Relationship/CRM Marketing: a marketing strategy designed to foster customer loyalty, interaction, and long-term relationships. It is designed to develop or reinforce a strong bond with existing customers by continuing a dialogue with them that provides the customer with information that matches their needs, problems, or interests.
 
 # Problems faced by non-logged in publishers
 
@@ -513,6 +619,18 @@ Today, the industry is slowly converging on “real time bidding”. This is the
 
 Today, this type of “bidding” arrangement can either be done client-side, or server-side. Server-side has many advantages, including reduced latency and less risk of fraud. Server-side bidding requires some piece of Ad-Tech (which is responsible for conducting the auction) to request a “bid” from multiple ad servers. It must send them some kind of information about this ad opportunity so that they know how much to bid. Simply sending the contextual data (e.g. the URL of the page requesting the ad) is not enough to make a bid. It’s important to know more about the person who will see the ad, to understand what ad to serve, and how much to bid. Today this is accomplished with various approaches that are inconsistent with the Webkit / Chrome privacy models.
 
+# Affiliate Marketing
+
+A lot of useful content on the web only exists because Affiliate Marketing provides the financial basis to support its creation.
+
+Publisher websites provide “affiliate links” to merchant websites. If the person clicks through and eventually completes a purchase, the publisher receives a portion of the sale price. 
+
+There are many similarities with display ads, but the main difference is the payment scheme. Instead of being paid per impression or per click, the publisher is only paid when there is a conversion. 
+
+Returns complicate this significantly. If someone makes a purchase, but subsequently returns the item, the publisher should not be paid for that conversion. The challenge of reversing a payout for a reported conversion is not well solved for today.
+
+Another concern is fraud. Fraudsters may attempt to utilize “click flooding” / “click spamming” to take credit for conversions they played no part in driving. Malicious browser extensions are also a big threat here. They have the power to intercept traffic and thereby take credit for conversions they did not drive.
+
 # Enablers for first parties 
 
 Section on use-cases which are not strictly advertising driven but will need consideration in terms of how they can be handled in the web-platform going forward as they are key enablers for publishers, advertiser as well as users.
@@ -529,19 +647,9 @@ When a site/brand wants to customize the content of their web pages based off of
 
 ## Click-through Site Personalization
 
-When someone clicks a link to a website, that URL might encode information that can be used to personalize the experience. It might be a link to a particular offer or product. It might be a link that is specific to a particular marketing campaign. It might be personalized to the person themself. 
+When someone clicks a link to a website, that URL might encode information that can be used to personalize the experience. It might be a link to a particular offer or product. It might be a link that is specific to a particular marketing campaign. It might be personalized to the person themself.
 
 One special call out relates to "Landing Page Personalization". In the case that the website is accessed by a click on an ad, the website owner may work with the Ad-Tech provider to customize the link based on data provided by the Ad-Tech provider, the website owner or both.
-
-## Email marketing
-
-Many companies utilize email as a mechanism for re-engaging with their customers. JavaScript isn't used in email, but tracking pixels are to track things like open rates, etc.
-
-## Real time spend management
-
-Advertisers have very tight control over the budget they spend on the various online marketing channels they run simultaneously. They demand the ability to start / stop / increase / decrease the spend on a campaign with low latency.
-
-This proves to be necessary for ramping-up the campaigns (budgets are increased little by little in order to minimize the risk of any campaign setup error, etc.), peak seasons (strong budget increase during sales periods) or inversely exceptional event management (E.g. shut down all travel campaigns related to a country where a catastrophe just happened), or on a more daily basis, channels and campaigns fine-tuning (increase the budgets for the campaigns best performing and vice versa).
 
 ## On-site Sponsored Product
 
@@ -552,20 +660,43 @@ Contrary to the other use cases mentioned above, the entire process from printin
 
 Advertisers use services like Google Shopping to advertise their products directly in Search Engines' results.
 
-## Audience Selling
+## Ad Safety
 
-Some actors on the internet are able to build custom audiences, revealing strong user intent.  A business model is to sell these audiences to advertisers/brands for targetting purposes.
+Publishers usually consider that some ads contain inappropriate imagery, promote inappropriate products or messages they don't want to be associated with.
+Publisher usually maintain a "block-list" of advertisers/domains and forbid any ad coming from these.
 
-## CRM Targeting
+**Publishers need the list of all of the redirecting domains of the ads that were printed on their real estate and access to the visual rendering of each ad, so that they can review this list from the perspective of "Ad Safety".** This reporting is used to investigate reported misconducts and update the block-list.
 
-Relationship/CRM Marketing: a marketing strategy designed to foster customer loyalty, interaction, and long-term relationships. It is designed to develop or reinforce a strong bond with existing customers by continuing a dialogue with them that provides the customer with information that matches their needs, problems, or interests
+## Advertisers exclusion
 
-# Why am I seeing this
+As a Publisher, get the ability to blacklist ads from a list of advertisers.
 
+E.g. As owner of mylocalnews.com, I don't want to have any ad from any other newspaper on my site.
+
+## Revenue management
+
+As a Publisher, I want to:
+- Have a daily detailed and accurate reporting of advertising revenues on my properties.
+- Have the ability to investigate and understand variations in my advertising revenues.
+- Have the ability to reconcile and investigate discrepancies between the reporting I get on my ad revenues and the revenues that will actually come from advertisers or ad networks.
+
+# User needs
+
+## Why am I seeing this ad?
 One user need is to be presented with an accurate explanation of why a particular ad was shown. This is especially important in use-cases like re-targeting when people want to understand how personal information is shared. When no explanation is provided, people may imagine innacurate theories as to why they are seeing a given ad.
 
-# Hide all ads from business
-
-One user need is the ability to hide all ads from a specific business. This could be for any reason, but examples might include a dislike for that particular company / brand, a lack of relevance, excessively repetitive ads from that business in the past, a prior bad experience with that business, or offensive ad imagery. 
+## Opt-out of an advertiser, category or product
+One user need is the ability to opt-out of all ads from a specific business. This could be for any reason, but examples might include a dislike for that particular company / brand, a lack of relevance, excessively repetitive ads from that business in the past, a prior bad experience with that business, or offensive ad imagery. 
 
 The compexity in serving this user need comes from the difficulty in recognizing which ads promote which businesses. A given business may run ads through many channels, through many different ad agencies, and might promote a variety of apps and websites. All of this makes it very difficult to successfully satisfy this user need.
+
+## Opt-out of a marketing service
+As a user, upon request I want to easily be able to opt-out of ads provided by a specific marketing service.
+
+## Seeing ads relevant to me
+As a user, I prefer to see ads that are relevant to me.
+
+## Smooth user experience
+As a user, I do not want:
+ - Ads to degrade my browsing experience, in term of navigation, e.g.: ads blocking access to content or slowing down page load. 
+ - Ads to be annoying, e.g.: get to many times ads for the same product, or ads for products I already bought.
