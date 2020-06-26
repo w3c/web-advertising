@@ -109,7 +109,7 @@ These are use-cases that only apply to a (possibly large) subset of advertisers.
     * [Products promotion management](#products-promotion-management)
 * [Creatives](#creatives)
     * [Coupon Management](#coupon-management)
-* [Item Recomendations](##item-recomendations)
+* [Item Recomendations](#ml-applications)
 
 | Use-case | Chrome | Safari | Community Proposals |
 | -------- | ------ | ------ | ------------------- |
