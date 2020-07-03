@@ -62,7 +62,7 @@ The ads industry has endeavored to find good ways of answering these basic quest
   - [Malicious Mobile Apps](#malicious-mobile-apps)
   - [Malicious browsers](#malicious-browsers)
 - [Brand Safety](#brand-safety)
-- [Billing Transaprency](#billing-transaprency)
+- [Billing Transparency](#billing-transparency)
   
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
@@ -80,7 +80,7 @@ The ads industry has endeavored to find good ways of answering these basic quest
 | [Malicious Mobile Apps](#malicious-mobile-apps) | No solutions yet for this problem. | No solutions yet for this problem. | |
 | [Malicious Browsers](#malicious-browsers) | No solutions yet for this problem. | No solutions yet for this problem. | |
 | [Brand Safety](#brand-safety) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. When an ad targets an interest group, it is served as a web package with all subresources included and the detail of which interest group won lets you trace down the problematic campaign. However, the ads that were printed less than k times (k being the reporting threshold) would still pose a threat as they would remain undetectable because not reported. | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | |
-| [Billing Transaprency](#billing-transaprency) | In TURTLEDOVE, the browser is the sole owner of billing information. | | |
+| [Billing Transparency](#billing-transparency) | In TURTLEDOVE, the browser is the sole owner of billing information. | | |
 
 ## Specialized Advertiser Needs
 
@@ -415,7 +415,7 @@ For this reason, the industry has developed a lot of "Brand Safety" controls. Ad
 
 Another important part of this story is transparency. Once an ad campaign has been delivered, **advertisers want a breakdown of all of the apps and websites where their ads were shown, so that they can review this list from the perspective of "Brand Safety".** This is important to validate that their "Brand Safety" configuration was respected, and also to give them a better idea of where their ad was actually delivered (from the perspective of the adajcent page content).
 
-# Billing Transaprency
+# Billing Transparency
 
 Transparency and trust in billing data, which must be auditable and produced by an accountable party.
 This reporting should be accurate for advertisers and publishers of all sizes and allow for reconciliation mechanisms between the two parties in case of mismatch.
