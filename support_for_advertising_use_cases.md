@@ -62,7 +62,7 @@ The ads industry has endeavored to find good ways of answering these basic quest
   - [Malicious Mobile Apps](#malicious-mobile-apps)
   - [Malicious browsers](#malicious-browsers)
 - [Brand Safety](#brand-safety)
-- [Billing Transaprency](#billing-transaprency)
+- [Billing Transparency](#billing-transparency)
   
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
@@ -81,7 +81,6 @@ The ads industry has endeavored to find good ways of answering these basic quest
 | [Malicious Browsers](#malicious-browsers) | No solutions yet for this problem. | No solutions yet for this problem. | |
 | [Brand Safety](#brand-safety) | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. When an ad targets an interest group, it is served as a web package with all subresources included and the detail of which interest group won lets you trace down the problematic campaign. However, the ads that were printed less than k times (k being the reporting threshold) would still pose a threat as they would remain undetectable because not reported. | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | SPARROW: At bidding time, the gatekeeper follows the advertiser instructions to ensure brand safety. Granular reporting allows the advertiser to audit the brand safety and to be assured that the rules were properly enforced. |
 | [Billing Transparency](#billing-transparency) | In TURTLEDOVE, the browser is the sole owner of billing information. | | SPARROW : The aggregated report can be leveraged for billing. An especially low noise / noiseless aggregated report could be provided daily for the specific billing purposes. SPARROW enables two parties, one on Publisher side and one on Advertiser side, to generate that same report, thus enabling cross-data comparison and disputes resolution. |
-
 
 ## Specialized Advertiser Needs
 
@@ -108,7 +107,7 @@ These are use-cases that only apply to a (possibly large) subset of advertisers.
     - [Products promotion management](#products-promotion-management)
 - [Creatives](#creatives)
     - [Coupon Management](#coupon-management)
-- [Recommendation](#recommendation)
+- [Product Recommendation](#product-recommendation)
 
 
 | Use-case | Chrome | Safari | Community Proposals |
@@ -128,13 +127,12 @@ These are use-cases that only apply to a (possibly large) subset of advertisers.
 | [Products promotion management](#products-promotion-management) | More details required. |  |  |
 | [Creatives](#creatives) | The creative building logic and material is all contained in the web bundle. Questions arise about the size of the web bundle. | More details required. |  |
 | [Coupon Management](#coupon-management) | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. |  | Facebook proposal for "Conversion Filters". |
-| [Recommendation](#recommendation) | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. |  | Facebook proposal for "Conversion Filters". |
+| [Product Recommendation](#product-recommendation) | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). Possible solutions addressed in issues [#31](https://github.com/michaelkleber/turtledove/issues/31) and [#36](https://github.com/michaelkleber/turtledove/issues/36) |  | Facebook proposal for "Conversion Filters". RTB House proposal for "Browser-side personalization". Nextroll Proposal for "Dynamic Creative Use Case" |
 
 
 # Ad Network Needs
 
 ## Core Ad Network Needs
-
 These are core essentials ad networks need to deliver value to advertisers.
 
 - [Training ML Models](#training-ml-models)
@@ -417,7 +415,7 @@ For this reason, the industry has developed a lot of "Brand Safety" controls. Ad
 
 Another important part of this story is transparency. Once an ad campaign has been delivered, **advertisers want a breakdown of all of the apps and websites where their ads were shown, so that they can review this list from the perspective of "Brand Safety".** This is important to validate that their "Brand Safety" configuration was respected, and also to give them a better idea of where their ad was actually delivered (from the perspective of the adajcent page content).
 
-# Billing Transaprency
+# Billing Transparency
 
 Transparency and trust in billing data, which must be auditable and produced by an accountable party.
 This reporting should be accurate for advertisers and publishers of all sizes and allow for reconciliation mechanisms between the two parties in case of mismatch.
@@ -536,21 +534,40 @@ This can be done programmatically using historical aggregated and/or personal us
 
 As an Advertiser I want to be able to add coupons, or any form of targeted discounts to my creatives on specific period of times, potentially for specific products.
 
-
-## Recommendation
+## Product Recommendation
 
 Large e-Commerce websites may have product catalogs with millions of items. They have an interesting use-case. When running ads to promote items from their vast catalogs, which product should they show?
-Today, much of this is mainly powered by data about which items a person has previously browsed.
+Today, much of this is mainly powered by data about which items were previously browsed and by visitor's interactions with e-Commerce websites. Product definition is much greater because e-Commerce consists of diverse business models. ( e.g. For travel e-Commerce or employment portals product catalog consists of offers.)
 
-Typical sources of recommendation would be :
+Typical sources of recommendation models would be :
 - Historical Products (compared to historical products browsed): abandoned cart, etc.
 - Similar products (compared to historical products browsed)
 - Complementary Products (compared to historical products browsed)
 - ...
 
-# Training ML Models
+# ML Applications
 
-Ad selection is a very important task. When there are many ads to choose from, which one should be shown to which person? The most effective approach to-date has proven to be using machine learning algorithms to assist with ad selection. This produces more relevant ads for people, and more business outcomes for advertisers. This in turn increases publisher revenues. 
+There are many advertising use-cases which rely on Machine Learning today. Common themes involve selecting from a vast number of options, and making efficient use of historical data. Following are several of the key uses of Machine Learning in advertising today:
+
+## Ad-campaign selection
+
+Ad-campaign selection is a very important task. e.g. There are many advertising campaigns to choose from. These might be promoting different types of conversion events (e.g. some are promoting mobile app installs, some are promoting purchases on websites, some are just optimized to generate link-clicks, some are optimized to generate video-views).
+
+## Ad-component selection
+
+Ads are composed of multiple components (e.g. the title, description, image, video, etc.). Some ads are promoting particular products/offers. Once an ad-campaign is selected, ML is used to select which components to use in each particular ad impression. (e.g. which products to highlights, which title text to use, which image to use). These options are constrained by what the advertiser has provided as options for their ad-campaign and lastly optimized to maximize probability of reaching Advertiser's desired goal.
+
+## Bidding logic
+
+Machine Learning is used to estimate the efficacy of ad placements. Across an ad network, there might be millions of placements, across hundreds of thousands of publisher websites, each with different properties (like size and location on the page). How much return on investment will each placement drive for each advertiser? Machine learning is used to make such estimates.
+
+The lower the accuracy of the prediction in bidding logic, the fewer business outcomes will be generated for the same budget. This in turn leads to lower publisher revenue.
+
+## Formatting customization
+
+Once the ad-campaign and components are selected, choices remain about how exactly to render that set of components (e.g. click button on the right or the left. Which animation style to choose and maximize probability of click?).
+
+# Training ML Models
 
 Machine learning models must be trained with sample data. They must be provided with both “positive” and “negative” training samples. There are a few key types of ML models to consider
 

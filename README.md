@@ -6,7 +6,7 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 
 # Introductory and Summary Material
 
-* [Success Criteria](success-criteria.md), this document defines success criteria to apply when evaluating proposals which impact web advertising.
+* [Success Criteria](success-criteria.md), this document defines success criteria to consider when evaluating proposals which impact web advertising.
 * [Overview of Online Advertising & Marketing](advertising101.md), an overview of common business use cases for digital advertising.
 * [Participants in Online Advertising](OnlineAdvertisingParticipants.md) "Hello Ads," an introduction to the online advertising ecosystem.
 * [Common User Flows](common-user-flows-in-web-advertising.md): Example user experiences and the parties involved.
@@ -26,6 +26,7 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [PETREL](PETREL.md)
 * [Conversion Filters](conversion-filters.md)
 * [Privacy Preserving Lookalike Targeting](privacy_preserving_lookalike_audience_targeting.md)
+* [Self-Review Questionnaire: Interoperability, Choice, Accessibility and Accountability](interoperability-choice-accessibility-accountability-questionairre.md)
 
 # Ideas and Proposals (links outside this repo)
 * [Private fraud prevention](https://github.com/siyengar/private-fraud-prevention)
