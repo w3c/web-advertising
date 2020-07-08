@@ -117,17 +117,7 @@ users (both in aggregate and individually), publishers and their partners (both
 authors and the business model that funds them) and the delivery access
 mechanism (both connectivity and navigation).
 
-Any technology can be abused. Open societies do not attempt to suppress
-technology, but rather put [appropriate
-regulations](https://iabeurope.eu/all-news/iab-europes-press-statement-openrtb-and-eu-data-protection-law)
-[OPEN-RTB-EU-LAW] in place to define acceptable and unacceptable uses of that
-technology. For example, automobiles are not required to integrate functionality
-that technically prevents them from exceeding the speed limit. Instead, drivers
-are educated and trained in traffic rules, and drivers who violate speed limits
-are subject to fines and/or deprived of their permits. However, documenting
-specific criteria as to what constitutes a violation helps enable easier
-detection and reporting of non-compliance with the regulations that govern
-technology.
+Any technology can be abused. Any technology can be abused. Open societies consider all technologies but define ethical and unethical uses and regulate or restrict accordingly. Documenting specific criteria as to what constitutes an ethical use of a technology helps enable easier detection and reporting of non-compliance with the regulations that govern societies and support the process of constructing such regulations.
 
 By documenting the defined norms and principles behind appropriate and
 inappropriate data collection and processing, we can better devise methods of
@@ -135,12 +125,7 @@ accountability. This accountability requires each participant that has access to
 data collection and processing to abide by its responsibility not to abuse the
 data under its control. This in turn requires definitions of legitimate data
 collection and processing as well as transparency around whether the data
-controller has fulfilled its obligations. One of the first assumptions we
-document is that an advertising-funded business model supports the open web, and
-hence any changes that degrade the efficacy of this business model negatively
-impacts end users. While end users increasingly understand advertising funds
-their free access to the open web, they desire improved transparency and control
-over their personal data.
+controller has fulfilled its obligations. One of the first assumptions we document is that an advertising-funded business model supports the open web and is a business model that positively impacts end users. End users increasingly understand advertising funds their free access to the open web. However, they join politicians, publishers and advocates in a desire for improved transparency and individual control over end user personal data.
 
 ![Ethical Data Collection and Processing Protects Freedom](images/success-criteria-3.png)
 
@@ -237,9 +222,7 @@ these supply-chain vendors is for cross-publisher budget management services,
 independent verification, and authentication services, their objectivity is
 necessary for accountability, transparency and reconciliation purposes. This
 interoperability is a goal in support of W3C's mission and the first principle
-in support of improved web advertising. The trust in this interoperable network
-requires transparency and improved documentation of acceptable and unacceptable
-uses of data. Organizations must be transparent about the personal information
+in support of improved web advertising. The trust in this interoperable network requires transparency, reliable and consistent controls for both end users and publishers, and improved documentation of acceptable and unacceptable uses of data. Organizations must be transparent about the personal information
 they collect and how they use it. Organizations must responsibly use this
 personal information that is compatible with the interests of individuals and
 society, and be held accountable when they abuse this responsibility.
@@ -265,15 +248,7 @@ societies." Among the rationales supporting decentralization are choice and the
 freedom of information. These rationales help keep the market innovative,
 competitive and open to new entrants.
 
-The common element among these rationales is the accessibility to a wide array
-of diverse publishers. As U.S. Supreme Court Justice Brandeis
-[wrote](http://www.columbia.edu/itc/journalism/j6075/edit/readings/brandeis_concurring1.html):
-"Among free men, the deterrents ordinarily to be applied to prevent crime are
-education and punishment for violations of the law, not abridgment of the rights
-of free speech and assembly." [BRANDEIS] Thus, to exercise this freedom, people
-should have digital access to publishers, which equates to both the right to
-assembly and freedom of speech. Safeguarding and improving this accessibility
-and choice should be goals of the Business Group.
+The goals of this Business Group should be to understand how and why the interactions of users, publishers, ad technologies and marketers counteract or conflict with the goals of privacy-preserving users and regulations. Then to find and propose measures by which systems of publishers, technologies and marketers can be adjusted to continue to create profitable operations that supports a variety of freedoms while not counteracting a human right to privacy.
 
 The IETF's Internet Architecture Board (IAB) also expressed concerns as to
 growing consolidation of power on the Internet.
@@ -311,10 +286,7 @@ whose operation relies on web advertising:
 The above principles for an interoperable web seek to help advance the mission
 of the W3C as well as further the objectives outlined by the UK CMA "to promote
 competition for the benefit of consumers, both within and outside the UK, to
-make markets work well for consumers, businesses, and the economy." To ensure a
-level playing field, it is particularly important that smaller organizations be
-able to rely on supply chain vendors they require to operate and for the changes
-in web technology to encourage new market entrants.
+make markets work well for consumers, businesses, and the economy." To ensure a level playing field, it is important that smaller organizations be able to rely on supply chain vendors, and to have those vendors operate transparently and with interoperability, in order for those organizations to operate and embrace changes in web technology while encouraging competition within the market.
 
 ### Principles for Improving Interoperable Web Advertising
 
@@ -337,21 +309,23 @@ stakeholder group.
 
         -   Free elections protected against foreign manipulation
 
-            -   While free speech requires allowing speech the majority does not
-                approve of, we can label political speech by the author’s
-                nationality and whether it is endorsed by one or more candidates
-
-        -   Freedom of the press enables watch-dog reporting on important issues
-            and combats fake news
-
     -   Freedom of information to provide fast, easy access to internet-enabled
         content for all
 
         -   Cost-free access enables access for all, regardless of economic
             means
 
-        -   Freedom from having to self-censor for fear of content consumption
-            being associated with directly-identifiable, offline identity
+-   Freedom of the press, which enables and supports:
+ 
+	- watch dog reporting to keep governments and companies transparent and accountable
+  
+	- combating fake news
+  
+	- refuting and providing resources to counteract hoaxes, fraud, and libel
+  
+	- support and amplification for citizen interests
+
+    - Freedom of press includes freedom for publications to amplify speech the majority does not approve of, however freedom of press and speech is curtailed unless all content is clearly accredited to specific publishers and authors and publications have the ability to distinguish themselves and their authors by making metadata about themselves and their authors available and transparent to the reader.
 
 -   Free-market economies rely on competition, and competition benefits from:
 
@@ -374,12 +348,16 @@ stakeholder group.
 
     -   Antitrust intervention
 
+- Freedom to browse anonymously at will and have that choice respected by all entities. The ability to access content both freely and anonymously is essential to allowing ideas to fairly propagate.
+
 #### Interests of Individual People
 
 -   Same interests as society-level plus:
 
     -   Fast, frictionless and secure access to a wide array of internet-enabled
         content and services that make the Web so valuable
+
+-   - A right to choose private browsing without systems attempting to remove that anonymity.
 
 -   Appropriate risk mitigation and remedies
 
@@ -396,8 +374,6 @@ stakeholder group.
             activity is associated
 
     -   Increased control over legitimate data processing purposes:
-
-        -   Right to object to marketing-related data processing
 
         -   Consent for:
 
@@ -417,6 +393,10 @@ stakeholder group.
             -   Access to adult content by an appropriate guardian to prevent
                 unauthorized viewing by underage family members
 
+            -   Tracking that would record any behavioral or user data of those under the age of 13
+
+            -   The joining of data from a web interaction or session with externally collected data.
+
     -   Remedy for the inappropriate use of personal data
 
         -   Right to be forgotten that benefits from:
@@ -434,6 +414,8 @@ stakeholder group.
 
             -   Right to appropriate remedies for harm (e.g., compensation)
 
+            -   The prohibiting of association of their data from a specific source without being forced to delete that data.
+
     -   Ability to understand why an advert was displayed, which brand endorses
         this message and the identity of the supply chain vendors that connect
         brands with their audience
@@ -443,39 +425,29 @@ stakeholder group.
 -   The publisher ad-funded business model is supported by addressing marketers
     needs and wants.
 
-    -   [Impacting these marketer interests, reduces publishers' revenue earned](https://services.google.com/fh/files/misc/disabling_third-party_cookies_publisher_revenue.pdf)
+    -   The capacity to positively match type and quality of publishers' content with advertising content
 
-    -   Negatively impacts the quantity and quality of publishers’ content
+    -   Supporting quantity and quality of publisher content to create a diverse and competitive field of ad opportunities, which supports diverse publishers.
 
-    -   Reducing quantity and quality of publishers’ content, conflicts with the
-        interests of an open society
-
--   Marketers who invest in cross-publisher advertising need scaled,
-    interoperable measurement and control:
+-   Marketers who invest in cross-publisher advertising need reporting, insights and recommendations to improve future business outcomes:
 
     -   Pre-campaign media planning and forecasting
 
-        -   Data enrichment services (e.g., context, geographic, technographic,
-            audience)
+        -   Services which provide additional dimensions to target, including general demographic definitions.
 
     -   Intra-campaign delivery
 
-        -   Real-time feedback to improve content matching and cross-publisher
-            budget reallocation to better engage with prospects and customers
-            based upon advertising return on investment (ROI)
+        -   Feedback that can be used within less than the scope of time of a running campaign to measure and react to inventory changes across multiple ad-presenting-surfaces in a way that allows them to reasonably maximize their return on investment (ROI)
 
         -   Fraud and robot detection
 
     -   Post-campaign delivery
 
-        -   Independent verification of delivery and measurement
+        -   Independently verifiable measurement of delivery of ads
 
         -   Attribution of first-party engagement to prior third-party exposure
 
-        -   Aggregate content consumption trends
-
-        -   Reporting, insights and recommendations to improve future business
-            outcomes
+        -   Aggregate trend data describing the general contexts in which ads were seen and the reactions users had to those ads in order to refine targeting against specific contexts
 
 -   Appropriate risk mitigation and remedies:
 
@@ -485,7 +457,7 @@ stakeholder group.
 
 #### Interests of Publishers
 
--   Ad-funded business model to provide free access to all:
+-   The capacity to run an ad-funded business that returns a profit significant enough to provide free access at scale and continue operation:
 
     -   Same as marketers' interests that maximize the value of advertising
         inventory
@@ -501,8 +473,13 @@ stakeholder group.
     open marketplace of vendors.
 
 -   Appropriate risk mitigation and remedies:
+-   
+	- Remedy for publisher content being misappropriated ("repurposing")
+	- Remedy for malware distributed by supply chain vendors
+	- Ability to connect users with suppliers who have shown ads
+	- Ability to assure that user and publisher privacy preferences are positively and correctly resolved by all agents in a supply chain.
+	- Ability to trace and block specific ads or ad sources that work against the publisher brand.
 
-    -   Remedy for publisher brand being misappropriated ("repurposing")
 
 #### Interests of Supply Chain Vendors
 
@@ -519,6 +496,8 @@ stakeholder group.
 
             -   Impartial and objective verification of exposure, reach and
                 performance
+
+-   Ability to positively confirm user privacy preferences and communicate to the user the state of their preferences.
 
 #### Interests of Delivery Access Providers or Gateway Apps (Browsers)
 
