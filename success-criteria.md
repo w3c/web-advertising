@@ -39,6 +39,10 @@ Wilfried Schobeiri (wschobeiri@mediamath.com)
 
 Scott Menzer (scott@id5.io)
 
+David St. Pierre (dgstpierre2@gmail.com)
+
+Anthony Rouillot (anthony@adcash.com)
+
 Abstract
 --------
 
