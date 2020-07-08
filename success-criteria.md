@@ -46,8 +46,8 @@ We have a shared goal of preserving the web as an open platform for diverse and
 rich experiences provided by multiple parties. Towards this end, Improving Web
 Advertising Business Group goal is to provide monetization opportunities that
 support the open web while balancing the needs of publishers and the advertisers
-that fund them with improvements to protect people from the individual and
-societal impacts of tracking content consumption over time.
+that fund them --with improvements to protect people from the individual and
+societal impacts of tracking content consumption over time.--
 
 This document surveys the body of prior W3C, IETF, regulators, legal, trade
 bodies and other work to consolidate it into a single document with associated
@@ -113,9 +113,9 @@ behind this decision ought to be thoroughly documented.
 
 This document considers web advertising from three [points of
 view](https://www.w3.org/Consortium/Points/)[POINTS]: that of individual web
-users (both in aggregate and individually), publishers and their partners (both
+users (both in aggregate and individually), --publishers and their partners (both
 authors and the business model that funds them) and the delivery access
-mechanism (both connectivity and navigation).
+mechanism (both connectivity and navigation).--
 
 Any technology can be abused. Any technology can be abused. Open societies consider all technologies but define ethical and unethical uses and regulate or restrict accordingly. Documenting specific criteria as to what constitutes an ethical use of a technology helps enable easier detection and reporting of non-compliance with the regulations that govern societies and support the process of constructing such regulations.
 
