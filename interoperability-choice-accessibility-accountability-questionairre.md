@@ -37,7 +37,11 @@ Scott Menzer (scott@id5.io) 
 
 Tom Kershaw (tkershaw@rubiconproject.com) 
 
-Wilfried Schobeiri (wschobeiri@mediamath.com) 
+Wilfried Schobeiri (wschobeiri@mediamath.com)
+
+David St. Pierre (dgstpierre2@gmail.com)
+
+Anthony Rouillot (anthony@adcash.com)
 
 Abstract
 --------
