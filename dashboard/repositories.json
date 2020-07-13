@@ -11,6 +11,6 @@
   {"name":"IP Blindness","repo":"bslassey/ip-blindness"},
   {"name":"FLoC: Federated Learning of Cohorts","repo":"jkarlin/floc"},
   {"name":"PIGIN: Private Interest Groups, Including Noise","repo":"michaelkleber/pigin"},
-  {"name":"TURTLEDOVE","repo":"WICG/turtledove"}
+  {"name":"TURTLEDOVE","repo":"WICG/turtledove"},
   {"name":"SPARROW","repo":"WICG/sparrow"}
 ]
