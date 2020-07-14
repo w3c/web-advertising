@@ -41,5 +41,6 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [FLoC: Federated Learning of Cohorts](https://github.com/jkarlin/floc)
 * [PIGIN: Private Interest Groups, Including Noise](https://github.com/michaelkleber/pigin) (deprecated in favor of TURTLEDOVE)
 * [TURTLEDOVE](https://github.com/michaelkleber/turtledove)
+* [Product-level TURTLEDOVE](https://github.com/jonasz/product_level_turtledove) (extension feasible for TURTLEDOVE & SPARROW)
 * [isLoggedIn](https://github.com/WebKit/explainers/tree/main/IsLoggedIn)
 * [SPARROW](https://github.com/BasileLeparmentier/SPARROW) 
