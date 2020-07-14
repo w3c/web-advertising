@@ -117,7 +117,7 @@ users (both in aggregate and individually), --publishers and their partners (bot
 authors and the business model that funds them) and the delivery access
 mechanism (both connectivity and navigation).--
 
-Any technology can be abused. Any technology can be abused. Open societies consider all technologies but define ethical and unethical uses and regulate or restrict accordingly. Documenting specific criteria as to what constitutes an ethical use of a technology helps enable easier detection and reporting of non-compliance with the regulations that govern societies and support the process of constructing such regulations.
+Any technology can be abused. Any technology can be abused. Open societies consider all technologies but define ethical, appropriate, unethical and inappropriate uses and regulate or restrict accordingly. Documenting specific criteria as to what constitutes an ethical use of a technology helps enable easier detection and reporting of non-compliance with the regulations that govern societies and support the process of constructing such regulations.
 
 By documenting the defined norms and principles behind appropriate and
 inappropriate data collection and processing, we can better devise methods of
