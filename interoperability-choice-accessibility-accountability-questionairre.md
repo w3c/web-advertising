@@ -1,7 +1,10 @@
 Self-Review Questionnaire: Interoperability, Choice, Accessibility and Accountability
 =====================================================================================
 
-W3C Unofficial Draft, 27th June 2020
+W3C Unofficial Draft, 16th July 2020
+
+Master Document:
+https://51degrees.sharepoint.com/:w:/g/ESOZJuu55vNFqR1hvN4NIIUBgLdURwkgt6sAigaRiJxasw?e=PW31i8
 
 Editors:
 
@@ -15,9 +18,13 @@ Alan Chapell (achapell@chapellassociates.com) 
 
 Arnaud Blanchard (a.blanchard@criteo.com) 
 
+Anthony Rouillot (anthony@adcash.com)
+
 Brad Rodriguez (brodriguez@rubiconproject.com) 
 
 Daniel Sepulveda (dsepulveda@mediamath.com) 
+
+David St. Pierre (dgstpierre2@gmail.com)
 
 Hardeep Bindra (hbindra@gmail.com) 
 
@@ -27,13 +34,17 @@ Jochen Schlosser (Jochen.Schlosser@adform.com) 
 
 John Sabella (john.sabella@pubmatic.com) 
 
-Kristoffer Nelson (knelson@srax.com)  
+Kristoffer Nelson (<knelson@srax.com>)  
 
 Paul Bannister (paul@cafemedia.com) 
 
 Paul Chachko (pchachko@throtle.io) 
 
+Rotem Dar (r.dar@eyeo.com)
+
 Scott Menzer (scott@id5.io) 
+
+Taha Dharamsi (tdharamsi@postmedia.com)
 
 Tom Kershaw (tkershaw@rubiconproject.com) 
 
@@ -321,7 +332,7 @@ collection and processing purposes further aids the transparent, bi-directional
 communication between people and organizations. [IWAR01.2]
 
 Securing point-to-point transmission of both organizations’ advertising content
-and people’s choice signals reduces the risk that an active attacker may alter
+and people’s choice-signals reduces the risk that an active attacker may alter
 these messages. [IWAR01.3 ]
 
 Standardization of privacy and security signals also supports the ease of
