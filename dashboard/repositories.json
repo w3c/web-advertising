@@ -14,5 +14,6 @@
   {"name":"TURTLEDOVE","repo":"WICG/turtledove"},
   {"name":"SPARROW","repo":"WICG/sparrow"},
   {"name":"Gatekeeper","repo":"MagniteEngineering/Gatekeeper"},
-  {"name":"PropCohorts","repo":"MagniteEngineering/ProprietaryCohorts"}
+  {"name":"PropCohorts","repo":"MagniteEngineering/ProprietaryCohorts"},
+  {"name":"Product-level TURTLEDOVE","repo":"jonasz/product_level_turtledove"}
 ]
