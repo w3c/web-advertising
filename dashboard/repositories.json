@@ -13,6 +13,6 @@
   {"name":"PIGIN: Private Interest Groups, Including Noise","repo":"michaelkleber/pigin"},
   {"name":"TURTLEDOVE","repo":"WICG/turtledove"},
   {"name":"SPARROW","repo":"WICG/sparrow"},
-  {"name":"Gatekeeper","repo":"MagniteEngineering/Gatekeeper/"},
-  {"name":"PropCohorts","repo":"MagniteEngineering/ProprietaryCohorts/"}
+  {"name":"Gatekeeper","repo":"MagniteEngineering/Gatekeeper"},
+  {"name":"PropCohorts","repo":"MagniteEngineering/ProprietaryCohorts"}
 ]
