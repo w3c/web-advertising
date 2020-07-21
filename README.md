@@ -45,3 +45,5 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [Product-level TURTLEDOVE](https://github.com/jonasz/product_level_turtledove) (extension feasible for TURTLEDOVE & SPARROW)
 * [isLoggedIn](https://github.com/WebKit/explainers/tree/main/IsLoggedIn)
 * [SPARROW](https://github.com/WICG/sparrow) 
+* [Gatekeeper](https://github.com/MagniteEngineering/Gatekeeper)
+* [Proprietary Cohorts](https://github.com/MagniteEngineering/ProprietaryCohorts)
