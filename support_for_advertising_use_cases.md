@@ -372,7 +372,7 @@ People often make a purchase from a different browser (or even a different devic
 
 It is very important to provide measurement for these flows given how common they are, and how for certain platforms, they are essentially the only way conversions happen.
 
-## Multi-Channel Attribution/Measurement
+## Multi-Channel Attribution / Measurement
 Web advertising is not the only influence in driving purchases made on an advertiser's website. Email campaigns, social media posts, call center interactions and other channels may also have influenced the user's purchasing decision. In order to properly allocate budgets to the channels that influence conversions, advertisers need to understand the relative importance of the various channels and how they work in sync to drive conversions. 
 
 # Fraud Prevention
