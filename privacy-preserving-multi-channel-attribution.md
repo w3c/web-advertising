@@ -1,4 +1,4 @@
-#Privacy Preserving Multi-Channel Attribution
+# Privacy Preserving Multi-Channel Attribution
 
 ## Motivation
 This proposal modifies [Cross-Browser Anonymous Conversion Reporting](https://github.com/w3c/web-advertising/blob/master/cross-browser-anonymous-conversion-reporting.md) by adding support for other marketing channels beyond ads that may have contributed to a conversion. In addition to the web ads that a user viewed and/or clicked from their various browsers, the advertiser may be aware of other interactions that may have contributed to a conversion. For example, the user may have received emails promoting the site and/or specific products, or push notifications to their mobile device. They may have contacted a call center or interacted with the site via a chat session. Attribution should incorporate interactions from all of these channels.

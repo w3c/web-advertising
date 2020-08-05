@@ -1,12 +1,12 @@
 # Frequency Capping and Frequency Optimization
 
-Contributors:
-* Russell Stringham (rstringh@adobe.com)
-
 # Motivation
 Ample customer feedback supports the notion that people dislike highly repetitive ads. Not only that, advertisers do not want to spend their ad budgets showing the same ad to the same user again and again. They would prefer to show an ad a couple of times to a 1000 people rather than a 100 times to a few dozen. This is the motivation for Frequency Capping.
 
  Advertisers would like to limit the frequency of their ads in several ways. First, they want to limit the number of times a user sees a specific ad, any ad from a given campaign or any ad from the company. For each of these, they want the limits to apply for different time intervals, with common intervals being within the same hour, day or week. For example, an advertiser might not want a specific ad shown to the same user more than twice in an hour, 5 times in a day or 10 times in a week. They may also request that the user not see more than 5 ads from the same campaign within an hour, 15 times in a day or 30 in a week. They might also want to limit their ads from all campaigns to 10 in an hour, 25 in a day and 50 in a week. In some cases, they may also want to impose different limits if the the user clicked on one of the ads without converting (perhaps not displaying any more of their ads to the user within the next hour). If the user converts (with or without a click), then functionality such as that described in [Private Exclusion Targeting Rendered Exclusively Locally (PETREL)](https://github.com/w3c/web-advertising/blob/master/PETREL.md "PETREL") should apply.
+
+## Author:
+* Russell Stringham (rstringh@adobe.com)
 
 # Frequency Capping Proposal Overview
 There are a number of proposals for private conversion measurement including [Private Click Measurement](https://wicg.github.io/ad-click-attribution/index.html) (Webkit/Apple), [Conversion Measurement API](https://github.com/csharrison/conversion-measurement-api) (Chrome/Google) and [Private Lift Measurement](https://github.com/w3c/web-advertising/blob/master/private-lift-measurement-conceptual-overview.md). These require that the browser keep track of ads that were previously clicked (and could easily be extended to ads that were viewed). If the browser is keeping this information anyway, then it would be a fairly small enhancement for the ad network to include the frequency caps for an ad along with the other ad metadata when it serves an ad. The browser could examine its ad history for this specific ad, specific campaign or other ads from this advertiser and compare the number found in the appropriate time ranges to the specified frequency caps.
