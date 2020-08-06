@@ -1,7 +1,7 @@
 Self-Review Questionnaire: Interoperability, Choice, Accessibility and Accountability
 =====================================================================================
 
-W3C Unofficial Draft, 16th July 2020
+W3C Unofficial Draft, 6th August 2020
 
 Master Document:
 https://51degrees.sharepoint.com/:w:/g/ESOZJuu55vNFqR1hvN4NIIUBgLdURwkgt6sAigaRiJxasw?e=PW31i8
@@ -14,41 +14,51 @@ Joshua Koran (jkoran@zetaglobal.com) 
 
 Contributors:
 
-Alan Chapell (achapell@chapellassociates.com) 
-
-Arnaud Blanchard (a.blanchard@criteo.com) 
+Alan Chapell (achapell@chapellassociates.com)
 
 Anthony Rouillot (anthony@adcash.com)
 
-Brad Rodriguez (brodriguez@rubiconproject.com) 
+Ari Paparo (ari@beeswax.com)
 
-Daniel Sepulveda (dsepulveda@mediamath.com) 
+Arnaud Blanchard (a.blanchard@criteo.com)
+
+Brad Rodriguez (brodriguez@rubiconproject.com)
+
+Daniel Sepulveda (dsepulveda@mediamath.com)
 
 David St. Pierre (dgstpierre2@gmail.com)
 
-Hardeep Bindra (hbindra@gmail.com) 
+Hardeep Bindra (hbindra@gmail.com)
 
-Ian Meyers (imeyers@liveramp.com) 
+Ian Meyers (imeyers@liveramp.com)
 
-Jochen Schlosser (Jochen.Schlosser@adform.com) 
+Ingmar Zach (izach@liveintent.com)
 
-John Sabella (john.sabella@pubmatic.com) 
+Jochen Schlosser (Jochen.Schlosser@adform.com)
 
-Kristoffer Nelson (<knelson@srax.com>)  
+John Sabella (john.sabella@pubmatic.com)
 
-Paul Bannister (paul@cafemedia.com) 
+Joshua Koran (jkoran@zetaglobal.com)
 
-Paul Chachko (pchachko@throtle.io) 
+Kristoffer Nelson (knelson@srax.com)
+
+Nick Jordan (nick@narrative.io)
+
+Paul Bannister (paul@cafemedia.com)
+
+Paul Chachko (pchachko@throtle.io)
 
 Rotem Dar (r.dar@eyeo.com)
 
-Scott Menzer (scott@id5.io) 
+Scott Menzer (scott@id5.io)
+
+Tom Kershaw (tkershaw@rubiconproject.com)
 
 Taha Dharamsi (tdharamsi@postmedia.com)
 
-Tom Kershaw (tkershaw@rubiconproject.com) 
+Walter Knapp (walter@sovrn.com)
 
-Wilfried Schobeiri (wschobeiri@mediamath.com) 
+Wilfried Schobeiri (wschobeiri@mediamath.com)
 
 Abstract
 --------

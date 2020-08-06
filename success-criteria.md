@@ -1,7 +1,7 @@
 W3C Improving Web Advertising Business Group - Success Criteria in reference to Individual, Social and Business Concerns
 ========================================================================================================================
 
-W3C Unofficial Draft 16th July 2020
+W3C Unofficial Draft 6th August 2020
 
 Master Document:
 https://51degrees.sharepoint.com/:w:/g/EVF1fwHC_bxMpyBBg9amcVQBtIkJOQo4PB9DCpaBklEq3A
@@ -15,6 +15,8 @@ Contributors:
 Alan Chapell (achapell@chapellassociates.com)
 
 Anthony Rouillot (anthony@adcash.com)
+
+Ari Paparo (ari@beeswax.com)
 
 Arnaud Blanchard (a.blanchard@criteo.com)
 
@@ -37,6 +39,8 @@ John Sabella (john.sabella@pubmatic.com)
 Joshua Koran (jkoran@zetaglobal.com)
 
 Kristoffer Nelson (knelson@srax.com)
+
+Nick Jordan (nick@narrative.io)
 
 Paul Bannister (paul@cafemedia.com)
 
@@ -84,11 +88,13 @@ global resource. A set of common technical and policy standards makes all this
 possible.
 
 The web is an open platform. Interoperability is a fundamental principle that
-supports all web technologies and is enshrined in the W3C Membership Agreement
-purpose [MEMBERSHIP-AGREEMENT]. Existing specifications and protocols for
-encoding, transmitting and rendering information facilitate these exchanges.
-Data portability also helps ensure that the web is interoperable as defined in
-GDPR, Recital 68 [GDPR-RECITAL-68].
+supports all web technologies and is enshrined in the [W3C Membership
+Agreement](https://www.w3.org/2009/12/Member-Agreement) purpose
+[MEMBERSHIP-AGREEMENT]. Existing specifications and protocols for encoding,
+transmitting and rendering information facilitate these exchanges. Data
+portability also helps ensure that the web is interoperable as defined in [GDPR,
+Recital 68](https://gdpr.eu/recital-68-right-of-data-portability/)
+[GDPR-RECITAL-68].
 
 The web underpins billions of dollars of commercial transactions. Accordingly,
 any proposed change to the underpinning policy and technical standards could
@@ -100,7 +106,8 @@ of stakeholders to consider when contemplating change:
 >   promote the social good, and the society that the IETF is attempting to
 >   enhance is composed of end users, along with groups of them forming
 >   businesses, governments, clubs, civil society organizations, and other
->   institutions.* (Draft - Internet Architecture Board for the End Users
+>   institutions.* ([Draft - Internet Architecture Board for the End
+>   Users](https://intarchboard.github.io/for-the-users/draft-iab-for-the-users.html)
 >   [INTERNET-FOR-END-USERS]).
 
 This does not mean that all stakeholders are unanimously agreed on how to
@@ -111,15 +118,18 @@ This does not mean that all stakeholders are unanimously agreed on how to
 >   the state, the profit seeking of competitors, the resistance to those with
 >   malicious intent, those with secrets vs. those who would reveal them, and
 >   those who seek anonymity vs. those would identify them and hold them
->   accountable*. (Tussle in Cyperspace [TUSSLE]).
+>   accountable*. ([Tussle in
+>   Cyperspace](http://groups.csail.mit.edu/ana/Publications/PubPDFs/Tussle2002.pdf)
+>   [TUSSLE]).
 
 Achieving a balance across the diverse interests of global stakeholders when
 determining trade-offs among speed, fairness, security, public accountability,
-diversity and quality is in accordance with values of the W3C [ABOUT-STANDARDS].
-To resolve this tussle in the interests of all stakeholders requires us to
-carefully examine what alternate means are possible to reach the desired goals.
-If a negative effect on one or more groups of stakeholders is unavoidable, then
-the reasoning behind this decision ought to be thoroughly documented.
+diversity and quality is in accordance with [values of the
+W3C](https://www.w3.org/standards/about.html) [ABOUT-STANDARDS]. To resolve this
+tussle in the interests of all stakeholders requires us to carefully examine
+what alternate means are possible to reach the desired goals. If a negative
+effect on one or more groups of stakeholders is unavoidable, then the reasoning
+behind this decision ought to be thoroughly documented.
 
 This document considers web advertising from four [points of
 view](https://www.w3.org/Consortium/Points/)[POINTS]: that of individual web
@@ -333,6 +343,14 @@ on supply chain vendors, and to have those vendors operate transparently and
 with interoperability. This not only requires standards of the communication
 among organizations that encourages existing competition within the market, but
 also to ensure changes in web technology do not discourage new market entrants.
+
+The W3C’s anti-trust guidance [W3C-ANTI-TRUST] guidance fully supports the
+position of the CMA with the statement “W3C does not … in any way restrict
+competition” and “W3C's policy is that its activities are conducted to the
+highest ethical standards and in compliance with all applicable antitrust and
+competition laws and regulations”. Proposals which seek to discriminate between
+parties must be assessed not only against these criteria but also against the
+anti-trust policy of the W3C.
 
 ### Principles for Improving Interoperable Web Advertising
 
@@ -611,8 +629,10 @@ against these six interests.
     [SECURITYPRIVACY]
 
 -   [Self-Review Questionnaire: Interoperability, Choice, Accessibility and
-    Accountability](https://51degrees.sharepoint.com/:w:/g/ESOZJuu55vNFqR1hvN4NIIUBgLdURwkgt6sAigaRiJxasw)
+    Accountability](https://github.com/w3c/web-advertising/blob/master/interoperability-choice-accessibility-accountability-questionairre.md)
     [ICAA]
+
+-   Antitrust and Competition Guidance [W3C-ANTI-TRUST]
 
 References
 ----------
@@ -625,6 +645,11 @@ References
 
 [About W3C Standards](https://www.w3.org/standards/about.html). URL:
 <https://www.w3.org/standards/about.html>
+
+**[W3C-ANTI-TRUST]**
+
+Wendy Seltzer, Antitrust and Competition Guidance, January 2017. URL:
+https://www.w3.org/Consortium/Legal/2017/antitrust-guidance
 
 **[BRANDEIS]**
 
@@ -704,9 +729,8 @@ https://iabeurope.eu/all-news/iab-europes-press-statement-openrtb-and-eu-data-pr
 **[ICAA]**
 
 J. Rosewell, J. Koran. Self-Review Questionnaire: Interoperability, Choice,
-Accessibility and Accountability. 27th June 2020. URL:
-[https://github.com/w3c/web-advertising/blob/master/interoperability-choice-accessibility-accountability-
-questionairre.md](https://51degrees.sharepoint.com/:w:/g/ESOZJuu55vNFqR1hvN4NIIUBgLdURwkgt6sAigaRiJxasw)
+Accessibility and Accountability. 6th August 2020. URL:
+https://github.com/w3c/web-advertising/blob/master/interoperability-choice-accessibility-accountability-questionairre.md
 
 **[INTERNET-FOR-END-USERS]**
 
