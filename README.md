@@ -27,6 +27,8 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [Conversion Filters](conversion-filters.md)
 * [Privacy Preserving Lookalike Targeting](privacy_preserving_lookalike_audience_targeting.md)
 * [Self-Review Questionnaire: Interoperability, Choice, Accessibility and Accountability](interoperability-choice-accessibility-accountability-questionairre.md)
+* [Frequency Capping and Frequency Optimization](frequency-capping-and-optimization.md)
+* [Privacy Preserving Multi-Channel Attribution](privacy-preserving-multi-channel-attribution.md)
 
 # Ideas and Proposals (links outside this repo)
 * [Private fraud prevention](https://github.com/siyengar/private-fraud-prevention)
@@ -47,5 +49,4 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [SPARROW](https://github.com/WICG/sparrow) 
 * [Gatekeeper](https://github.com/MagniteEngineering/Gatekeeper)
 * [Proprietary Cohorts](https://github.com/MagniteEngineering/ProprietaryCohorts)
-* [Frequency Capping and Frequency Optimization](frequency-capping-and-optimization.md)
-* [Privacy Preserving Multi-Channel Attribution](privacy-preserving-multi-channel-attribution.md)
+
