@@ -59,6 +59,7 @@ We use the mailing list [public-web-adv](https://lists.w3.org/Archives/Public/pu
 ### IRC
 
 We use irc, [irc.w3.org](http://irc.w3.org/) channel #web-adv to take minutes during meetings. [Guide to irc at W3C](https://www.w3.org/wiki/IRC)
+q+ to add yourself to the speaking queue. 
 
 ## GitHub Issues and comments
 Raise questions or suggest new material in issues or pull requests. 
