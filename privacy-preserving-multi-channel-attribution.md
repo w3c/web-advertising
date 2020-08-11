@@ -59,7 +59,7 @@ When the other browsers are notified of a conversion, they check their ad histor
     },
     Conversion-id: "1234"
     
-This attribution report should include a rough timestamp indicating when the conversion occurred (ideally the hour it occurred, but this proposal would work if it only specifies the day) that is readable by the Reporting Origin. This will help the Reporting Origin to group it with the original conversion report that may have arrived a few days earlier, in the case where the user doesn't use this other browser for a while after the conversion, even though the reporting origin cannot set the conversion ID.
+This attribution report should include a rough timestamp indicating when the conversion occurred (ideally the hour it occurred, but this proposal would work if it only specifies the day) that is readable by the Reporting Origin. This will help the Reporting Origin to group it with the original conversion report that may have arrived a few days earlier, in the case where the user doesn't use this other browser for a while after the conversion, even though the reporting origin cannot see the conversion ID.
 
 ### Other Channels
 When the conversion occurs, the advertiser can also create other conversion reports for their other channels. Technically, these don't need to be encrypted, since the advertiser already has access to this information. If the advertiser contracts with a service provider for their email functionality, that service provider might generate a report containing email interactions with the user who converted, such as the following:
@@ -127,6 +127,7 @@ For each unique conversion ID that it has, helper 2 will place the interactions 
 If the attribution algorithm is equal-credit (also known as linear), then all 10 interactions would get 10% of the conversion value of 1000 or 100 each. If the algorithm is a simple time decay, with a 10% reduction each calendar day, then the attribution model would calculate:
 
 >**Helper 2: Computed Attribution Values for Simple Time Decay**
+
     AttributionComputation: {
         { Element: "7788-1", Channel: "email send",      Time: "2020/02/29-03:21:44", Rate:  "50%", Credit:  "63" },
         { Element: "7788-2", Channel: "email open",      Time: "2020/03/01-10:05:59", Rate:  "60%", Credit:  "76" },
