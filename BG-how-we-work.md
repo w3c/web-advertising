@@ -1,19 +1,6 @@
 # Improving Web Advertising BG
 ## Overview
-The Improving Web Advertising Business Group supports privacy-preserving advertising and measurement on the web. We host ecoystem-wide participation, including individual users, browsers, publishers, advertisers, and advertising technology providers. As browser user-agents implement policies against web-wide or cross-site tracking, we're discussing new methods and browser features that could enable privacy-preserving alternatives to serve advertising and marketing use cases. 
-
-Goals: 
-* Stop individually-identified cross-site / web-wide tracking
-  * Restrict third-party cookies
-  * Restrict fingerprinting, e.g. IP blindness
-  * Permit user choice
-* Provide monetization opportunities that support the open web
-  * Measurement of impressions, conversions, and attribution
-  * Aggregate reporting APIs
-  * Enable non-tracking-based targeting, e.g. FLoC, TURTLEDOVE, in-browser auction
-  * Fraud-resistance
-
-The group has been collecting use cases, success criteria, and proposals. 
+The Improving Web Advertising Business Group supports privacy-preserving advertising and measurement on the web. We host ecoystem-wide participation, including individual users, browsers, publishers, advertisers, and advertising technology providers. The group has been collecting use cases, success criteria, and proposals. 
 
 ## How we work
 ### Business Group
