@@ -84,7 +84,7 @@ community-managed groups. Can manage incubations with Contributor License Agreem
 Open to all.
     
 #### The Web Advertising BG might send work to
-* Specification: WebAppSec WG, New “Private Ads WG”
-* Incubation: Web Platform Incubator Community Group (WICG), Privacy Community Group
+* Specification: [WebAppSec WG](https://www.w3.org/2011/webappsec/), Potential new Working Group, e.g. “Private Ads WG”
+* Incubation: [Web Platform Incubator Community Group (WICG)](https://wicg.io/), [Privacy Community Group](https://privacycg.github.io/)
 * External liaisons: WHATWG, IETF, IAB Tech Lab
  
