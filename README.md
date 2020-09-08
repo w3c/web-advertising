@@ -34,7 +34,7 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [Private fraud prevention](https://github.com/siyengar/private-fraud-prevention)
 * [Conversion measurement API](https://github.com/WICG/conversion-measurement-api)
 * [Ad click attribution](https://github.com/WICG/ad-click-attribution)
-* [Trust token API](https://github.com/dvorak42/trust-token-api)
+* [Trust token API](https://github.com/WICG/trust-token-api)
 * [Tracking prevention policy](https://webkit.org/tracking-prevention-policy/)
 * [Privacy budget](https://github.com/bslassey/privacy-budget)
 * [First party sets](https://github.com/privacycg/first-party-sets)
