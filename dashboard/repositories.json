@@ -3,7 +3,7 @@
   {"name":"Private fraud prevention", "repo":"siyengar/private-fraud-prevention"},
   {"name":"Conversion measurement API","repo":"WICG/conversion-measurement-api"},
   {"name":"Ad click attribution","repo":"WICG/ad-click-attribution"},
-  {"name":"Trust token API","repo":"dvorak42/trust-token-api"},
+  {"name":"Trust token API","repo":"WICG/trust-token-api"},
   {"name":"Privacy budget","repo":"bslassey/privacy-budget"},
   {"name":"First party sets","repo":"privacycg/first-party-sets"},
   {"name":"Privacy considerations","repo":"w3c/privacy-considerations"},
