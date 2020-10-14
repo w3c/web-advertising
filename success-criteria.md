@@ -1,7 +1,7 @@
 W3C Improving Web Advertising Business Group - Success Criteria in reference to Individual, Social and Business Concerns
 ========================================================================================================================
 
-W3C Unofficial Draft 6th August 2020
+W3C Unofficial Draft 14th October 2020
 
 Master Document:
 https://51degrees.sharepoint.com/:w:/g/EVF1fwHC_bxMpyBBg9amcVQBtIkJOQo4PB9DCpaBklEq3A
@@ -57,6 +57,13 @@ Taha Dharamsi (tdharamsi@postmedia.com)
 Walter Knapp (walter@sovrn.com)
 
 Wilfried Schobeiri (wschobeiri@mediamath.com)
+
+Acknowldegement
+---------------
+
+This software or document includes material copied from or derived from 
+[Self-Review Questionnaire: Security and Privacy](https://www.w3.org/TR/security-privacy-questionnaire/). 
+Copyright © 2020 W3C® (MIT, ERCIM, Keio, Beihang).
 
 Abstract
 --------
