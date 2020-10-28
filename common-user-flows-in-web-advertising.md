@@ -33,7 +33,7 @@ _<example: ad shown on washingtonpost.com, served by Google’s ad network, dire
 ### 1st party:
 Ad is shown on a first-party website rendered within an in-app-browser within a native mobile app (i.e. App is just a wrapper around a webview). Clicking the ad opens another website in the same in-app-browser. 
 
-_<example: ad shown on LinkedIn app directing to adidas.com>_
+_<example: ad shown on Facebook app directing to adidas.com>_
 
 **Conversion attribution:** There are a few options.
 Use 3rd party cookies (or 1st party cookies with link decoration) that are scoped just to the in-app-browser.
