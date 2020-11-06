@@ -35,7 +35,7 @@ would need to gather group consensus on texts.
 ## Communications
 ### Calls
 
-The group meets in weekly teleconferences (currently Tuesday at 1500 UTC/11 Eastern). Agendas are shared the day before. Connection information is available to group participants.
+The group meets in weekly teleconferences (currently Tuesday at 1600 UTC/11 Eastern). Agendas are shared the day before. Connection information is available to group participants.
 
 To request time on an upcoming agenda, participants should email the list with "Subject: agenda+ [topic]". 
 
