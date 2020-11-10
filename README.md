@@ -53,3 +53,4 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [Proprietary Cohorts](https://github.com/MagniteEngineering/ProprietaryCohorts)
 * [Fenced Frame](https://github.com/shivanigithub/fenced-frame/)
 * [TERN](https://github.com/WICG/turtledove/blob/master/TERN.md) (TURTLEDOVE Enhancements with Reduced Networking)
+* [PARRROT](https://github.com/prebid/identity-gatekeeper/blob/master/proposals/PARRROT.md) (PARRROT: The Publisher Auction Responsibility Retention Revision of TurtleDove)
