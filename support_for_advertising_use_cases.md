@@ -178,6 +178,8 @@ These use-cases are more focused on the publisher's perspective.
 - [On-site Sponsored Product](#on-site-sponsored-product)
 - [Search](#search)
 - [Ad Safety](#ad-safety)
+- [Malvertising Protection](#malvertising-protection)
+- [Pausing Advertising](#pausing-advertising)
 - [Advertisers exclusion](#advertisers-exclusion)
 - [Revenue management](#revenue-management)
 
@@ -192,6 +194,8 @@ These use-cases are more focused on the publisher's perspective.
 |[On-site Sponsored Product](#on-site-sponsored-product)| There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” | Similar answer as that for Chrome. This should not be in conflict with Webkit's Tracking Prevention Policy given the measurement is entirely within the scope of a single publisher website. | |
 |[Search](#search) | unclear, but relies a lot on contextual | unclear | |
 | [Ad Safety](#ad-safety) | Very limited support as opaque iframe aggregated reporting allow for very little ex post audit. | No Support |  |
+| [Malvertising Protection](#malvertising-protection) |  |  |  |
+| [Pausing Advertising](#pausing-advertising) |  |  |  |
 | [Advertisers exclusion](#advertisers-exclusion) | Unclear. To be defined. |  |  |
 | [Revenue management](#revenue-management) | Little support in TURTLEDOVE, as nor reporting nor updating bidding JavaScripts is not real-time. This means delays in both information and action, leading to very complex and inaccurate budget/revenue management. |  |  |
 
@@ -685,9 +689,22 @@ Advertisers use services like Google Shopping to advertise their products direct
 ## Ad Safety
 
 Publishers usually consider that some ads contain inappropriate imagery, promote inappropriate products or messages they don't want to be associated with.
-Publisher usually maintain a "block-list" of advertisers/domains and forbid any ad coming from these.
+Each publisher needs to be able to maintain a "block-list" of specific brands, categories of brands, or specific pieces of ad creative that a given publisher would not want to appear on their site.   Block lists need to be able to update quickly, and affect both contextual and interest-based ad placements.
 
 **Publishers need the list of all of the redirecting domains of the ads that were printed on their real estate and access to the visual rendering of each ad, so that they can review this list from the perspective of "Ad Safety".** This reporting is used to investigate reported misconducts and update the block-list.
+
+## Malvertising Protection
+
+Some ads may contain (or link to) malware. Publishers need a mechanism to block malware from being served to their sites' users and to take appropriate action against the source of the malware.  In the event that a malvertising campaign is discovered, publishers require mechanisms to block affected ads from appearing on their sites.
+
+Publishers use third-party malvertising detection services to prevent malvertising from serving to their users.
+
+In the event that an ad server, DSP, or other service is compromised and may have served malware, the blocking needs to apply to bundles that may already have been cached. 
+
+## Pausing Advertising
+
+Marketers sometimes choose to rapidly pause their ads in all media after an adverse news event such as a product recall or  airplane crash. Publishers of any web property on which the marketer's ad might appear will need to apply the pause to any ad placement on their sites.
+
 
 ## Advertisers exclusion
 
