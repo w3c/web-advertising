@@ -183,6 +183,7 @@ These use-cases are more focused on the publisher's perspective.
 - [Advertisers exclusion](#advertisers-exclusion)
 - [Revenue management](#revenue-management)
 - [Support directly sold ads](#support-directly-sold-ads)
+- [Floor rates](#floor-rates)
 
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
@@ -200,6 +201,7 @@ These use-cases are more focused on the publisher's perspective.
 | [Advertisers exclusion](#advertisers-exclusion) | Unclear. To be defined. |  |  |
 | [Revenue management](#revenue-management) | Little support in TURTLEDOVE, as nor reporting nor updating bidding JavaScripts is not real-time. This means delays in both information and action, leading to very complex and inaccurate budget/revenue management. |  |  |
 | [Support directly sold ads](#support-directly-sold-ads) | TURTLEDOVE issue: [Publisher ad network control over ad eligibility and auction ranking](https://github.com/WICG/turtledove/issues/70)  |  |  |
+| [Floor rates](#floor-rates) | Question raised in TURTLEDOVE issue: [Capabilities of the proposal for publishers](https://github.com/WICG/turtledove/issues/51).  |  |  |
 
 # User Needs
 
@@ -724,6 +726,14 @@ As a Publisher, I want to:
 ## Support Directly Sold Ads
 
 Publishers need to be able to fulfill directly sold ad placements. Many publishers often secure higher-revenue advertising based on the ability to deliver guaranteed impressions. Publishers need to balance short term optimization of revenue with longer-term strategic client relationships, which means serving lower priced ads ahead of higher priced ads in certain cases. Being able to control this without a time delay is critical to publishers meeting their contractual and strategic goals.  Publishers can currently make direct and real-time bidding (RTB) work together using a variety of techniques. For example the highest RTB bid should not always win. Publishers need the flexibility to be able to optimize their revenue and strategic goals by controlling which ads are delivered for given placements, which rely on configurable rules that compare direct sold ads, and indirect sold ads.
+
+## Floor Rates
+
+Publishers need to set floor rates (a minimum rate below which an ad will not be shown, even if there is no ad at a higher rate) based on several criteria. 
+
+ * A publisher may not want an ad to serve at all, if it is below a minimum floor set for that page, section, or site.
+
+ * A publisher may not want an ad from a certain brand, vertical or campaign unless it is above a minimum floor set for that brand, vertical, or campaign.  For example, a publisher may set a "floor for automotive." Publishers choose to protect their direct sales business, by not allowing marketers to undercut their pricing by way of other channels.
 
 
 # User needs
