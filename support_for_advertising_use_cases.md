@@ -182,6 +182,7 @@ These use-cases are more focused on the publisher's perspective.
 - [Pausing Advertising](#pausing-advertising)
 - [Advertisers exclusion](#advertisers-exclusion)
 - [Revenue management](#revenue-management)
+- [Support directly sold ads](#support-directly-sold-ads)
 
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
@@ -198,6 +199,7 @@ These use-cases are more focused on the publisher's perspective.
 | [Pausing Advertising](#pausing-advertising) |  |  |  |
 | [Advertisers exclusion](#advertisers-exclusion) | Unclear. To be defined. |  |  |
 | [Revenue management](#revenue-management) | Little support in TURTLEDOVE, as nor reporting nor updating bidding JavaScripts is not real-time. This means delays in both information and action, leading to very complex and inaccurate budget/revenue management. |  |  |
+| [Support directly sold ads](#support-directly-sold-ads) | TURTLEDOVE issue: [Publisher ad network control over ad eligibility and auction ranking](https://github.com/WICG/turtledove/issues/70)  |  |  |
 
 # User Needs
 
@@ -718,6 +720,11 @@ As a Publisher, I want to:
 - Have a daily detailed and accurate reporting of advertising revenues on my properties.
 - Have the ability to investigate and understand variations in my advertising revenues.
 - Have the ability to reconcile and investigate discrepancies between the reporting I get on my ad revenues and the revenues that will actually come from advertisers or ad networks.
+
+## Support Directly Sold Ads
+
+Publishers need to be able to fulfill directly sold ad placements. Many publishers often secure higher-revenue advertising based on the ability to deliver guaranteed impressions. Publishers need to balance short term optimization of revenue with longer-term strategic client relationships, which means serving lower priced ads ahead of higher priced ads in certain cases. Being able to control this without a time delay is critical to publishers meeting their contractual and strategic goals.  Publishers can currently make direct and real-time bidding (RTB) work together using a variety of techniques. For example the highest RTB bid should not always win. Publishers need the flexibility to be able to optimize their revenue and strategic goals by controlling which ads are delivered for given placements, which rely on configurable rules that compare direct sold ads, and indirect sold ads.
+
 
 # User needs
 
