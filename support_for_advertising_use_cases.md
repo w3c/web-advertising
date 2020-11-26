@@ -184,6 +184,7 @@ These use-cases are more focused on the publisher's perspective.
 - [Revenue management](#revenue-management)
 - [Support directly sold ads](#support-directly-sold-ads)
 - [Floor rates](#floor-rates)
+- [Competitive exclusions](#competitive-exclusions)
 
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
@@ -202,6 +203,7 @@ These use-cases are more focused on the publisher's perspective.
 | [Revenue management](#revenue-management) | Little support in TURTLEDOVE, as nor reporting nor updating bidding JavaScripts is not real-time. This means delays in both information and action, leading to very complex and inaccurate budget/revenue management. |  |  |
 | [Support directly sold ads](#support-directly-sold-ads) | TURTLEDOVE issue: [Publisher ad network control over ad eligibility and auction ranking](https://github.com/WICG/turtledove/issues/70)  |  |  |
 | [Floor rates](#floor-rates) | Question raised in TURTLEDOVE issue: [Capabilities of the proposal for publishers](https://github.com/WICG/turtledove/issues/51).  |  |  |
+| [Competitive exclusions](#competitive-exclusions) |  |  |  |
 
 # User Needs
 
@@ -734,6 +736,10 @@ Publishers need to set floor rates (a minimum rate below which an ad will not be
  * A publisher may not want an ad to serve at all, if it is below a minimum floor set for that page, section, or site.
 
  * A publisher may not want an ad from a certain brand, vertical or campaign unless it is above a minimum floor set for that brand, vertical, or campaign.  For example, a publisher may set a "floor for automotive." Publishers choose to protect their direct sales business, by not allowing marketers to undercut their pricing by way of other channels.
+
+## Competitive exclusions
+
+Publishers need to honor contractual terms preventing competitors from appearing together. If the contextual system serves an ad for one brand in one slot on the page, the decision process in other ad slots needs to know not to serve direct competitor ads. The publisher needs to control which brands are considered competitors. (A pair of brands might be considered direct competitors in one publisher niche, but not another.)
 
 
 # User needs
