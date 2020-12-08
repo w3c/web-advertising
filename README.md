@@ -55,3 +55,4 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [TERN](https://github.com/WICG/turtledove/blob/master/TERN.md) (TURTLEDOVE Enhancements with Reduced Networking)
 * [PARRROT](https://github.com/prebid/identity-gatekeeper/blob/master/proposals/PARRROT.md) (PARRROT: The Publisher Auction Responsibility Retention Revision of TurtleDove)
 * [PELICAN](https://github.com/neustar/pelican) (Private Learning and Inference for Causal Attribution)
+* [SPURFOWL](https://github.com/AdRoll/privacy/blob/main/SPURFOWL.md) (Sandboxed Private User Reporting Functions Operating Within Limits) and other [NextRoll proposals](https://github.com/AdRoll/privacy) including MURRE.
