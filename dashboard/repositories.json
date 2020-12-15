@@ -18,5 +18,5 @@
   {"name":"Product-level TURTLEDOVE","repo":"jonasz/product_level_turtledove"},
   {"name":"Outcome-based TURTLEDOVE","repo":"jonasz/outcome_based_turtledove"},
   {"name":"Private Click Measurement","repo":"privacycg/private-click-measurement"},
-  {"name":"AdRoll (SPURFOWL, MURRE)", "AdRoll/privacy"}
+  {"name":"AdRoll (SPURFOWL, MURRE)", "repo": "AdRoll/privacy"}
 ]
