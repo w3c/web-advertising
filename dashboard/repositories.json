@@ -78,5 +78,9 @@
   {
     "name": "AdRoll (SPURFOWL, MURRE)",
     "repo": "AdRoll/privacy"
+  }, 
+    {
+    "name": "Google Ads privacy (Dovekey, Augury API, Scaup)",
+    "repo": "google/ads-privacy"
   }
 ]
