@@ -185,6 +185,7 @@ These use-cases are more focused on the publisher's perspective.
 - [Support directly sold ads](#support-directly-sold-ads)
 - [Floor rates](#floor-rates)
 - [Competitive exclusions](#competitive-exclusions)
+- [Weighted bidding](#weighted-bidding)
 
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
@@ -204,6 +205,7 @@ These use-cases are more focused on the publisher's perspective.
 | [Support directly sold ads](#support-directly-sold-ads) | TURTLEDOVE issue: [Publisher ad network control over ad eligibility and auction ranking](https://github.com/WICG/turtledove/issues/70)  |  |  |
 | [Floor rates](#floor-rates) | Question raised in TURTLEDOVE issue: [Capabilities of the proposal for publishers](https://github.com/WICG/turtledove/issues/51).  |  |  |
 | [Competitive exclusions](#competitive-exclusions) |  |  |  |
+| [Weighted bidding](#weighted-bidding) | | | |
 
 # User Needs
 
@@ -740,6 +742,16 @@ Publishers need to set floor rates (a minimum rate below which an ad will not be
 ## Competitive exclusions
 
 Publishers need to honor contractual terms preventing competitors from appearing together. If the contextual system serves an ad for one brand in one slot on the page, the decision process in other ad slots needs to know not to serve direct competitor ads. The publisher needs to control which brands are considered competitors. (A pair of brands might be considered direct competitors in one publisher niche, but not another.)
+
+## Weighted bidding
+
+The bid price set by the marketer is not necessarily the price at which it should compete in the auction. Publishers need to apply their own weighted prices, not necessarily the bid price. The \"price\" of a given ad is assigned by the buyer, but that price may not be what the publisher gets paid. In this case the publisher needs to apply an adjustment for auction purposes. Adjustment must be applied by the publisher in a 1st-party context. (Related issue: [Ad Pricing · Issue #14 · WICG/turtledove](https://github.com/WICG/turtledove/issues/14)) Some examples:
+
+ * VAST errors: If a given ad is known to have VAST errors 20% of the time (for example, does not serve) then it needs to have its effective bid price reduced by 20%, by the publisher.
+
+ * Post-bid brand safety blocking: If a given buyer has brand-safety controls that prevent an ad from serving on a page, the publisher ultimately does not get paid. Publishers can currently adjust for this by reducing the effective bids for impressions from a given buyer.
+
+ * Reporting discrepancies: For many reasons, buyer and seller reporting (and third parties) does not match, and publishers need to be able to reduce (or increase) the bid price based on those discrepancies to ensure the ads compete at a price that is equal to what the publisher actually gets paid.
 
 
 # User needs
