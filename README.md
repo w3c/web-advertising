@@ -56,3 +56,4 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [PARRROT](https://github.com/prebid/identity-gatekeeper/blob/master/proposals/PARRROT.md) (PARRROT: The Publisher Auction Responsibility Retention Revision of TurtleDove)
 * [PELICAN](https://github.com/neustar/pelican) (Private Learning and Inference for Causal Attribution)
 * [SPURFOWL](https://github.com/AdRoll/privacy/blob/main/SPURFOWL.md) (Sandboxed Private User Reporting Functions Operating Within Limits) and other [NextRoll proposals](https://github.com/AdRoll/privacy) including MURRE.
+* [TEETAR](https://github.com/criteo/privacy/blob/main/TEETAR/README.md)(TEETAR: Testing Environment Enabling Truthful and Actionable Results)
