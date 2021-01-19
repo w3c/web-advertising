@@ -82,5 +82,9 @@
     {
     "name": "Google Ads privacy (Dovekey, Augury API, Scaup)",
     "repo": "google/ads-privacy"
+  }, 
+    {
+    "name": "Criteo privacy (TEETAR)",
+    "repo": "criteo/privacy"
   }
 ]
