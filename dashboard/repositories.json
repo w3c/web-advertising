@@ -86,5 +86,10 @@
     {
     "name": "Criteo privacy (TEETAR)",
     "repo": "criteo/privacy"
+  },
+  {
+    "name": "1pluxX SWAN",
+    "repo": "1plusX/swan"
   }
+  
 ]
