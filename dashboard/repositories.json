@@ -12,10 +12,6 @@
     "repo": "WICG/conversion-measurement-api"
   },
   {
-    "name": "Ad click attribution",
-    "repo": "WICG/ad-click-attribution"
-  },
-  {
     "name": "Trust token API",
     "repo": "WICG/trust-token-api"
   },
