@@ -33,7 +33,7 @@
   },
   {
     "name": "Aggregate reporting API",
-    "repo": "csharrison/aggregate-reporting-api"
+    "repo": "WICG/aggregate-reporting-api"
   },
   {
     "name": "IP Blindness",
@@ -41,7 +41,7 @@
   },
   {
     "name": "FLoC: Federated Learning of Cohorts",
-    "repo": "jkarlin/floc"
+    "repo": "WICG/floc"
   },
   {
     "name": "PIGIN: Private Interest Groups, Including Noise",
@@ -90,6 +90,9 @@
   {
     "name": "1pluxX SWAN",
     "repo": "1plusX/swan"
+  },
+    {
+    "name": "Microsoft Privacy-preserving-ads (PARAKEET)",
+    "repo": "microsoft/privacy-preserving-ads/"
   }
-  
 ]
