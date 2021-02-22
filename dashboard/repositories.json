@@ -90,6 +90,9 @@
   {
     "name": "1pluxX SWAN",
     "repo": "1plusX/swan"
+  },
+    {
+    "name": "Microsoft Privacy-preserving-ads (PARAKEET)",
+    "repo": "microsoft/privacy-preserving-ads/"
   }
-  
 ]
