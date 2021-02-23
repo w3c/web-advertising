@@ -28,10 +28,6 @@
     "repo": "w3c/privacy-considerations"
   },
   {
-    "name": "Aggregate reporting API",
-    "repo": "WICG/aggregate-reporting-api"
-  },
-  {
     "name": "IP Blindness",
     "repo": "bslassey/ip-blindness"
   },
