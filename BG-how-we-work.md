@@ -9,7 +9,7 @@ The Business Group is open to anyone, on the payment of an organizational [parti
 
 ## Documents
 
-Group participants have created a number of documents in the [web-advertising github repository](https://github.com/w3c/web-advertising/). At this stage they represent unofficial drafts, produced by one or more indivdiuals, without any indication of group-level consensus. 
+Group participants have created a number of documents in the [web-advertising github repository](https://github.com/w3c/web-advertising/#readme). At this stage they represent unofficial drafts, produced by one or more indivdiuals, without any indication of group-level consensus. 
 
 
 Just as formal Recommendation-track documents in W3C have a "Status of
