@@ -28,6 +28,7 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [Self-Review Questionnaire: Interoperability, Choice, Accessibility and Accountability](interoperability-choice-accessibility-accountability-questionairre.md)
 * [Frequency Capping and Frequency Optimization](frequency-capping-and-optimization.md)
 * [Privacy Preserving Multi-Channel Attribution](privacy-preserving-multi-channel-attribution.md)
+* [Proposed Success Criteria](success-criteria.md), this document defines success criteria to consider when evaluating proposals which impact web advertising.
 
 # Ideas and Proposals (links outside this repo)
 * [Private fraud prevention](https://github.com/siyengar/private-fraud-prevention)
