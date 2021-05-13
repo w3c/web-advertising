@@ -18,6 +18,8 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [Eyeo FLoC-style Browser Extension](https://crumbs.org/)
 * [FLoC Simulator](https://github.com/shigeki/floc_simulator)
 * [Magnite FLEDGE Polyfill](https://github.com/MagniteEngineering/fledge.polyfill)
+* [Criteo Privacy Preserving ML with Data](https://competitions.codalab.org/competitions/31485)
+* [Google Ads Privacy Tests](https://github.com/google/ads-privacy/tree/master/experiments)
 
 # Ideas and Proposals
 
