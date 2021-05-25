@@ -7,19 +7,12 @@ This document is broken down into 4 main sections based on the needs of the
 various entities in the web advertising ecosystem:
 
 -   [Advertiser Needs](#advertiser-needs)
-
     -   [Basic Advertiser Needs](#basic-advertiser-needs)
-
     -   [Specialized Advertiser Needs](#specialized-advertiser-needs)
-
 -   [Ad Network Needs](#ad-network-needs)
-
     -   [Core Ad Network Needs](#core-ad-network-needs)
-
     -   [Specialized Ad Network Needs](#specialized-ad-network-needs)
-
 -   [Publisher Needs](#publisher-needs)
-
 -   [User Needs](#user-needs)
 
 # Advertiser Needs
@@ -31,10 +24,8 @@ outcomes, and these outcomes differ along several key axes:
 
 1.  **Immediate vs delayed**: signing up to be an Uber driver right now, vs.
     remembering to consider a Mercedes next time they're buying a car
-
 2.  **Actions vs. Attitudes**: taking a specific action like dialing a lawyer's
     office vs. just remembering to "Think Different"
-
 3.  **Direct vs. Indirect**: buying glasses directly from warbyparker.com, vs.
     buying Ray-Ban's from their local optician after seeing a Youtube ad
 
@@ -60,9 +51,7 @@ very basic questions about it:
 
 -   How many people saw the ad? Was the ad visible, and was it shown to the
     people I intended to see it?
-
 -   How successful was the campaign at driving the desired outcomes/conversions?
-
 -   Are you confident that the ad impressions and ad conversions are from real,
     authentic people?
 
@@ -72,349 +61,312 @@ find good ways of answering these basic questions, and has developed a number of
 approaches to doing so, which is why there are more than 3 use-cases in this
 section.
 
--   [Impression and Viewability Measurement](#impression-and-viewability-measurement)
-
+-   [Impression and Viewability
+    Measurement](#impression-and-viewability-measurement)
     -   [Viewability](#viewability)
-
     -   [Invalid Traffic](#invalid-traffic)
-
     -   [Third Party Verification](#third-party-verification)
-
     -   [Audience Verification](#audience-verification)
-
 -   [Aggregate Conversion Measurement](#aggregate-conversion-measurement)
-
     -   [Conversion Lift Measurement](#conversion-lift-measurement)
-
     -   [Brand Lift Measurement](#brand-lift-measurement)
-
     -   [Click-through and View-through attribution
         heuristics](#click-through-and-view-through-attribution-heuristics)
-
     -   [Multi-touch attribution](#multi-touch-attribution)
-
-    -   [Cross Browser / Cross Device Measurement](#cross-browser-cross-device-measurement)
-
+    -   [Cross Browser / Cross Device
+        Measurement](#cross-browser-cross-device-measurement)
 -   [Fraud Prevention](#fraud-prevention)
-
     -   [Conversion Fraud](#conversion-fraud)
-
     -   [Click-Flooding](#click-flooding)
-
     -   [Malicious Browser Extensions](#malicious-browser-extensions)
-
     -   [Malicious Mobile Apps](#malicious-mobile-apps)
-
     -   [Malicious browsers](#malicious-browsers)
-
 -   [Brand Safety](#brand-safety)
-
 -   [Billing Transparency](#billing-transparency)
 
 #### [Impression and Viewability Measurement](#impression-and-viewability-measurement)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be capable of measuring that the ads displayed on their own properties entered the viewport, that images and video were loaded, how much time they spent in the viewport, etc. None of this requires joining up user identity across multiple domains. The only possible complication that might arise would be with "blind rendering" as described in proposals like "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" and “[PETREL](https://github.com/w3c/web-advertising/blob/master/PETREL.md)”. Here, the publisher would have restricted access to the ad being rendered and we will have to discuss the feasibility of "viewability" measurement. There is a discussion on this [GitHub issue](https://github.com/csharrison/aggregate-reporting-api/issues/10). | |
-| Safari | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor impression counting and viewability measurement associated with rendered impressions. | |
+| Project | Comment |
+|-|-|
+| Chrome | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. First parties should still be capable of measuring that the ads displayed on their own properties entered the viewport, that images and video were loaded, how much time they spent in the viewport, etc. None of this requires joining up user identity across multiple domains. The only possible complication that might arise would be with "blind rendering" as described in proposals like "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" and “[PETREL](https://github.com/w3c/web-advertising/blob/master/PETREL.md)”. Here, the publisher would have restricted access to the ad being rendered and we will have to discuss the feasibility of "viewability" measurement. There is a discussion on this [GitHub issue](https://github.com/csharrison/aggregate-reporting-api/issues/10). |
+| Safari | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. |
+| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor impression counting and viewability measurement associated with rendered impressions. |
 
 #### [Audience Verification](#audience-verification)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | No support | |
-| Safari | No support | |
-| [SWAN.CO](https://github.com/swan-community/swan) | No support | |
+| Project | Comment |
+|-|-|
+| Chrome | No support |
+| Safari | No support |
+| [SWAN.CO](https://github.com/swan-community/swan) | No support |
 
 #### [Conversion Lift Measurement](#conversion-lift-measurement)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | A [section of the Conversion Measurement with Aggregation proposal](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#view-through-conversions) describes explicit support for view through conversions, which should be sufficient to support lift measurement using experiments on a first party site (e.g. when using a first-party identifier to decide which experiment branch a person is in). | |
-| Safari | No support | |
-| Facebook | Facebook proposal for “[Private Lift Measurement](https://github.com/w3c/web-advertising/blob/master/private-lift-measurement-conceptual-overview.md)” | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor conversion lift measurement. | |
+| Project | Comment |
+|-|-|
+| Chrome | A [section of the Conversion Measurement with Aggregation proposal](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#view-through-conversions) describes explicit support for view through conversions, which should be sufficient to support lift measurement using experiments on a first party site (e.g. when using a first-party identifier to decide which experiment branch a person is in). |
+| Safari | No support |
+| Facebook | Facebook proposal for “[Private Lift Measurement](https://github.com/w3c/web-advertising/blob/master/private-lift-measurement-conceptual-overview.md)” |
+| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor conversion lift measurement. |
 
 #### [Brand Lift Measurement](#brand-lift-measurement)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | No support | |
-| Safari | No support | |
-| [SWAN.CO](https://github.com/swan-community/swan) | No support | |
+| Project | Comment |
+|-|-|
+| Chrome | No support |
+| Safari | No support |
+| [SWAN.CO](https://github.com/swan-community/swan) | No support |
 
 #### [Click-through attribution](#click-through-and-view-through-attribution-heuristics)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Proposal: “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” | |
-| Safari | Proposal: “[Private Click Measurement API](https://github.com/WICG/ad-click-attribution)” | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor multi-touch click-through attribution. | |
+| Project | Comment |
+|-|-|
+| Chrome | Proposal: “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” |
+| Safari | Proposal: “[Private Click Measurement API](https://github.com/WICG/ad-click-attribution)” |
+| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor multi-touch click-through attribution. |
 
 #### [View-through attribution](#click-through-and-view-through-attribution-heuristics)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | A [section of the Conversion Measurement with Aggregation proposal](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#view-through-conversions) describes explicit support for view through conversions. | |
-| Safari | No support | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor multi-touch view-through attribution. | |
+| Project | Comment |
+|-|-|
+| Chrome | A [section of the Conversion Measurement with Aggregation proposal](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#view-through-conversions) describes explicit support for view through conversions. |
+| Safari | No support |
+| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor multi-touch view-through attribution. |
 
 #### [Multi-touch attribution](#multi-touch-attribution)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | The [Event-level API](https://github.com/WICG/conversion-measurement-api/blob/master/README.md) proposal covers last-click attribution. A section of the [Conversion Measurement with Aggregation](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#multi-touch-attribution-mta) proposal describes support for some built-in multi-touch models, and acknowledges that measurement providers writing their own models would be good to support if technically feasible. | |
-| Safari | No support | |
-| Facebook | Facebook proposal for “[Privacy-Preserving Multi-Touch-Attribution and Cross-Publisher Lift Measurement](https://github.com/w3c/web-advertising/blob/master/privacy_preserving_multi_touch_attribution_and_cross_publisher_lift_measurement.md)” | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor multi-touch view-through attribution. | |
+| Project | Comment |
+|-|-|
+| Chrome | The [Event-level API](https://github.com/WICG/conversion-measurement-api/blob/master/README.md) proposal covers last-click attribution. A section of the [Conversion Measurement with Aggregation](https://github.com/WICG/conversion-measurement-api/blob/master/AGGREGATE.md#multi-touch-attribution-mta) proposal describes support for some built-in multi-touch models, and acknowledges that measurement providers writing their own models would be good to support if technically feasible. |
+| Safari | No support |
+| Facebook | Facebook proposal for “[Privacy-Preserving Multi-Touch-Attribution and Cross-Publisher Lift Measurement](https://github.com/w3c/web-advertising/blob/master/privacy_preserving_multi_touch_attribution_and_cross_publisher_lift_measurement.md)” |
+| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor multi-touch view-through attribution. |
 
 #### [Cross Browser / Cross Device Measurement](#cross-browser--cross-device-measurement)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | No support | |
-| Safari | No support | |
-| Facebook | Facebook proposal for “[Cross Browser Anonymous Conversion Reporting](https://github.com/w3c/web-advertising/blob/master/cross-browser-anonymous-conversion-reporting.md)” | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor cross-browser/cross-device measurement via hashed email address and passcode. | |
+| Project | Comment |
+|-|-|
+| Chrome | No support |
+| Safari | No support |
+| Facebook | Facebook proposal for “[Cross Browser Anonymous Conversion Reporting](https://github.com/w3c/web-advertising/blob/master/cross-browser-anonymous-conversion-reporting.md)” |
+| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor cross-browser/cross-device measurement via hashed email address and passcode. |
 
 #### [Multi-Channel Attribution / Measurement](#multi-channel-attribution--measurement)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | No support | |
-| Safari | No support | |
-| Adobe | Adobe proposal for "[Privacy Preserving Multi-Channel Attribution](https://github.com/w3c/web-advertising/blob/master/privacy-preserving-multi-channel-attribution.md)" | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor multi-channel attribution/ measurement. | |
+| Project | Comment |
+|-|-|
+| Chrome | No support |
+| Safari | No support |
+| Adobe | Adobe proposal for "[Privacy Preserving Multi-Channel Attribution](https://github.com/w3c/web-advertising/blob/master/privacy-preserving-multi-channel-attribution.md)" |
+| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor multi-channel attribution/ measurement. |
 
 #### [Conversion Fraud](#conversion-fraud)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | A section of the [Multi-Browser Aggregation Service Explainer](https://github.com/WICG/conversion-measurement-api/blob/master/SERVICE.md#authenticating-inputs) describes using a service that includes an authentication mechanism. This use case is also being explored for the event level API in this [GitHub Issue](https://github.com/WICG/conversion-measurement-api/issues/13). | |
-| Safari | Confirmation this is a use-case Safari cares about addressing. In the process of collaboratively designing a solution on this [GitHub Issue](https://github.com/WICG/ad-click-attribution/issues/27). | |
-| Facebook | Facebook proposal for “[Private Fraud Prevention](https://github.com/siyengar/private-fraud-prevention)” | |
+| Project | Comment |
+|-|-|
+| Chrome | A section of the [Multi-Browser Aggregation Service Explainer](https://github.com/WICG/conversion-measurement-api/blob/master/SERVICE.md#authenticating-inputs) describes using a service that includes an authentication mechanism. This use case is also being explored for the event level API in this [GitHub Issue](https://github.com/WICG/conversion-measurement-api/issues/13). |
+| Safari | Confirmation this is a use-case Safari cares about addressing. In the process of collaboratively designing a solution on this [GitHub Issue](https://github.com/WICG/ad-click-attribution/issues/27). |
+| Facebook | Facebook proposal for “[Private Fraud Prevention](https://github.com/siyengar/private-fraud-prevention)” |
 
 #### [Click Flooding](#click-flooding)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | No solutions yet for this problem. However, lift measurement could be a potential way of measuring this problem. This might be supported by the “[Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api)”. | 0% |
-| Safari | No solutions yet for this problem. | 0% |
-| Facebook | Facebook proposal for “[Private Lift Measurement](https://github.com/w3c/web-advertising/blob/master/private-lift-measurement-conceptual-overview.md)” a potential way of measuring this problem. | |
-| [SWAN.CO](https://github.com/swan-community/swan) | A potential way to address click flooding. | |
+| Project | Comment |
+|-|-|
+| Chrome | No solutions yet for this problem. However, lift measurement could be a potential way of measuring this problem. This might be supported by the “[Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api)”. |
+| Safari | No solutions yet for this problem. |
+| Facebook | Facebook proposal for “[Private Lift Measurement](https://github.com/w3c/web-advertising/blob/master/private-lift-measurement-conceptual-overview.md)” a potential way of measuring this problem. |
+| [SWAN.CO](https://github.com/swan-community/swan) | A potential way to address click flooding. |
 
 #### [Malicious Browser Extensions](#malicious-browser-extensions)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | No solutions yet for this problem. | |
-| Safari | No solutions yet for this problem. | |
+| Project | Comment |
+|-|-|
+| Chrome | No solutions yet for this problem. |
+| Safari | No solutions yet for this problem. |
 
 #### [Malicious Mobile Apps](#malicious-mobile-apps)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | No solutions yet for this problem. | |
-| Safari | No solutions yet for this problem. | |
+| Project | Comment |
+|-|-|
+| Chrome | No solutions yet for this problem. |
+| Safari | No solutions yet for this problem. |
 
 #### [Malicious Browsers](#malicious-browsers)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | No solutions yet for this problem. | |
-| Safari | No solutions yet for this problem. | |
+| Project | Comment |
+|-|-|
+| Chrome | No solutions yet for this problem. |
+| Safari | No solutions yet for this problem. |
 
 #### [Brand Safety](#brand-safety)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. When an ad targets an interest group, it is served as a web package with all subresources included and the detail of which interest group won lets you trace down the problematic campaign. However, the ads that were printed less than k times (k being the reporting threshold) would still pose a threat as they would remain undetectable because not reported. | |
-| Safari | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. | |
+| Project | Comment |
+|-|-|
+| Chrome | There should be no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. When an ad targets an interest group, it is served as a web package with all subresources included and the detail of which interest group won lets you trace down the problematic campaign. However, the ads that were printed less than k times (k being the reporting threshold) would still pose a threat as they would remain undetectable because not reported. |
+| Safari | Similar answer as that for Chrome. This should not be in conflict with Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) given the measurement is entirely within the scope of a single publisher website. |
 
 #### [Billing Transparency](#billing-transparency)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | In TURTLEDOVE, the browser is the sole owner of billing information. | |
-| Safari | | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor support for billing transparency. | |
+| Project | Comment |
+|-|-|
+| Chrome | In TURTLEDOVE, the browser is the sole owner of billing information. |
+| Safari | |
+| [SWAN.CO](https://github.com/swan-community/swan) | Enables independent supply chain vendor support for billing transparency. |
 
 ## Specialized Advertiser Needs
 
 These are use-cases that only apply to a (possibly large) subset of advertisers.
 
 -   [Targeting](#targeting)
-
     -   [Audience definition](#audience-definition)
-
     -   [Exclusion Targeting](#exclusion-targeting)
-
     -   [Lookalike Targeting](#lookalike-targeting)
-
     -   [Retargeting](#retargeting)
-
     -   [Display and target environment](#display-and-target-environment)
-
 -   [Frequency](#frequency)
-
     -   [Frequency Capping](#frequency-capping)
-
     -   [Frequency Optimization](#frequency-optimization)
-
 -   [Businesses with Multiple Domains](#businesses-with-multiple-domains)
-
 -   [Ads directing to large marketplaces](#ads-directing-to-large-marketplaces)
-
     -   [Collaborative ads](#collaborative-ads)
-
     -   [Dynamic Ads](#dynamic-ads)
-
     -   [Email Marketing](#email-marketing)
-
 -   [Real time spend management](#real-time-spend-management)
-
 -   [Catalog management](#catalog-management)
-
     -   [Product availability management](#product-availability-management)
-
         -   [Price management](#price-management)
-
         -   [Products promotion management](#products-promotion-management)
-
 -   [Creatives](#creatives)
-
     -   [Coupon Management](#coupon-management)
-
 -   [Product Recommendation](#product-recommendation)
 
 #### [Audience definition](#audience-definition)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | | |
-| Safari | | |
+| Project | Comment |
+|-|-|
+| Chrome | |
+| Safari | |
 
 #### [Exclusion Targeting](#exclusion-targeting)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Acknowledgement that this is a valuable use-case and a link to Facebook’s PETREL proposal on this [GitHub Issue](https://github.com/michaelkleber/turtledove/issues/3) | |
-| Safari | No support | |
-| Facebook | Facebook proposal for “[Private Exclusion Targeting Rendered Exclusively Locally (PETREL)](https://github.com/w3c/web-advertising/blob/master/PETREL.md)” | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for exclusion targeting. | |
+| Project | Comment |
+|-|-|
+| Chrome | Acknowledgement that this is a valuable use-case and a link to Facebook’s PETREL proposal on this [GitHub Issue](https://github.com/michaelkleber/turtledove/issues/3) |
+| Safari | No support |
+| Facebook | Facebook proposal for “[Private Exclusion Targeting Rendered Exclusively Locally (PETREL)](https://github.com/w3c/web-advertising/blob/master/PETREL.md)” |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for exclusion targeting. |
 
 #### [Lookalike Targeting](#lookalike-targeting)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Might be possible to achieve limited support by leveraging “[Federated Learning of Cohorts (FLoC)](https://github.com/jkarlin/floc)”. Might require an extension to TURTLEDOVE offering a new way to create interest groups, which Chrome indicated support for in [this issue](https://github.com/michaelkleber/turtledove/issues/26). | |
-| Safari | No support | |
-| Facebook | Facebook proposal for "[Privacy Preserving Lookalike Audience Targeting](privacy_preserving_lookalike_audience_targeting.md)" | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for look-alike modelling. | |
+| Project | Comment |
+|-|-|
+| Chrome | Might be possible to achieve limited support by leveraging “[Federated Learning of Cohorts (FLoC)](https://github.com/jkarlin/floc)”. Might require an extension to TURTLEDOVE offering a new way to create interest groups, which Chrome indicated support for in [this issue](https://github.com/michaelkleber/turtledove/issues/26). |
+| Safari | No support |
+| Facebook | Facebook proposal for "[Privacy Preserving Lookalike Audience Targeting](privacy_preserving_lookalike_audience_targeting.md)" |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for look-alike modelling. |
 
 #### [Retargeting](#retargeting)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Proposal: "[Two Uncorrelated Requests, Then Locally-Executed Decision On Victory (TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" | |
-| Safari | No support | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for retargeting. | |
+| Project | Comment |
+|-|-|
+| Chrome | Proposal: "[Two Uncorrelated Requests, Then Locally-Executed Decision On Victory (TURTLEDOVE)](https://github.com/michaelkleber/turtledove)" |
+| Safari | No support |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for retargeting. |
 
 #### [Display and target environment](#display-and-target-environment)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Supported in TURTLEDOVE thanks to the contextual request. Ability to use this together with interest group request limited by the JS complexity. | |
-| Safari | | |
+| Project | Comment |
+|-|-|
+| Chrome | Supported in TURTLEDOVE thanks to the contextual request. Ability to use this together with interest group request limited by the JS complexity. |
+| Safari | |
 
 #### [Frequency Capping](#frequency-capping) / [Frequency Optimization](#frequency-optimization)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | For ads served via TURTLEDOVE interest-group targeting, the proposal offers a way to [handle frequency capping on-device](https://github.com/michaelkleber/turtledove#on-device-auction). For other types of targeting, while it will not be possible to enforce a hard "frequency-cap" across multiple websites, it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). | |
-| Safari | No support | |
-| Adobe | Adobe Proposal for "[Frequency Capping and Frequency Optimization](https://github.com/W3C/web-advertising/blob/master/frequency-capping-and-optimization.md)" | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for frequency capping and optimization. | |
+| Project | Comment |
+|-|-|
+| Chrome | For ads served via TURTLEDOVE interest-group targeting, the proposal offers a way to [handle frequency capping on-device](https://github.com/michaelkleber/turtledove#on-device-auction). For other types of targeting, while it will not be possible to enforce a hard "frequency-cap" across multiple websites, it might be possible to calibrate a target average frequency model. See discussion about how to do this on the explainer for the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model). |
+| Safari | No support |
+| Adobe | Adobe Proposal for "[Frequency Capping and Frequency Optimization](https://github.com/W3C/web-advertising/blob/master/frequency-capping-and-optimization.md)" |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for frequency capping and optimization. |
 
 #### [Businesses with Multiple Domains](#businesses-with-multiple-domains)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Proposal: "[First Party Sets](https://github.com/krgovind/first-party-sets/)" | |
-| Safari | Some discussion in this [GitHub issue](https://github.com/krgovind/first-party-sets/issues/6) indicates weak support for at least the country-specific eTLD use-case, but various concerns with the current "First Party Sets" proposal. | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for businesses with multiple domains. | |
+| Project | Comment |
+|-|-|
+| Chrome | Proposal: "[First Party Sets](https://github.com/krgovind/first-party-sets/)" |
+| Safari | Some discussion in this [GitHub issue](https://github.com/krgovind/first-party-sets/issues/6) indicates weak support for at least the country-specific eTLD use-case, but various concerns with the current "First Party Sets" proposal. |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for businesses with multiple domains. |
 
 #### [Collaborative Ads](#collaborative-ads) / [Dynamic Ads](#dynamic-ads)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. | |
-| Safari | Some discussion in this [GitHub issue](https://github.com/krgovind/first-party-sets/issues/6) indicates weak support for at least the country-specific eTLD use-case, but various concerns with the current "First Party Sets" proposal. | |
-| Facebook | Facebook proposal for “[Conversion Filters](https://github.com/w3c/web-advertising/blob/master/conversion-filters.md)”. | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for dynamic ads | |
+| Project | Comment |
+|-|-|
+| Chrome | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. |
+| Safari | Some discussion in this [GitHub issue](https://github.com/krgovind/first-party-sets/issues/6) indicates weak support for at least the country-specific eTLD use-case, but various concerns with the current "First Party Sets" proposal. |
+| Facebook | Facebook proposal for “[Conversion Filters](https://github.com/w3c/web-advertising/blob/master/conversion-filters.md)”. |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for dynamic ads |
 
 #### [Email Marketing](#email-marketing)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | unclear | |
-| Safari | unclear | |
+| Project | Comment |
+|-|-|
+| Chrome | unclear |
+| Safari | unclear |
 
 #### [Real time spend management](#real-time-spend-management)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | High latency in TURTLEDOVE as the JavaScript updates have unknown frequency, and reporting is delayed in the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model) | |
-| Safari | Supported as ads are not done in opaque iframe and bidding is not done remotely. | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for real-time spend management. | |
+| Project | Comment |
+|-|-|
+| Chrome | High latency in TURTLEDOVE as the JavaScript updates have unknown frequency, and reporting is delayed in the [Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api#advanced-example-calibrating-a-frequency-capping-model) |
+| Safari | Supported as ads are not done in opaque iframe and bidding is not done remotely. |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for real-time spend management. |
 
 #### [Product availability management](#product-availability-management)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | More details required. | |
-| Safari | | |
+| Project | Comment |
+|-|-|
+| Chrome | More details required. |
+| Safari | |
 
 #### [Price management](#price-management)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | More details required. | |
-| Safari | | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for bid-price adjustment | |
+| Project | Comment |
+|-|-|
+| Chrome | More details required. |
+| Safari | |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for bid-price adjustment |
 
 #### [Products promotion management](#products-promotion-management)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | More details required. | |
-| Safari | | |
+| Project | Comment |
+|-|-|
+| Chrome | More details required. |
+| Safari | |
 
 #### [Creatives](#creatives)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | The creative building logic and material is all contained in the web bundle. Questions arise about the size of the web bundle. | |
-| Safari | More details required. | |
+| Project | Comment |
+|-|-|
+| Chrome | The creative building logic and material is all contained in the web bundle. Questions arise about the size of the web bundle. |
+| Safari | More details required. |
 
 #### [Coupon Management](#coupon-management)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. | |
-| Safari | | |
-| Facebook | Facebook proposal for "Conversion Filters". | |
+| Project | Comment |
+|-|-|
+| Chrome | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). No solutions or even strong acknowledgement of the importance of this use-case yet. |
+| Safari | |
+| Facebook | Facebook proposal for "Conversion Filters". |
 
 #### [Product Recommendation](#product-recommendation)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). Possible solutions addressed in issues [\#31](https://github.com/michaelkleber/turtledove/issues/31) and [\#36](https://github.com/michaelkleber/turtledove/issues/36) | |
-| Safari | | |
-| Facebook | Facebook proposal for "Conversion Filters". | |
-| RTB House | RTB House proposal for "Browser-side personalization". | |
-| Nextroll | Nextroll Proposal for "Dynamic Creative Use Case" | |
+| Project | Comment |
+|-|-|
+| Chrome | Some discussion in this [GitHub issue](https://github.com/WICG/conversion-measurement-api/issues/32). Possible solutions addressed in issues [\#31](https://github.com/michaelkleber/turtledove/issues/31) and [\#36](https://github.com/michaelkleber/turtledove/issues/36) |
+| Safari | |
+| Facebook | Facebook proposal for "Conversion Filters". |
+| RTB House | RTB House proposal for "Browser-side personalization". |
+| Nextroll | Nextroll Proposal for "Dynamic Creative Use Case" |
 
 # Ad Network Needs
 
@@ -423,7 +375,6 @@ These are use-cases that only apply to a (possibly large) subset of advertisers.
 These are core essentials ad networks need to deliver value to advertisers.
 
 -   [Training ML Models](#training-ml-models)
-
     -   [Click Through Rate (CTR) Model: P(click \|
         impression)](#click-through-rate-ctr-model-pclick--impression)
 
@@ -437,77 +388,75 @@ These are core essentials ad networks need to deliver value to advertisers.
 
     -   [Return on Ad Spend (ROAS)
         optimization](#return-on-ad-spend-roas-optimization)
-
     -   [Multiple Targets optimization](#multiple-targets-optimization)
 
 #### [P(click \| impression)](#click-through-rate-ctr-model-pclick--impression)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | There is no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. Should be possible to use 1st party cookies to tie together multiple sessions from the same browser on the same website. | |
-| Safari | [isLoggedIn](https://github.com/WebKit/explainers/tree/master/IsLoggedIn) may potentially pose problems here for websites without login. Limited storage may make it hard to tie together multiple sessions from the same person. | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for calculating the probability of clicks given impressions. | |
+| Project | Comment |
+|-|-|
+| Chrome | There is no conflict with Chrome’s proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)”. Should be possible to use 1st party cookies to tie together multiple sessions from the same browser on the same website. |
+| Safari | [isLoggedIn](https://github.com/WebKit/explainers/tree/master/IsLoggedIn) may potentially pose problems here for websites without login. Limited storage may make it hard to tie together multiple sessions from the same person. |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for calculating the probability of clicks given impressions. |
 
 #### [P(conversion \| click)](#conversion-rate-cvr-model-pconversion--click)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | This is a stated goal of Chrome’s “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” | |
-| Safari | Not possible to train an ML model. | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for calculating the probability of conversions given click. | |
+| Project | Comment |
+|-|-|
+| Chrome | This is a stated goal of Chrome’s “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” |
+| Safari | Not possible to train an ML model. |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for calculating the probability of conversions given click. |
 
 #### [Post-view attribution: P(conversion \| impression)](#post-view-attribution-pconversion--impression)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Not possible to train an ML model. However, It may be possible to use the "Aggregate Reporting API" to obtain average conversion value measurement for very coarse-grain buckets of people. This could be used to perform calibration at this coarse-grain bucketed level. | |
-| Safari | Not possible to train an ML model. | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for calculating the attribution associated with the probability of conversions given impressions. | |
+| Project | Comment |
+|-|-|
+| Chrome | Not possible to train an ML model. However, It may be possible to use the "Aggregate Reporting API" to obtain average conversion value measurement for very coarse-grain buckets of people. This could be used to perform calibration at this coarse-grain bucketed level. |
+| Safari | Not possible to train an ML model. |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for calculating the attribution associated with the probability of conversions given impressions. |
 
 #### [P(Display \| Request)](#pdisplay--request)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | No support. | |
-| Safari | Not possible to train an ML model. | |
+| Project | Comment |
+|-|-|
+| Chrome | No support. |
+| Safari | Not possible to train an ML model. |
 
 #### [Return on Ad Spend (ROAS) optimization](#return-on-ad-spend-roas-optimization)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Not possible to train an ML model. However, It may be possible to use the “[Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api)” to obtain average conversion value measurement for very coarse-grain buckets of people. This could be used to perform calibration at this coarse-grain bucketed level. | |
-| Safari | Not possible to train an ML model. | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for calculating the ROAS across publishers. | |
+| Project | Comment |
+|-|-|
+| Chrome | Not possible to train an ML model. However, It may be possible to use the “[Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api)” to obtain average conversion value measurement for very coarse-grain buckets of people. This could be used to perform calibration at this coarse-grain bucketed level. |
+| Safari | Not possible to train an ML model. |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for calculating the ROAS across publishers. |
 
 #### [Multiple Targets optimization](#multiple-targets-optimization)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | No support | |
-| Safari | Not possible to train an ML model. | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for machine learning the optimization associated with multiple dimensions. | |
+| Project | Comment |
+|-|-|
+| Chrome | No support |
+| Safari | Not possible to train an ML model. |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for machine learning the optimization associated with multiple dimensions. |
 
 ## Specialized Ad Network Needs
 
 -   [Audience Selling](#audience-selling)
-
 -   [CRM Targeting](#crm-targeting)
 
 #### [Audience Selling](#audience-selling)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Probably possible under "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" by defining interest groups usable by other parties. | |
-| Safari | No support | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for monetizing audience information. | |
+| Project | Comment |
+|-|-|
+| Chrome | Probably possible under "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" by defining interest groups usable by other parties. |
+| Safari | No support |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for monetizing audience information. |
 
 #### [CRM Targeting](#crm-targeting)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | possible if done via interest groups under "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" | |
-| Safari | No support | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for monetizing audience information. | |
+| Project | Comment |
+|-|-|
+| Chrome | possible if done via interest groups under "[TURTLEDOVE](https://github.com/michaelkleber/turtledove)" |
+| Safari | No support |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support for monetizing audience information. |
 
 # Publisher Needs
 
@@ -515,220 +464,198 @@ These use-cases are more focused on the publisher's perspective.
 
 -   [Problems faced by non-logged in
     publishers](#problems-faced-by-non-logged-in-publishers)
-
     -   [Serving relevant ads](#serving-relevant-ads)
-
     -   [Running an auction](#running-an-auction)
-
 -   [Affiliate Marketing](#affiliate-marketing)
-
 -   [Enablers for first parties](#enablers-for-first-parties)
-
     -   [Federated Single Sign-on](#federated-single-sign-on)
-
     -   [View-through Site Personalization](#view-through-site-personalization)
-
     -   [Click-through Site
         Personalization](#click-through-site-personalization)
-
 -   [On-site Sponsored Product](#on-site-sponsored-product)
-
 -   [Search](#search)
-
 -   [Ad Safety](#ad-safety)
-
 -   [Malvertising Protection](#malvertising-protection)
-
 -   [Pausing Advertising](#pausing-advertising)
-
 -   [Advertisers exclusion](#advertisers-exclusion)
-
 -   [Revenue management](#revenue-management)
-
 -   [Support directly sold ads](#support-directly-sold-ads)
-
 -   [Floor rates](#floor-rates)
-
 -   [Competitive exclusions](#competitive-exclusions)
-
 -   [Weighted bidding](#weighted-bidding)
 
 #### [Serving relevant ads (non-logged in publishers)](#serving-relevant-ads)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Proposal: “[Federated Learning of Cohorts (FloC)](https://github.com/jkarlin/floc)”. | |
-| Safari | No support | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support machine learning to predict relevance score for ads (without requiring a logged-in authentication event) | |
+| Project | Comment |
+|-|-|
+| Chrome | Proposal: “[Federated Learning of Cohorts (FloC)](https://github.com/jkarlin/floc)”. |
+| Safari | No support |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support machine learning to predict relevance score for ads (without requiring a logged-in authentication event) |
 
 #### [Running an auction (non-logged in publishers)](#running-an-auction)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | The TURTLEDOVE proposal is built around a server-side auction for contextually-targeted ads, and then an in-browser auction for user interest targeting. [This GitHub issue comment](https://github.com/michaelkleber/turtledove/issues/20#issuecomment-602800377) describes the RTB flow in some more detail. | |
-| Safari | No support | |
-| Verizon | Verizon / Oath [write-up of this use-case](https://github.com/w3c/web-advertising/blob/master/rtb-use-case.md) | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support machine learning to enable publishers to control the auctions on their website. | |
+| Project | Comment |
+|-|-|
+| Chrome | The TURTLEDOVE proposal is built around a server-side auction for contextually-targeted ads, and then an in-browser auction for user interest targeting. [This GitHub issue comment](https://github.com/michaelkleber/turtledove/issues/20#issuecomment-602800377) describes the RTB flow in some more detail. |
+| Safari | No support |
+| Verizon | Verizon / Oath [write-up of this use-case](https://github.com/w3c/web-advertising/blob/master/rtb-use-case.md) |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support machine learning to enable publishers to control the auctions on their website. |
 
 #### [Affiliate Marketing](#affiliate-marketing)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | It may be possible to use a combination of the “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” and the “[Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api)” to get a first-order estimate of the number of the number of conversions driven by an Affiliate marketing link, but questions remain about “returns” and fraud. | |
-| Safari | Extremely limited support possible with the “[Private Click Measurement API](https://github.com/WICG/ad-click-attribution)”, but questions remain about “returns” and fraud. | |
+| Project | Comment |
+|-|-|
+| Chrome | It may be possible to use a combination of the “[Click Through Conversion-Measurement Event-level API](https://github.com/WICG/conversion-measurement-api)” and the “[Aggregate Reporting API](https://github.com/csharrison/aggregate-reporting-api)” to get a first-order estimate of the number of the number of conversions driven by an Affiliate marketing link, but questions remain about “returns” and fraud. |
+| Safari | Extremely limited support possible with the “[Private Click Measurement API](https://github.com/WICG/ad-click-attribution)”, but questions remain about “returns” and fraud. |
 
 #### [Federated Single Sign-on](#federated-single-sign-on)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Yes - Proposal: “WebID” | |
-| Safari | Generally supportive as per [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) " "*We consider certain user actions, such as logging in to multiple first party websites or apps using the same account, to be implied consent to identifying the user as having the same identity in these multiple places*". Policy also acknowledges unintended impacts to federated SSO setups. General discussion in the context of the [Storage Access API](https://github.com/privacycg/storage-access) which is related but not targeted for this use-case (non-goal) | |
+| Project | Comment |
+|-|-|
+| Chrome | Yes - Proposal: “WebID” |
+| Safari | Generally supportive as per [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) " "*We consider certain user actions, such as logging in to multiple first party websites or apps using the same account, to be implied consent to identifying the user as having the same identity in these multiple places*". Policy also acknowledges unintended impacts to federated SSO setups. General discussion in the context of the [Storage Access API](https://github.com/privacycg/storage-access) which is related but not targeted for this use-case (non-goal) |
 
 #### [View-through Site Personalization](#view-through-site-personalization)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | No support | |
-| Safari | No support | |
+| Project | Comment |
+|-|-|
+| Chrome | No support |
+| Safari | No support |
 
 #### [Click-through Site Personalization](#click-through-site-personalization)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” unless this mechanism is used to pass through high-entropy identifiers which could be used to tie user identity across websites. See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). | |
-| Safari | Similar to Chrome, this should not fall afoul of Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) unless high-entropy identifiers are being used to perform "navigational tracking". See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). | |
+| Project | Comment |
+|-|-|
+| Chrome | There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” unless this mechanism is used to pass through high-entropy identifiers which could be used to tie user identity across websites. See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). |
+| Safari | Similar to Chrome, this should not fall afoul of Webkit's [Tracking Prevention Policy](https://webkit.org/tracking-prevention-policy/) unless high-entropy identifiers are being used to perform "navigational tracking". See PING's [Privacy Threat Model](https://w3cping.github.io/privacy-threat-model/#goal-transfer-userid). |
 
 #### [On-site Sponsored Product](#on-site-sponsored-product)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” | |
-| Safari | Similar answer as that for Chrome. This should not be in conflict with Webkit's Tracking Prevention Policy given the measurement is entirely within the scope of a single publisher website. | |
+| Project | Comment |
+|-|-|
+| Chrome | There should not be any conflict with Chrome's proposed “[Privacy Model for the Web](https://github.com/michaelkleber/privacy-model)” |
+| Safari | Similar answer as that for Chrome. This should not be in conflict with Webkit's Tracking Prevention Policy given the measurement is entirely within the scope of a single publisher website. |
 
 #### [Search](#search)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | unclear, but relies a lot on contextual | |
-| Safari | unclear | |
+| Project | Comment |
+|-|-|
+| Chrome | unclear, but relies a lot on contextual |
+| Safari | unclear |
 
 #### [Ad Safety](#ad-safety)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Very limited support as opaque iframe aggregated reporting allow for very little ex post audit. | |
-| Safari | No Support | |
+| Project | Comment |
+|-|-|
+| Chrome | Very limited support as opaque iframe aggregated reporting allow for very little ex post audit. |
+| Safari | No Support |
 
 #### [Malvertising Protection](#malvertising-protection)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | | |
-| Safari | | |
+| Project | Comment |
+|-|-|
+| Chrome | |
+| Safari | |
 
 #### [Pausing Advertising](#pausing-advertising)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | | |
-| Safari | | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support pausing advertising. | |
+| Project | Comment |
+|-|-|
+| Chrome | |
+| Safari | |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor support pausing advertising. |
 
 #### [Advertisers exclusion](#advertisers-exclusion)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Unclear. To be defined. | |
-| Safari | | |
+| Project | Comment |
+|-|-|
+| Chrome | Unclear. To be defined. |
+| Safari | |
 
 [Revenue management](#revenue-management)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Little support in TURTLEDOVE, as nor reporting nor updating bidding JavaScripts is not real-time. This means delays in both information and action, leading to very complex and inaccurate budget/revenue management. | |
-| Safari | | |
+| Project | Comment |
+|-|-|
+| Chrome | Little support in TURTLEDOVE, as nor reporting nor updating bidding JavaScripts is not real-time. This means delays in both information and action, leading to very complex and inaccurate budget/revenue management. |
+| Safari | |
 
 #### [Support directly sold ads](#support-directly-sold-ads)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | TURTLEDOVE issue: [Publisher ad network control over ad eligibility and auction ranking](https://github.com/WICG/turtledove/issues/70) | |
-| Safari | | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor to enable publishers to directly sell ads and ensure marketers appropriately credit the value associated with these purchases. | |
+| Project | Comment |
+|-|-|
+| Chrome | TURTLEDOVE issue: [Publisher ad network control over ad eligibility and auction ranking](https://github.com/WICG/turtledove/issues/70) |
+| Safari | |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports independent supply chain vendor to enable publishers to directly sell ads and ensure marketers appropriately credit the value associated with these purchases. |
 
 #### [Floor rates](#floor-rates)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Question raised in TURTLEDOVE issue: [Capabilities of the proposal for publishers](https://github.com/WICG/turtledove/issues/51). | |
-| Safari | | |
+| Project | Comment |
+|-|-|
+| Chrome | Question raised in TURTLEDOVE issue: [Capabilities of the proposal for publishers](https://github.com/WICG/turtledove/issues/51). |
+| Safari | |
 
 #### [Competitive exclusions](#competitive-exclusions)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | | |
-| Safari | | |
+| Project | Comment |
+|-|-|
+| Chrome | |
+| Safari | |
 
 [Weighted bidding](#weighted-bidding)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | | |
-| Safari | | |
+| Project | Comment |
+|-|-|
+| Chrome | |
+| Safari | |
 
 # User Needs
 
 -   [Why am I seeing this ad?](#why-am-i-seeing-this-ad)
-
 -   [Opt-out of an advertiser, category or
     product](#opt-out-of-an-advertiser-category-or-product)
-
 -   [Opt-out of a marketing service](#opt-out-of-a-marketing-service)
-
 -   [Seeing ads relevant to me](#seeing-ads-relevant-to-me)
-
 -   [Smooth user experience](#smooth-user-experience)
 
 #### [Why am I seeing this ad?](#why-am-i-seeing-this-ad)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Both the Chrome team and the Google ads team have on multiple occassions cited a desire show people an explanation of what caused an ad to appear. The TURTLEDOVE proposal specifically aims to provide people with an accurate answer as to why they are seeing a re-targeting ad. | |
-| Safari | No support. | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports transparency of independent supply chain vendors involved in delivering content to publisher pages. | |
+| Project | Comment |
+|-|-|
+| Chrome | Both the Chrome team and the Google ads team have on multiple occassions cited a desire show people an explanation of what caused an ad to appear. The TURTLEDOVE proposal specifically aims to provide people with an accurate answer as to why they are seeing a re-targeting ad. |
+| Safari | No support. |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports transparency of independent supply chain vendors involved in delivering content to publisher pages. |
 
 #### [Opt-out of an advertiser, category or product](#opt-out-of-an-advertiser-category-or-product)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Unclear | |
-| Safari | No support. | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports opt-out of advertiser or advert. | |
+| Project | Comment |
+|-|-|
+| Chrome | Unclear |
+| Safari | No support. |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports opt-out of advertiser or advert. |
 
 #### [Opt-out of a marketing service](#opt-out-of-a-marketing-service)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Supported | |
-| Safari | | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports transparency of independent supply chain vendors involved in delivering content to publisher pages and links for people to communicate directly with those vendors OR set their default preferences. | |
+| Project | Comment |
+|-|-|
+| Chrome | Supported |
+| Safari | |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports transparency of independent supply chain vendors involved in delivering content to publisher pages and links for people to communicate directly with those vendors OR set their default preferences. |
 
 #### [Seeing ads relevant to me](#seeing-ads-relevant-to-me)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | Interest groups and contextual signals should help have relevant ads. | |
-| Safari | | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Supports opt-out of advertiser or advert and entire supply chain audit providing transparency. | |
+| Project | Comment |
+|-|-|
+| Chrome | Interest groups and contextual signals should help have relevant ads. |
+| Safari | |
+| [SWAN.CO](https://github.com/swan-community/swan) | Supports opt-out of advertiser or advert and entire supply chain audit providing transparency. |
 
 #### [Smooth user experience](#smooth-user-experience)
 
-| Project | Comment | % |
-|-|-|-|
-| Chrome | More details required. Concerns about the size of the data to load, store and process in-browser. | |
-| Safari | | |
-| [SWAN.CO](https://github.com/swan-community/swan) | Provides the simplicity of a single question (similar to GPC or Apple IDFA dialog), and relies on contracts to define explicitly what user-signals mean and how they must be respected. | |
+| Project | Comment |
+|-|-|
+| Chrome | More details required. Concerns about the size of the data to load, store and process in-browser. |
+| Safari | |
+| [SWAN.CO](https://github.com/swan-community/swan) | Provides the simplicity of a single question (similar to GPC or Apple IDFA dialog), and relies on contracts to define explicitly what user-signals mean and how they must be respected. |
 
 # Impression and Viewability Measurement
 
@@ -741,10 +668,8 @@ There are a few critically important aspects of impression counting that
 advertisers care about:
 
 -   "Viewability": was the ad actually visible to the user
-
 -   "Invalid Traffic": was the ad viewed by an actual human (as opposed to a bot
     / script)
-
 -   "Third Party Verification": are the impression counts validated by a neutral
     third party that will vouch for their accuracy
 
@@ -894,7 +819,6 @@ in measuring conversion lift:
     clicks. This means that any browser API that requires clicks to operate will
     not be suitable for Brand Lift Measurement (though API's that support
     "view-through conversions" may potentially be sufficient).
-
 2.  Attitudes towards Toyota are fundamentally different than attitudes towards
     BMW, and so a Toyota ad campaign can only be measured by a survey that
     specifically asks about attitudes towards Toyota in particular. Because
@@ -940,13 +864,11 @@ Brand lift measurement does have some additional privacy advantages:
 -   It is inherently opt-in, because surveys used to measure attitudes are
     inherently optional. Consumers who do not wish to have their reactions to
     brand advertising measured can simply choose not to respond to surveys.
-
 -   Although 3rd party brand lift measurement does require some degree of
     aggregation of cross-site behavior, it does **not** require the advertiser,
     the publisher, or the measurement company to collect and share any
     personally identifiable information about about people whose attitudes are
     being measured.
-
 -   Knowing which survey to administer to a browser does not inherently require
     any browser-level identification. Vendors only need to know the campaign or
     creative-level exposure attribute (which is shared by thousands or millions
@@ -1022,16 +944,13 @@ include:
 
 -   Ad shown on a Smart-TV. Person opens their phone to interact with the
     advertiser.
-
 -   Ad for a big-ticket item shown on a smartphone. Person completes the
     purchase on their laptop later after doing some price comparisons / web
     research.
-
 -   Ad is shown within a mobile app. A click on the ad opens a mobile website
     either within a “Webview” or within the built-in mobile web browser. Person
     completes the purchase in the browser while the ad click is within a mobile
     app.
-
 -   Ad is shown within a mobile app. A click on the ad opens a different mobile
     app, but the person does not commit to purchasing then, as they are
     travelling. Later at their computer, they open a browser and further
@@ -1061,9 +980,7 @@ Fraudsters will attempt to send fraudulent conversion events. Possible
 motivations include:
 
 -   Disrupt the ad measurement of a competitor business
-
 -   Disrupt the ability of a publisher to provide ad metrics to advertisers
-
 -   (When the ad was served by a 3rd party ad network) appear to have a higher
     conversion rate in order to get higher ads revenue from the ad network
 
@@ -1160,9 +1077,7 @@ As an advertiser, I want to be able to build the audience for my campaign using
 any combination of either:
 
 -   List of users I can provide
-
 -   Socio-demo-geo criterias
-
 -   Users that have had interactions with my website or store over a certain
     period, or not. E.g.: "abandoned cart users", "users that have bought baby
     diapers between J-30 and J-15 but not since then"
@@ -1171,7 +1086,6 @@ I want to be able to:
 
 -   get a understanding of the reach of my audience while defining it, and
     through the life of my campaign
-
 -   my audience to be updated in real-time. E.g. if my audience excludes people
     that recently made a purchase on my site, I want to stop displaying ads to
     any user making a purchase in near real time.
@@ -1382,11 +1296,8 @@ Typical sources of recommendation models would be :
 
 -   Historical Products (compared to historical products browsed): abandoned
     cart, etc.
-
 -   Similar products (compared to historical products browsed)
-
 -   Complementary Products (compared to historical products browsed)
-
 -   ...
 
 # ML Applications
@@ -1694,10 +1605,8 @@ As a Publisher, I want to:
 
 -   Have a daily detailed and accurate reporting of advertising revenues on my
     properties.
-
 -   Have the ability to investigate and understand variations in my advertising
     revenues.
-
 -   Have the ability to reconcile and investigate discrepancies between the
     reporting I get on my ad revenues and the revenues that will actually come
     from advertisers or ad networks.
@@ -1724,7 +1633,6 @@ shown, even if there is no ad at a higher rate) based on several criteria.
 
 -   A publisher may not want an ad to serve at all, if it is below a minimum
     floor set for that page, section, or site.
-
 -   A publisher may not want an ad from a certain brand, vertical or campaign
     unless it is above a minimum floor set for that brand, vertical, or
     campaign. For example, a publisher may set a "floor for automotive."
@@ -1754,12 +1662,10 @@ Some examples:
 -   VAST errors: If a given ad is known to have VAST errors 20% of the time (for
     example, does not serve) then it needs to have its effective bid price
     reduced by 20%, by the publisher.
-
 -   Post-bid brand safety blocking: If a given buyer has brand-safety controls
     that prevent an ad from serving on a page, the publisher ultimately does not
     get paid. Publishers can currently adjust for this by reducing the effective
     bids for impressions from a given buyer.
-
 -   Reporting discrepancies: For many reasons, buyer and seller reporting (and
     third parties) does not match, and publishers need to be able to reduce (or
     increase) the bid price based on those discrepancies to ensure the ads
@@ -1804,6 +1710,5 @@ As a user, I do not want:
 
 -   Ads to degrade my browsing experience, in term of navigation, e.g.: ads
     blocking access to content or slowing down page load.
-
 -   Ads to be annoying, e.g.: get to many times ads for the same product, or ads
     for products I already bought.
