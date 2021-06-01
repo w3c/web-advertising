@@ -70,3 +70,5 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [SWAN](https://github.com/1plusX/swan) Storage With Access Negotiation (SWAN)
 * [SPECTACLE](https://gitlab.com/eyeo/lab/spectacle/-/blob/master/README.md) Sensible Privacy Enablement by Clustering Targeting Attributes in CLiEnt  and [Crumbs](https://crumbs.org/)
 * [PARAKEET](https://github.com/microsoft/privacy-preserving-ads/blob/main/Parakeet.md) "Private and Anonymized Requests for Ads that Keep Efficacy and Enhance Transparency"
+* [SandPiper](https://github.com/carbondmp/sandpiper) "a privacy preserving method to define a secure context that allows data storage amongst a network of certified partners"
+* [Kitten Cluster](https://github.com/carbondmp/Kitten_Cluster) "Knitting Interconnected Technical Tenants Enumerating Nonconformities Coincidedly Labeling Unrelated Standards Towards Effective Remediation"

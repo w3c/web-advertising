@@ -90,5 +90,13 @@
     {
     "name": "Microsoft Privacy-preserving-ads (PARAKEET)",
     "repo": "microsoft/privacy-preserving-ads/"
+  },
+    {
+    "name": "Carbon SandPiper",
+    "repo": "carbondmp/SandPiper/"
+    },
+  { 
+    "name": "Carbon Kitten Cluster",
+    "repo": "carbondmp/Kitten_Cluster/"
   }
 ]
