@@ -74,11 +74,11 @@
   {
     "name": "AdRoll (SPURFOWL, MURRE, COWBIRD)",
     "repo": "AdRoll/privacy"
-  }, 
+  },
     {
     "name": "Google Ads privacy (Dovekey, Augury API, Scaup)",
     "repo": "google/ads-privacy"
-  }, 
+  },
     {
     "name": "Criteo privacy (TEETAR)",
     "repo": "criteo/privacy"
@@ -95,8 +95,12 @@
     "name": "Carbon SandPiper",
     "repo": "carbondmp/SandPiper/"
     },
-  { 
+  {
     "name": "Carbon Kitten Cluster",
     "repo": "carbondmp/Kitten_Cluster/"
+  },
+  {
+    "name": "Governance of Ad Requests by a Union of Diverse Actors (GARUDA)",
+    "repo": "darobin/garuda"
   }
 ]

@@ -11,7 +11,7 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [Participants in Online Advertising](OnlineAdvertisingParticipants.md) "Hello Ads," an introduction to the online advertising ecosystem.
 * [Common User Flows](common-user-flows-in-web-advertising.md): Example user experiences and the parties involved.
 
-# Testing Opportunities 
+# Testing Opportunities
 
 * [FLoC Origin Trial](https://developer.chrome.com/origintrials/#/view_trial/213920982300098561)
 * [Eyeo FLoC-style Browser Extension](https://crumbs.org/)
@@ -57,7 +57,7 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [Outcome-based TURTLEDOVE](https://github.com/WICG/turtledove/blob/master/OUTCOME_BASED.md) (extension introducing in Turtledove outcome-based approach - monitor and validate bidding outcomes, not inputs)
 * [TURTLEDOVE-js demo](https://github.com/dervan/turtledove-js) (demo implementation of TURTLEDOVE - based on available technologies)
 * [isLoggedIn](https://github.com/WebKit/explainers/tree/main/IsLoggedIn)
-* [SPARROW](https://github.com/WICG/sparrow) 
+* [SPARROW](https://github.com/WICG/sparrow)
 * [Gatekeeper](https://github.com/MagniteEngineering/Gatekeeper)
 * [Proprietary Cohorts](https://github.com/MagniteEngineering/ProprietaryCohorts)
 * [Fenced Frame](https://github.com/shivanigithub/fenced-frame/)
@@ -72,3 +72,5 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [PARAKEET](https://github.com/microsoft/privacy-preserving-ads/blob/main/Parakeet.md) "Private and Anonymized Requests for Ads that Keep Efficacy and Enhance Transparency"
 * [SandPiper](https://github.com/carbondmp/sandpiper) "a privacy preserving method to define a secure context that allows data storage amongst a network of certified partners"
 * [Kitten Cluster](https://github.com/carbondmp/Kitten_Cluster) "Knitting Interconnected Technical Tenants Enumerating Nonconformities Coincidedly Labeling Unrelated Standards Towards Effective Remediation"
+* [GARUDA](https://darobin.github.io/garuda/) "Governance of Ad Requests by a Union of Diverse Actors" — This is a proposed governance model to make the trusted server (as found in other proposals)
+  trusted without relying on technical mechanisms that may not exist at this time.
