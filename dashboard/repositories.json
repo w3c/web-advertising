@@ -102,5 +102,8 @@
   {
     "name": "Governance of Ad Requests by a Union of Diverse Actors (GARUDA)",
     "repo": "darobin/garuda"
+  },
+  { "name": "Shared Storage API",
+    "repo": "pythagoraskitty/shared-storage"
   }
 ]
