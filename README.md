@@ -10,6 +10,7 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [Overview of Online Advertising & Marketing](advertising101.md), an overview of common business use cases for digital advertising.
 * [Participants in Online Advertising](OnlineAdvertisingParticipants.md) "Hello Ads," an introduction to the online advertising ecosystem.
 * [Common User Flows](common-user-flows-in-web-advertising.md): Example user experiences and the parties involved.
+* [Understanding Privacy Advocates](understanding-privacy-advocates.md): a set of readings to help understand the position of privacy and user advocates to help address them in our proposals.
 
 # Testing Opportunities
 
