@@ -46,3 +46,4 @@ Please make additions to this list at the bottom of the appropriate section.
 
 - [Privacy in Context](https://www.amazon.com/Privacy-Context-Technology-Policy-Integrity/dp/0804752370)
 - [Subprime Attention Crisis](https://us.macmillan.com/books/9780374538651)
+- [Privacy is Power](https://www.penguin.co.uk/authors/1086495/carissa-veliz.html)
