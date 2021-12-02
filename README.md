@@ -76,5 +76,8 @@ Raise issues, add drafts. As you add a document, feel free to add a PR for its d
 * [Kitten Cluster](https://github.com/carbondmp/Kitten_Cluster) "Knitting Interconnected Technical Tenants Enumerating Nonconformities Coincidedly Labeling Unrelated Standards Towards Effective Remediation"
 * [GARUDA](https://darobin.github.io/garuda/) "Governance of Ad Requests by a Union of Diverse Actors" — This is a proposed governance model to make the trusted server (as found in other proposals)
   trusted without relying on technical mechanisms that may not exist at this time.
- * [Shared Storage](https://github.com/pythagoraskitty/shared-storage) Shared Storage API
- * [SUSHI](https://github.com/privacycg/proposals/issues/27) Suggested and User-Specified Hierarchical Interests
+* [Shared Storage](https://github.com/pythagoraskitty/shared-storage) Shared Storage API
+* [SUSHI](https://github.com/privacycg/proposals/issues/27) Suggested and User-Specified Hierarchical Interests
+* [TAG Privacy Principles Working Document](https://w3ctag.github.io/privacy-principles/) The TAG working document on stating privacy principles (this is not yet a finalized document) 
+* [Self-Review Questionnaire: Security and Privacy](https://www.w3.org/TR/security-privacy-questionnaire/) This document contains a set of questions to be used when evaluating the security and privacy implications of web platform technologies.
+
