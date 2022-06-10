@@ -217,7 +217,7 @@ These use-cases are more focused on the publisher's perspective.
 
 | Use-case | Chrome | Safari | Community Proposals |
 |----------|--------|--------|---------------------|
-|[Why am I seeing this ad?](#why-am-i-seeing-this-ad)| Both the Chrome team and the Google ads team have on multiple occassions cited a desire show people an explanation of what caused an ad to appear. The TURTLEDOVE proposal specifically aims to provide people with an accurate answer as to why they are seeing a re-targeting ad. | No support. |  |
+|[Why am I seeing this ad?](#why-am-i-seeing-this-ad)| Both the Chrome team and the Google ads team have on multiple occassions cited a desire show people an explanation of what caused an ad to appear. The TURTLEDOVE proposal specifically aims to provide people with an accurate answer as to why they are seeing a retargeting ad. | No support. |  |
 |[Opt-out of an advertiser, category or product](#opt-out-of-an-advertiser-category-or-product)| Unclear | No support |  |
 |[Opt-out of a marketing service](#opt-out-of-a-marketing-service)| Supported |  |  |
 |[Seeing ads relevant to me](#seeing-ads-relevant-to-me)| Interest groups and contextual signals should help have relevant ads. |  |  |
@@ -280,7 +280,7 @@ even of viewers who are registered or subscribed. Thus advertisers use products 
  can it be collected contemporaneously with the exposure. This means that the vendor conducting the surveys must have some way to know which
   advertising campaigns individuals have been exposed to in order to ask the right survey questions and to 
   properly aggregate the responses. Asynchronous 
-  reporting API's may play a part in supporting the audience verification use-case but they are not themselves sufficient,
+  reporting APIs may play a part in supporting the audience verification use-case but they are not themselves sufficient,
   because it's not plausible to ask every potential question about demographics and interests to every respondent. So
   surveys need to be targeted to the relevant groups of advertising-exposed respondents
 
@@ -290,7 +290,7 @@ Advertisers need to know how many conversions happened as a result of their ad c
 
 ## Conversion Lift Measurement
 
-Ideally advertisers would like to know how many conversions were caused by their ad campaign (i.e. would not have happened were it not for this ad campaign). This is variously refered to as "causality" or "incrementality" measurement. The gold standard measurement approach to answer this question is “Lift Measurement”. This involves a “test group” who is shown ads, and a “control group” who is not shown ads. These groups should be randomly selected prior to running the test to ensure they are well balanced. 
+Ideally advertisers would like to know how many conversions were caused by their ad campaign (i.e. would not have happened were it not for this ad campaign). This is variously referred to as "causality" or "incrementality" measurement. The gold standard measurement approach to answer this question is “Lift Measurement”. This involves a “test group” who is shown ads, and a “control group” who is not shown ads. These groups should be randomly selected prior to running the test to ensure they are well balanced. 
 
 The total number of raw conversion events is counted in both groups, and the difference between the two is called the “lift”. If this is a statistically significant value, and the test and control groups were selected randomly, the only explanation for the difference is the causal effect of the ads.
 
@@ -328,8 +328,9 @@ might be a problem if publishers are blinded to the ads served via a system like
 
 While some large publishers (e.g. Youtube) do conduct their own brand measurement surveys in a 1st party context,
 advertisers are understandably reluctant to allow publishers to "grade their own homework." Also, the vast majority of 
-brand campaigns are conducted on many different channels simultaneously. Conducting and analyzing surveys requires expertise
- that is unrealistic for small, independent publishers to develop and deploy on their own. Thus the large majority of                                                               brand lift measurement is conducted via 3rd party channels (either by intercepting visitors on other websites, or by
+brand campaigns are conducted on many different channels simultaneously. Conducting and analyzing surveys requires expertise 
+that is unrealistic for small, independent publishers to develop and deploy on their own. Thus the large majority of 
+brand lift measurement is conducted via 3rd party channels (either by intercepting visitors on other websites, or by
 using 3rd party panels).
 
 When surveys are conducted on a different domain than the original ad exposure, the surveying domain must have some way
@@ -337,7 +338,7 @@ to select the right survey to give based on the respondent's ad exposure profile
 
 Fortunately, the conclusions of attitudinal brand lift measurement are inherently statistical and aggregated, e.g. "this campaign increased awareness by 
 10% among those who saw it". The responses of any individual are irrelevant beyond their contribution to a summary statistic.
- If a privacy-safe way to collect and aggregate the the survey data can be devised, measurement providers have no 
+ If a privacy-safe way to collect and aggregate the survey data can be devised, measurement providers have no 
  further need to retain any information about individuals. 
  
  Brand lift measurement does have some additional privacy advantages:
@@ -346,10 +347,10 @@ Fortunately, the conclusions of attitudinal brand lift measurement are inherentl
  who do not wish to have their reactions to brand advertising measured can simply choose not to respond to surveys.
 * Although 3rd party brand lift measurement does require some degree of aggregation of cross-site behavior, it does
 **not** require the advertiser, the publisher, or the measurement company to collect and share any personally 
-identifiable information about about people whose attitudes are being measured.     
+identifiable information about people whose attitudes are being measured.     
 * Knowing which survey to administer to a browser does not inherently require any browser-level identification. Vendors
  only need to know the campaign or creative-level exposure attribute (which is shared by thousands or millions of 
- other browsers). I.e. vendors only need to know about membership in groups that are always very large.
+ other browsers). In other words, vendors only need to know about membership in groups that are always very large.
 
 ## Click-through and View-through attribution heuristics
 
@@ -365,11 +366,11 @@ How should one determine a good attribution methodology and attribution window t
 
 In practice, advertisers run many ad campaigns simultaneously across multiple platforms. People often see (or even click) on multiple ads for a given product prior to making a purchase. When a person interacted with multiple ads, across several websites before eventually making a purchase, who should get the credit for the conversion? 
 
-One popular approach is “Multi touch attribution”. This is a system for allocating partial credit to each of the ads the person interacted with prior to a conversion. 
+One popular approach is “Multi-touch attribution”. This is a system for allocating partial credit to each of the ads the person interacted with prior to a conversion. 
 
-The alternative is called “Last touch attribution”. This approach grants 100% of the credit for the conversion to the last ad the person clicked on prior to the conversion. This approach may give too much credit to search ads, as illustrated in the following example. 
+The alternative is called “Last-touch attribution”. This approach grants 100% of the credit for the conversion to the last ad the person clicked on prior to the conversion. This approach may give too much credit to search ads, as illustrated in the following example. 
 
-Very often ads shown elsewhere generate interest in a product, which leads a person to do some research, including searching for the specific product they already saw an ad for. If the person clicks on a search ad they see after performing such a search, “Last touch attribution” grants 100% of the credit to this search ad, ignoring entirely the effect of the original ad that generated the interest to begin with.
+Very often ads shown elsewhere generate interest in a product, which leads a person to do some research, including searching for the specific product they already saw an ad for. If the person clicks on a search ad they see after performing such a search, “Last-touch attribution” grants 100% of the credit to this search ad, ignoring entirely the effect of the original ad that generated the interest to begin with.
 
 How should one determine a fair allocation of credit across multiple ad interactions across multiple publishers? Ideally this would be calibrated with a cross-publisher lift test that measures the causal contribution of each publisher. The “Multi-touch attribution” methodology which most closely approximates the results of a wide set of “Lift Measurement” tests is the most fair.
 
@@ -380,7 +381,7 @@ People often make a purchase from a different browser (or even a different devic
 - Ad shown on a Smart-TV. Person opens their phone to interact with the advertiser.
 - Ad for a big-ticket item shown on a smartphone. Person completes the purchase on their laptop later after doing some price comparisons / web research. 
 - Ad is shown within a mobile app. A click on the ad opens a mobile website either within a “Webview” or within the built-in mobile web browser. Person completes the purchase in the browser while the ad click is within a mobile app.
-- Ad is shown within a mobile app. A click on the ad opens a different mobile app, but the person does not commit to purchasing then, as they are travelling. Later at their computer, they open a browser and further consider the product. They then switch back to their phone (where they perhaps have Apple Pay or Google Wallet set up) and purchase quickly and easily.
+- Ad is shown within a mobile app. A click on the ad opens a different mobile app, but the person does not commit to purchasing then, as they are traveling. Later at their computer, they open a browser and further consider the product. They then switch back to their phone (where they perhaps have Apple Pay or Google Wallet set up) and purchase quickly and easily.
 
 It is very important to provide measurement for these flows given how common they are, and how for certain platforms, they are essentially the only way conversions happen.
 
@@ -427,9 +428,9 @@ When designing APIs, we should assume that this is a part of the threat model as
 
 Some web-pages may contain graphic imagery, or might discuss controversial topics, or include news about disaster or tragedy. Advertisers care a great deal about the types of concepts that people will associate with their brand. For this reason, advertisers might not feel comfortable having their advertisements run alongside these types of content.
 
-For this reason, the industry has developed a lot of "Brand Safety" controls. Advertisers commonly provide ad-servers with either "whitelists" of the websites where they are happy to display their ads, or "blacklists" of websites where they are not happy to have their ads shown. Some ad-servers also support "keyword blocking", where the actual text on the page is crawled, and if certain keywords are present, the ad should not be shown anywhere on the page. 
+For this reason, the industry has developed a lot of "Brand Safety" controls. Advertisers commonly provide ad-servers with either "allowlists" of the websites where they are happy to display their ads, or "blocklists" of websites where they are not happy to have their ads shown. Some ad-servers also support "keyword blocking", where the actual text on the page is crawled, and if certain keywords are present, the ad should not be shown anywhere on the page. 
 
-Another important part of this story is transparency. Once an ad campaign has been delivered, **advertisers want a breakdown of all of the apps and websites where their ads were shown, so that they can review this list from the perspective of "Brand Safety".** This is important to validate that their "Brand Safety" configuration was respected, and also to give them a better idea of where their ad was actually delivered (from the perspective of the adajcent page content).
+Another important part of this story is transparency. Once an ad campaign has been delivered, **advertisers want a breakdown of all of the apps and websites where their ads were shown, so that they can review this list from the perspective of "Brand Safety".** This is important to validate that their "Brand Safety" configuration was respected, and also to give them a better idea of where their ad was actually delivered (from the perspective of the adjacent page content).
 
 # Billing Transparency
 
@@ -445,11 +446,11 @@ Targeting is the selection of a specific audience to see an ad. There are a few 
 As an advertiser, I want to be able to build the audience for my campaign using any combination of either:
 - List of users I can provide
 - Socio-demo-geo criterias
-- Users that have had interactions with my website or store over a certain period, or not. E.g.: "abandoned cart users", "users that have bought baby diapers between J-30 and J-15 but not since then" 
+- Users that have had interactions with my website or store over a certain period, or not. For example: "abandoned cart users", "users that have bought baby diapers between J-30 and J-15 but not since then" 
 
 I want to be able to:
-- get a understanding of the reach of my audience while defining it, and through the life of my campaign
-- my audience to be updated in real-time. E.g. if my audience excludes people that recently made a purchase on my site, I want to stop displaying ads to any user making a purchase in near real time.
+- Get an understanding of the reach of my audience while defining it, and through the life of my campaign
+- Update my audience in real-time, e.g. if my audience excludes people that recently made a purchase on my site, I want to stop displaying ads to any user making a purchase in near real time.
 
 ## Exclusion Targeting
 
@@ -467,9 +468,9 @@ A common practice in the industry today is to run ads that are shown to previous
 
 ## Display and target environment
 
-As an advertiser, I want to be able to select on which type of environment my ads are displayed (web, mobile web, app) and what's the target environment for my ads.
+As an advertiser, I want to be able to select the type of environment where my ads are displayed (web, mobile web, app) and the target environment for my ads.
 
-E.g. running a mobile web campaign that brings user to make purchase on my Apps.
+For example, running a mobile web campaign that encourages users to make a purchase on mobile apps.
 
 # Frequency 
 
@@ -487,9 +488,9 @@ While frequency capping tries to cut off the long-tail of an ad being over-deliv
 
 # Businesses with Multiple Domains
 
-Some businesses operate their services across multiple domains. One common example is to utilize country-specific eTLDs, e.g. example.com for US users, example.co.uk for UK users, and example.it for Italian users. Other use-cases involve hosting user-generated content on a separate domain for security reasons, or using a separate domain for resources that are hosted on a CDN. Another use-cases is to have a separate domain for each service a company offers to people, for example itunes.com and icloud.com are both affiliate with Apple.
+Some businesses operate their services across multiple domains. One common example is to utilize country-specific eTLDs, e.g. example.com for US users, example.co.uk for UK users, and example.it for Italian users. Other use-cases involve hosting user-generated content on a separate domain for security reasons, or using a separate domain for resources that are hosted on a CDN. Another use-cases is to have a separate domain for each service a company offers to people, for example itunes.com and icloud.com are both affiliated with Apple.
 
-There are a number of problems that arise when a business operates their service across multiple domains. One example is conversion measurement. Advertisers may run an advertising campaign which directs people to example.com, but based on the IP address of the user, they may be re-directed to a country specific eTLD like example.co.uk. In such a case, the advertiser wants to count conversions that happen across all of their domains, not just those on example.com.
+There are a number of problems that arise when a business operates their service across multiple domains. One example is conversion measurement. Advertisers may run an advertising campaign which directs people to example.com, but based on the IP address of the user, they may be redirected to a country specific eTLD like example.co.uk. In such a case, the advertiser wants to count conversions that happen across all of their domains, not just those on example.com.
 
 # Ads directing to large marketplaces
 
@@ -514,7 +515,7 @@ Many companies utilize email as a mechanism for re-engaging with their customers
 
 Advertisers have very tight control over the budget they spend on the various online marketing channels they run simultaneously. They demand the ability to start / stop / increase / decrease the spend on a campaign with low latency.
 
-This proves to be necessary for ramping-up the campaigns (budgets are increased little by little in order to minimize the risk of any campaign setup error, etc.), peak seasons (strong budget increase during sales periods) or inversely exceptional event management (E.g. shut down all travel campaigns related to a country where a catastrophe just happened), or on a more daily basis, channels and campaigns fine-tuning (increase the budgets for the campaigns best performing and vice versa).
+This proves to be necessary for ramping-up the campaigns (budgets are increased little by little in order to minimize the risk of any campaign setup error, etc.), peak seasons (strong budget increase during sales periods) or inversely exceptional event management (e.g., shut down all travel campaigns related to a country where a catastrophe just happened), or on a more daily basis, channels and campaigns fine-tuning (increase the budgets for the campaigns best performing and vice versa).
 
 ## Catalog
 
@@ -530,15 +531,15 @@ As an Advertiser, I don't want to display ads for products that I do not have in
 
 ### Price management
 
-As an Advertiser, I want changes in my products price changes to be reflected in near real time in my ads.
+As an Advertiser, I want changes in my product prices to be reflected in near real time in my ads.
 
-I.e. I don't want to display an incorrect price in an ad.
+In other words, I don't want to display an incorrect price in an ad.
 
 ### Products promotion management
 
-As an Advertiser, I want to be able to push forward a set of product in my ads: i.e. during a certain period of time increase the frequency of display for these products.
+As an Advertiser, I want to be able to push forward a set of products in my ads: i.e. during a certain period of time increase the frequency of display for these products.
 
-This use case is common in sales period. Note that sales period can have very precise start and stop dates.
+This use case is common in a sales period. Note that sales periods can have very precise start and stop dates.
 
 ## Creatives
 
@@ -548,7 +549,7 @@ This can be done programmatically using historical aggregated and/or personal us
 
 ## Coupon Management
 
-As an Advertiser I want to be able to add coupons, or any form of targeted discounts to my creatives on specific period of times, potentially for specific products.
+As an Advertiser I want to be able to add coupons, or any form of targeted discounts to my creatives for specific periods of time, potentially for specific products.
 
 ## Product Recommendation
 
@@ -571,7 +572,7 @@ Ad-campaign selection is a very important task. e.g. There are many advertising 
 
 ## Ad-component selection
 
-Ads are composed of multiple components (e.g. the title, description, image, video, etc.). Some ads are promoting particular products/offers. Once an ad-campaign is selected, ML is used to select which components to use in each particular ad impression. (e.g. which products to highlights, which title text to use, which image to use). These options are constrained by what the advertiser has provided as options for their ad-campaign and lastly optimized to maximize probability of reaching Advertiser's desired goal.
+Ads are composed of multiple components (e.g. the title, description, image, video, etc.). Some ads are promoting particular products/offers. Once an ad-campaign is selected, ML is used to select which components to use in each particular ad impression. (e.g. which products to highlight, which title text to use, which image to use). These options are constrained by what the advertiser has provided as options for their ad-campaign and lastly optimized to maximize probability of reaching Advertiser's desired goal.
 
 ## Bidding logic
 
@@ -595,7 +596,7 @@ An ad server which just utilizes a “CTR Model” will be able to optimize for 
 
 ## Conversion Rate (CVR) Model: P(conversion | click)
 
-Just optimizing for clicks may not lead to desirable results. Clicks are only a weak proxy for business value. Some clicks will result in conversions and business value generation, but others will not. Some clicks might be accidental, or could even be fraudulent. Advertisers do not want to pay for cheap clicks than seldom result in conversions, they want ads that actually create business value.
+Just optimizing for clicks may not lead to desirable results. Clicks are only a weak proxy for business value. Some clicks will result in conversions and business value generation, but others will not. Some clicks might be accidental, or could even be fraudulent. Advertisers do not want to pay for cheap clicks that seldom result in conversions, they want ads that actually create business value.
 
 For this reason, another important use-case is to train “CVR Models”, that predict the likelihood of a conversion given a click. Training such a machine learning model will require “positive” and “negative” training samples as well. “Positive” samples are clicks which eventually resulted in a conversion. “Negative” samples are clicks which did not result in a conversion.
 
@@ -619,13 +620,13 @@ We can combine all three predictions to estimate the conversion value given an i
 
 E(conversion-value | impression) = E(conversion-value | conversion) * P(conversion | click) * P(click | impression)
 
-## Multiple targets optimization (visits, registrations, sales, etc.)
+## Multiple target optimization (visits, registrations, sales, etc.)
 
-Advertisers may want to track and attribute multiple natures of "conversions". Indeed many advertiser don't only focus on sales but also on visits, leads, etc.
+Advertisers may want to track and attribute multiple types of "conversion". Indeed many advertisers don't only focus on sales but also on visits, leads, etc.
 
 ## Audience Selling
 
-Some actors on the internet are able to build custom audiences, revealing strong user intent.  A business model is to sell these audiences to advertisers/brands for targetting purposes.
+Some actors on the internet are able to build custom audiences, revealing strong user intent.  A business model is to sell these audiences to advertisers/brands for targeting purposes.
 
 ## CRM Targeting
 
@@ -667,11 +668,11 @@ Another concern is fraud. Fraudsters may attempt to utilize “click flooding”
 
 # Enablers for first parties 
 
-Section on use-cases which are not strictly advertising driven but will need consideration in terms of how they can be handled in the web-platform going forward as they are key enablers for publishers, advertiser as well as users.
+Section on use-cases which are not strictly advertising driven but will need consideration in terms of how they can be handled in the web platform going forward as they are key enablers for publishers and advertisers, as well as users.
 
 ## Federated Single Sign-on
 
-Across all the proposals already published and the viewpoints shared by the browsers (Privacy Models), it is quite clear that 1-st parties in general will need to build more direct/explicit consumer relations to be able to sustain advertising supported business models in the open web. Federated Sign-on as a means of scalable authorization / authentication is a key enabler to that. It servers both site owners, simplifying consumer onboarding, as well as the users in terms of ease of use, transparency, security etc.
+Across all the proposals already published and the viewpoints shared by the browsers (Privacy Models), it is quite clear that first parties in general will need to build more direct/explicit consumer relations to be able to sustain advertising supported business models in the open web. Federated Sign-on as a means of scalable authorization / authentication is a key enabler to that. It serves both site owners, simplifying consumer onboarding, as well as the users in terms of ease of use, transparency, security etc.
 
 As noted in the WebID Proposal, identity federation has been standardized outside the web platform largely by just using basic primitives (re-directs/cookies). Anticipating changed behavior/constrained use of them, there is a need for a more explicit integration while still being compatible with the existing federation protocols.
 
@@ -687,7 +688,7 @@ One special call out relates to "Landing Page Personalization". In the case that
 
 ## On-site Sponsored Product
 
-Another area of digital adverting is called sponsored products. Brands launch this type of campaigns in order to obtain preferential placements for their products on retailers' or big marketplaces' websites.
+Brands launch sponsored product campaigns in order to obtain preferential placements for their products on retailers' or big marketplaces' websites.
 Contrary to the other use cases mentioned above, the entire process from printing to ad to the actual sales happens on the retailer's website (there is no redirecting outside of the retailer's domain).
 
 ## Search
@@ -716,9 +717,9 @@ Marketers sometimes choose to rapidly pause their ads in all media after an adve
 
 ## Advertisers exclusion
 
-As a Publisher, get the ability to blacklist ads from a list of advertisers.
+As a Publisher, get the ability to block ads from a list of advertisers.
 
-E.g. As owner of mylocalnews.com, I don't want to have any ad from any other newspaper on my site.
+For example, as owner of mylocalnews.com, I don't want to have any ad from any other newspaper on my site.
 
 ## Revenue management
 
@@ -757,12 +758,12 @@ The bid price set by the marketer is not necessarily the price at which it shoul
 # User needs
 
 ## Why am I seeing this ad?
-One user need is to be presented with an accurate explanation of why a particular ad was shown. This is especially important in use-cases like re-targeting when people want to understand how personal information is shared. When no explanation is provided, people may imagine innacurate theories as to why they are seeing a given ad.
+One user need is to be presented with an accurate explanation of why a particular ad was shown. This is especially important in use-cases like retargeting when people want to understand how personal information is shared. When no explanation is provided, people may imagine inaccurate theories as to why they are seeing a given ad.
 
 ## Opt-out of an advertiser, category or product
 One user need is the ability to opt-out of all ads from a specific business. This could be for any reason, but examples might include a dislike for that particular company / brand, a lack of relevance, excessively repetitive ads from that business in the past, a prior bad experience with that business, or offensive ad imagery. 
 
-The compexity in serving this user need comes from the difficulty in recognizing which ads promote which businesses. A given business may run ads through many channels, through many different ad agencies, and might promote a variety of apps and websites. All of this makes it very difficult to successfully satisfy this user need.
+The complexity in serving this user need comes from the difficulty in recognizing which ads promote which businesses. A given business may run ads through many channels, through many different ad agencies, and might promote a variety of apps and websites. All of this makes it very difficult to successfully satisfy this user need.
 
 ## Opt-out of a marketing service
 As a user, upon request I want to easily be able to opt-out of ads provided by a specific marketing service.
@@ -772,5 +773,5 @@ As a user, I prefer to see ads that are relevant to me.
 
 ## Smooth user experience
 As a user, I do not want:
- - Ads to degrade my browsing experience, in term of navigation, e.g.: ads blocking access to content or slowing down page load. 
- - Ads to be annoying, e.g.: get to many times ads for the same product, or ads for products I already bought.
+ - Ads to degrade my browsing experience, in terms of navigation, e.g.: ads blocking access to content or slowing down page load. 
+ - Ads to be annoying, e.g.: get too many ads for the same product, or ads for products I already bought.
