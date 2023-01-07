@@ -105,5 +105,8 @@
   },
   { "name": "Shared Storage API",
     "repo": "pythagoraskitty/shared-storage"
+  },
+  { "name": "PUFFIN",
+    "repo": "dmarti/PUFFIN"
   }
 ]
