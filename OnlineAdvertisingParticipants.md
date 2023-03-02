@@ -1,4 +1,4 @@
-s# The Use Cases of Online Advertising
+# The Use Cases of Online Advertising
 
 Discussion Paper for the  
 W3C Advertising Business Group
