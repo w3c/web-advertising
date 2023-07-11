@@ -40,7 +40,7 @@ Please make additions to this list at the bottom of the appropriate section.
 - [Confiding in Con Men: US Privacy Law, the GDPR, and Information Fiduciaries](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3354129)
 - [The Fiduciary Duties of User Agents](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3827421)
 - [Taking Trust Seriously in Privacy Law](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2655719)
-
+- [Microtargeting as Information Warfare](https://cyberdefensereview.army.mil/CDR-Content/Articles/Article-View/Article/2537110/microtargeting-as-information-warfare/)
 
 ## Books
 
