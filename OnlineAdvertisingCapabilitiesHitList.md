@@ -11,7 +11,7 @@ Draft
 
 The mission of the W3C's Improving Web Advertising Business Group is to identify areas where standards and changes in the Web itself can improve the online advertising ecosystem.  This document aims to collect various needs expressed by the advertising-interested users of the Web platform which seem like they might be met by changes to browsers.
 
-For terminology and an explanation of the parties involved, see [UseCasesofOnlineAdvertising](UseCasesofOnlineAdvertising.md).
+For terminology and an explanation of the parties involved, see [OnlineAdvertisingParticipants.md](OnlineAdvertisingParticipants.md).
 
 ## The List
 
